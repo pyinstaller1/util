@@ -10,7 +10,7 @@ import easyocr
 
 def play_jo():
 
-    img_arrow = cv2.imread('jo.png', cv2.IMREAD_GRAYSCALE)   # 절전 화살표 이미지 로드
+    # img_arrow = cv2.imread('jo.png', cv2.IMREAD_GRAYSCALE)   # 절전 화살표 이미지 로드
     wins = [win for win in gw.getWindowsWithTitle('LDPlayer') if win.title.strip()]   # LD플레이어 윈도우 목록 가져오기
 
     if not wins:
@@ -36,6 +36,35 @@ def play_jo():
     width = win.width
     height = win.height
 
+
+
+
+    """
+    if max_val > 0.8:   # 절전 모드
+        print(8)
+
+        print(max_loc[0])
+
+        arrow_x = max_loc[0] + (width*0.025)
+        arrow_y = max_loc[1] + img_arrow.shape[0] // 2
+
+        pyautogui.moveTo(left + arrow_x, top + arrow_y)   # 절전 모드 화살표
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.moveTo(left + arrow_x + (width*0.1), top + arrow_y, 1.0)
+        pyautogui.mouseUp()
+    """
+
+    # 절전 모드
+    pyautogui.moveTo(left+(width*0.433), top+(height*0.88), 2.0)
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.53), top+(height*0.88), 2.0)
+    pyautogui.mouseUp()
+
+
+    
+
     # 화면 캡처
     screenshot = pyautogui.screenshot(region=(left, top, width, height))
     screenshot_np = np.array(screenshot)
@@ -43,7 +72,7 @@ def play_jo():
 
 
 
-    scr_check01 = pyautogui.screenshot(region=(left, top+(height-10), 10, 10))
+    scr_check01 = pyautogui.screenshot(region=(left, top+(height-20), 10, 10))
     scr_check01_np = np.array(scr_check01)
     hsv = cv2.cvtColor(scr_check01_np, cv2.COLOR_RGB2HSV)
 
@@ -53,19 +82,37 @@ def play_jo():
         cv2.inRange(hsv, np.array([170, 50, 50]), np.array([180, 255, 255]))
     )
 
+    scr_check01.save('scr.png')
+
 
     if np.any(mask):
         print("빨간색 계열이 발견되었습니다.")
 
-    
         pyautogui.moveTo(left+(width*0.478), top+(height*0.88), 2.0) # 부활하기
 
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.mouseUp()
 
-        time.sleep(300)
+        time.sleep(150)
 
+
+
+    # 복구 확인
+    scr_bok = pyautogui.screenshot(region=(left+int(width*0.72), top+int(height*0.055), 10, 10))
+    scr_bok.save('bok.png')
+    scr_bok_np = np.array(scr_bok)
+
+    hsv = cv2.cvtColor(scr_bok_np, cv2.COLOR_RGB2HSV)
+
+    # 빨간색 픽셀 탐지
+    mask = cv2.bitwise_or(
+        cv2.inRange(hsv, np.array([0, 50, 50]), np.array([10, 255, 255])),
+        cv2.inRange(hsv, np.array([170, 50, 50]), np.array([180, 255, 255]))
+    )
+
+    if np.any(mask):
+        print("복구 빨간색 계열이 발견되었습니다.")
 
         pyautogui.moveTo(left+(width*0.71), top+(height*0.07), 2.0) # 복구
 
@@ -147,6 +194,9 @@ def play_jo():
         pyautogui.mouseUp()
 
 
+        time.sleep(150)
+
+
         # AUTO 버튼
         pyautogui.moveTo(left+(width*0.915), top+(height*0.73), 2.0) # AUTO 버튼
         
@@ -157,29 +207,7 @@ def play_jo():
 
     
 
-    """
-    if max_val > 0.8:   # 절전 모드
-        print(8)
 
-        print(max_loc[0])
-
-        arrow_x = max_loc[0] + (width*0.025)
-        arrow_y = max_loc[1] + img_arrow.shape[0] // 2
-
-        pyautogui.moveTo(left + arrow_x, top + arrow_y)   # 절전 모드 화살표
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left + arrow_x + (width*0.1), top + arrow_y, 1.0)
-        pyautogui.mouseUp()
-    """
-
-    # 절전 모드
-    pyautogui.moveTo(left+(width*0.433), top+(height*0.88), 2.0)
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.moveTo(left+(width*0.53), top+(height*0.88), 2.0)
-    pyautogui.mouseUp()
-    
 
     # 장비 도감
     pyautogui.moveTo(left+(width*0.95), top+(height*0.07), 2.0) # 메뉴
@@ -311,6 +339,7 @@ def play_jo():
 
     time.sleep(3)
     pyautogui.screenshot(region=(left, top, width, height)).save('jo.png')
+
 
 
 
