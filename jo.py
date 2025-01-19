@@ -101,6 +101,8 @@ def play_jo():
         pyautogui.mouseUp()
 
         time.sleep(80)
+    else:
+        time.sleep(3)
     
 
 
