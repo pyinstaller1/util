@@ -1,17 +1,24 @@
-# Python bytecode files
-*.pyc
-__pycache__/
+# OS와 관련된 파일들
+.gitconfig
+.idlerc
+.lesshst
+.local/
+AppData/
+Contacts/
+Documents/
+Downloads/
+Favorites/
+Links/
+Music/
+OneDrive/
+Saved Games/
+Searches/
+Videos/
+NTUSER.DAT*
 
-# Conda environments
-.conda/
-
-# HuggingFace 및 캐시 관련 파일
-.cache/
-
-# PyCharm 설정 파일
-.idea/
-
-# 기타 무시할 파일들
-*.log
-*.bak
-*.swp
+# 기타 배포 관련 파일
+.EasyOCR/
+.Ld9VirtualBox/
+.paddleocr/
+.streamlit/
+util/
