@@ -1,0 +1,17 @@
+# Python bytecode files
+*.pyc
+__pycache__/
+
+# Conda environments
+.conda/
+
+# HuggingFace 및 캐시 관련 파일
+.cache/
+
+# PyCharm 설정 파일
+.idea/
+
+# 기타 무시할 파일들
+*.log
+*.bak
+*.swp
