@@ -57,7 +57,10 @@ def a01_start():
         print("창이 비활성화되어 있거나 보이지 않습니다.")
         return False
 
-    app.window(handle=win._hWnd).set_focus()
+    try:
+        app.window(handle=win._hWnd).set_focus()
+    except RuntimeError as e:
+        print(f"Error: {e}")
 
 
 
