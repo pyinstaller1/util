@@ -25,10 +25,23 @@ while True:
     if time.localtime().tm_min == 1:
         print(time.strftime("%H:%M", time.localtime()))
         time.sleep(np.random.randint(30, 180)) # 30초~3분 랜덤 대기
-        jo.play_jo()
-        lo.play_lo()
-        ar.play_ar()
-        time.sleep(60)
+
+        try:
+            jo.play_jo()
+        except Exception as e:
+            print(f"jo.play_jo() 오류: {e}")
+
+
+        try:
+            lo.play_lo()
+        except Exception as e:
+            print(f"lo.play_lo() 오류: {e}")
+
+        try:
+            jo.play_jo()
+        except Exception as e:
+            print(f"lo.play_lo() 오류: {e}")
+
 
     time.sleep(1)
     if keyboard.is_pressed('esc'):  # ESC 키가 눌렸는지 확인
