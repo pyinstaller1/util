@@ -38,9 +38,9 @@ while True:
             print(f"lo.play_lo() 오류: {e}")
 
         try:
-            jo.play_jo()
+            ar.play_ar()
         except Exception as e:
-            print(f"lo.play_lo() 오류: {e}")
+            print(f"ar.play_ar() 오류: {e}")
 
 
     time.sleep(1)
