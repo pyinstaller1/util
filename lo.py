@@ -21,6 +21,7 @@ app = None
 
 def l01_start():
     print("로드나인 l01_start   " + time.strftime("%H:%M", time.localtime()))
+    
 
     global wins
     wins = [win for win in gw.getWindowsWithTitle('LORDNINE') if win.title.strip()]   # LORDNINE 윈도우 목록 가져오기
@@ -44,6 +45,7 @@ def l01_start():
         top = win.top
         width = win.width
         height = win.height
+
 
         # 절전 화면 해제
         pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)

@@ -422,7 +422,7 @@ def p02_bok():
     global auto
 
     global bok
-    if (results and results[0][1] == "개경 마을") or np.any(mask) or bok == 1:
+    if (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])) or np.any(mask) or bok == 1:
         print("복구 개경 마을 or 빨간색")
         bok = 0
         auto = False
@@ -467,7 +467,7 @@ def p02_bok():
             if cnt_energy > 5:
                 continue
 
-            scr_energy = pyautogui.screenshot(region=(left+int(width*0.155), top+int(height*0.07), 217, 60))
+            scr_energy = pyautogui.screenshot(region=(left+int(width*0.155), top+int(height*0.07), 238, 60))
             scr_energy_np = np.array(scr_energy)
             scr_energy.save("scr_energy.png")
 
@@ -685,6 +685,9 @@ def p02_bok():
         pyautogui.mouseDown()
         time.sleep(0.3)
         pyautogui.mouseUp()
+
+
+        time.sleep(3)
 
 
         pyautogui.moveTo(left+(width*0.055), top+(height*0.46), 3.0) # 요도우라   36  46  56  63  70  78 
