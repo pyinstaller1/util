@@ -27,12 +27,6 @@ app = None
 
 def a01_start():
     print("아스달 a01_start   " + time.strftime("%H:%M", time.localtime()))
-    # print(time.strftime("%H:%M", time.localtime()))
-
-    # global wins
-    # wins = [win for win in gw.getWindowsWithTitle('Arthdal Chronicles') if win.title.strip()]   # 아스달 윈도우 목록 가져오기
-
-
 
     if not gw.getWindowsWithTitle('Arthdal Chronicles'):
         print("아스달 창이 없습니다.")
@@ -43,14 +37,6 @@ def a01_start():
     print(f"{win.title} (위치: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
 
     global app
-    app = Application().connect(handle=win._hWnd)
-    
-
-
-
-
-
-
     app = Application().connect(handle=win._hWnd)
 
     if not (app.window(handle=win._hWnd).is_enabled() and app.window(handle=win._hWnd).is_visible()):
@@ -63,27 +49,11 @@ def a01_start():
         print(f"Error: {e}")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     global left, top, width, height
     left = win.left
     top = win.top
     width = win.width
     height = win.height
-
-
-
 
     # 절전 화면 해제
     pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)
@@ -104,9 +74,23 @@ def a01_start():
 
 
 
+def a02_bok():
+    print("아스달 a02_bok   " + time.strftime("%H:%M", time.localtime()))
 
-def a02_jangbi():
-    print("아스달 a02_jangbi   " + time.strftime("%H:%M", time.localtime()))
+
+
+
+
+
+
+
+
+
+
+
+
+def a03_jangbi():
+    print("아스달 a03_jangbi   " + time.strftime("%H:%M", time.localtime()))
 
 
     pyautogui.moveTo(left+(width*0.93), top+(height*0.07), 2.0)   # 가방
@@ -289,9 +273,9 @@ def play_ar():
 
 
     try:
-        a02_jangbi()
+        a03_jangbi()
     except Exception as e:
-        print(f"아스달 a02_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아스달 a03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
 
     pyautogui.moveTo(left+(width*0.038), top+(height*0.61), 2.0)   # 절전
