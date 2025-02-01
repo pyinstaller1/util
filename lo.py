@@ -68,15 +68,20 @@ def l02_bok():
     time.sleep(3)
     scr_bok = pyautogui.screenshot(region=(left + int(width*0.527), top + int(height*0.587), int(width*0.03), int(height*0.03)))
     scr_bok_np = np.array(scr_bok)
-    hsv = cv2.cvtColor(scr_bok_np, cv2.COLOR_RGB2HSV)
-
-
     scr_bok.save("scr_bok.png")
 
-    # 녹색 픽셀 탐지
-    mask = cv2.inRange(hsv, np.array([35, 50, 50]), np.array([85, 255, 255]))
+    """
+    # 복구 ocr 탐지
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_bok_np)
+    print(results)
+    if results and results[0][1].startswith(("잡", "집")):
+    """
 
-    # scr_bok.save('scr.png')
+
+    # 녹색 픽셀 탐지
+    hsv = cv2.cvtColor(scr_bok_np, cv2.COLOR_RGB2HSV)
+    mask = cv2.inRange(hsv, np.array([35, 50, 50]), np.array([85, 255, 255]))
 
     if np.any(mask):
         print("복구 녹색 계열이 발견되었습니다.")
@@ -160,6 +165,8 @@ def l03_jangbi():
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+
+    print("장비 분해 완료")
     
 
 
@@ -189,6 +196,8 @@ def l04_maul():
 
 
     if results and results[0][1].startswith(("잡", "집")):
+        print("여기는 마을")
+
         # 마을        
         pyautogui.moveTo(left+(width*0.83), top+(height*0.70), 2.0) # 잡화상인에게 이동
         pyautogui.mouseDown()
@@ -219,9 +228,14 @@ def l04_maul():
         pyautogui.mouseDown()
         time.sleep(0.1)
         pyautogui.mouseUp()
+        
+        print("HP 회복 물약 구매 완료")
 
 
         l05_fight()
+
+    else:
+        print("여기는 마을 아님")
 
 
 
@@ -412,6 +426,8 @@ def l05_fight():
     time.sleep(2)
 
     # 지도의 전투 장소 ocr
+    print("지도 ocr 분석")
+
     scr_fight = pyautogui.screenshot(region=(left + int(width*0.35), top + int(height*0.27), int(width*0.28), int(height*0.53)))
     scr_fight_np = np.array(scr_fight)
     scr_fight.save("scr_fight.png")
@@ -436,13 +452,8 @@ def l05_fight():
     print(list_xy)
 
     rand = np.random.randint(0, 6)
-    print(np.random.randint(0, 6))
-    print(np.random.randint(0, 6))
-    print(np.random.randint(0, 6))
-    print(np.random.randint(0, 6))
-    print(np.random.randint(0, 6))
-    print(np.random.randint(0, 6))
-
+    # print(np.random.randint(0, 6))
+    
     # 0번 전투 장소
     pyautogui.moveTo(left + int(width*0.35) + (list_xy[0][0]), top + int(height*0.265) + (list_xy[0][1]), 2.0) # 0번 전투 장소
     pyautogui.mouseDown()
@@ -464,6 +475,8 @@ def l05_fight():
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+
+    print("전투 장소로 이동")
 
     time.sleep(60)
 
@@ -498,12 +511,14 @@ def l06_heal():
     # 체력 ocr 체크
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(scr_che_np)
+    print("HP ocr 점검")
     print(results)
 
     if results and re.sub(r"[^0-9]", "", results[0][1]):
         che = int(re.sub(r"[^0-9]", "", results[0][1]))
 
         if che < 1:
+            print("HP가 적어서 마을로 이동")
 
             pyautogui.moveTo(left+(width*0.038), top+(height*0.31), 2.0) # 마을
             pyautogui.mouseDown()
@@ -513,6 +528,10 @@ def l06_heal():
             
             time.sleep(30)
             l04_maul()
+        else:
+            print("HP가 마을로 충분해서 이동 안함")
+    else:
+        print("HP ocr 인식 오류")
 
 
             
@@ -606,6 +625,8 @@ def play_lo():
 
 if __name__ == "__main__":
     play_lo()
-    # login_lo()
+    
+
+
 
 
