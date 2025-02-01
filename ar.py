@@ -26,7 +26,7 @@ app = None
 
 
 def a01_start():
-    print("a01_start   " + time.strftime("%H:%M", time.localtime()))
+    print("아스달 a01_start   " + time.strftime("%H:%M", time.localtime()))
     # print(time.strftime("%H:%M", time.localtime()))
 
     # global wins
@@ -106,7 +106,7 @@ def a01_start():
 
 
 def a02_jangbi():
-    print("a01_jangbi   " + time.strftime("%H:%M", time.localtime()))
+    print("아스달 a02_jangbi   " + time.strftime("%H:%M", time.localtime()))
 
 
     pyautogui.moveTo(left+(width*0.93), top+(height*0.07), 2.0)   # 가방
@@ -184,7 +184,8 @@ def a02_jangbi():
 
 
 def a08_netmarble():
-    print(a08_netmarble)
+    print("아스달 a08_netmarble   " + time.strftime("%H:%M", time.localtime()))
+    
     # for win in gw.getAllWindows():
     #    print(win.title)
 
@@ -280,10 +281,17 @@ def a08_netmarble():
 
     
 def play_ar():
-    if not a01_start():
-        return
-    
-    a02_jangbi()
+    try:
+        if not a01_start():
+            return
+    except Exception as e:
+        print(f"아스달 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+
+    try:
+        a02_jangbi()
+    except Exception as e:
+        print(f"아스달 a02_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
 
     pyautogui.moveTo(left+(width*0.038), top+(height*0.61), 2.0)   # 절전

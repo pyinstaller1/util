@@ -33,7 +33,7 @@ auto = True
 
 
 def login_jo():
-    print("login_jo   " + time.strftime("%H:%M", time.localtime()))
+    print("조선협객전 login_jo   " + time.strftime("%H:%M", time.localtime()))
 
     auto = False
           
@@ -301,7 +301,9 @@ def login_jo():
 
 
 def p01_start():
-    print("p01_start")
+    print("조선협객전 p01_start   " + time.strftime("%H:%M", time.localtime()))
+
+
 
     global wins
     wins = [win for win in gw.getWindowsWithTitle('LDPlayer') if win.title.strip()]   # LD플레이어 윈도우 목록 가져오기
@@ -373,7 +375,8 @@ def p01_start():
 
 
 def p02_bok():
-    print("p02_bok")
+    print("조선협객전 p02_bok   " + time.strftime("%H:%M", time.localtime()))
+    
 
     global left, top, width, height
 
@@ -478,8 +481,9 @@ def p02_bok():
                 for idx, detection in enumerate(results):
                     bbox, text, confidence = detection
 
-                    if list_energy[idx] < list(map(int, re.findall(r'\d+', text.replace(".", "").replace(",", "").replace(" ", ""))))[0]:
-                        list_energy[idx] = list(map(int,re.findall(r'\d+', text.replace(".", "").replace(",", "").replace(" ", ""))))[0]
+                    if list(map(int, re.findall(r'\d+', text.replace(".", "").replace(",", "").replace(" ", "")))):
+                        if list_energy[idx] < list(map(int, re.findall(r'\d+', text.replace(".", "").replace(",", "").replace(" ", ""))))[0]:
+                            list_energy[idx] = list(map(int,re.findall(r'\d+', text.replace(".", "").replace(",", "").replace(" ", ""))))[0]
 
 
         global che, do                        
@@ -723,7 +727,8 @@ def p02_bok():
 
 
 def p03_jangbi():
-    print("p03_jangbi")
+    print("조선협객전 p03_jangbi   " + time.strftime("%H:%M", time.localtime()))
+    
 
     global left, top, width, height
 
@@ -916,9 +921,22 @@ def p03_jangbi():
 
 
 def play_jo():
-    p01_start()
-    p02_bok()
-    p03_jangbi()
+    try:
+        p01_start()
+    except Exception as e:
+        print(f"조선협객전 p01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+    try:
+        p02_bok()
+    except Exception as e:
+        print(f"조선협객전 p02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+    try:
+        p03_jangbi()
+    except Exception as e:
+        print(f"조선협객전 p03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+
 
 
     ### 광고 닫기

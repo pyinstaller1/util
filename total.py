@@ -31,7 +31,6 @@ while True:
         except Exception as e:
             print(f"jo.play_jo() 오류: {e}")
 
-
         try:
             lo.play_lo()
         except Exception as e:

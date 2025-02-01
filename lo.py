@@ -20,13 +20,13 @@ app = None
 
 
 def l01_start():
-    print("l01_start")
+    print("로드나인 l01_start   " + time.strftime("%H:%M", time.localtime()))
 
     global wins
     wins = [win for win in gw.getWindowsWithTitle('LORDNINE') if win.title.strip()]   # LORDNINE 윈도우 목록 가져오기
 
     if not wins:
-        print("윈도우를 찾을 수 없습니다.")
+        print("로드나인 창이 없습니다.")
         l08_stove()
 
     elif wins:
@@ -62,7 +62,8 @@ def l01_start():
 
 
 def l02_bok():
-    print("l02_bok")
+    print("로드나인 l02_bok   " + time.strftime("%H:%M", time.localtime()))
+
 
     time.sleep(3)
     scr_bok = pyautogui.screenshot(region=(left + int(width*0.527), top + int(height*0.587), int(width*0.03), int(height*0.03)))
@@ -102,7 +103,8 @@ def l02_bok():
 
 
 def l03_jangbi():
-    print("l03_jangbi")
+    print("로드나인 l03_jangbi   " + time.strftime("%H:%M", time.localtime()))
+
 
 
 
@@ -170,8 +172,7 @@ def l03_jangbi():
 
 
 def l04_maul():
-    print("l04_maul")
-
+    print("로드나인 l04_maul   " + time.strftime("%H:%M", time.localtime()))
 
     scr_maul = pyautogui.screenshot(region=(left + int(width*0.8), top + int(height*0.688), int(width*0.05), int(height*0.03)))
     scr_maul_np = np.array(scr_maul)
@@ -235,7 +236,7 @@ def l04_maul():
 
 
 def l07_response():
-    print("l07_response")
+    print("로드나인 l07_response   " + time.strftime("%H:%M", time.localtime()))
 
 
     #####
@@ -285,7 +286,8 @@ def l07_response():
 
 
 def l08_stove():
-    print("l08_stove")
+    print("로드나인 l08_stove   " + time.strftime("%H:%M", time.localtime()))
+    
 
     if gw.getWindowsWithTitle('STOVE'):
         win = gw.getWindowsWithTitle('STOVE')[0]
@@ -387,7 +389,8 @@ def l08_stove():
 def l05_fight():
     # 지도 클릭 => 3 => 울란 협곡 => ocr
     
-    print("l05_fight")
+    print("로드나인 l05_fight   " + time.strftime("%H:%M", time.localtime()))
+    
 
     pyautogui.moveTo(left+(width*0.15), top+(height*0.23), 2.0) # 지도
     pyautogui.mouseDown()
@@ -483,7 +486,8 @@ def l05_fight():
 def l06_heal():
     # ocr   if che < 300: b 클릭    l04_maul
     
-    print("l06_heal")
+    print("로드나인 l06_heal   " + time.strftime("%H:%M", time.localtime()))
+    
 
     scr_che = pyautogui.screenshot(region=(left + int(width*0.287), top + int(height*0.93), int(width*0.17), int(height*0.15)))
     scr_che_np = np.array(scr_che)
@@ -517,11 +521,31 @@ def l06_heal():
 
 
 def play_lo():
-    l01_start()
-    l02_bok()
-    l03_jangbi()
-    l04_maul()   # l05_fight() 포함
-    l06_heal()
+    try:
+        l01_start()
+    except Exception as e:        
+        print(f"로드나인 l01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+    try:
+        l02_bok()
+    except Exception as e:        
+        print(f"로드나인 l02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+    try:
+        l03_jangbi()
+    except Exception as e:        
+        print(f"로드나인 l03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+    try:
+        l04_maul()   # l05_fight() 포함
+    except Exception as e:        
+        print(f"로드나인 l04_maul 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+    try:
+        l06_heal()
+    except Exception as e:        
+        print(f"로드나인 l06_heal 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
 
     pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전
     pyautogui.mouseDown()
