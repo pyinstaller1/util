@@ -8,6 +8,7 @@ import easyocr
 import re
 import psutil
 import subprocess
+import os
 
 
 
