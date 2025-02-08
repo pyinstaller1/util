@@ -29,7 +29,6 @@ def d01_start():
 
 
 
-    """
     if not gw.getWindowsWithTitle('달빛조각사 : 다크게이머'):
         print("달빛조각사 창이 없습니다.")
         d08_XL()
@@ -44,7 +43,6 @@ def d01_start():
                 proc.kill()  # 강제 종료
         d08_XL()
         return True
-    """
         
 
     win = gw.getWindowsWithTitle('달빛조각사 : 다크게이머')[0]
@@ -747,7 +745,6 @@ def play_dal(dungeon=None):
     except Exception as e:
         print(f"달빛조각사 d01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
-    """
     try:
         d02_bok()
     except Exception as e:
@@ -758,7 +755,6 @@ def play_dal(dungeon=None):
         d03_jangbi()
     except Exception as e:
         print(f"달빛조각사 d03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
-    """
         
 
 
