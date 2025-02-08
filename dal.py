@@ -26,16 +26,14 @@ app = None
 
 def d01_start():
     print("달빛조각사 d01_start   " + time.strftime("%H:%M", time.localtime()))
-    
+
+
+
+    """
     if not gw.getWindowsWithTitle('달빛조각사 : 다크게이머'):
         print("달빛조각사 창이 없습니다.")
         d08_XL()
         return True
-
-
-
-
-
 
 
     if len(gw.getWindowsWithTitle('달빛조각사 : 다크게이머')) == 1:
@@ -46,6 +44,7 @@ def d01_start():
                 proc.kill()  # 강제 종료
         d08_XL()
         return True
+    """
         
 
     win = gw.getWindowsWithTitle('달빛조각사 : 다크게이머')[0]
@@ -283,7 +282,7 @@ def d02_bok():
 
 
 def d03_jangbi():
-    print("달빛조각사 a03_jangbi   " + time.strftime("%H:%M", time.localtime()))
+    print("달빛조각사 d03_jangbi   " + time.strftime("%H:%M", time.localtime()))
 
 
     pyautogui.moveTo(left+(width*0.918), top+(height*0.078), 2.0)   # 가방
@@ -307,6 +306,20 @@ def d03_jangbi():
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
+    
+
+    pyautogui.moveTo(left+(width*0.37), top+(height*0.918), 2.0)   # 분해
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.37), top+(height*0.918), 2.0)   # 분해
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
 
     pyautogui.moveTo(left+(width*0.97), top+(height*0.07), 2.0)   # X
     pyautogui.mouseDown()
@@ -322,7 +335,91 @@ def d03_jangbi():
 
 
 
+def d04_dungeon0():
+    print("달빛조각사 d04_dungeon[0]   " + time.strftime("%H:%M", time.localtime()))
 
+
+    pyautogui.moveTo(left+(width*0.97), top+(height*0.07), 2.0)   # 메뉴
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+
+    pyautogui.moveTo(left+(width*0.967), top+(height*0.388), 2.0)   # 월드/던전
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.2), top+(height*0.5), 2.0)   # 던전0
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.15), top+(height*0.53), 2.0)   # 6층
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.918), 2.0)   # 던전입장
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(5)
+
+
+    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+
+def d05_dungeon1():
+    print("달빛조각사 d05_dungeon[1]   " + time.strftime("%H:%M", time.localtime()))
+
+
+    pyautogui.moveTo(left+(width*0.97), top+(height*0.07), 2.0)   # 메뉴
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+
+    pyautogui.moveTo(left+(width*0.967), top+(height*0.388), 2.0)   # 월드/던전
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 던전1
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.15), top+(height*0.53), 2.0)   # 6층
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.918), 2.0)   # 던전입장
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(5)
+
+
+    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
 
 
 
@@ -643,25 +740,44 @@ def d08_XL(mode=None):
 
 
     
-def play_dal():
+def play_dal(dungeon=None):
     try:
         if not d01_start():
             return
     except Exception as e:
         print(f"달빛조각사 d01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
-
+    """
     try:
         d02_bok()
     except Exception as e:
-        print(f"달빛조각사 d03_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"달빛조각사 d02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
 
     try:
         d03_jangbi()
     except Exception as e:
-        print(f"달빛조각사 d02_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"달빛조각사 d03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+    """
         
+
+
+    if dungeon=="던전0":
+        try:
+            d04_dungeon0()
+        except Exception as e:
+            print(f"달빛조각사 d04_dungeon[0] 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+
+
+    if dungeon=="던전1":
+        try:
+            d05_dungeon1()
+        except Exception as e:
+            print(f"달빛조각사 d05_dungeon[1] 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+
+
 
 
     try:
@@ -674,13 +790,30 @@ def play_dal():
     try:
         d02_bok()
     except Exception as e:
-        print(f"달빛조각사 d03_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"달빛조각사 d02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
 
     try:
         d03_jangbi()
     except Exception as e:
-        print(f"달빛조각사 d02_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"달빛조각사 d03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        
+
+
+    if dungeon=="던전0":
+        try:
+            d04_dungeon0()
+        except Exception as e:
+            print(f"달빛조각사 d04_dungeon[0] 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+
+
+    if dungeon=="던전1":
+        try:
+            d05_dungeon1()
+        except Exception as e:
+            print(f"달빛조각사 d05_dungeon[1] 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
 
 
     pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
@@ -718,8 +851,10 @@ def check_dal():
 
 
 if __name__ == "__main__":
-    play_dal()
+    # play_dal()
     # check_dal()
+    # play_dal("던전0")
+    play_dal("던전1")
 
 
 
