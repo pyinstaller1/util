@@ -4,9 +4,16 @@ import jo, lo, ar
 import time
 import numpy as np
 import keyboard
+import os
 
 
+# "DESKTOP-OHGK5MV"
+# "DESKTOP-MA2NLC4"
+# "DESKTOP-792RKKB"
+# "DESKTOP-LRGAL8H"
+# "DESKTOP-NT06800"
 
+desktop = os.environ.get('COMPUTERNAME')
 
 while True:
 
@@ -26,20 +33,32 @@ while True:
         print(time.strftime("%H:%M", time.localtime()))
         time.sleep(np.random.randint(30, 180)) # 30초~3분 랜덤 대기
 
+
         try:
             jo.play_jo()
         except Exception as e:
             print(f"jo.play_jo() 오류: {e}")
 
-        try:
-            lo.play_lo()
-        except Exception as e:
-            print(f"lo.play_lo() 오류: {e}")
 
-        try:
-            ar.play_ar()
-        except Exception as e:
-            print(f"ar.play_ar() 오류: {e}")
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+            try:
+                lo.play_lo()
+            except Exception as e:
+                print(f"lo.play_lo() 오류: {e}")
+
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+            try:
+                ar.play_ar()
+            except Exception as e:
+                print(f"ar.play_ar() 오류: {e}")
+
+        if desktop in ["DESKTOP-OHGK5MV"]:
+            try:
+                dal.play_dal()
+            except Exception as e:
+                print(f"ar.play_ar() 오류: {e}")
+
+        print(os.environ.get('COMPUTERNAME'))
 
 
     time.sleep(1)
