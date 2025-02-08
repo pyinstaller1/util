@@ -446,7 +446,7 @@ def d08_XL(mode=None):
         subprocess.Popen(r"C:\Program Files\DarkGamer Launcher\Launcher.exe", shell=True)
 
     time.sleep(10)
-    pyautogui.moveTo(1280, 750, 1.0)   # 게임 시작
+    pyautogui.moveTo(1288, 780, 1.0)   # 게임 시작
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
@@ -599,7 +599,7 @@ def d08_XL(mode=None):
     print("달빛조각사[0] 오픈 완료")
 
     time.sleep(10)
-    pyautogui.moveTo(1280, 750, 1.0)   # 게임 시작
+    pyautogui.moveTo(1288, 780, 1.0)   # 게임 시작
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
@@ -661,7 +661,7 @@ def d08_XL(mode=None):
 
         # groundo77@navercom   s070092@nate corr
 
-        if "s070092@nate.com" in text or "s070092@nate corr" in text:
+        if "s070092@nate.com" in text or "070092@nate" in text:
             str_start = text
             x_start = x
             y_start = y
