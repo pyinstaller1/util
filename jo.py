@@ -208,22 +208,73 @@ def login_jo():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(30)
+    time.sleep(8)
 
 
-    # 건너뛰기
-    pyautogui.moveTo(left+(width*0.87), top+(height*0.10), 2.0) # 건너뛰기
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
 
-    time.sleep(0.1)
-    
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-    
-    time.sleep(5)
+    scr_google = pyautogui.screenshot(region=(left+int(width*0.25), top+int(height*0.38), int(width*0.38), int(height*0.3)))
+    scr_google_np = np.array(scr_google)
+    scr_google.save("scr_jo_google.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_google_np)
+
+    # print(results)
+
+    if results and "업데이트" in results[0][1]:
+        pyautogui.moveTo(left+(width*0.5), top+(height*0.65), 2.0) # 확인
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(8)
+
+
+        pyautogui.moveTo(left+(width*0.12), top+(height*0.53), 2.0) # 업데이트
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+
+        time.sleep(100)
+
+
+        pyautogui.moveTo(left+(width*0.12), top+(height*0.53), 2.0) # 플레이
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(10)
+
+
+
+
+        pyautogui.moveTo(left+(width*0.6), top+(height*0.7), 2.0) # 확인
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(300)
+
+    else:
+
+        time.sleep(100)
+
+        """
+        # 건너뛰기
+        pyautogui.moveTo(left+(width*0.87), top+(height*0.10), 2.0) # 건너뛰기
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(0.1)
+
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(5)
+        """
 
 
     # 입장
@@ -266,6 +317,7 @@ def login_jo():
     """
 
 
+
     time.sleep(10)
     
     # 케릭터 선택
@@ -289,6 +341,14 @@ def login_jo():
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
+
+    time.sleep(5)
+
+    p02_bok()
+
+    time.sleep(3)
+
+    p03_jangbi()
 
 
 
@@ -334,7 +394,6 @@ def p01_start():
 
 
     ### 점검이면 login_jo()   return
-
 
     # 화면 캡처
     screenshot = pyautogui.screenshot(region=(left, top, width, height))
@@ -397,7 +456,7 @@ def p02_bok():
 
     # 복구 확인
     scr_bok = pyautogui.screenshot(region=(left+int(width*0.715), top+int(height*0.035), int(width*0.02), int(height*0.03)))
-    scr_bok.save('bok.png')
+    scr_bok.save('scr_jo_bok.png')
     scr_bok_np = np.array(scr_bok)
 
     hsv = cv2.cvtColor(scr_bok_np, cv2.COLOR_RGB2HSV)
@@ -412,7 +471,7 @@ def p02_bok():
     # 복구 확인 (개경 마을)
     scr_bok = pyautogui.screenshot(region=(left+int(width*0.838), top+int(height*0.35), int(width*0.07), int(height*0.038)))
     scr_bok_np = np.array(scr_bok)
-    scr_bok.save("scr_ge.png")
+    scr_bok.save("scr_jo_ge.png")
 
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(scr_bok_np)
@@ -428,8 +487,7 @@ def p02_bok():
         auto = False
 
 
-
-
+        
         # 복구
         pyautogui.moveTo(left+(width*0.71), top+(height*0.07), 2.0) # 복구
         pyautogui.mouseDown()
@@ -759,6 +817,7 @@ def p03_jangbi():
     time.sleep(0.3)
     pyautogui.mouseUp()
 
+    time.sleep(2)
 
     pyautogui.moveTo(left+(width*0.83), top+(height*0.93), 2.0) # 장비도감 일괄등록
     pyautogui.mouseDown()
