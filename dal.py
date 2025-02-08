@@ -439,8 +439,10 @@ def d08_XL(mode=None):
 
         
 
-
-    subprocess.Popen(r"D:\Program Files\DarkGamer Launcher\Launcher.exe", shell=True)
+    if os.environ.get('COMPUTERNAME') == "DESKTOP-LRGAL8H":
+        subprocess.Popen(r"D:\Program Files\DarkGamer Launcher\Launcher.exe", shell=True)
+    else:
+        subprocess.Popen(r"C:\Program Files\DarkGamer Launcher\Launcher.exe", shell=True)
 
     time.sleep(10)
     pyautogui.moveTo(1280, 750, 1.0)   # 게임 시작
@@ -588,9 +590,11 @@ def d08_XL(mode=None):
     ####################
 
 
-
-
-    subprocess.Popen(r"D:\Program Files\DarkGamer Launcher\Launcher.exe", shell=True)
+    if os.environ.get('COMPUTERNAME') == "DESKTOP-LRGAL8H":
+        subprocess.Popen(r"D:\Program Files\DarkGamer Launcher\Launcher.exe", shell=True)
+    else:
+        subprocess.Popen(r"C:\Program Files\DarkGamer Launcher\Launcher.exe", shell=True)
+        
     print("달빛조각사[0] 오픈 완료")
 
     time.sleep(10)
@@ -755,6 +759,7 @@ def play_dal(dungeon=None):
         d03_jangbi()
     except Exception as e:
         print(f"달빛조각사 d03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
         
 
 
