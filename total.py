@@ -1,6 +1,6 @@
 
 
-import jo, lo, ar
+import jo, lo, ar, dal
 import time
 import numpy as np
 import keyboard
@@ -13,18 +13,89 @@ import os
 # "DESKTOP-LRGAL8H"
 # "DESKTOP-NT06800"
 
+
+
+# 달조 매일 오전 5시 dal.play_dal("던전0")
+# 달조 매일 오전 7시 dal.play_dal("던전1")
+
+# 아스달 매일 오전 6시       세력 임무
+
+
+
+
+
+# 수요일 점검
+# 달조 오후 3시 dal.check_dal()
+
+
+# 목요일 점검
+
+
+
 desktop = os.environ.get('COMPUTERNAME')
 
 while True:
 
+
+    # 매일 오전 5시 10분
+    if time.localtime().tm_hour == 5 and time.localtime().tm_min == 10:
+        print("오전 5시 작업")
+        time.sleep(np.random.randint(30, 180)) # 30초~8분30초 랜덤 대기
+
+
+        if desktop in ["DESKTOP-OHGK5MV"]:
+            try:
+                dal.play_dal("던전0")
+            except Exception as e:
+                print(f"dal.play_dal() 오류: {e}")
+
+                
+        # 달조 던전   5시  7시
+        # 아레스 던전 5시
+        
+
+    # 매일 오전 6시 10분
+    if time.localtime().tm_hour == 6 and time.localtime().tm_min == 10:
+        print("오전 6시 작업")
+        time.sleep(np.random.randint(30, 180)) # 30초~8분30초 랜덤 대기
+        # 아스달 던전 6시  8시
+
+
     # 매일 오전 7시 play
-    if time.localtime().tm_hour == 7 and time.localtime().tm_min == 1:
-        print("오전 작업")
+    if time.localtime().tm_hour == 7 and time.localtime().tm_min == 10:
+        print("오전 7시 작업")
         time.sleep(np.random.randint(30, 511)) # 30초~8분30초 랜덤 대기
-        # 아스달 던전
-        # 아레스 던전
-        # 달조 던전
-        # 롬 던전
+
+
+        if desktop in ["DESKTOP-OHGK5MV"]:
+            try:
+                dal.play_dal("던전1")
+            except Exception as e:
+                print(f"dal.play_dal() 오류: {e}")
+
+
+        # 달조 던전   5시  7시
+
+
+
+
+    # 매일 오전 8시 10분
+    if time.localtime().tm_hour == 8 and time.localtime().tm_min == 10:
+        print("오전 8시 작업")
+        time.sleep(np.random.randint(30, 180)) # 30초~8분30초 랜덤 대기
+        # 아스달 던전 6시  8시
+
+
+    # 매일 오전 9시 play
+    if time.localtime().tm_hour == 9 and time.localtime().tm_min == 10:
+        print("오전 7시 작업")
+        time.sleep(np.random.randint(30, 511)) # 30초~8분30초 랜덤 대기'
+        # 롬 던전     9시
+
+        # 달조 던전   5시  7시
+        # 아스달 던전 6시  8시
+        # 아레스 던전 5시
+        # 롬 던전     9시
         
 
 
@@ -56,7 +127,7 @@ while True:
             try:
                 dal.play_dal()
             except Exception as e:
-                print(f"ar.play_ar() 오류: {e}")
+                print(f"dal.play_dal() 오류: {e}")
 
         print(os.environ.get('COMPUTERNAME'))
 
