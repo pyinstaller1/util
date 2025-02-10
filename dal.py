@@ -432,7 +432,7 @@ def d08_XL(mode=None):
         cnt_check = 1800
 
         if gw.getWindowsWithTitle('달빛조각사 : 다크게이머'):
-            print("창이 1개만 있으므로 닫습니다.")
+            print("점검이므로 창을 닫습니다.")
 
             for proc in psutil.process_iter():
                 if "DarkGamer.exe" in proc.name():  # 프로세스 이름을 확인
@@ -853,10 +853,10 @@ def check_dal():
 
 
 if __name__ == "__main__":
-    # play_dal()
+    play_dal()
     # check_dal()
     # play_dal("던전0")
-    play_dal("던전1")
+    # play_dal("던전1")
 
 
 
