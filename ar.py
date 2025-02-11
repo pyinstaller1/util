@@ -64,18 +64,76 @@ def a01_start():
     if flag_start:
         print("아스달 시작")
 
-        pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)
+        pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # Start
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.mouseUp()
 
-        time.sleep(30)
+        time.sleep(10)
 
 
         pyautogui.moveTo(left+(width*0.5), top+(height*0.38), 2.0)   # 서버 선택
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.mouseUp()
+
+
+
+
+
+        time.sleep(3)
+
+
+        scr_check = pyautogui.screenshot(region=(left + int(width*0.53), top + int(height*0.6), int(width*0.1), int(height*0.08)))
+        scr_check_np = np.array(scr_check)
+        scr_check.save("scr_ar_check.png")
+
+        # 점검 ocr 탐지
+        reader = easyocr.Reader(['ko', 'en'], gpu=False)
+        results = reader.readtext(scr_check_np)
+        print(results)
+
+        if results and results[0][1] == "확인":
+            pyautogui.moveTo(left+(width*0.57), top+(height*0.63), 2.0)   # 확인
+            pyautogui.mouseDown()
+            time.sleep(1)
+            pyautogui.mouseUp()
+
+            time.sleep(600)
+
+
+
+            pyautogui.moveTo(left+(width*0.5), top+(height*0.617), 2.0)   # 확인
+            pyautogui.mouseDown()
+            time.sleep(1)
+            pyautogui.mouseUp()
+
+            time.sleep(10)
+
+
+            pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # Start
+            pyautogui.mouseDown()
+            time.sleep(1)
+            pyautogui.mouseUp()
+
+            time.sleep(10)
+
+            pyautogui.moveTo(left+(width*0.5), top+(height*0.38), 2.0)   # 서버 선택
+            pyautogui.mouseDown()
+            time.sleep(1)
+            pyautogui.mouseUp()
+
+
+
+
+
+
+
+
+
+
+
+        
 
         time.sleep(60)
 
@@ -94,6 +152,8 @@ def a01_start():
 
 
         return True
+
+
 
 
 
@@ -344,6 +404,315 @@ def a03_bok():
 
 
 
+def a04_se():
+    print("아스달 a04_se   " + time.strftime("%H:%M", time.localtime()))
+
+    time.sleep(1)
+
+    pyautogui.moveTo(left+(width*0.838), top+(height*0.07), 2.0) # 상점
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+    pyautogui.moveTo(left+(width*0.838), top+(height*0.263), 2.0) # X
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.38), top+(height*0.15), 2.0) # 은화
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+    pyautogui.moveTo(left+(width*0.55), top+(height*0.2), 2.0) # 일반
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.8), top+(height*0.77), 2.0) # 도구 조각
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.47), top+(height*0.717), 2.0) # MAX
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.67), top+(height*0.717), 2.0) # 구매
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.05), top+(height*0.07), 2.0) # 상점
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    print("도구 조각 구매 완료")
+
+
+    pyautogui.moveTo(left+(width*0.967), top+(height*0.0683), 2.0) # 메뉴
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
+    pyautogui.moveTo(left+(width*0.75), top+(height*0.188), 2.0) # 세력 임무
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.07), top+(height*0.3888), 2.0) # 하담숲
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.218), 2.0) # 수락
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.218), 2.0) # 수락
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.218), 2.0) # 수락
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.218), 2.0) # 수락
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.218), 2.0) # 수락
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.218), 2.0) # 수락
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.218), 2.0) # 수락
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    
+    
+
+
+    pyautogui.moveTo(left+(width*0.3), top+(height*0.93), 2.0) # 새로고침
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.57), top+(height*0.65), 2.0) # 새로고침
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.218), 2.0) # 수락
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.218), 2.0) # 수락
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.218), 2.0) # 수락
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    
+
+    pyautogui.moveTo(left+(width*0.957), top+(height*0.0687), 2.0) # X
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.35), 2.0) # 세력 임무
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.38), top+(height*0.61), 2.0)   # 걸어서 이동
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+
+
+
+
+def a04_se_end():
+    print("아스달 a04_se_end   " + time.strftime("%H:%M", time.localtime()))
+
+
+    pyautogui.moveTo(left+(width*0.967), top+(height*0.0683), 2.0) # 메뉴
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
+    pyautogui.moveTo(left+(width*0.75), top+(height*0.188), 2.0) # 세력 임무
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
+
+
+    pyautogui.moveTo(left+(width*0.95), top+(height*0.93), 2.0) # 모두 완료
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+
+    pyautogui.moveTo(left+(width*0.95), top+(height*0.93), 2.0) # 모두 완료
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+
+    pyautogui.moveTo(left+(width*0.957), top+(height*0.0687), 2.0) # X
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
+
+
+
+
+
+
+
+
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+    
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+    
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+    
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+    
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+    
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+    
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+    
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+    
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.337), 2.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()  
+
+
+
+
+    pyautogui.moveTo(left+(width*0.38), top+(height*0.6), 2.0)   # 걸어서 이동
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+
 
 
 
@@ -373,7 +742,7 @@ def a08_netmarble():
     width_response = win.width
     height_response = win.height
 
-    pyautogui.moveTo(left_response+(width_response*0.8), top_response+(height_response*0.9), 2.0) # 플레이
+    pyautogui.moveTo(left_response+(width_response*0.15), top_response+(height_response*0.87), 2.0) # 플레이
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -382,64 +751,59 @@ def a08_netmarble():
 
 
 
-    """
-    time.sleep(3)
 
 
-    pyautogui.moveTo(left_response+(width_response*0.5), top_response+(height_response*0.45), 2.0) # 넷마블 로그인
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-    
-    pyautogui.moveTo(left_response+(width_response*0.5), top_response+(height_response*0.43), 2.0) # 넷마블 로그인
+def dungeon_ar():
+    try:
+        if not a01_start():
+            return
+    except Exception as e:
+        print(f"아스달 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+    try:
+        a04_se()
+    except Exception as e:
+        print(f"아스달 a04_se 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+
+    pyautogui.moveTo(left+(width*0.038), top+(height*0.61), 2.0)   # 절전
     pyautogui.mouseDown()
-    time.sleep(0.1)
+    time.sleep(1)
     pyautogui.mouseUp()
 
 
-    pyautogui.write("ground077@naver.com")
+def dungeon_ar_end():
+    try:
+        if not a01_start():
+            return
+    except Exception as e:
+        print(f"아스달 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+    try:
+        a04_se_end()
+    except Exception as e:
+        print(f"아스달 a04_se_end 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
 
-    pyautogui.moveTo(left_response+(width_response*0.5), top_response+(height_response*0.50), 2.0) # 넷마블 로그인
+    pyautogui.moveTo(left+(width*0.038), top+(height*0.61), 2.0)   # 절전
     pyautogui.mouseDown()
-    time.sleep(0.1)
+    time.sleep(1)
     pyautogui.mouseUp()
-
-    pyautogui.write("windows1!")
-
-
-    pyautogui.moveTo(left_response+(width_response*0.5), top_response+(height_response*0.57), 2.0) # 넷마블 로그인
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-
-    time.sleep(3)
-
-    pyautogui.moveTo(left_response+(width_response*0.8), top_response+(height_response*0.9), 2.0) # 플레이
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-
-    time.sleep(3)
-    """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -475,6 +839,12 @@ def play_ar():
 
 if __name__ == "__main__":
     play_ar()
+    # dungeon_ar()
+    # dungeon_ar_end()
+
+
+
+
 
 
 
