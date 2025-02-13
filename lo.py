@@ -70,7 +70,7 @@ def l02_bok():
     time.sleep(3)
     scr_bok = pyautogui.screenshot(region=(left + int(width*0.527), top + int(height*0.587), int(width*0.03), int(height*0.03)))
     scr_bok_np = np.array(scr_bok)
-    scr_bok.save("scr_bok.png")
+    scr_bok.save("scr_lo_bok.png")
 
     """
     # 복구 ocr 탐지
@@ -188,7 +188,7 @@ def l04_maul():
     hsv = cv2.cvtColor(scr_maul_np, cv2.COLOR_RGB2HSV)
 
 
-    scr_maul.save("scr_maul.png")
+    scr_maul.save("scr_lo_maul.png")
 
 
     # 마을인지 OCR 체크
@@ -260,7 +260,7 @@ def l07_response():
     scr_response_np = np.array(scr_response)
     hsv = cv2.cvtColor(scr_response_np, cv2.COLOR_RGB2HSV)
 
-    scr_response.save("scr_response.png")
+    scr_response.save("scr_lo_response.png")
 
 
 
@@ -306,7 +306,8 @@ def l08_stove():
     
 
     if gw.getWindowsWithTitle('STOVE'):
-        win = gw.getWindowsWithTitle('STOVE')[0]
+        # win = gw.getWindowsWithTitle('STOVE')[0]
+        win = gw.getWindowsWithTitle('STOVE')[len(gw.getWindowsWithTitle('STOVE'))-1]
     else:
         print("STOVE 열기")
         ######  STOVE 여는 로직 ###########
@@ -332,7 +333,7 @@ def l08_stove():
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left_response+(width_response*0.7), top_response+(height_response*0.85), 2.0) # 공지 닫기
+    pyautogui.moveTo(left_response+(width_response*0.7), top_response+(height_response*0.85), 2.0) # 플레이
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -344,7 +345,6 @@ def l08_stove():
 
     for i in range(10):
         if gw.getWindowsWithTitle('LORDNINE'):
-            print(7)
 
             win = gw.getWindowsWithTitle('LORDNINE')[0]
             print(win.title)
@@ -369,6 +369,28 @@ def l08_stove():
             time.sleep(30)   # 30
 
 
+            scr_check = pyautogui.screenshot(region=(left + int(width*0.5), top + int(height*0.6), int(width*0.15), int(height*0.1)))
+            scr_check_np = np.array(scr_check)
+            scr_check.save("scr_lo_check.png")
+
+            reader = easyocr.Reader(['ko', 'en'], gpu=False)
+            results = reader.readtext(scr_check_np)
+
+            print(results)
+
+            if results and results[0][1] == "확인":
+                pyautogui.moveTo(left+(width*0.6), top+(height*0.65), 2.0) # 확인
+                pyautogui.mouseDown()
+                time.sleep(0.1)
+                pyautogui.mouseUp()
+
+                time.sleep(600)   # 600
+
+
+
+    
+
+
             pyautogui.moveTo(left+(width*0.5), top+(height*0.7), 2.0) # 접속
             pyautogui.mouseDown()
             time.sleep(0.1)
@@ -382,7 +404,7 @@ def l08_stove():
             pyautogui.mouseUp()
             
             break
-    time.sleep(30)
+    time.sleep(60)
 
 
 
@@ -432,7 +454,7 @@ def l05_fight():
 
     scr_fight = pyautogui.screenshot(region=(left + int(width*0.35), top + int(height*0.27), int(width*0.28), int(height*0.53)))
     scr_fight_np = np.array(scr_fight)
-    scr_fight.save("scr_fight.png")
+    scr_fight.save("scr_lo_fight.png")
     
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(scr_fight_np)
@@ -507,7 +529,7 @@ def l06_heal():
     scr_che = pyautogui.screenshot(region=(left + int(width*0.287), top + int(height*0.93), int(width*0.17), int(height*0.15)))
     scr_che_np = np.array(scr_che)
 
-    scr_che.save("scr_che.png")
+    scr_che.save("scr_lo_che.png")
 
 
     # 체력 ocr 체크
