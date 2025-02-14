@@ -122,18 +122,7 @@ def a01_start():
             pyautogui.mouseDown()
             time.sleep(1)
             pyautogui.mouseUp()
-
-
-
-
-
-
-
-
-
-
-
-        
+       
 
         time.sleep(60)
 
@@ -152,9 +141,6 @@ def a01_start():
 
 
         return True
-
-
-
 
 
     # 절전 화면 해제
@@ -409,6 +395,7 @@ def a04_se():
 
     time.sleep(1)
 
+
     pyautogui.moveTo(left+(width*0.838), top+(height*0.07), 2.0) # 상점
     pyautogui.mouseDown()
     time.sleep(0.1)
@@ -440,10 +427,29 @@ def a04_se():
     pyautogui.mouseUp()
 
 
+
+    scr_buy = pyautogui.screenshot(region=(left + int(width*0.58), top + int(height*0.68), int(width*0.08), int(height*0.08)))
+    scr_buy_np = np.array(scr_buy)
+    scr_buy.save("scr_ar_buy.png")
+
+    # 점검 ocr 탐지
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_buy_np)
+    print(results[0][1])
+
+
+
+
     pyautogui.moveTo(left+(width*0.67), top+(height*0.717), 2.0) # 구매
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+
+
+
+    if results[0][1] == "품절":
+        print("품절")
+        pyautogui.press('esc')
 
 
     pyautogui.moveTo(left+(width*0.05), top+(height*0.07), 2.0) # 상점
@@ -452,6 +458,8 @@ def a04_se():
     pyautogui.mouseUp()
 
     print("도구 조각 구매 완료")
+
+    
 
 
     pyautogui.moveTo(left+(width*0.967), top+(height*0.0683), 2.0) # 메뉴
@@ -774,6 +782,14 @@ def dungeon_ar():
             return
     except Exception as e:
         print(f"아스달 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+
+
+
+
+
+
+
 
     try:
         a04_se()
