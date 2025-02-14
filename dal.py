@@ -122,6 +122,21 @@ def d01_start1():
     height = win.height
 
 
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.8), 2.0)   # 절전 해제
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.8), 2.0)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.8), 2.0)   # 절전 해제
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.8), 2.0)
+    pyautogui.mouseUp()
+
+
     return True
 
 
