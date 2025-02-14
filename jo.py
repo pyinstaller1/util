@@ -745,7 +745,7 @@ def p02_bok():
         pyautogui.mouseUp()
 
 
-        time.sleep(3)
+        time.sleep(5)
 
 
         pyautogui.moveTo(left+(width*0.055), top+(height*0.46), 3.0) # 요도우라   36  46  56  63  70  78 
@@ -879,7 +879,7 @@ def p03_jangbi():
     pyautogui.mouseUp()
     
 
-    pyautogui.moveTo(left+(width*0.61), top+(height*0.25), 2.0) # 쓰레기통
+    pyautogui.moveTo(left+(width*0.61), top+(height*0.25), 5.0) # 쓰레기통
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
@@ -895,7 +895,7 @@ def p03_jangbi():
     time.sleep(1)
     pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.61), top+(height*0.25), 2.0) # 쓰레기통
+    pyautogui.moveTo(left+(width*0.61), top+(height*0.25), 5.0) # 쓰레기통
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
