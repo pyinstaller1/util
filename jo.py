@@ -439,7 +439,6 @@ def p02_bok():
 
     global left, top, width, height
 
-
     # s02_bok
     # 절전 모드 해제
     pyautogui.moveTo(left+(width*0.433), top+(height*0.86), 2.0)
@@ -478,16 +477,17 @@ def p02_bok():
 
     print(results)
 
+
     global auto
 
     global bok
-    if (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])) or np.any(mask) or bok == 1:
+    if 1==1 or (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])) or np.any(mask) or bok == 1:      ###################################
         print("복구 개경 마을 or 빨간색")
         bok = 0
         auto = False
 
 
-        
+
         # 복구
         pyautogui.moveTo(left+(width*0.71), top+(height*0.07), 2.0) # 복구
         pyautogui.mouseDown()
@@ -517,41 +517,69 @@ def p02_bok():
 
 
 
-        cnt_energy = 0
-        print("체력, 도력 그래픽 체크")
-
-        list_energy = [0, 0]
-        for i in range(10):
-            if cnt_energy > 5:
-                continue
-
-            scr_energy = pyautogui.screenshot(region=(left+int(width*0.155), top+int(height*0.07), 238, 60))
-            scr_energy_np = np.array(scr_energy)
-            scr_energy.save("scr_energy.png")
-
-            reader = easyocr.Reader(['ko', 'en'], gpu=False)
-            results = reader.readtext(scr_energy_np)
-
-            print(results)
-            
-            if len(results) == 2:
-                cnt_energy += 1
-                for idx, detection in enumerate(results):
-                    bbox, text, confidence = detection
-
-                    if list(map(int, re.findall(r'\d+', text.replace(".", "").replace(",", "").replace(" ", "")))):
-                        if list_energy[idx] < list(map(int, re.findall(r'\d+', text.replace(".", "").replace(",", "").replace(" ", ""))))[0]:
-                            list_energy[idx] = list(map(int,re.findall(r'\d+', text.replace(".", "").replace(",", "").replace(" ", ""))))[0]
+        pyautogui.moveTo(left+(width*0.238), top+(height*0.087), 2.0) # 체력        
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
 
 
-        global che, do                        
+        pyautogui.moveTo(left+(width*0.28), top+(height*0.087), 1.0) # 도력        
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
 
-        if cnt_energy == 0:
-            che, do = 1000, 1000
-        else:
-            che = list_energy[0]
-            do = list_energy[1]
-        print(che*10000+do)
+        time.sleep(3)
+
+
+        flag_che = False
+        flag_do = False
+        
+
+
+        print("체력 그래픽 체크")
+
+        scr_energy = pyautogui.screenshot(region=(left+int(width*0.232), top+int(height*0.11), 3, 7))
+        scr_energy_np = np.array(scr_energy)
+        scr_energy.save("scr_jo_energy.png")
+
+        if np.any(np.all(scr_energy_np >= 100, axis=-1)): # 흰색이 있으면
+            flag_che = True
+        else:                                             # 흰색이 없으면
+            flag_che = False
+
+        print(flag_che)
+
+
+        
+
+
+
+        print("도력 그래픽 체크")
+
+        scr_energy = pyautogui.screenshot(region=(left+int(width*0.277), top+int(height*0.11), 3, 7))
+        scr_energy_np = np.array(scr_energy)
+        scr_energy.save("scr_jo_energy.png")
+
+        if np.any(np.all(scr_energy_np >= 100, axis=-1)): # 흰색이 있으면
+            flag_do = True
+        else:                                             # 흰색이 없으면
+            flag_do = False
+
+        print(flag_do)
+
+        
+
+
+        pyautogui.moveTo(left+(width*0.238), top+(height*0.087), 2.0) # 체력        
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
+
+        pyautogui.moveTo(left+(width*0.28), top+(height*0.087), 1.0) # 도력        
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
+
 
 
 
@@ -560,7 +588,7 @@ def p02_bok():
         ###
 
 
-        if che < 100 or do < 100:   # 체력, 도력이 100보다 작으면 (체력, 도력 그래픽 확인)
+        if flag_che or flag_do:   # 체력, 도력이 100보다 작으면 (체력, 도력 그래픽 확인)
             #잡화상인에게 이동
 
 
@@ -626,12 +654,27 @@ def p02_bok():
                     str_heal = text
                     x_heal = x
                     y_heal = y
-                    continue
+                    break
 
 
+            print(str_heal)
+            print(map(str_heal.find, "[잡집]"))
 
 
-            x_heal = x_heal - int(len(str_heal)/7)
+            str_heal_min = min([x for x in [str_heal.find("집"), str_heal.find("잡")] if x != -1], default=-1)
+
+            
+            print(str_heal_min)
+            print((str_heal_min+1)*10 / len(str_heal))
+
+            if len(str_heal) > 7 and (str_heal_min+1)*10 / len(str_heal) < 3:      # [잡화 상인] ???
+                x_heal = x_heal - int(len(str_heal)/7) - 35
+                
+            elif len(str_heal) > 7 and (str_heal_min+1)*10 / len(str_heal) > 7:   # ??? [잡화 상인]
+                x_heal = x_heal - int(len(str_heal)/7) + 5
+                
+            else:
+                x_heal = x_heal - int(len(str_heal)/7)
 
             pyautogui.moveTo(left+int(width*0.25) + x_heal, top+int(height*0.26) + y_heal + int(height*0.07), 2.0)   # 잡화 상인
             pyautogui.mouseDown()
@@ -655,7 +698,8 @@ def p02_bok():
 
 
             # 체력 회복제 구매
-            if che < 100:
+            if not flag_che:
+                print("체력 회복제 구매")
                 time.sleep(2)
                 pyautogui.moveTo(left+(width*0.20), top+(height*0.615), 2.0)   # 체력 회복제
                 pyautogui.mouseDown()
@@ -682,7 +726,8 @@ def p02_bok():
 
 
             # 도력 회복제 구매
-            if do < 100:
+            if not flag_do:
+                print("도력 회복제 구매")                
                 time.sleep(2)
                 pyautogui.moveTo(left+(width*0.17), top+(height*0.80), 2.0)   # 상품
                 pyautogui.mouseDown()
@@ -691,7 +736,7 @@ def p02_bok():
                 pyautogui.moveTo(left+(width*0.17), top+(height*0.30), 2.0)   # 상품
                 pyautogui.mouseUp()
 
-                pyautogui.moveTo(left+(width*0.20), top+(height*0.671), 2.0)   # 도력 회복제
+                pyautogui.moveTo(left+(width*0.20), top+(height*0.678), 2.0)   # 도력 회복제
                 pyautogui.mouseDown()
                 time.sleep(1)
                 pyautogui.mouseUp()
