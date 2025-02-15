@@ -314,61 +314,61 @@ def a03_bok():
         pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
         pyautogui.mouseUp()    
 
-        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
         pyautogui.mouseUp()    
 
-        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
         pyautogui.mouseUp()    
 
-        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+        pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.mouseUp()
@@ -520,11 +520,6 @@ def a04_se():
 
     
 
-    pyautogui.moveTo(left+(width*0.87), top+(height*0.218), 2.0) # 수락
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-
     
     
 
@@ -637,76 +632,76 @@ def a04_se_end():
     pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
     pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
-    pyautogui.mouseUp()
-
-    
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
     pyautogui.mouseUp()
 
     
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
     pyautogui.mouseUp()
 
     
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
     pyautogui.mouseUp()
 
     
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
     pyautogui.mouseUp()
 
     
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
     pyautogui.mouseUp()
 
     
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
     pyautogui.mouseUp()
 
     
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
     pyautogui.mouseUp()
 
     
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 2.0)   # 빠른 사냥터
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
     pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.337), 2.0)   # 빠른 사냥터
+    
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.338), 1.0)   # 빠른 사냥터
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.15), 2.0)   # 빠른 사냥터
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.337), 1.0)   # 빠른 사냥터
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()  
@@ -854,8 +849,8 @@ def play_ar():
 
 
 if __name__ == "__main__":
-    play_ar()
-    # dungeon_ar()
+    # play_ar()
+    dungeon_ar()
     # dungeon_ar_end()
 
 
