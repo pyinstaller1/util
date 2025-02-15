@@ -1,6 +1,6 @@
 
 
-import jo, lo, ar, dal
+import jo, lo, ar, dal, ares
 import time
 import numpy as np
 import keyboard
@@ -41,6 +41,14 @@ desktop = os.environ.get('COMPUTERNAME')
 while True:
 
 
+
+    if time.localtime().tm_wday == 2:   # 수요일
+        print("수요일 점검")
+        if time.localtime().tm_hour == 5 and time.localtime().tm_min == 30:
+            print("주간 오전 5시 작업")
+
+
+
     # 매일 오전 5시 10분
     if time.localtime().tm_hour == 5 and time.localtime().tm_min == 10:
         print("오전 5시 작업")
@@ -49,9 +57,17 @@ while True:
 
         if desktop in ["DESKTOP-OHGK5MV"]:
             try:
-                dal.play_dal("던전0")
+                dal.play_dal("던전0")   # 달빛조각사 던전
             except Exception as e:
                 print(f"dal.play_dal() 오류: {e}")
+
+
+
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+            try:
+                ares.dungeon_ares()   # 아레스 던전
+            except Exception as e:
+                print(f"ar.dungeon_ar() 오류: {e}")
 
                 
         # 달조 던전   5시  7시
@@ -152,6 +168,16 @@ while True:
                 dal.play_dal()
             except Exception as e:
                 print(f"dal.play_dal() 오류: {e}")
+
+
+
+
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+            try:
+                ares.play_ares()
+            except Exception as e:
+                print(f"ar.play_ares() 오류: {e}")
+                
 
         print(os.environ.get('COMPUTERNAME'))
 
