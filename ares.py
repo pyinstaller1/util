@@ -86,6 +86,7 @@ def a01_start():
 
 
 
+
     return True
 
 
@@ -142,13 +143,14 @@ def a02_bok():
 
 
 
-    scr_bok = pyautogui.screenshot(region=(left + int(width*0.005), top + int(height*0.1), int(width*0.03), int(height*0.05)))
+    scr_bok = pyautogui.screenshot(region=(left + int(width*0.006), top + int(height*0.1), int(width*0.1), int(height*0.2)))
     scr_bok_np = np.array(scr_bok)
     scr_bok.save("scr_ares_bok.png")
 
     # 복구 ocr 탐지
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(scr_bok_np)
+    print(results[0][1])
 
     if results[0][1][0] != "광":
         return
@@ -183,7 +185,7 @@ def a02_bok():
 
 
 
-    """
+
     scr_map = pyautogui.screenshot(region=(left + int(width*0.417), top + int(height*0.38), int(width*0.15), int(height*0.15)))
     scr_map_np = np.array(scr_map)
     scr_map.save("scr_ares_map.png")
@@ -191,14 +193,29 @@ def a02_bok():
     # 복구 ocr 탐지
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(scr_map_np)
+    print(results[0][1])
+
+
     print(results)
-    """
+
+    print(results[0][0][0][0])
+    print(results[0][0][0][1])
+
+    print()
+    print(left + results[0][0][0][0] - (width*0.01))
+    print(top+(height + results[0][0][0][1]))
 
 
-    pyautogui.moveTo(left+(width*0.423), top+(height*0.415), 1.0)   # 잡화상인
+
+
+    pyautogui.moveTo(left + int(width*0.417) + results[0][0][0][0] - (width*0.06), top + int(height*0.38) + results[0][0][0][1], 1.0)   # 잡화상인
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+
+
+
+
 
 
 
@@ -215,6 +232,11 @@ def a02_bok():
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+
+
+
+
+    
 
 
     time.sleep(12)
@@ -300,114 +322,6 @@ def a02_bok():
 
 
 
-    
-
-
-
-    scr_bok = pyautogui.screenshot(region=(left + int(width*0.73), top + int(height*0.9), int(width*0.27), int(height*0.1)))
-    scr_bok_np = np.array(scr_bok)
-    scr_bok.save("scr_ares_bok.png")
-
-    # 복구 ocr 탐지
-    reader = easyocr.Reader(['ko', 'en'], gpu=False)
-    results = reader.readtext(scr_bok_np)
-    print(results)
-
-    if results and results[0][1].startswith("잡"):
-        pyautogui.moveTo(left+(width*0.28), top+(height*0.087), 2.0)   # 복구
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.mouseUp()
-
-        pyautogui.moveTo(left+(width*0.5), top+(height*0.83), 2.0)   # 경험치 회복
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.5), top+(height*0.83), 2.0)
-        pyautogui.mouseUp()
-
-
-        pyautogui.moveTo(left+(width*0.738), top+(height*0.18), 2.0)   # X
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.738), top+(height*0.18), 2.0)
-        pyautogui.mouseUp()
-
-
-        pyautogui.moveTo(left+(width*0.77), top+(height*0.908), 2.0)   # 잡화 상인
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.77), top+(height*0.908), 2.0)
-        pyautogui.mouseUp()
-
-
-        time.sleep(5)
-
-
-
-        pyautogui.moveTo(left+(width*0.15), top+(height*0.5), 2.0)   # 농축 HP 물약
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.15), top+(height*0.5), 2.0)
-        pyautogui.mouseUp()                 
-
-
-        pyautogui.moveTo(left+(width*0.67), top+(height*0.75), 2.0)   # 100%
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.67), top+(height*0.75), 2.0)
-        pyautogui.mouseUp()
-        
-        pyautogui.moveTo(left+(width*0.6), top+(height*0.87), 2.0)   # 구매
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.6), top+(height*0.87), 2.0)
-        pyautogui.mouseUp()
-        
-
-        pyautogui.moveTo(left+(width*0.33), top+(height*0.08), 2.0)   # X
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.33), top+(height*0.08), 2.0)
-        pyautogui.mouseUp()
-
-
-        pyautogui.moveTo(left+(width*0.15), top+(height*0.3), 2.0)   # 지도
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.15), top+(height*0.3), 2.0)
-        pyautogui.mouseUp()
-
-
-        pyautogui.moveTo(left+(width*0.35), top+(height*0.38), 2.0)   # 스텔라포트
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.35), top+(height*0.38), 2.0)
-        pyautogui.mouseUp()
-
-        pyautogui.moveTo(left+(width*0.97), top+(height*0.08), 2.0)   # X
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.97), top+(height*0.08), 2.0)
-        pyautogui.mouseUp()
-        
-
-
-        pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 스텔라포트
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)
-        pyautogui.mouseUp()
-
-
-        pyautogui.moveTo(left+(width*0.57), top+(height*0.617), 2.0)   # 확인
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.57), top+(height*0.617), 2.0)
-        pyautogui.mouseUp()        
-
-    
-    return
-
 
 
 
@@ -470,7 +384,6 @@ def a04_dungeon():
 
 
 
-    """
     pyautogui.moveTo(left+(width*0.97), top+(height*0.07), 2.0)   # 메뉴
     pyautogui.mouseDown()
     time.sleep(0.1)
@@ -512,9 +425,13 @@ def a04_dungeon():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
+    pyautogui.moveTo(left+(width*0.3), top+(height*0.5), 2.0)   # 자동이동
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
 
     time.sleep(5)
-    """
 
 
 
@@ -583,7 +500,11 @@ def a04_dungeon():
 
 
 
-    
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.88), 2.0)   # 빈칸
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
 
 
 
@@ -592,10 +513,6 @@ def a04_dungeon():
     time.sleep(0.1)
     pyautogui.mouseUp()
     
-    pyautogui.moveTo(left+(width*0.3), top+(height*0.5), 2.0)   # 자동이동
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
 
 
 
@@ -613,47 +530,121 @@ def a04_dungeon():
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 def a05_dungeon_week():
-    print("아레스 주간던전   " + time.strftime("%H:%M", time.localtime()))
+    print("아레스 주간 던전   " + time.strftime("%H:%M", time.localtime()))
 
 
     pyautogui.moveTo(left+(width*0.97), top+(height*0.07), 2.0)   # 메뉴
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
 
-    pyautogui.moveTo(left+(width*0.967), top+(height*0.388), 2.0)   # 월드/던전
+    pyautogui.moveTo(left+(width*0.1), top+(height*0.58), 3.0)   # 경쟁
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(3)
+
+    pyautogui.moveTo(left+(width*0.58), top+(height*0.38), 2.0)   # 타루크기지
+    pyautogui.mouseDown()
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 던전1
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.95), 2.0)   # 입장
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left+(width*0.15), top+(height*0.53), 2.0)   # 6층
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
+    time.sleep(20)
 
 
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.918), 2.0)   # 던전입장
+    pyautogui.moveTo(left+(width*0.07), top+(height*0.15), 2.0)   # 지도
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
     time.sleep(5)
 
 
-    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
+
+    # 주간 던전 지도 ocr 탐지
+    scr_week = pyautogui.screenshot(region=(left + int(width*0.2), top + int(height*0.2), int(width*0.6), int(height*0.6)))
+    scr_week_np = np.array(scr_week)
+    scr_week.save("scr_ares_week.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_week_np)
+    print(results)
+
+
+
+
+
+
+
+
+    pyautogui.moveTo(left + int(width*0.2) + results[0][0][0][0] + 10, top + int(height*0.2) + results[0][0][0][1] - 10, 2.0)   # 지도
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
+
+
+
+
+
+    time.sleep(3)
+    map_x = results[0][0][0][0]
+    map_y = results[0][0][0][1]
+
+
+
+
+
+    # 자동이동 ocr 탐지
+    scr_move = pyautogui.screenshot(region=(int(left + int(width*0.2) + results[0][0][0][0]) + int(width*0.05), int(top + int(height*0.2) + results[0][0][0][1] + int(height*0.118)), int(width*0.1), int(height*0.1)))
+    scr_move_np = np.array(scr_move)
+    scr_move.save("scr_ares_move.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_move_np)
+    print(results)
+
+
+
+    pyautogui.moveTo(int(left + int(width*0.2) + results[0][0][0][0]) + int(width*0.05) + map_x + 10, int(top + int(height*0.2) + results[0][0][0][1] + int(height*0.118)) + map_y + 10, 2.0)   # 자동 이동
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
+    pyautogui.moveTo(left+(width*0.0278), top+(height*0.738), 2.0)   # 절전
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
+
+
+    return
 
 
 
@@ -1110,6 +1101,32 @@ def a08_kakao(mode=None):
 
 
 
+def dungeon_week_ares():
+    try:
+        if not a01_start():
+            return
+    except Exception as e:
+        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+    try:
+        a05_dungeon_week()
+    except Exception as e:
+        print(f"아레스  a05_dungeon_week() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+
+    try:
+        if not a01_start1():
+            return
+    except Exception as e:
+        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+    try:
+         a05_dungeon_week()
+    except Exception as e:
+        print(f"아레스  a05_dungeon_week() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+
+
 
 
 
@@ -1124,7 +1141,7 @@ def dungeon_ares():
     try:
         a04_dungeon()
     except Exception as e:
-        print(f"아레스 a02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스  a04_dungeon() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
 
     try:
@@ -1136,7 +1153,7 @@ def dungeon_ares():
     try:
         a04_dungeon()
     except Exception as e:
-        print(f"아레스 a02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스  a04_dungeon() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
 
 
@@ -1219,10 +1236,11 @@ def check_dal():
 
 
 if __name__ == "__main__":
-    play_ares()
+    # play_ares()
     # check_dal()
 
     # dungeon_ares()
+    dungeon_week_ares()
 
 
 

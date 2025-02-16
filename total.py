@@ -41,7 +41,13 @@ desktop = os.environ.get('COMPUTERNAME')
 while True:
 
 
+    if time.localtime().tm_wday == 2:   # 월요일
+        print("월요일 주간 던전")
+        if time.localtime().tm_hour == 7 and time.localtime().tm_min == 30:
+            print("주간 오전 7시 30분 작업")
+            ares.dungeon_week_ares()
 
+            
     if time.localtime().tm_wday == 2:   # 수요일
         print("수요일 점검")
         if time.localtime().tm_hour == 5 and time.localtime().tm_min == 30:
@@ -63,7 +69,7 @@ while True:
 
 
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ares.dungeon_ares()   # 아레스 던전
             except Exception as e:
@@ -172,7 +178,7 @@ while True:
 
 
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ares.play_ares()
             except Exception as e:
