@@ -310,10 +310,7 @@ def a02_bok():
 
 
 
-    time.sleep(50)
-
-    pyautogui.press('g')
-    
+    time.sleep(50)    
 
     return
 
@@ -325,57 +322,88 @@ def a02_bok():
 
 
 
-def d03_jangbi():
-    print("달빛조각사 d03_jangbi   " + time.strftime("%H:%M", time.localtime()))
+def a03_jangbi():
+    print("아레스 a03_jangbi   " + time.strftime("%H:%M", time.localtime()))
 
 
-    pyautogui.moveTo(left+(width*0.918), top+(height*0.078), 2.0)   # 가방
+    pyautogui.moveTo(left+(width*0.97), top+(height*0.07), 2.0)   # 메뉴
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.8), top+(height*0.818), 2.0)   # 분해
+    pyautogui.moveTo(left+(width*0.83), top+(height*0.43), 2.0)   # 거래소
     pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-
-    pyautogui.moveTo(left+(width*0.37), top+(height*0.918), 2.0)   # 분해
-    pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left+(width*0.37), top+(height*0.918), 2.0)   # 분해
+    pyautogui.moveTo(left+(width*0.27), top+(height*0.158), 5.0)   # 판매
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.77), top+(height*0.95), 2.0)   # 일괄재등록
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.6), top+(height*0.95), 2.0)   # 일괄정산
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()    
     
 
-    pyautogui.moveTo(left+(width*0.37), top+(height*0.918), 2.0)   # 분해
+    pyautogui.moveTo(left+(width*0.95), top+(height*0.95), 2.0)   # 등록 버튼
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left+(width*0.37), top+(height*0.918), 2.0)   # 분해
-    pyautogui.mouseDown()
     time.sleep(1)
+
+    # 거래소 판매 ocr 탐지
+    scr_sell = pyautogui.screenshot(region=(left + int(width*0.32), top + int(height*0.25), int(width*0.17), int(height*0.08)))
+    scr_sell_np = np.array(scr_sell)
+    scr_sell.save("scr_ares_sell.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_sell_np)
+    print(results)
+
+    if results and ("원석" in results[0][1] or "결정" in results[0][1] or "에너지원" in results[0][1] or "설계도" in results[0][1] or "주괴" in results[0][1]):
+        pass
+    else:
+        pyautogui.moveTo(left+(width*0.58), top+(height*0.78), 2.0)   # 등록
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        pyautogui.moveTo(left+(width*0.58), top+(height*0.687), 1.0)   # 등록
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.97), top+(height*0.07), 2.0)   # 닫기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
-
-    pyautogui.moveTo(left+(width*0.97), top+(height*0.07), 2.0)   # X
+    pyautogui.moveTo(left+(width*0.0278), top+(height*0.738), 2.0)   # 절전
     pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
+    time.sleep(0.1)
+    pyautogui.mouseUp()    
 
 
 
 
-    print("장비 분해 완료")
+    print("거래소 완료")
+    
 
     return
+
+
 
 
 
@@ -1172,13 +1200,17 @@ def play_ares(dungeon=None):
             return
     except Exception as e:
         print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
-
+        
     try:
         a02_bok()
     except Exception as e:
         print(f"아레스 a02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
 
+    try:
+        a03_jangbi()
+    except Exception as e:
+        print(f"아레스 a03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
 
 
@@ -1193,18 +1225,14 @@ def play_ares(dungeon=None):
     except Exception as e:
         print(f"아레스 a02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
+    try:
+        a03_jangbi()
+    except Exception as e:
+        print(f"아레스 a03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
 
 
 
-
-
-
-
-    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
 
 
 
@@ -1236,11 +1264,11 @@ def check_dal():
 
 
 if __name__ == "__main__":
-    # play_ares()
+    play_ares()
     # check_dal()
 
     # dungeon_ares()
-    dungeon_week_ares()
+    # dungeon_week_ares()
 
 
 
