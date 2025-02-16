@@ -538,9 +538,9 @@ def p02_bok():
 
         print("체력 그래픽 체크")
 
-        scr_energy = pyautogui.screenshot(region=(left+int(width*0.232), top+int(height*0.11), 3, 7))
+        scr_energy = pyautogui.screenshot(region=(left+int(width*0.232), top+int(height*0.11), 3, 8))
         scr_energy_np = np.array(scr_energy)
-        scr_energy.save("scr_jo_energy.png")
+        scr_energy.save("scr_jo_che.png")
 
         if np.any(np.all(scr_energy_np >= 100, axis=-1)): # 흰색이 있으면
             flag_che = True
@@ -556,9 +556,9 @@ def p02_bok():
 
         print("도력 그래픽 체크")
 
-        scr_energy = pyautogui.screenshot(region=(left+int(width*0.277), top+int(height*0.11), 3, 7))
+        scr_energy = pyautogui.screenshot(region=(left+int(width*0.277), top+int(height*0.11), 3, 8))
         scr_energy_np = np.array(scr_energy)
-        scr_energy.save("scr_jo_energy.png")
+        scr_energy.save("scr_jo_do.png")
 
         if np.any(np.all(scr_energy_np >= 100, axis=-1)): # 흰색이 있으면
             flag_do = True
@@ -1037,6 +1037,8 @@ def play_jo():
         p02_bok()
     except Exception as e:
         print(f"조선협객전 p02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+
+    return
 
     try:
         p03_jangbi()
