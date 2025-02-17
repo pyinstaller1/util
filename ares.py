@@ -121,6 +121,12 @@ def a01_start1():
     height = win.height
 
 
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.65), 2.0)   # 절전 해제
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.7), top+(height*0.65), 2.0)
+    pyautogui.mouseUp()
+
     return True
 
 
@@ -347,6 +353,13 @@ def a03_jangbi():
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.55), top+(height*0.627), 2.0)   # 등록
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
 
     pyautogui.moveTo(left+(width*0.6), top+(height*0.95), 2.0)   # 일괄정산
     pyautogui.mouseDown()
