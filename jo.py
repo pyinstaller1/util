@@ -481,7 +481,9 @@ def p02_bok():
     global auto
 
     global bok
-    if (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])) or np.any(mask) or bok == 1:
+    # if (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])) or np.any(mask) or bok == 1:
+    if (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])) or bok == 1:
+        
         print("복구 개경 마을 or 빨간색")
         bok = 0
         auto = False
