@@ -348,6 +348,15 @@ def a03_jangbi():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
+    time.sleep(1)
+
+
+    
+    pyautogui.moveTo(left+(width*0.27), top+(height*0.158), 5.0)   # 판매
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
 
     pyautogui.moveTo(left+(width*0.77), top+(height*0.95), 2.0)   # 일괄재등록
     pyautogui.mouseDown()
@@ -385,7 +394,7 @@ def a03_jangbi():
     print(results)
 
     if results and ("원석" in results[0][1] or "결정" in results[0][1] or "에너지원" in results[0][1] or "설계도" in results[0][1] or "주괴" in results[0][1]):
-        pass
+        pyautogui.press('esc')
     else:
         pyautogui.moveTo(left+(width*0.58), top+(height*0.78), 2.0)   # 등록
         pyautogui.mouseDown()
