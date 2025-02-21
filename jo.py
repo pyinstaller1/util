@@ -15,10 +15,8 @@ import subprocess
 
 left, top, width, height = 0, 0, 0, 0
 che, do = 1000, 1000
-bok = 0
 wins = None
 app = None
-auto = True
 
 
 
@@ -35,7 +33,6 @@ auto = True
 def login_jo():
     print("조선협객전 login_jo   " + time.strftime("%H:%M", time.localtime()))
 
-    auto = False
           
     # LDPlayer 닫기
     for win in gw.getWindowsWithTitle('LDPlayer'):
@@ -423,9 +420,6 @@ def p01_start():
         time.sleep(1)
         pyautogui.mouseUp()
 
-        global bok
-        bok = 1
-
         time.sleep(60)
     else:
         time.sleep(3)
@@ -451,22 +445,6 @@ def p02_bok():
     
 
 
-
-
-    # 복구 확인
-    scr_bok = pyautogui.screenshot(region=(left+int(width*0.715), top+int(height*0.035), int(width*0.02), int(height*0.03)))
-    scr_bok.save('scr_jo_bok.png')
-    scr_bok_np = np.array(scr_bok)
-
-    hsv = cv2.cvtColor(scr_bok_np, cv2.COLOR_RGB2HSV)
-
-    # 복구 빨간색 픽셀 탐지
-    mask = cv2.bitwise_or(
-        cv2.inRange(hsv, np.array([0, 50, 50]), np.array([10, 255, 255])),
-        cv2.inRange(hsv, np.array([170, 50, 50]), np.array([180, 255, 255]))
-    )
-
-
     # 복구 확인 (개경 마을)
     scr_bok = pyautogui.screenshot(region=(left+int(width*0.838), top+int(height*0.35), int(width*0.07), int(height*0.038)))
     scr_bok_np = np.array(scr_bok)
@@ -475,19 +453,12 @@ def p02_bok():
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(scr_bok_np)
 
-    print(results)
+    # print(results)
 
 
-    global auto
-
-    global bok
-    # if (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])) or np.any(mask) or bok == 1:
-    if (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])) or bok == 1:
+    if (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])):
         
-        print("복구 개경 마을 or 빨간색")
-        bok = 0
-        auto = False
-
+        print("복구 개경 마을")
 
 
         # 복구
@@ -818,18 +789,13 @@ def p02_bok():
         time.sleep(0.3)
         pyautogui.mouseUp()
 
-
         time.sleep(50)
 
-
-        # AUTO 버튼
-        if auto == False:
-            time.sleep(3)
-            pyautogui.moveTo(left+(width*0.915), top+(height*0.73), 2.0) # AUTO 버튼
-            pyautogui.mouseDown()
-            time.sleep(0.3)
-            pyautogui.mouseUp()
-            auto = True
+        time.sleep(3)
+        pyautogui.moveTo(left+(width*0.915), top+(height*0.73), 2.0) # AUTO 버튼
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
 
 
 
@@ -839,18 +805,6 @@ def p03_jangbi():
     
 
     global left, top, width, height
-
-
-    global auto
-    # AUTO 버튼
-    if auto == False:
-        time.sleep(3)
-        pyautogui.moveTo(left+(width*0.915), top+(height*0.73), 2.0) # AUTO 버튼
-        pyautogui.mouseDown()
-        time.sleep(0.3)
-        pyautogui.mouseUp()
-        auto = True
-
 
     # 장비 도감
     pyautogui.moveTo(left+(width*0.95), top+(height*0.07), 2.0) # 메뉴
@@ -1029,6 +983,379 @@ def p03_jangbi():
 
 
 
+
+
+
+
+
+
+
+
+
+
+def on():
+    print("조선협객전 on   " + time.strftime("%H:%M", time.localtime()))
+          
+    # LDPlayer 닫기
+    for win in gw.getWindowsWithTitle('LDPlayer'):
+        if win.title.strip():
+            win.close()
+
+
+    subprocess.Popen(r"C:\LDPlayer\ldmutiplayer\dnmultiplayerex.exe", shell=True)  # 프로그램 실행
+    print("멀티 매니저를 실행했습니다.")
+
+    time.sleep(3)
+    for i in range(10):
+        if gw.getWindowsWithTitle('멀티 매니저'):
+            break
+        elif i >= 9:
+            return
+        time.sleep(10)
+    win_multi = gw.getWindowsWithTitle('멀티 매니저')[0]
+
+
+    # 멀티 매니저창 활성화
+    app_manager = Application().connect(handle=win_multi._hWnd)
+    app_manager.window(handle=win_multi._hWnd).set_focus()
+
+    pyautogui.moveTo(win_multi.left+(win_multi.width*0.78), win_multi.top+(win_multi.height*0.30), 2.0)   # 실행 버튼
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(30)
+
+
+
+
+
+
+    # LD플레이어 화면
+    global wins
+    wins = [win for win in gw.getWindowsWithTitle('LDPlayer') if win.title.strip()]   # LD플레이어 윈도우 목록 가져오기
+
+
+    for i, win in enumerate(wins):
+        print(f"{i + 1}: {win.title} (위치: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
+
+
+    choice = 0  # 첫 번째 윈도우 선택
+    win = wins[choice]
+    print(win.title)
+
+    global app
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
+
+
+    global left, top, width, height
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+
+    # 광고 닫기
+    pyautogui.moveTo(left+(width*0.80), top+(height*0.21), 2.0)
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(3)
+
+
+
+
+
+    # LD플레이어 다시 열기
+    gw.getWindowsWithTitle('LDPlayer')[0].close()
+
+    subprocess.Popen(r"C:\LDPlayer\ldmutiplayer\dnmultiplayerex.exe", shell=True)  # 프로그램 실행
+
+
+    time.sleep(3)
+    for i in range(10):
+        if gw.getWindowsWithTitle('멀티 매니저'):
+            break
+        elif i >= 9:
+            return
+        time.sleep(10)
+    win_multi = gw.getWindowsWithTitle('멀티 매니저')[0]
+
+
+    # 멀티 매니저창 활성화
+    app_manager = Application().connect(handle=win_multi._hWnd)
+    app_manager.window(handle=win_multi._hWnd).set_focus()
+
+    pyautogui.moveTo(win_multi.left+(win_multi.width*0.78), win_multi.top+(win_multi.height*0.30), 2.0)   # 실행 버튼
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(30)
+
+
+
+
+    win = gw.getWindowsWithTitle('LDPlayer')[0]
+
+
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
+
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+
+
+    # 조선협객전을 OCR로 찾기
+    scr_start = pyautogui.screenshot(region=(left+int(width*0.25), top+int(height*0.317), int(width*0.38), int(height*0.03)))
+    scr_start_np = np.array(scr_start)
+    scr_start.save("scr_start.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_start_np)
+
+    str_start = ""
+    x_start = 0
+    y_start = 0
+
+    for detection in results:
+        bbox, text, confidence = detection
+        top_left = bbox[0]
+        bottom_right = bbox[2]
+        x = (top_left[0] + bottom_right[0]) // 2
+        y = (top_left[1] + bottom_right[1]) // 2
+
+        if "조선" in text or "협객" in text or "객전" in text:
+            str_start = text
+            x_start = x
+            y_start = y
+            continue
+
+    # 조선협객전 클릭
+    pyautogui.moveTo(left+int(width*0.25) + x_start, top+int(height*0.318) + y_start - int(height*0.057), 2.0)   # 바탕화면
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+    
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(8)
+
+
+
+    scr_google = pyautogui.screenshot(region=(left+int(width*0.25), top+int(height*0.38), int(width*0.38), int(height*0.3)))
+    scr_google_np = np.array(scr_google)
+    scr_google.save("scr_jo_google.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_google_np)
+
+    print(results)
+
+
+
+    if results and "업데이트" in results[0][1]:
+        pyautogui.moveTo(left+(width*0.5), top+(height*0.65), 2.0) # 확인
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(8)
+
+
+        pyautogui.moveTo(left+(width*0.12), top+(height*0.53), 2.0) # 업데이트
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+
+        time.sleep(100)
+
+
+        pyautogui.moveTo(left+(width*0.12), top+(height*0.53), 2.0) # 플레이
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(10)
+
+
+
+
+        pyautogui.moveTo(left+(width*0.6), top+(height*0.7), 2.0) # 확인
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(300)
+
+    else:
+
+        time.sleep(150)
+        
+
+        """
+        # 건너뛰기
+        pyautogui.moveTo(left+(width*0.87), top+(height*0.10), 2.0) # 건너뛰기
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(0.1)
+
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(5)
+        """
+
+
+    # 입장
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.7), 2.0) # 메뉴
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+
+
+    ### 점검이면 버튼 누르고 기다리기
+
+    ###   접속대기 화면인지 ocr      # 빨간 픽셀 대신 ocr
+    """
+    # 접속 대기
+    for i in range(50):
+        # scr_wait = pyautogui.screenshot(region=(left+int(width*0.5), top+int(height*0.65), 10, 10))
+        scr_wait = pyautogui.screenshot(region=(left+int(width*0.83), top+int(height*0.91), 10, 10))
+
+        scr_wait_np = np.array(scr_wait)
+        hsv = cv2.cvtColor(scr_wait_np, cv2.COLOR_RGB2HSV)
+
+        scr_wait.save("scr_wait.png")
+
+        # 빨간색 픽셀 탐지
+        mask = cv2.bitwise_or(
+            cv2.inRange(hsv, np.array([0, 50, 50]), np.array([10, 255, 255])),
+            cv2.inRange(hsv, np.array([170, 50, 50]), np.array([180, 255, 255]))
+            )
+        # scr_check01.save('scr.png')
+        if not np.any(mask):
+            print("게임 시작 빨간색 계열이 없습니다.")
+            time.sleep(60)
+        else:
+            print("게임 시작")
+            break
+        return
+        time.sleep(5)
+    """
+
+
+
+    time.sleep(10)
+    
+    # 케릭터 선택
+    pyautogui.moveTo(left+(width*0.83), top+(height*0.91), 2.0)   # 게임 시작
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    time.sleep(1)
+    
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()   
+
+    time.sleep(38)
+
+
+    # 미션 건너뛰기
+    pyautogui.moveTo(left+(width*0.89), top+(height*0.63), 2.0)   # 건너뛰기
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(5)
+    
+    pyautogui.moveTo(left+(width*0.38), top+(height*0.91), 2.0)   # 취소
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(5)
+
+    global auto
+    auto = True
+
+
+    
+
+
+
+
+    # 복구 확인 (개경 마을)
+    scr_bok = pyautogui.screenshot(region=(left+int(width*0.838), top+int(height*0.35), int(width*0.07), int(height*0.038)))
+    scr_bok_np = np.array(scr_bok)
+    scr_bok.save("scr_jo_ge.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_bok_np)
+
+    # print(results)
+
+
+    if (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])):
+        print("복구 개경 마을 on")
+    else:
+        time.sleep(3)
+        pyautogui.moveTo(left+(width*0.915), top+(height*0.73), 2.0) # AUTO 버튼
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
+
+    p02_bok()
+
+    time.sleep(3)
+
+    p03_jangbi()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def play_jo():
     try:
         p01_start()
@@ -1103,7 +1430,8 @@ def play_jo():
 
 
 if __name__ == "__main__":
-    play_jo()
+    # play_jo()
+    on()
     # login_jo()
 
 

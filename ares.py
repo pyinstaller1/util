@@ -841,7 +841,7 @@ def a08_kakao(mode=None):
 
 
 
-
+    """
 
     ###################
 
@@ -1140,6 +1140,7 @@ def a08_kakao(mode=None):
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
+    """
     
 
 
