@@ -364,13 +364,13 @@ def a03_jangbi():
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left+(width*0.55), top+(height*0.627), 2.0)   # 등록
+    pyautogui.moveTo(left+(width*0.58), top+(height*0.627), 2.0)   # 등록
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left+(width*0.6), top+(height*0.95), 2.0)   # 일괄정산
+    pyautogui.moveTo(left+(width*0.63), top+(height*0.95), 2.0)   # 일괄정산
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()    

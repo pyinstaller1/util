@@ -509,7 +509,7 @@ def p02_bok():
         
 
 
-        print("체력 그래픽 체크")
+        print("체력이 충분한지 그래픽 체크")
 
         scr_energy = pyautogui.screenshot(region=(left+int(width*0.232), top+int(height*0.11), 3, 8))
         scr_energy_np = np.array(scr_energy)
@@ -527,7 +527,7 @@ def p02_bok():
 
 
 
-        print("도력 그래픽 체크")
+        print("도력이 충분한지 그래픽 체크")
 
         scr_energy = pyautogui.screenshot(region=(left+int(width*0.277), top+int(height*0.11), 3, 8))
         scr_energy_np = np.array(scr_energy)
@@ -561,7 +561,7 @@ def p02_bok():
         ###
 
 
-        if flag_che or flag_do:   # 체력, 도력이 100보다 작으면 (체력, 도력 그래픽 확인)
+        if not flag_che or not flag_do:   # 체력, 도력이 100보다 작으면 (체력, 도력 그래픽 확인)
             #잡화상인에게 이동
 
 
@@ -595,7 +595,7 @@ def p02_bok():
             pyautogui.mouseDown()
             time.sleep(2)
             pyautogui.mouseUp()
-            time.sleep(5)
+            time.sleep(15)
             
 
 
@@ -741,10 +741,25 @@ def p02_bok():
             time.sleep(0.3)
             pyautogui.mouseUp()
 
-            pyautogui.moveTo(left+(width*0.95), top+(height*0.07), 2.0) # 종료
-            pyautogui.mouseDown()
-            time.sleep(1)
-            pyautogui.mouseUp()
+
+
+
+
+            # 상점 진입 확인 (개경 마을)
+            scr_shop = pyautogui.screenshot(region=(left+int(width*0.11), top+int(height*0.15), int(width*0.1), int(height*0.1)))
+            scr_shop_np = np.array(scr_shop)
+            scr_shop.save("scr_jo_shop.png")
+
+            reader = easyocr.Reader(['ko', 'en'], gpu=False)
+            results = reader.readtext(scr_shop_np)
+            print(results)
+
+            if results and results[0][1][0] == "상":
+                pyautogui.moveTo(left+(width*0.95), top+(height*0.07), 2.0) # 종료
+                pyautogui.mouseDown()
+                time.sleep(0.5)
+                pyautogui.mouseUp()
+        
 
 
 
@@ -805,6 +820,10 @@ def p03_jangbi():
     
 
     global left, top, width, height
+
+
+
+
 
     # 장비 도감
     pyautogui.moveTo(left+(width*0.95), top+(height*0.07), 2.0) # 메뉴
@@ -874,7 +893,7 @@ def p03_jangbi():
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left+(width*0.91), top+(height*0.76), 2.0) # 장비선택
+    pyautogui.moveTo(left+(width*0.95), top+(height*0.76), 2.0) # 장비선택
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
@@ -891,7 +910,8 @@ def p03_jangbi():
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left+(width*0.91), top+(height*0.76), 2.0) # 장비선택
+
+    pyautogui.moveTo(left+(width*0.95), top+(height*0.76), 2.0) # 장비선택
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
@@ -900,6 +920,8 @@ def p03_jangbi():
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
+
+
 
     pyautogui.moveTo(left+(width*0.56), top+(height*0.67), 2.0) # 삭제버튼
     pyautogui.mouseDown()
@@ -1320,6 +1342,7 @@ def on():
     # print(results)
 
 
+    """
     if (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])):
         print("복구 개경 마을 on")
     else:
@@ -1328,6 +1351,13 @@ def on():
         pyautogui.mouseDown()
         time.sleep(0.3)
         pyautogui.mouseUp()
+    """
+
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.915), top+(height*0.73), 1.0) # AUTO 버튼
+    pyautogui.mouseDown()
+    time.sleep(0.3)
+    pyautogui.mouseUp()    
 
     p02_bok()
 
@@ -1362,12 +1392,11 @@ def play_jo():
     except Exception as e:
         print(f"조선협객전 p01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
+
     try:
         p02_bok()
     except Exception as e:
         print(f"조선협객전 p02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
-
-    return
 
     try:
         p03_jangbi()
@@ -1430,8 +1459,8 @@ def play_jo():
 
 
 if __name__ == "__main__":
-    # play_jo()
-    on()
+    play_jo()
+    # on()
     # login_jo()
 
 
