@@ -60,8 +60,8 @@ while True:
 
 
 
-    # 매일 오전 5시 10분
-    if time.localtime().tm_hour == 5 and time.localtime().tm_min == 10:
+    # 매일 오전 5시 20분
+    if time.localtime().tm_hour == 5 and time.localtime().tm_min == 20:
         print("오전 5시 작업")
         time.sleep(np.random.randint(30, 180)) # 30초~8분30초 랜덤 대기
 
@@ -85,8 +85,8 @@ while True:
         # 아레스 던전 5시
         
 
-    # 매일 오전 6시 10분
-    if time.localtime().tm_hour == 6 and time.localtime().tm_min == 10:
+    # 매일 오전 6시 20분
+    if time.localtime().tm_hour == 6 and time.localtime().tm_min == 20:
         print("오전 6시 작업")
         time.sleep(np.random.randint(30, 180)) # 30초~8분30초 랜덤 대기
 
@@ -116,7 +116,7 @@ while True:
 
 
     # 매일 오전 7시 play
-    if time.localtime().tm_hour == 7 and time.localtime().tm_min == 10:
+    if time.localtime().tm_hour == 7 and time.localtime().tm_min == 20:
         print("오전 7시 작업")
         time.sleep(np.random.randint(30, 511)) # 30초~8분30초 랜덤 대기
 
@@ -133,8 +133,8 @@ while True:
 
 
 
-    # 매일 오전 8시 10분
-    if time.localtime().tm_hour == 8 and time.localtime().tm_min == 10:
+    # 매일 오전 8시 20분
+    if time.localtime().tm_hour == 8 and time.localtime().tm_min == 20:
         print("오전 8시 작업")
         time.sleep(np.random.randint(30, 180)) # 30초~8분30초 랜덤 대기
 
@@ -153,8 +153,8 @@ while True:
 
 
     # 매일 오전 9시 play
-    if time.localtime().tm_hour == 9 and time.localtime().tm_min == 10:
-        print("오전 7시 작업")
+    if time.localtime().tm_hour == 9 and time.localtime().tm_min == 20:
+        print("오전 9시 작업")
         time.sleep(np.random.randint(30, 511)) # 30초~8분30초 랜덤 대기'
         # 롬 던전     9시
 
@@ -205,15 +205,26 @@ while True:
                 print(f"ar.play_ares() 오류: {e}")
                 
 
-        print(os.environ.get('COMPUTERNAME'))
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+            try:
+                ymir.play()
+            except Exception as e:
+                print(f"ymir.play() 오류: {e}")
 
 
-    time.sleep(1)
+
+
+        print(os.environ.get('COMPUTERNAME') + " " + time.strftime("%H:%M", time.localtime()))
+        
+
+
+
+    time.sleep(10)
     if keyboard.is_pressed('esc'):  # ESC 키가 눌렸는지 확인
         print("esc")
         break
 
-print("Total 종료")
+print("Total 종료" + " " + time.strftime("%H:%M", time.localtime()))
 
 
 
@@ -221,17 +232,6 @@ print("Total 종료")
 
 
 
-
-
-
-"""
-로드나인 lo2.bok
-복구 녹색 계열... ocr 로 확인
-
-
-
-
-"""
 
 
 
