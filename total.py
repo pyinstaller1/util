@@ -68,15 +68,15 @@ while True:
 
         if desktop in ["DESKTOP-OHGK5MV"]:
             try:
-                dal.play_dal("던전0")   # 달빛조각사 던전
+                dal.play_dal("던전0")   # 달빛조각사 불의던전
             except Exception as e:
                 print(f"dal.play_dal() 오류: {e}")
 
 
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:   # 아레스 던전
             try:
-                ares.dungeon_ares()   # 아레스 던전
+                ares.dungeon_ares()
             except Exception as e:
                 print(f"ar.dungeon_ar() 오류: {e}")
 
@@ -91,21 +91,21 @@ while True:
         time.sleep(np.random.randint(30, 180)) # 30초~8분30초 랜덤 대기
 
         # 아스달 던전 6시  8시
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:    # 아스달 세력임무
             try:
-                ar.dungeon_ar()   # 아스달 던전
+                ar.dungeon_ar()
             except Exception as e:
                 try:
-                    ar.dungeon_ar()   # 아스달 던전
+                    ar.dungeon_ar()
                 except Exception as e:
                     try:
-                        ar.dungeon_ar()   # 아스달 던전
+                        ar.dungeon_ar()
                     except Exception as e:
                         try:
-                            ar.dungeon_ar()   # 아스달 던전
+                            ar.dungeon_ar()
                         except Exception as e:
                             try:
-                                ar.dungeon_ar()   # 아스달 던전
+                                ar.dungeon_ar()
                             except Exception as e:
                                 print(f"ar.dungeon_ar() 오류: {e}")
 
@@ -121,7 +121,7 @@ while True:
         time.sleep(np.random.randint(30, 511)) # 30초~8분30초 랜덤 대기
 
 
-        if desktop in ["DESKTOP-OHGK5MV"]:
+        if desktop in ["DESKTOP-OHGK5MV"]:   # 달빛조각사 얼음던전
             try:
                 dal.play_dal("던전1")
             except Exception as e:
@@ -138,13 +138,18 @@ while True:
         print("오전 8시 작업")
         time.sleep(np.random.randint(30, 180)) # 30초~8분30초 랜덤 대기
 
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:   # 아스달 세력임무 완료
             try:
                 ar.dungeon_ar_end()
             except Exception as e:
-                print(f"ar.dungeon_ar_end() 오류: {e}")
-        
+                print(f"ar.dungeon_ar_end() 오류: {e}")        
         # 아스달 던전 6시  8시
+
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:   # 이미르 일일임무
+            try:
+                ymir.s04_dungeon()
+            except Exception as e:
+                print(f"ymir.s04_dungeon() 오류: {e}")
 
 
 
@@ -156,12 +161,10 @@ while True:
     if time.localtime().tm_hour == 9 and time.localtime().tm_min == 20:
         print("오전 9시 작업")
         time.sleep(np.random.randint(30, 511)) # 30초~8분30초 랜덤 대기'
-        # 롬 던전     9시
 
         # 달조 던전   5시  7시
         # 아스달 던전 6시  8시
         # 아레스 던전 5시
-        # 롬 던전     9시
         
 
 

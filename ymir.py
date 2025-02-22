@@ -137,35 +137,6 @@ def s02_bok():
 
     pyautogui.press('x')
 
-
-
-
-
-
-
-
-
-    # 던전
-    """
-    pyautogui.moveTo(left+(width*0.91), top+(height*0.07), 0.3)   # SHOP
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-    time.sleep(2)
-
-    pyautogui.moveTo(left+(width*0.2), top+(height*0.07), 0.3)   # SHOP
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-    time.sleep(2)
-    """
-
-
-
-
-
-
-
     return
 
 
@@ -362,8 +333,10 @@ def s03_jangbi():
 
 def s04_dungeon():
     print("이미르 s04_dungeon   " + time.strftime("%H:%M", time.localtime()))
-
     # 임무 업적 상점
+
+    s01_start():
+        
 
 
     # 임무
@@ -536,6 +509,11 @@ def s04_dungeon():
     time.sleep(1)
     pyautogui.press('esc')
     time.sleep(1)
+
+    pyautogui.moveTo(left+(width*0.28), top+(height*0.88), 2.0)   # 절전
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
 
 
     return
