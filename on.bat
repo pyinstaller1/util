@@ -1,2 +1,1 @@
-pause
 python on.py

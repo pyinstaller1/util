@@ -335,7 +335,7 @@ def s04_dungeon():
     print("이미르 s04_dungeon   " + time.strftime("%H:%M", time.localtime()))
     # 임무 업적 상점
 
-    s01_start():
+    s01_start()
         
 
 
@@ -555,6 +555,14 @@ def on():
 
     
     time.sleep(50)
+
+    """
+    pyautogui.moveTo(left+(width*0.938), top+(height*0.938), 0.5) # 점검버튼
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    """
+    
 
     pyautogui.moveTo(left+(width*0.938), top+(height*0.938), 0.5) # 캐릭터선택
     pyautogui.mouseDown()
