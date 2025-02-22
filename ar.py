@@ -8,6 +8,7 @@ import easyocr
 import re
 import psutil
 import subprocess
+import os
 
 
 
@@ -770,6 +771,160 @@ def a08_netmarble():
 
 
 
+
+def on():
+    print("아스달 on   " + time.strftime("%H:%M", time.localtime()))
+
+
+
+    if gw.getWindowsWithTitle('Arthdal Chronicles'):
+        gw.getWindowsWithTitle('Arthdal Chronicles').close()
+
+        
+    if gw.getWindowsWithTitle('NetmarbleLauncher'):
+        win = gw.getWindowsWithTitle('NetmarbleLauncher')[0].close()
+
+
+    if os.environ.get('COMPUTERNAME') == "DESKTOP-LRGAL8H":
+        # subprocess.Popen(r'"D:\Program Files\Netmarble\Netmarble Launcher.exe"', shell=True)
+        subprocess.Popen(r"D:\Program Files\Netmarble\Netmarble Launcher\Netmarble Launcher.exe")
+
+    else:
+        subprocess.Popen(r"C:\Program Files\Netmarble\Netmarble Launcher\Netmarble Launcher.exe")
+
+    time.sleep(10)
+
+    for i in range(10):
+        if gw.getWindowsWithTitle('NetmarbleLauncher'):
+            win = gw.getWindowsWithTitle('NetmarbleLauncher')[0]
+            break
+        time.sleep(10)
+
+    print(win.title)
+    print(f"{win.title} (위치: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
+
+    
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
+
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+
+
+    pyautogui.moveTo(left+(width*0.95), top+(height*0.1), 2.0)   # Sign in
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    time.sleep(10)
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.47), 2.0) # 구글로 로그인
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(7)
+
+    width_google, height_google = pyautogui.size()    
+    
+    scr_google = pyautogui.screenshot(region=(int(width_google * 0.5), int(height_google * 0.3), int(height_google * 0.3), int(height_google * 0.5)))
+    scr_google_np = np.array(scr_google)
+    scr_google.save("scr_ar_google.png")
+
+    # 복구 ocr 탐지
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_google_np)
+    print(results)
+
+
+
+    str_start = ""
+    x_start = 0
+    y_start = 0
+
+
+    for detection in results:
+        bbox, text, confidence = detection
+        top_left = bbox[0]
+        bottom_right = bbox[2]
+        x = (top_left[0] + bottom_right[0]) // 2
+        y = (top_left[1] + bottom_right[1]) // 2
+
+
+        # groundo77@navercom   s070092@nate corr
+
+        if "ground077@naver.com" in text or "groundo77@navercom" in text:
+            str_start = text
+            x_start = x
+            y_start = y
+            break
+
+
+    print(text)
+    print(x_start * 10000 + y_start)
+
+
+    # ID 클릭
+    pyautogui.moveTo(int(width_google * 0.5 + x_start), int(height_google * 0.3 + y_start), 2.0)   # ID 클릭
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(3)
+
+
+    pyautogui.moveTo(int(width_google * 0.70), int(height_google * 0.63), 2.0)   # 계속
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    app.window(handle=win._hWnd).set_focus()
+
+
+    time.sleep(5)
+
+    pyautogui.moveTo(left+(width*0.15), top+(height*0.87), 2.0)   # 플레이
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(60)
+
+
+
+
+
+
+
+
+
+    return
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 def dungeon_ar():
     try:
@@ -850,8 +1005,9 @@ def play_ar():
 
 if __name__ == "__main__":
     # play_ar()
-    dungeon_ar()
+    # dungeon_ar()
     # dungeon_ar_end()
+    on()
 
 
 

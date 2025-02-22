@@ -8,14 +8,7 @@ import easyocr
 import re
 import psutil
 import subprocess
-
-
-
-left, top, width, height = 0, 0, 0, 0
-che = 1000
-wins = None
-app = None
-
+import os
 
 
 
@@ -333,7 +326,7 @@ def l08_stove():
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left_response+(width_response*0.7), top_response+(height_response*0.85), 2.0) # 플레이
+    pyautogui.moveTo(left_response+(width_response*0.88), top_response+(height_response*0.85), 2.0) # 플레이
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -404,7 +397,7 @@ def l08_stove():
             pyautogui.mouseUp()
             
             break
-    time.sleep(60)
+        time.sleep(60)
 
 
 
@@ -558,9 +551,98 @@ def l06_heal():
         print("HP ocr 인식 오류")
 
 
-            
+def on():
+    print("로드나인 on   " + time.strftime("%H:%M", time.localtime()))
+
+
+
+    if gw.getWindowsWithTitle('LORDNINE'):
+        gw.getWindowsWithTitle('LORDNINE')[0].close()   # 로드나인 닫기
+        time.sleep(5)
+        
+
+
+    for proc in psutil.process_iter():
+        if proc.name().lower() == "stove.exe":
+            proc.kill()
+            print(f"{proc.name()} 종료됨")        
+
+    if os.environ.get('COMPUTERNAME') == "DESKTOP-LRGAL8H":
+        subprocess.Popen(r"D:\ProgramData\Smilegate\STOVE\STOVE.exe", shell=True)
+    else:
+        subprocess.Popen(r"C:\ProgramData\Smilegate\STOVE\STOVE.exe", shell=True)
+
+    time.sleep(50)
+
+
+
+
+
+    win = gw.getWindowsWithTitle('STOVE')[0]
+
+    print(f"{win.title} (위치: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
+
+
+    app_stove = Application().connect(handle=win._hWnd)
+
+    if not (app_stove.window(handle=win._hWnd).is_enabled() and app_stove.window(handle=win._hWnd).is_visible()):
+        print("창이 비활성화되어 있거나 보이지 않습니다.")
+        return False
+
+    try:
+        app_stove.window(handle=win._hWnd).set_focus()
+    except RuntimeError as e:
+        print(f"Error: {e}")
+        return False
+
+    """
+    pyautogui.moveTo(win.left+(win.width*0.2), win.top+(win.height*0.23), 2.0) # 스토브 로그인
+    pyautogui.mouseDown()
+    time.sleep(0.3)
+    pyautogui.mouseUp()
+
+    time.sleep(0.5)
+    """
 
     
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
+        pyautogui.write('s070092@kakao.com')
+    elif os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+        pyautogui.write('s070092@nate.com')        
+    elif os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
+        pyautogui.write('s0700921@nate.com')
+    elif os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+        pyautogui.write('ground077@naver.com')        
+    else:
+        pyautogui.write('ground077@kakao.com')
+    pyautogui.press("enter")
+    
+
+    pyautogui.moveTo(win.left+(win.width*0.2), win.top+(win.height*0.3), 0.3) # 입력
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.write('windows1!')
+    pyautogui.press("enter")
+
+    time.sleep(10)
+
+
+
+    pyautogui.moveTo(win.left-(win.width*0.08), win.top+(win.height*0.1), 0.3) # 로드나인
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()    
+
+    l08_stove()
+
+
+
+
+
+
 
 
 def play_lo():
@@ -598,57 +680,9 @@ def play_lo():
 
 
 
-
-    ### l08_stove():
-    ######  STOVE 여는 로직, ID, PW ###########
-
-
-
-    
-
-    # 마을 체크
-        
-
-
-    ### 체크        if 복구: l02_bok => 마을, 전투
-    ###             elif 마을:  l03_jangbi => l04_maul => l05_fight
-    ###             elif 전투: l03_jangbi     if che < 1: l06_heal
-
-
-
-
-
-
-
-
-
-
-    # LORDNINE 없으면 STOVE
-    #          있으면 응답없음, 복구, 마을, 전투
-
-
-
-
-
-
-    # STOVE          복구, 마을, 전투
-    #    복구 (l02_bok => l04_jangbi => l03_maul => fight)
-    #    마을 (l04_jangbi => l03_maul => fight)
-    #    전투 (l04_jangbi)
-
-
-    # 응답없음 (l07_response => l08_stove)
-    # 복구 (l02_bok => l04_jangbi => l03_maul => fight)
-    # 마을 (l04_jangbi => l03_maul => fight)
-    # 전투 (l04_jangbi)
-
-               
-    # AUTO, 절전
-
-
-
 if __name__ == "__main__":
     play_lo()
+    # on()
     
 
 
