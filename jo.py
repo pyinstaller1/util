@@ -697,10 +697,10 @@ def on():
     app_manager = Application().connect(handle=win_multi._hWnd)
     app_manager.window(handle=win_multi._hWnd).set_focus()
 
-    time.sleep(1)
+    time.sleep(3)
     pyautogui.moveTo(win_multi.left+(win_multi.width*0.78), win_multi.top+(win_multi.height*0.30), 2.0)   # 실행 버튼
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.5)
     pyautogui.mouseUp()
 
 
@@ -733,10 +733,7 @@ def on():
 
     global app
     app = Application().connect(handle=win._hWnd)
-    print(7)
-
     app.window(handle=win._hWnd).set_focus()
-    print(77)
 
 
     global left, top, width, height
@@ -747,17 +744,14 @@ def on():
 
     time.sleep(1)
 
-    print(777)
 
     # 광고 닫기
     pyautogui.moveTo(left+(width*0.80), top+(height*0.21), 2.0)
-    print(7777777)
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
 
     time.sleep(3)
-    print(777777777777)
 
 
 
@@ -793,7 +787,7 @@ def on():
 
     pyautogui.moveTo(win_multi.left+(win_multi.width*0.78), win_multi.top+(win_multi.height*0.30), 2.0)   # 실행 버튼
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.5)
     pyautogui.mouseUp()
 
     for i in range(18):
