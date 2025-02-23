@@ -4,7 +4,7 @@ import jo, lo, ar, dal, ares, ymir
 import time
 import os
 import subprocess
-
+import pygetwindow as gw
 
 
 # "DESKTOP-OHGK5MV"
