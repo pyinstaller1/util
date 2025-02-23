@@ -839,6 +839,9 @@ def on():
             y_start = y
             continue
 
+
+    time.sleep(3)
+    
     # 조선협객전 클릭
     pyautogui.moveTo(left+int(width*0.25) + x_start, top+int(height*0.318) + y_start - int(height*0.057), 2.0)   # 바탕화면
     pyautogui.mouseDown()
