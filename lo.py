@@ -331,7 +331,7 @@ def l08_stove():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(50)   # 50
+    time.sleep(30)   # 50
 
 
 
@@ -353,13 +353,37 @@ def l08_stove():
             height = win.height
 
 
-            pyautogui.moveTo(left+(width*0.5), top+(height*0.7), 2.0) # Start
+            pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
             pyautogui.mouseDown()
             time.sleep(0.1)
             pyautogui.mouseUp()
+            time.sleep(10)
+
+            pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
+            pyautogui.mouseDown()
+            time.sleep(0.1)
+            pyautogui.mouseUp()
+            time.sleep(10)
+
+            pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
+            pyautogui.mouseDown()
+            time.sleep(0.1)
+            pyautogui.mouseUp()
+            time.sleep(10)
+
+            pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
+            pyautogui.mouseDown()
+            time.sleep(0.1)
+            pyautogui.mouseUp()
+            time.sleep(10)
+
+            pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
+            pyautogui.mouseDown()
+            time.sleep(0.1)
+            pyautogui.mouseUp()
+            time.sleep(10)
 
 
-            time.sleep(30)   # 30
 
 
             scr_check = pyautogui.screenshot(region=(left + int(width*0.5), top + int(height*0.6), int(width*0.15), int(height*0.1)))
@@ -389,9 +413,9 @@ def l08_stove():
             time.sleep(0.1)
             pyautogui.mouseUp()
 
-            time.sleep(30)   # 30
+            time.sleep(10)
             
-            pyautogui.moveTo(left+(width*0.87), top+(height*0.93), 2.0) # 접속
+            pyautogui.moveTo(left+(width*0.87), top+(height*0.93), 2.0) # Start
             pyautogui.mouseDown()
             time.sleep(0.1)
             pyautogui.mouseUp()
@@ -502,7 +526,10 @@ def l05_fight():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-
+    pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
 
 
 
@@ -572,8 +599,7 @@ def on():
     else:
         subprocess.Popen(r"C:\ProgramData\Smilegate\STOVE\STOVE.exe", shell=True)
 
-    time.sleep(50)
-
+    time.sleep(15)
 
 
 
@@ -631,12 +657,33 @@ def on():
 
 
 
-    pyautogui.moveTo(win.left-(win.width*0.08), win.top+(win.height*0.1), 0.3) # 로드나인
+    pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 0.3) # 로드나인
     pyautogui.mouseDown()
     time.sleep(0.1)
-    pyautogui.mouseUp()    
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 3) # 로드나인
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 3) # 로드나인
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
 
     l08_stove()
+
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.7), 2.0) # AUTO
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    l02_bok()
+    l03_jangbi()
+    l04_maul()   # l05_fight() 포함
+
 
 
 
@@ -681,8 +728,8 @@ def play_lo():
 
 
 if __name__ == "__main__":
-    play_lo()
-    # on()
+    # play_lo()
+    on()
     
 
 
