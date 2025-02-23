@@ -685,7 +685,7 @@ def on():
 
     time.sleep(3)
     for i in range(18):
-        print("멀티 매니저를 오픈 합니다. " + str(i))
+        print("멀티 매니저를 오픈 합니다. " + str(i+1))
         if gw.getWindowsWithTitle('멀티 매니저'):
             break
         time.sleep(10)
@@ -705,13 +705,14 @@ def on():
 
 
     for i in range(18):
-        print("LDPlayer를 오픈 합니다. " + str(i))
+        print("LDPlayer를 오픈 합니다. " + str(i+1))
 
         if gw.getWindowsWithTitle('LDPlayer'):
             break
         time.sleep(10)
     print("LDPlayer 오픈 완료")
 
+    time.sleep(30)
 
 
 
@@ -764,7 +765,7 @@ def on():
 
     time.sleep(3)
     for i in range(18):
-        print("멀티 매니저를 오픈 합니다. " + str(i))
+        print("멀티 매니저를 오픈 합니다. " + str(i+1))
         if gw.getWindowsWithTitle('멀티 매니저'):
             break
         time.sleep(10)
@@ -785,12 +786,13 @@ def on():
     pyautogui.mouseUp()
 
     for i in range(18):
-        print("LDPlayer를 오픈 합니다. " + str(i))
+        print("LDPlayer를 오픈 합니다. " + str(i+1))
 
         if gw.getWindowsWithTitle('LDPlayer'):
             break
         time.sleep(10)
     print("LDPlayer 오픈 완료")
+    time.sleep(30)
 
 
     win = gw.getWindowsWithTitle('LDPlayer')[0]
@@ -849,10 +851,18 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(8)
+    time.sleep(15)
 
 
+    pyautogui.moveTo(left+(width*0.57), top+(height*0.71), 2.0) # 업데이트 확인 버튼
 
+    time.sleep(1)
+
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+        
     scr_google = pyautogui.screenshot(region=(left+int(width*0.25), top+int(height*0.38), int(width*0.38), int(height*0.3)))
     scr_google_np = np.array(scr_google)
     scr_google.save("scr_jo_google.png")
