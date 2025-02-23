@@ -920,7 +920,7 @@ def on():
 
     else:
 
-        time.sleep(60)
+        time.sleep(100)
         
 
         """
