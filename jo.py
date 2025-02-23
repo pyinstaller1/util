@@ -743,6 +743,8 @@ def on():
     width = win.width
     height = win.height
 
+    time.sleep(1)
+
 
     # 광고 닫기
     pyautogui.moveTo(left+(width*0.80), top+(height*0.21), 2.0)
@@ -771,7 +773,7 @@ def on():
             break
         time.sleep(10)
     win_multi = gw.getWindowsWithTitle('멀티 매니저')[0]
-    print("LDPlayer 오픈 완료")
+    print("멀티 매니저 오픈 완료")
 
 
     
@@ -809,6 +811,7 @@ def on():
     width = win.width
     height = win.height
 
+    time.sleep(1)
 
 
     # 조선협객전을 OCR로 찾기
