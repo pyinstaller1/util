@@ -777,8 +777,16 @@ def on():
 
 
 
+
+    for proc in psutil.process_iter():
+        if "ACProject" in proc.name():
+            proc.kill()
+            print("아스달을 닫았습니다.")
+
+            
+
     if gw.getWindowsWithTitle('Arthdal Chronicles'):
-        gw.getWindowsWithTitle('Arthdal Chronicles').close()
+        gw.getWindowsWithTitle('Arthdal Chronicles')[0].close()
 
         
     if gw.getWindowsWithTitle('NetmarbleLauncher'):
@@ -786,7 +794,6 @@ def on():
 
 
     if os.environ.get('COMPUTERNAME') == "DESKTOP-LRGAL8H":
-        # subprocess.Popen(r'"D:\Program Files\Netmarble\Netmarble Launcher.exe"', shell=True)
         subprocess.Popen(r"D:\Program Files\Netmarble\Netmarble Launcher\Netmarble Launcher.exe")
 
     else:
@@ -897,8 +904,95 @@ def on():
 
 
 
+    pyautogui.moveTo(left+(width*0.15), top+(height*0.87), 2.0)   # 플레이
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
 
 
+    win = gw.getWindowsWithTitle('Arthdal Chronicles')[0]
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+    print("아스달 오픈")
+
+
+
+
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # Start
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(10)
+
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.38), 2.0)   # 서버 선택
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+    time.sleep(3)
+
+
+    pyautogui.moveTo(left+(width*0.57), top+(height*0.63), 0.5)   # 점검
+    pyautogui.mouseDown()
+    time.sleep(0.5)
+    pyautogui.mouseUp()
+
+    time.sleep(0.5)
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.617), 0.5)   # 점검
+    pyautogui.mouseDown()
+    time.sleep(0.5)
+    pyautogui.mouseUp()
+
+    time.sleep(0.5)
+
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 0.5)   # 점검
+    pyautogui.mouseDown()
+    time.sleep(0.5)
+    pyautogui.mouseUp()
+
+    time.sleep(0.5)
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.38), 0.5)   # 점검
+    pyautogui.mouseDown()
+    time.sleep(0.5)
+    pyautogui.mouseUp()
+       
+
+
+
+
+
+
+    pyautogui.moveTo(left+(width*0.838), top+(height*0.238), 1.0)   # X
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+        
+
+    pyautogui.moveTo(left+(width*0.838), top+(height*0.938), 1.0)   # 게임 시작
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(30)
+
+    pyautogui.press('c')
+
+    time.sleep(1)
+
+    pyautogui.moveTo(left+(width*0.038), top+(height*0.61), 2.0)   # 절전
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
 
 
 
