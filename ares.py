@@ -919,7 +919,7 @@ def on(check):
     pyautogui.press('tab')
     pyautogui.press('enter')
 
-    time.sleep(60)
+    time.sleep(100)
 
 
 
@@ -958,11 +958,13 @@ def on(check):
     pyautogui.write('windows1!')
     pyautogui.press("enter")
 
-    time.sleep(30)
+    time.sleep(50)
 
 
     win = gw.getWindowsWithTitle('ARES Launcher')[len(gw.getWindowsWithTitle('ARES Launcher'))-1]
 
+    time.sleep(1)
+    
     pyautogui.moveTo(win.left+(win.width*0.87), win.top+(win.height*0.78), 2.0) # 게임 실행
     pyautogui.mouseDown()
     time.sleep(0.1)
