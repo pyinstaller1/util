@@ -88,6 +88,7 @@ def p02_bok():
 
     global left, top, width, height
 
+
     # s02_bok
     # 절전 모드 해제
     pyautogui.moveTo(left+(width*0.433), top+(height*0.86), 2.0)
@@ -683,11 +684,13 @@ def on():
     print("멀티 매니저를 실행했습니다.")
 
     time.sleep(3)
-    for i in range(10):
+    for i in range(18):
+        print("멀티 매니저를 오픈 합니다. " + str(i))
         if gw.getWindowsWithTitle('멀티 매니저'):
             break
-        time.sleep(30)
+        time.sleep(10)
     win_multi = gw.getWindowsWithTitle('멀티 매니저')[0]
+    print("멀티 매니저 오픈 완료")
 
 
     # 멀티 매니저창 활성화
@@ -701,10 +704,13 @@ def on():
 
 
 
-    for i in range(10):
+    for i in range(18):
+        print("LDPlayer를 오픈 합니다. " + str(i))
+
         if gw.getWindowsWithTitle('LDPlayer'):
             break
         time.sleep(10)
+    print("LDPlayer 오픈 완료")
 
 
 
@@ -750,18 +756,23 @@ def on():
 
     # LD플레이어 다시 열기
     gw.getWindowsWithTitle('LDPlayer')[0].close()
+    gw.getWindowsWithTitle('멀티 매니저')[0].close()
+    
 
     subprocess.Popen(r"C:\LDPlayer\ldmutiplayer\dnmultiplayerex.exe", shell=True)  # 프로그램 실행
 
 
     time.sleep(3)
-    for i in range(10):
+    for i in range(18):
+        print("멀티 매니저를 오픈 합니다. " + str(i))
         if gw.getWindowsWithTitle('멀티 매니저'):
             break
-        elif i >= 9:
-            return
         time.sleep(10)
     win_multi = gw.getWindowsWithTitle('멀티 매니저')[0]
+    print("LDPlayer 오픈 완료")
+
+
+    
 
 
     # 멀티 매니저창 활성화
@@ -773,9 +784,13 @@ def on():
     time.sleep(1)
     pyautogui.mouseUp()
 
-    time.sleep(30)
+    for i in range(18):
+        print("LDPlayer를 오픈 합니다. " + str(i))
 
-
+        if gw.getWindowsWithTitle('LDPlayer'):
+            break
+        time.sleep(10)
+    print("LDPlayer 오픈 완료")
 
 
     win = gw.getWindowsWithTitle('LDPlayer')[0]
@@ -1113,8 +1128,8 @@ def play_jo():
 
 
 if __name__ == "__main__":
-    play_jo()
-    # on()
+    # play_jo()
+    on()
 
 
 
