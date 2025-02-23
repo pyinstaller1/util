@@ -896,7 +896,36 @@ def on():
             continue
     print(7)
 
-    app.window(handle=win._hWnd).set_focus()
+    
+    try:
+        time.sleep(5)
+        print(8)
+        app.window(handle=win._hWnd).set_focus()
+    except Exception as e:
+        try:
+            time.sleep(5)
+            print(8)
+            app.window(handle=win._hWnd).set_focus()
+        except Exception as e:
+            try:
+                time.sleep(5)
+                print(8)
+                app.window(handle=win._hWnd).set_focus()
+            except Exception as e:
+                try:
+                    time.sleep(5)
+                    print(8)
+                    app.window(handle=win._hWnd).set_focus()
+                except Exception as e:
+                    try:
+                        time.sleep(5)
+                        print(8)
+                        app.window(handle=win._hWnd).set_focus()
+                    except Exception as e:
+                        print(e)
+
+
+    
     time.sleep(3)
     
     # 조선협객전 클릭
