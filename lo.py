@@ -521,7 +521,7 @@ def l05_fight():
 
     time.sleep(60)
 
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.7), 2.0) # AUTO
+    pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -674,7 +674,10 @@ def on():
 
     l08_stove()
 
-    pyautogui.moveTo(left+(width*0.9), top+(height*0.7), 2.0) # AUTO
+
+    time.sleep(10)
+
+    pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -728,8 +731,8 @@ def play_lo():
 
 
 if __name__ == "__main__":
-    # play_lo()
-    on()
+    play_lo()
+    # on()
     
 
 
