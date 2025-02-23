@@ -838,12 +838,15 @@ def on():
             x_start = x
             y_start = y
             continue
+    print(7)
 
-
+    app.window(handle=win._hWnd).set_focus()
     time.sleep(3)
+    print(77)
     
     # 조선협객전 클릭
     pyautogui.moveTo(left+int(width*0.25) + x_start, top+int(height*0.318) + y_start - int(height*0.057), 2.0)   # 바탕화면
+    print(777)
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
