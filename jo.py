@@ -734,7 +734,39 @@ def on():
 
     print(7)
     global app
-    app = Application().connect(handle=win._hWnd)
+
+    try:
+        time.sleep(5)
+        print(8)
+        app = Application().connect(handle=win._hWnd)
+    except Exception as e:
+        try:
+            time.sleep(5)
+            print(8)
+            app = Application().connect(handle=win._hWnd)
+        except Exception as e:
+            try:
+                time.sleep(5)
+                print(8)
+                app = Application().connect(handle=win._hWnd)
+            except Exception as e:
+                try:
+                    time.sleep(5)
+                    print(8)
+                    app = Application().connect(handle=win._hWnd)
+                except Exception as e:
+                    try:
+                        time.sleep(5)
+                        print(8)
+                        app = Application().connect(handle=win._hWnd)
+                        except Exception as e:
+                            print(e)
+
+
+
+
+
+        
     print(7)
     app.window(handle=win._hWnd).set_focus()
     print(7)
