@@ -718,7 +718,6 @@ def on():
 
 
 
-
     # LD플레이어 화면
     global wins
     wins = [win for win in gw.getWindowsWithTitle('LDPlayer') if win.title.strip()]   # LD플레이어 윈도우 목록 가져오기
@@ -734,7 +733,10 @@ def on():
 
     global app
     app = Application().connect(handle=win._hWnd)
+    print(7)
+
     app.window(handle=win._hWnd).set_focus()
+    print(77)
 
 
     global left, top, width, height
@@ -745,14 +747,17 @@ def on():
 
     time.sleep(1)
 
+    print(777)
 
     # 광고 닫기
     pyautogui.moveTo(left+(width*0.80), top+(height*0.21), 2.0)
+    print(7777777)
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
 
     time.sleep(3)
+    print(777777777777)
 
 
 
@@ -761,6 +766,7 @@ def on():
     # LD플레이어 다시 열기
     gw.getWindowsWithTitle('LDPlayer')[0].close()
     gw.getWindowsWithTitle('멀티 매니저')[0].close()
+    print(8)
     
 
     subprocess.Popen(r"C:\LDPlayer\ldmutiplayer\dnmultiplayerex.exe", shell=True)  # 프로그램 실행
