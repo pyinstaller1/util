@@ -800,7 +800,9 @@ def on():
     time.sleep(30)
 
 
+    print(7)
     win = gw.getWindowsWithTitle('LDPlayer')[0]
+    print(77)
 
 
     app = Application().connect(handle=win._hWnd)
@@ -812,6 +814,7 @@ def on():
     height = win.height
 
     time.sleep(1)
+    print(777)
 
 
     # 조선협객전을 OCR로 찾기
@@ -821,12 +824,14 @@ def on():
 
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(scr_start_np)
+    print(77777)
 
     str_start = ""
     x_start = 0
     y_start = 0
 
     for detection in results:
+        print(777)
         bbox, text, confidence = detection
         top_left = bbox[0]
         bottom_right = bbox[2]
@@ -842,11 +847,9 @@ def on():
 
     app.window(handle=win._hWnd).set_focus()
     time.sleep(3)
-    print(77)
     
     # 조선협객전 클릭
     pyautogui.moveTo(left+int(width*0.25) + x_start, top+int(height*0.318) + y_start - int(height*0.057), 2.0)   # 바탕화면
-    print(777)
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
