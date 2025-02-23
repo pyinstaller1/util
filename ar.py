@@ -834,7 +834,7 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(7)
+    time.sleep(15)
 
     width_google, height_google = pyautogui.size()    
     
@@ -893,22 +893,14 @@ def on():
     app.window(handle=win._hWnd).set_focus()
 
 
-    time.sleep(5)
+    time.sleep(15)
 
-    pyautogui.moveTo(left+(width*0.15), top+(height*0.87), 2.0)   # 플레이
+    pyautogui.moveTo(left+(width*0.15), top+(height*0.87), 2.0)   # Run Game
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(60)
-
-
-
-    pyautogui.moveTo(left+(width*0.15), top+(height*0.87), 2.0)   # 플레이
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-
+    time.sleep(50)
 
     win = gw.getWindowsWithTitle('Arthdal Chronicles')[0]
     left = win.left
@@ -951,26 +943,21 @@ def on():
     time.sleep(0.5)
     pyautogui.mouseUp()
 
-    time.sleep(0.5)
+    time.sleep(5)
 
 
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 0.5)   # 점검
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2)   # 점검
     pyautogui.mouseDown()
     time.sleep(0.5)
     pyautogui.mouseUp()
 
     time.sleep(0.5)
 
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.38), 0.5)   # 점검
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.38), 2)   # 점검
     pyautogui.mouseDown()
     time.sleep(0.5)
     pyautogui.mouseUp()
        
-
-
-
-
-
 
     pyautogui.moveTo(left+(width*0.838), top+(height*0.238), 1.0)   # X
     pyautogui.mouseDown()
