@@ -688,7 +688,10 @@ def on():
     l04_maul()   # l05_fight() 포함
 
 
-
+    pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
 
 
 
