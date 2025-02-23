@@ -734,8 +734,8 @@ def play_lo():
 
 
 if __name__ == "__main__":
-    play_lo()
-    # on()
+    # play_lo()
+    on()
     
 
 
