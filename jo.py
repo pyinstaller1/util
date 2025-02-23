@@ -697,6 +697,7 @@ def on():
     app_manager = Application().connect(handle=win_multi._hWnd)
     app_manager.window(handle=win_multi._hWnd).set_focus()
 
+    time.sleep(1)
     pyautogui.moveTo(win_multi.left+(win_multi.width*0.78), win_multi.top+(win_multi.height*0.30), 2.0)   # 실행 버튼
     pyautogui.mouseDown()
     time.sleep(1)
@@ -779,6 +780,8 @@ def on():
     # 멀티 매니저창 활성화
     app_manager = Application().connect(handle=win_multi._hWnd)
     app_manager.window(handle=win_multi._hWnd).set_focus()
+
+    time.sleep(1)
 
     pyautogui.moveTo(win_multi.left+(win_multi.width*0.78), win_multi.top+(win_multi.height*0.30), 2.0)   # 실행 버튼
     pyautogui.mouseDown()
