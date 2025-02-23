@@ -851,17 +851,20 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(15)
+    time.sleep(30)
 
 
     pyautogui.moveTo(left+(width*0.57), top+(height*0.71), 2.0) # 업데이트 확인 버튼
-
     time.sleep(1)
+    pyautogui.mouseDown()
+    time.sleep(0.5)
+    pyautogui.mouseUp()
 
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.67), 2.0) # 업데이트 확인 버튼
+    time.sleep(0.5)
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
-
         
     scr_google = pyautogui.screenshot(region=(left+int(width*0.25), top+int(height*0.38), int(width*0.38), int(height*0.3)))
     scr_google_np = np.array(scr_google)
@@ -911,7 +914,7 @@ def on():
 
     else:
 
-        time.sleep(150)
+        time.sleep(60)
         
 
         """
@@ -930,6 +933,20 @@ def on():
         time.sleep(5)
         """
 
+
+    pyautogui.moveTo(left+(width*0.57), top+(height*0.71), 2.0) # 업데이트 확인 버튼
+    time.sleep(1)
+    pyautogui.mouseDown()
+    time.sleep(0.5)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.67), 2.0) # 업데이트 확인 버튼
+    time.sleep(0.5)
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
 
     # 입장
     pyautogui.moveTo(left+(width*0.5), top+(height*0.7), 2.0) # 메뉴
