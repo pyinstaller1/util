@@ -730,6 +730,7 @@ def on():
     choice = 0  # 첫 번째 윈도우 선택
     win = wins[choice]
     print(win.title)
+    time.sleep(5)
 
     print(7)
     global app
