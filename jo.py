@@ -735,6 +735,18 @@ def on():
     print(7)
     global app
 
+    for _ in range(5):  # 5번까지 재시도
+        try:
+            time.sleep(5)
+            print(8)
+            app = Application().connect(handle=win._hWnd)
+            break
+        except Exception as e:
+            print(f"재시도... ({e})")
+
+
+        
+    """
     try:
         time.sleep(5)
         print(8)
@@ -759,8 +771,9 @@ def on():
                         time.sleep(5)
                         print(8)
                         app = Application().connect(handle=win._hWnd)
-                        except Exception as e:
-                            print(e)
+                    except Exception as e:
+                        print(e)
+    """
 
 
 
