@@ -2,9 +2,9 @@
 
 import jo, lo, ar, dal, ares, ymir
 import time
-import numpy as np
-import keyboard
 import os
+import subprocess
+
 
 
 # "DESKTOP-OHGK5MV"
@@ -24,6 +24,12 @@ import os
 def on():
     print("on 시작   " + time.strftime("%H:%M", time.localtime()))
     desktop = os.environ.get('COMPUTERNAME')
+
+
+
+    for window in gw.getAllWindows(): # 기존의 total.py 닫기
+        if 'total' in window.title:
+            window.close()
 
     if 1==1:
         try:
@@ -53,7 +59,7 @@ def on():
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
-                ares.on()
+                ares.on(0)
             except Exception as e:
                 print(f"ar.play_ares() 오류: {e}")
                 
@@ -69,8 +75,8 @@ def on():
 
         print(os.environ.get('COMPUTERNAME') + " " + time.strftime("%H:%M", time.localtime()))
 
-
-
+    subprocess.Popen(f'start cmd /k python total.py', shell=True)
+    os.system("taskkill /F /PID " + str(os.getppid()))
 
 
 if __name__ == "__main__":
