@@ -731,10 +731,12 @@ def on():
     win = wins[choice]
     print(win.title)
 
+    print(7)
     global app
     app = Application().connect(handle=win._hWnd)
+    print(7)
     app.window(handle=win._hWnd).set_focus()
-
+    print(7)
 
     global left, top, width, height
     left = win.left
@@ -744,14 +746,16 @@ def on():
 
     time.sleep(1)
 
-
+    print(77)
     # 광고 닫기
     pyautogui.moveTo(left+(width*0.80), top+(height*0.21), 2.0)
+    print(777)
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
 
     time.sleep(3)
+    print(7777777)
 
 
 
