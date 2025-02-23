@@ -36,18 +36,15 @@ def a01_start():
 
     if not gw.getWindowsWithTitle('아레스'):
         print("아레스 창이 없습니다.")
-        a08_kakao()
-        return True
+        on(0)
+        return False
+
 
     """
     if len(gw.getWindowsWithTitle('아레스')) == 1:
         print("창이 1개만 있으므로 닫습니다.")
-
-        for proc in psutil.process_iter():
-            if "Ares.exe" in proc.name():  # 프로세스 이름을 확인
-                proc.kill()  # 강제 종료
-        d08_XL()
-        return True
+        on()
+        return False
     """
 
         
@@ -715,54 +712,46 @@ def a05_dungeon_week():
 
 
 
-def a08_kakao(mode=None):
+def on(check):
     print("아레스 a08_kakao   " + time.strftime("%H:%M", time.localtime()))
+            
+    for proc in psutil.process_iter():
+        if "Ares.exe" in proc.name():  # 프로세스 이름을 확인
+            proc.kill()  # 강제 종료
+            print("아레스 창을 닫았습니다.")
+        if "ARES_Launcher.exe" in proc.name():  # 프로세스 이름을 확인
+            proc.kill()  # 강제 종료
+            print("ARES Launcher 창을 닫았습니다.")
+                    
 
-    if mode == None:
-        cnt_check = 1
-    elif mode == "점검":
-        cnt_check = 1800
 
-        if gw.getWindowsWithTitle('아레스'):
-            print("점검이므로 창을 닫습니다.")
+    time.sleep(1)
 
-            for proc in psutil.process_iter():
-                if "Ares.exe" in proc.name():  # 프로세스 이름을 확인
-                    proc.kill()  # 강제 종료
-                if "ARES_Launcher.exe" in proc.name():  # 프로세스 이름을 확인
-                    proc.kill()  # 강제 종료
-
-        
 
     if os.environ.get('COMPUTERNAME') == "DESKTOP-LRGAL8H":
         subprocess.Popen(r"D:\Kakaogames\ARES\ARES_Launcher.exe", shell=True)
     else:
         subprocess.Popen(r"C:\Kakaogames\ARES\ARES_Launcher.exe", shell=True)
 
-    time.sleep(50)
+    print("ARES Launcher 오픈")
 
+    time.sleep(50)
 
 
 
 
     win = gw.getWindowsWithTitle('ARES Launcher')[0]
 
+
     print(f"{win.title} (위치: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
 
 
     app_kakao = Application().connect(handle=win._hWnd)
+    app_kakao.window(handle=win._hWnd).set_focus()
 
-    if not (app_kakao.window(handle=win._hWnd).is_enabled() and app_kakao.window(handle=win._hWnd).is_visible()):
-        print("창이 비활성화되어 있거나 보이지 않습니다.")
-        return False
 
-    try:
-        app_kakao.window(handle=win._hWnd).set_focus()
-    except RuntimeError as e:
-        print(f"Error: {e}")
-        return False
 
-    time.sleep(5)
+    time.sleep(3)
     
     pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.5), 2.0) # 카카오 로그인
     pyautogui.mouseDown()
@@ -795,353 +784,278 @@ def a08_kakao(mode=None):
     pyautogui.write('windows1!')
     pyautogui.press("enter")
 
+    time.sleep(30)
 
 
-
-
-    time.sleep(10)
-
-
-
-
-
-
-    win = gw.getWindowsWithTitle('ARES Launcher')[1]
+    win = gw.getWindowsWithTitle('ARES Launcher')[len(gw.getWindowsWithTitle('ARES Launcher'))-1]
 
     pyautogui.moveTo(win.left+(win.width*0.87), win.top+(win.height*0.78), 2.0) # 게임 실행
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+    time.sleep(10)
 
 
-
-    time.sleep(50)
-
-
-
-
-
-
-    win = gw.getWindowsWithTitle('아레스')[0]
+    for i in range(10):
+        time.sleep(60)
+        if gw.getWindowsWithTitle('아레스'):
+            win = gw.getWindowsWithTitle('아레스')[0]
+            break
 
 
+    global left, top, width, height
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
 
-    pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.6), 2.0) # 시작
+
+    pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.6), 2.0) # 점검 시작
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time,sleep(3)
+    time.sleep(1)
+
+
+
+
+    pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.6), 2.0) # 화면 클릭
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+    
+    pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.6), 2.0) # 화면 클릭
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    if check==1:   # 점검이면 return
+        return
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    time.sleep(10)
+
+    pyautogui.moveTo(left+(width*0.88), top+(height*0.738), 2.0)   # 게임 입장
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(30)
+
+
+    pyautogui.press('esc')   # 이벤트 제거
+    time.sleep(1)
+
+    pyautogui.press('esc')   # 이벤트 제거
+    time.sleep(1)    
+
+    pyautogui.press('esc')   # 이벤트 제거
+    time.sleep(1)
+    
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 이벤트 제거
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    
+    
+    time.sleep(3)
+
+    
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 화면 클릭
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+
+    pyautogui.press('g')   # AUTO
+
+    pyautogui.moveTo(left+(width*0.0278), top+(height*0.738), 2.0)   # 절전
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()    
+
+    time.sleep(1)
+
+
+
+
+
+
+
+    
+    win = gw.getWindowsWithTitle('ARES Launcher')[len(gw.getWindowsWithTitle('ARES Launcher'))-1]   # 로그아웃
+    app_kakao = Application().connect(handle=win._hWnd)
+    app_kakao.window(handle=win._hWnd).set_focus()
+
+    pyautogui.moveTo(win.left+(win.width*0.93), win.top+(win.height*0.08), 2.0)
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.press('down')
+    pyautogui.press('down')
+    pyautogui.press('enter')
+
+    time.sleep(1)
+
+    pyautogui.press('tab')
+    pyautogui.press('tab')
+    pyautogui.press('enter')
+
+    time.sleep(60)
+
+
+
+    # [1] 시작
+    win = gw.getWindowsWithTitle('ARES Launcher')[len(gw.getWindowsWithTitle('ARES Launcher'))-1]
+    app_kakao = Application().connect(handle=win._hWnd)
+    app_kakao.window(handle=win._hWnd).set_focus()
+    print("아레스[1] 시작")
+    
+    pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.5), 2.0) # 카카오 로그인
+    pyautogui.mouseDown()
+    time.sleep(0.3)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+
+
+    pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.17), 2.0) # 입력
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB"]:
+        pyautogui.write('s070092@nate.com')
+    else:
+        pyautogui.write('s0700921@nate.com')
+    pyautogui.press("enter")
+    
+
+    pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.3), 0.3) # 입력
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.write('windows1!')
+    pyautogui.press("enter")
+
+    time.sleep(30)
+
+
+    win = gw.getWindowsWithTitle('ARES Launcher')[len(gw.getWindowsWithTitle('ARES Launcher'))-1]
+
+    pyautogui.moveTo(win.left+(win.width*0.87), win.top+(win.height*0.78), 2.0) # 게임 실행
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    time.sleep(10)
+
+
+
+    for i in range(10):
+        time.sleep(60)
+        if gw.getWindowsWithTitle('아레스'):
+            win = gw.getWindowsWithTitle('아레스')[0]
+            break
+        
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+
+    pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.6), 2.0) # 점검 시작
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+
+
+
+
+    pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.6), 2.0) # 화면 클릭
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+    
+    pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.6), 2.0) # 화면 클릭
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(10)
+
+    pyautogui.moveTo(left+(width*0.88), top+(height*0.738), 2.0)   # 게임 입장
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(30)
+
+
+    pyautogui.press('esc')   # 이벤트 제거
+    time.sleep(1)
+
+    pyautogui.press('esc')   # 이벤트 제거
+    time.sleep(1)    
+
+    pyautogui.press('esc')   # 이벤트 제거
+    time.sleep(1)
+    
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 이벤트 제거
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    
+    
+    time.sleep(3)
+
+    
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 화면 클릭
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+
+    pyautogui.press('g')   # AUTO
+
+    pyautogui.moveTo(left+(width*0.0278), top+(height*0.738), 2.0)   # 절전
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()    
+
+
+    
     return
 
 
 
 
 
-
-
-
-    """
-
-    ###################
-
-
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 시작
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-
-
-    time.sleep(30)
-
-
-    pyautogui.moveTo(left+(width*0.88), top+(height*0.77), 2.0)   # 시작
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-
-    time.sleep(30)
-
-    pyautogui.moveTo(left+(width*0.83), top+(height*0.25), 2.0)   # X
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-
-
-    pyautogui.press("g")
-
-    ###################
-    
-    
-
-    if gw.getWindowsWithTitle('아레스'):
-        win = gw.getWindowsWithTitle('아레스')[0]
-    else:
-        return
-
-
-    print(win.title)
-    print(f"{win.title} (위치: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
-
-    global app
-    
-    app = Application().connect(handle=win._hWnd)
-    app.window(handle=win._hWnd).set_focus()
-
-
-    # global left, top, width, height
-
-    left = win.left
-    top = win.top
-    width = win.width
-    height = win.height
-
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.388), 2.0) # 구글로 로그인
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-
-    time.sleep(7)
-
-
-
-    scr_google = pyautogui.screenshot(region=(880, 380, 380, 500))
-    scr_google_np = np.array(scr_google)
-    scr_google.save("scr_dal_google.png")
-
-    # 복구 ocr 탐지
-    reader = easyocr.Reader(['ko', 'en'], gpu=False)
-    results = reader.readtext(scr_google_np)
-    print(results)
-
-
-
-    str_start = ""
-    x_start = 0
-    y_start = 0
-
-    for detection in results:
-        bbox, text, confidence = detection
-        top_left = bbox[0]
-        bottom_right = bbox[2]
-        x = (top_left[0] + bottom_right[0]) // 2
-        y = (top_left[1] + bottom_right[1]) // 2
-
-
-        # groundo77@navercom   s070092@nate corr
-
-        if "ground077@naver.com" in text or "groundo77@navercom" in text:
-            str_start = text
-            x_start = x
-            y_start = y
-            break
-
-
-    print(text)
-    print(x_start * 10000 + y_start)
-
-
-    # ID 클릭
-    pyautogui.moveTo(880 + x_start, 380 + y_start, 2.0)   # ID 클릭
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-
-    time.sleep(3)
-
-    app.window(handle=win._hWnd).set_focus()
-
-
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 클릭
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-    time.sleep(15)
-
-
-
-    # 점검
-    pyautogui.moveTo(left+(width*0.65), top+(height*0.7), 2.0)   # 확인
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-    print(f"점검 시작 {time.strftime('%H:%M', time.localtime())}")
-
-    ##########
-    time.sleep(cnt_check)   # 점검 30분
-    ##########
-    
-    print(f"점검 완료 {time.strftime('%H:%M', time.localtime())}")
-
-    pyautogui.moveTo(left+(width*0.87), top+(height*0.93), 2.0)   # 캐릭터 선택
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-
-    time.sleep(30)
-
-
-
-
-    pyautogui.moveTo(left+(width*0.918), top+(height*0.128), 2.0)   # 광고 제거
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-    time.sleep(3)
-
-
-    pyautogui.moveTo(left+(width*0.957), top+(height*0.75), 2.0)   # AUTO 
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-    
-    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-
-
-    ####################
-    ### [0]
-    ####################
-
-
-    if os.environ.get('COMPUTERNAME') == "DESKTOP-LRGAL8H":
-        subprocess.Popen(r"D:\Kakaogames\ARES\ARES_Launcher.exe", shell=True)
-    else:
-        subprocess.Popen(r"C:\Kakaogames\ARES\ARES_Launcher.exe", shell=True)
-        
-    print("아레스 오픈 완료")
-
-    time.sleep(10)
-    pyautogui.moveTo(1288, 780, 1.0)   # 게임 시작
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-    time.sleep(60)
-
-    win = gw.getWindowsWithTitle('아레스')[0]
-
-
-    print(win.title)
-    print(f"{win.title} (위치[0]: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
-
-    # global app
-    
-    app = Application().connect(handle=win._hWnd)
-    app.window(handle=win._hWnd).set_focus()
-
-
-    # global left, top, width, height
-
-    left = win.left
-    top = win.top
-    width = win.width
-    height = win.height
-
-
-
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.388), 2.0) # 구글로 로그인
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-
-    time.sleep(8)
-
-
-
-    scr_google = pyautogui.screenshot(region=(880, 380, 380, 500))
-    scr_google_np = np.array(scr_google)
-    scr_google.save("scr_dal_google[0].png")
-
-    # 복구 ocr 탐지
-    reader = easyocr.Reader(['ko', 'en'], gpu=False)
-    results = reader.readtext(scr_google_np)
-    print(results)
-
-
-
-    str_start = ""
-    x_start = 0
-    y_start = 0
-
-    for detection in results:
-        bbox, text, confidence = detection
-        top_left = bbox[0]
-        bottom_right = bbox[2]
-        x = (top_left[0] + bottom_right[0]) // 2
-        y = (top_left[1] + bottom_right[1]) // 2
-
-
-        # groundo77@navercom   s070092@nate corr
-
-        if "s070092@nate.com" in text or "070092@nate" in text:
-            str_start = text
-            x_start = x
-            y_start = y
-            break
-
-
-    print(text)
-    print(x_start * 10000 + y_start)
-
-
-    # ID 클릭
-    pyautogui.moveTo(880 + x_start, 380 + y_start, 2.0)   # ID 클릭
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-
-    time.sleep(3)
-
-    app.window(handle=win._hWnd).set_focus()
-
-
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 클릭
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-    time.sleep(15)
-
-
-    # 점검
-    pyautogui.moveTo(left+(width*0.65), top+(height*0.7), 2.0)   # 확인
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-
-    pyautogui.moveTo(left+(width*0.87), top+(height*0.93), 2.0)   # 캐릭터 선택
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-
-    time.sleep(30)
-
-
-    pyautogui.moveTo(left+(width*0.918), top+(height*0.128), 2.0)   # 광고 제거
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-    time.sleep(3)
-
-
-    pyautogui.moveTo(left+(width*0.957), top+(height*0.75), 2.0)   # AUTO 
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-    """
-    
 
 
 
@@ -1260,25 +1174,6 @@ def play_ares(dungeon=None):
 
 
 
-def check_dal():
-    try:
-        d08_XL("점검")
-    except Exception as e:
-        print(f"달빛조각사 d01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
-
-
-    try:
-        d02_bok()
-    except Exception as e:
-        print(f"달빛조각사 d03_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
-
-
-    try:
-        d03_jangbi()
-    except Exception as e:
-        print(f"달빛조각사 d02_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")   
-
-
 
 
 
@@ -1287,11 +1182,9 @@ def check_dal():
 
 
 if __name__ == "__main__":
-    play_ares()
-    # check_dal()
+    # play_ares()
+    on(0)
 
-    # dungeon_ares()
-    # dungeon_week_ares()
 
 
 
