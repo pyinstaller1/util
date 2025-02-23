@@ -699,7 +699,12 @@ def on():
     time.sleep(1)
     pyautogui.mouseUp()
 
-    time.sleep(30)
+
+
+    for i in range(10):
+        if gw.getWindowsWithTitle('LDPlayer'):
+            break
+        time.sleep(10)
 
 
 
