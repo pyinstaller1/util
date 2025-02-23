@@ -578,6 +578,16 @@ def l06_heal():
         print("HP ocr 인식 오류")
 
 
+
+
+
+
+
+
+
+
+
+
 def on():
     print("로드나인 on   " + time.strftime("%H:%M", time.localtime()))
 
@@ -657,20 +667,39 @@ def on():
 
 
 
-    pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 0.3) # 로드나인
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.28), 0.3) # 로드나인
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
 
-    pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 3) # 로드나인
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
+        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.28), 3) # 로드나인
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
 
-    pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 3) # 로드나인
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
+        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.28), 3) # 로드나인
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+
+    else:
+        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 0.3) # 로드나인
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 3) # 로드나인
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 3) # 로드나인
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
 
     l08_stove()
 
