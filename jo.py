@@ -776,13 +776,37 @@ def on():
                         print(e)
 
 
-
+    try:
+        time.sleep(5)
+        print(8)
+        app.window(handle=win._hWnd).set_focus()
+    except Exception as e:
+        try:
+            time.sleep(5)
+            print(8)
+            app.window(handle=win._hWnd).set_focus()
+        except Exception as e:
+            try:
+                time.sleep(5)
+                print(8)
+                app.window(handle=win._hWnd).set_focus()
+            except Exception as e:
+                try:
+                    time.sleep(5)
+                    print(8)
+                    app.window(handle=win._hWnd).set_focus()
+                except Exception as e:
+                    try:
+                        time.sleep(5)
+                        print(8)
+                        app.window(handle=win._hWnd).set_focus()
+                    except Exception as e:
+                        print(e)
 
 
 
         
-    print(7)
-    app.window(handle=win._hWnd).set_focus()
+    
     print(7)
 
     global left, top, width, height
@@ -834,6 +858,8 @@ def on():
     app_manager = Application().connect(handle=win_multi._hWnd)
     app_manager.window(handle=win_multi._hWnd).set_focus()
 
+
+
     time.sleep(1)
 
     pyautogui.moveTo(win_multi.left+(win_multi.width*0.78), win_multi.top+(win_multi.height*0.30), 2.0)   # 실행 버튼
@@ -856,8 +882,73 @@ def on():
     print(77)
 
 
-    app = Application().connect(handle=win._hWnd)
-    app.window(handle=win._hWnd).set_focus()
+    # app = Application().connect(handle=win._hWnd)
+    # app.window(handle=win._hWnd).set_focus()
+
+
+    try:
+        time.sleep(5)
+        print(8)
+        app = Application().connect(handle=win._hWnd)
+    except Exception as e:
+        try:
+            time.sleep(5)
+            print(8)
+            app = Application().connect(handle=win._hWnd)
+        except Exception as e:
+            try:
+                time.sleep(5)
+                print(8)
+                app = Application().connect(handle=win._hWnd)
+            except Exception as e:
+                try:
+                    time.sleep(5)
+                    print(8)
+                    app = Application().connect(handle=win._hWnd)
+                except Exception as e:
+                    try:
+                        time.sleep(5)
+                        print(8)
+                        app = Application().connect(handle=win._hWnd)
+                    except Exception as e:
+                        print(e)
+
+
+    try:
+        time.sleep(5)
+        print(8)
+        app.window(handle=win._hWnd).set_focus()
+    except Exception as e:
+        try:
+            time.sleep(5)
+            print(8)
+            app.window(handle=win._hWnd).set_focus()
+        except Exception as e:
+            try:
+                time.sleep(5)
+                print(8)
+                app.window(handle=win._hWnd).set_focus()
+            except Exception as e:
+                try:
+                    time.sleep(5)
+                    print(8)
+                    app.window(handle=win._hWnd).set_focus()
+                except Exception as e:
+                    try:
+                        time.sleep(5)
+                        print(8)
+                        app.window(handle=win._hWnd).set_focus()
+                    except Exception as e:
+                        print(e)
+
+
+
+
+
+
+
+
+
 
     left = win.left
     top = win.top
