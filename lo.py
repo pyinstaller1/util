@@ -318,6 +318,10 @@ def l08_stove():
     width_response = win.width
     height_response = win.height
 
+    pyautogui.sleep(1)
+    pyautogui.press('enter')
+    pyautogui.sleep(0.1)
+
 
 
     pyautogui.moveTo(left_response+(width_response*0.62), top_response+(height_response*0.81), 2.0) # 공지 닫기
@@ -421,7 +425,7 @@ def l08_stove():
             pyautogui.mouseUp()
             
             break
-        time.sleep(60)
+        time.sleep(80)
 
 
 
@@ -683,6 +687,9 @@ def on():
         time.sleep(0.1)
         pyautogui.mouseUp()
 
+        time.sleep(0.1)
+        pyautogui.press("enter")
+
 
     else:
         pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 0.3) # 로드나인
@@ -700,11 +707,13 @@ def on():
         time.sleep(0.1)
         pyautogui.mouseUp()
 
+        time.sleep(0.1)
+        pyautogui.press("enter")
 
     l08_stove()
 
 
-    time.sleep(10)
+    time.sleep(20)
 
     pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
     pyautogui.mouseDown()

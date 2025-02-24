@@ -131,7 +131,8 @@ def a01_start():
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.mouseUp()
-        
+
+        time.sleep(5)        
 
         pyautogui.moveTo(left+(width*0.838), top+(height*0.938), 1.0)   # 게임 시작
         pyautogui.mouseDown()
@@ -963,14 +964,15 @@ def on():
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
-        
+
+    time.sleep(5)
 
     pyautogui.moveTo(left+(width*0.838), top+(height*0.938), 1.0)   # 게임 시작
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
 
-    time.sleep(30)
+    time.sleep(38)
 
     pyautogui.press('c')
 
