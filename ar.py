@@ -901,7 +901,7 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(50)
+    time.sleep(80)
 
     win = gw.getWindowsWithTitle('Arthdal Chronicles')[0]
     left = win.left
