@@ -885,6 +885,20 @@ def on(check):
     time.sleep(1)
 
     pyautogui.press('g')   # AUTO
+    
+
+    # 복구 ocr 탐지
+    scr_bok = pyautogui.screenshot(region=(left + int(width*0.006), top + int(height*0.1), int(width*0.1), int(height*0.2)))
+    scr_bok_np = np.array(scr_bok)
+    scr_bok.save("scr_ares_bok.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_bok_np)
+    print(results[0][1])
+
+    if results[0][1][0] == "광":
+        a02_bok()
+
 
     pyautogui.moveTo(left+(width*0.0278), top+(height*0.738), 2.0)   # 절전
     pyautogui.mouseDown()
@@ -1044,6 +1058,22 @@ def on(check):
     time.sleep(1)
 
     pyautogui.press('g')   # AUTO
+    
+
+    # 복구 ocr 탐지
+    scr_bok = pyautogui.screenshot(region=(left + int(width*0.006), top + int(height*0.1), int(width*0.1), int(height*0.2)))
+    scr_bok_np = np.array(scr_bok)
+    scr_bok.save("scr_ares_bok.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_bok_np)
+    print(results[0][1])
+
+    if results[0][1][0] == "광":
+        a02_bok()
+
+
+
 
     pyautogui.moveTo(left+(width*0.0278), top+(height*0.738), 2.0)   # 절전
     pyautogui.mouseDown()
