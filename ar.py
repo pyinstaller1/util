@@ -835,7 +835,11 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(15)
+    time.sleep(20)
+
+    pyautogui.hotkey('win', 'up')
+
+    time.sleep(1)
 
     width_google, height_google = pyautogui.size()    
     
