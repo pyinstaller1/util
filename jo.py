@@ -1191,7 +1191,7 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()   
 
-    time.sleep(38)
+    time.sleep(50)
 
 
     # 미션 건너뛰기
