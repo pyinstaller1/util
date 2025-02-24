@@ -866,15 +866,26 @@ def on():
         x = (top_left[0] + bottom_right[0]) // 2
         y = (top_left[1] + bottom_right[1]) // 2
 
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H", "DESKTOP-OHGK5MV"]:
+            if "77@" in text:
+                str_start = text
+                x_start = x
+                y_start = y
+                break
 
-        # groundo77@navercom   s070092@nate corr
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+            if "92@" in text:
+                str_start = text
+                x_start = x
+                y_start = y
+                break
 
-        if "ground077@naver.com" in text or "groundo77@navercom" in text:
-            str_start = text
-            x_start = x
-            y_start = y
-            break
-
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
+            if "921@" in text:
+                str_start = text
+                x_start = x
+                y_start = y
+                break            
 
     print(text)
     print(x_start * 10000 + y_start)
