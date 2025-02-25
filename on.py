@@ -54,21 +54,21 @@ def on():
             try:
                 dal.on()
             except Exception as e:
-                print(f"dal.play_dal() 오류: {e}")
+                print(f"dal.on() 오류: {e}")
 
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ares.on(0)
             except Exception as e:
-                print(f"ar.play_ares() 오류: {e}")
+                print(f"ares.on() 오류: {e}")
                 
 
         if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ymir.on()
             except Exception as e:
-                print(f"ymir.play() 오류: {e}")
+                print(f"ymir.on() 오류: {e}")
 
 
 

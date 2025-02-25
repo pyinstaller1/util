@@ -9,6 +9,7 @@ import re
 import psutil
 import subprocess
 import os
+import webbrowser
 
 
 
@@ -66,7 +67,7 @@ def s02_bok():
     results = reader.readtext(scr_bok_np)
     print(results)
 
-    if results[0][1][0] == "의":
+    if results and results[0][1][0] == "의":
         print("여기는 마을")
     else:
         return
@@ -526,14 +527,43 @@ def s04_dungeon():
 def on():
     print("이미르 on   " + time.strftime("%H:%M", time.localtime()))
 
+    os.system("taskkill /F /IM Ymir-Win64-Shipping.exe")
+    os.system("taskkill /F /IM Ymir.exe")
 
-    """
-    if gw.getWindowsWithTitle('Ymir  '):
-        gw.getWindowsWithTitle('Ymir  ')[0].close()   # 이미르 닫기
-        time.sleep(5)
 
-    time.sleep(10)   # 100
-    """
+    time.sleep(1)
+
+    
+    webbrowser.open("https://www.legendofymir.co.kr/")
+    time.sleep(0.3)
+
+    pyautogui.hotkey('win', 'up')
+
+    time.sleep(3)
+
+    x, y = pyautogui.size()
+    pyautogui.click(pyautogui.size()[0] * 0.5, pyautogui.size()[1] * 0.75)
+
+    time.sleep(10)
+
+
+
+
+    win = gw.getWindowsWithTitle('Legend of Ymir Launcher')[0]
+    print(f"{win.title} (위치: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
+
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
+
+    time.sleep(1)
+
+    
+    pyautogui.click(pyautogui.size()[0] * 0.7, pyautogui.size()[1] * 0.75)
+
+    time.sleep(60)
+
+
+
 
     win = gw.getWindowsWithTitle('Ymir  ')[0]
     print(f"{win.title} (위치: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
@@ -547,14 +577,56 @@ def on():
     width = win.width
     height = win.height
 
+    time.sleep(1)
 
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 1.0) # Start
+    pyautogui.moveTo(left+(width*0.25), top+(height*0.77), 1.0) # 광고 
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
+
+
+    time.sleep(1)
+
+    pyautogui.moveTo(left+(width*0.25), top+(height*0.77), 1.0) # 광고
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    time.sleep(1)
+
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.58), 1.0) # Start
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
     
-    time.sleep(50)
+    time.sleep(1)
+
+
+    pyautogui.moveTo(left+(width*0.25), top+(height*0.77), 1.0) # 광고 
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
+    time.sleep(1)
+
+    pyautogui.moveTo(left+(width*0.25), top+(height*0.77), 1.0) # 광고
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.58), 1.0) # Start
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+
+    
+    time.sleep(8)
 
     """
     pyautogui.moveTo(left+(width*0.938), top+(height*0.938), 0.5) # 점검버튼
@@ -564,12 +636,12 @@ def on():
     """
     
 
-    pyautogui.moveTo(left+(width*0.938), top+(height*0.938), 0.5) # 캐릭터선택
+    pyautogui.moveTo(left+(width*0.967), top+(height*0.938), 0.5) # 캐릭터선택
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(50)
+    time.sleep(30)
 
 
     # 복구 ocr 탐지
@@ -580,12 +652,12 @@ def on():
     results = reader.readtext(scr_bok_np)
     print(results)
 
-    if results[0][1][0] == "의":
+    if results and results[0][1][0] == "의":
         s02_bok()
     else:
         pyautogui.press('x')
 
-    pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전
+    pyautogui.moveTo(left+(width*0.28), top+(height*0.88), 2.0) # 절전
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()

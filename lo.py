@@ -173,18 +173,57 @@ def l03_jangbi():
 
 
 
-def l04_maul():
+def l04_maul(on):
     print("로드나인 l04_maul   " + time.strftime("%H:%M", time.localtime()))
 
-    scr_maul = pyautogui.screenshot(region=(left + int(width*0.8), top + int(height*0.688), int(width*0.05), int(height*0.03)))
-    scr_maul_np = np.array(scr_maul)
-    hsv = cv2.cvtColor(scr_maul_np, cv2.COLOR_RGB2HSV)
+
+    if on:
+        pyautogui.moveTo(left+(width*0.83), top+(height*0.70), 2.0) # 잡화상인에게 이동
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(20)     # 이동 10
+
+        pyautogui.moveTo(left+(width*0.15), top+(height*0.23), 2.0) # 중급 HP 회복
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+        
+        time.sleep(1)
+
+        pyautogui.moveTo(left+(width*0.55), top+(height*0.6), 2.0) # 100%
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
 
 
-    scr_maul.save("scr_lo_maul.png")
+        pyautogui.moveTo(left+(width*0.55), top+(height*0.75), 2.0) # 구매
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()        
 
+        pyautogui.moveTo(left+(width*0.96), top+(height*0.058), 2.0) # 종료
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+        
+        print("HP 회복 물약 구매 완료")
+
+
+        l05_fight()
+        return
+
+
+        
+
+        
 
     # 마을인지 OCR 체크
+    scr_maul = pyautogui.screenshot(region=(left + int(width*0.8), top + int(height*0.688), int(width*0.05), int(height*0.03)))
+    scr_maul_np = np.array(scr_maul)
+    scr_maul.save("scr_lo_maul.png")
+
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(scr_maul_np)
     print(results)
@@ -713,17 +752,35 @@ def on():
     l08_stove()
 
 
-    time.sleep(20)
-
-    pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
+    time.sleep(50)
 
 
-    l02_bok()
-    l03_jangbi()
-    l04_maul()   # l05_fight() 포함
+
+
+
+
+
+    
+    # 마을인지 OCR 체크
+    scr_maul = pyautogui.screenshot(region=(left + int(width*0.8), top + int(height*0.688), int(width*0.05), int(height*0.03)))
+    scr_maul_np = np.array(scr_maul)
+    scr_maul.save("scr_lo_maul.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_maul_np)
+    print(results)
+
+
+    if results and results[0][1].startswith(("잡", "집")):
+        print("여기는 마을")
+        l04_maul(1)   # l05_fight() 포함
+    else:
+        print("여기는 마을이 아닙니다.")
+        pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+        time.sleep(1)
 
 
     pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전

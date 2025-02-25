@@ -621,6 +621,9 @@ def a05_dungeon_week():
 
     time.sleep(20)
 
+    pyautogui.press('esc')
+    time.sleep(3)
+
 
     pyautogui.moveTo(left+(width*0.07), top+(height*0.15), 2.0)   # 지도
     pyautogui.mouseDown()
@@ -874,7 +877,7 @@ def on(check):
 
     
     
-    time.sleep(3)
+    time.sleep(10)
 
     
     pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 화면 클릭
@@ -882,7 +885,7 @@ def on(check):
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(1)
+    time.sleep(20)
 
     pyautogui.press('g')   # AUTO
     
@@ -1047,7 +1050,7 @@ def on(check):
 
     
     
-    time.sleep(3)
+    time.sleep(10)
 
     
     pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 화면 클릭
@@ -1055,7 +1058,7 @@ def on(check):
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(1)
+    time.sleep(20)
 
     pyautogui.press('g')   # AUTO
     
