@@ -1176,7 +1176,7 @@ def on():
 
 
 
-    time.sleep(10)
+    time.sleep(20)
     
     # 케릭터 선택
     pyautogui.moveTo(left+(width*0.83), top+(height*0.91), 2.0)   # 게임 시작
