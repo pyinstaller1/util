@@ -823,13 +823,7 @@ def on():
     time.sleep(0.3)
     pyautogui.mouseUp()
 
-    time.sleep(30)    
 
-    pyautogui.moveTo(win.left+(win.width*0.93), win.top+(win.height*0.93), 2.0) # 게임 시작
-    pyautogui.mouseDown()
-    time.sleep(0.3)
-    pyautogui.mouseUp()
-    
 
     time.sleep(1)
     time.sleep(38)
