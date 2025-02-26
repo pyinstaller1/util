@@ -791,10 +791,19 @@ def on():
 
     print("달빛조각사 오픈")
 
-    time.sleep(38)
-
-
-
+    time.sleep(18)
+    pyautogui.press('y')
+    time.sleep(20)
+    pyautogui.press('a')
+    time.sleep(3)
+    pyautogui.press('n')
+    time.sleep(3)
+    pyautogui.press('n')
+    time.sleep(3)
+    pyautogui.press('i')
+    time.sleep(3)
+    pyautogui.press('enter')
+    time.sleep(8)
 
     win = gw.getWindowsWithTitle('달빛조각사')[0]
 
@@ -813,6 +822,14 @@ def on():
     pyautogui.mouseDown()
     time.sleep(0.3)
     pyautogui.mouseUp()
+
+    time.sleep(30)    
+
+    pyautogui.moveTo(win.left+(win.width*0.93), win.top+(win.height*0.93), 2.0) # 게임 시작
+    pyautogui.mouseDown()
+    time.sleep(0.3)
+    pyautogui.mouseUp()
+    
 
     time.sleep(1)
     time.sleep(38)
