@@ -626,6 +626,81 @@ def l06_heal():
 
 
 
+def off():
+    print("로드나인 off   " + time.strftime("%H:%M", time.localtime()))
+
+    win = gw.getWindowsWithTitle('LORDNINE')[0]
+
+
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
+
+    global left, top, width, height
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 절전 해제
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.8), top+(height*0.5), 2.0)
+    pyautogui.mouseUp()
+
+    time.sleep(3)    
+        
+    
+    pyautogui.moveTo(left+(width*0.035), top+(height*0.317), 2.0)   # 마을
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(30)
+
+
+
+
+    pyautogui.moveTo(left+(width*0.035), top+(height*0.638), 2.0)   # 절전
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.938), 2.0)   # 자동사냥
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.38), top+(height*0.8), 2.0)   # 자동사냥
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+
+    pyautogui.moveTo(left+(width*0.57), top+(height*0.638), 2.0)   # 확인
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+    return
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -831,6 +906,7 @@ def play_lo():
 if __name__ == "__main__":
     # play_lo()
     on()
+    # off()
     
 
 

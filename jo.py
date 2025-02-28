@@ -1342,8 +1342,8 @@ def play_jo():
 
 
 if __name__ == "__main__":
-    play_jo()
-    # on()
+    # play_jo()
+    on()
 
 
 

@@ -21,8 +21,8 @@ import pygetwindow as gw
 
 
 
-def on():
-    print("on 시작   " + time.strftime("%H:%M", time.localtime()))
+def off():
+    print("off 시작   " + time.strftime("%H:%M", time.localtime()))
     desktop = os.environ.get('COMPUTERNAME')
 
 
@@ -32,46 +32,35 @@ def on():
             window.close()
 
     if 1==1:
-        try:
-            jo.on()
-        except Exception as e:
-            print(f"jo.on() 오류: {e}")
-
 
         if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
-                lo.on()
+                lo.off()
             except Exception as e:
-                print(f"lo.on() 오류: {e}")
+                print(f"lo.off() 오류: {e}")
 
         if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
             try:
-                ar.on()
+                ar.off()
             except Exception as e:
-                print(f"ar.on() 오류: {e}")
+                print(f"ar.off() 오류: {e}")
 
-        if desktop in ["DESKTOP-OHGK5MV"]:
+
+
+
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
             try:
-                dal.on()
+                ares.off(0)
             except Exception as e:
-                print(f"dal.on() 오류: {e}")
-
-
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
-            try:
-                ares.on(0)
-            except Exception as e:
-                print(f"ares.on() 오류: {e}")
-            
+                print(f"ares.off() 오류: {e}")
+                
 
 
 
 
         print(os.environ.get('COMPUTERNAME') + " " + time.strftime("%H:%M", time.localtime()))
 
-    subprocess.Popen(f'start cmd /k python total.py', shell=True)
-    os.system("taskkill /F /PID " + str(os.getppid()))
-
+    os.system("shutdown /s /t 0")
 
 if __name__ == "__main__":
     on()

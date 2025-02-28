@@ -710,13 +710,159 @@ def a05_dungeon_week():
 
 
 
+def off():
+    print("아레스 off   " + time.strftime("%H:%M", time.localtime()))
+            
+
+    if len(gw.getWindowsWithTitle('아레스')) == 2:
+        win = gw.getWindowsWithTitle('아레스')[1]
+
+        global left, top, width, height
+
+        left = win.left
+        top = win.top
+        width = win.width
+        height = win.height
+
+        app = Application().connect(handle=win._hWnd)
+        app.window(handle=win._hWnd).set_focus()
+
+        time.sleep(1)
+
+
+
+        pyautogui.moveTo(left+(width*0.99), top+(height*0.01), 1.0)   # 종료
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+
+        pyautogui.moveTo(left+(width*0.5), top+(height*0.6), 2.0)   # 방치모드
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+        
+
+        time.sleep(7)
+        scr_bang = pyautogui.screenshot(region=(left+int(width*0.3), top+int(height*0.3), int(width*0.5), int(height*0.5)))
+        scr_bang_np = np.array(scr_bang)
+        scr_bang.save("scr_ares_bang.png")
+
+        reader = easyocr.Reader(['ko', 'en'], gpu=False)
+        results = reader.readtext(scr_bang_np)
+        print(results)
+
+        for detection in results:
+            if '방치' in detection[1]:
+                bbox, text, confidence = detection
+                top_left = bbox[0]
+                bottom_right = bbox[2]
+                x = (top_left[0] + bottom_right[0]) // 2
+                y = (top_left[1] + bottom_right[1]) // 2
+                print(f"{text} [{x}, {y}]")
+
+
+                pyautogui.moveTo(left+int(width*0.3)+x, top+int(height*0.3)+y, 2.0)   # 방치모드
+                pyautogui.mouseDown()
+                time.sleep(0.1)
+                pyautogui.mouseUp()
+
+
+                pyautogui.moveTo(left+int(width*0.55), top+int(height*0.75), 2.0)   # 방치모드
+                pyautogui.mouseDown()
+                time.sleep(0.1)
+                pyautogui.mouseUp()
+
+                pyautogui.moveTo(left+int(width*0.55), top+int(height*0.61), 2.0)   # 방치모드
+                pyautogui.mouseDown()
+                time.sleep(0.1)
+                pyautogui.mouseUp()
+                
+
+    time.sleep(10)
+
+    win = gw.getWindowsWithTitle('아레스')[0]
+
+    # global left, top, width, height
+
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
+
+    time.sleep(1)
+
+
+
+    pyautogui.moveTo(left+(width*0.99), top+(height*0.01), 1.0)   # 종료
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.6), 2.0)   # 방치모드
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+        
+
+    time.sleep(7)
+    scr_bang = pyautogui.screenshot(region=(left+int(width*0.3), top+int(height*0.3), int(width*0.5), int(height*0.5)))
+    scr_bang_np = np.array(scr_bang)
+    scr_bang.save("scr_ares_bang.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_bang_np)
+    print(results)
+
+
+    for detection in results:
+        if '방치' in detection[1]:
+            bbox, text, confidence = detection
+            top_left = bbox[0]
+            bottom_right = bbox[2]
+            x = (top_left[0] + bottom_right[0]) // 2
+            y = (top_left[1] + bottom_right[1]) // 2
+            print(f"{text} [{x}, {y}]")
+
+            pyautogui.moveTo(left+int(width*0.3)+x, top+int(height*0.3)+y, 2.0)   # 방치모드
+            pyautogui.mouseDown()
+            time.sleep(0.1)
+            pyautogui.mouseUp()
+
+            pyautogui.moveTo(left+int(width*0.55), top+int(height*0.75), 2.0)   # 방치모드
+            pyautogui.mouseDown()
+            time.sleep(0.1)
+            pyautogui.mouseUp()
+
+            pyautogui.moveTo(left+int(width*0.55), top+int(height*0.61), 2.0)   # 방치모드
+            pyautogui.mouseDown()
+            time.sleep(0.1)
+            pyautogui.mouseUp()
+
+                
+    return
+
+
+
+
+
+    
+
+
+
+
+
 
 
 
 
 
 def on(check):
-    print("아레스 a08_kakao   " + time.strftime("%H:%M", time.localtime()))
+    print("아레스 on   " + time.strftime("%H:%M", time.localtime()))
             
     for proc in psutil.process_iter():
         if "Ares.exe" in proc.name():  # 프로세스 이름을 확인

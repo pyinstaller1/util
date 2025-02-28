@@ -766,6 +766,111 @@ def a08_netmarble():
 
 
 
+def off():
+    print("아스달 off   " + time.strftime("%H:%M", time.localtime()))
+
+
+
+        
+
+    win = gw.getWindowsWithTitle('Arthdal Chronicles')[0]
+
+
+    global app
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
+
+    global left, top, width, height
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 절전 해제
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.8), top+(height*0.5), 2.0)
+    pyautogui.mouseUp()
+
+    time.sleep(2)
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.75), 3.0)   # 확인
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+    
+    time.sleep(2)
+
+
+    pyautogui.moveTo(left+(width*0.05), top+(height*0.5), 2.0)   # 마을
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+
+    time.sleep(2)
+
+    pyautogui.moveTo(left+(width*0.3), top+(height*0.3), 2.0)   # 아스달 마을
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(2)
+
+    pyautogui.moveTo(left+(width*0.38), top+(height*0.6), 2.0)   # 걸어서 이동
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(30)
+
+
+    pyautogui.moveTo(left+(width*0.967), top+(height*0.0683), 2.0) # 메뉴
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    time.sleep(2)
+
+
+    pyautogui.moveTo(left+(width*0.75), top+(height*0.7), 2.0) # 메뉴
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
+    time.sleep(2)
+
+
+    pyautogui.moveTo(left+(width*0.838), top+(height*0.938), 1.0)   # 게임 시작
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1108,6 +1213,7 @@ if __name__ == "__main__":
     # dungeon_ar()
     # dungeon_ar_end()
     on()
+    # off()
 
 
 

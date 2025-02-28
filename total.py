@@ -1,6 +1,6 @@
 
 
-import on, jo, lo, ar, dal, ares, ymir
+import on, jo, lo, ar, dal, ares
 import time
 import numpy as np
 import keyboard
@@ -157,17 +157,6 @@ while True:
 
 
 
-        # 아스달 던전 6시  8시
-
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:   # 이미르 일일임무
-            try:
-                ymir.s04_dungeon()
-            except Exception as e:
-                print(f"ymir.s04_dungeon() 오류: {e}")
-
-
-
-
 
 
 
@@ -222,11 +211,6 @@ while True:
                 print(f"ar.play_ares() 오류: {e}")
                 
 
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
-            try:
-                ymir.play()
-            except Exception as e:
-                print(f"ymir.play() 오류: {e}")
 
 
 
