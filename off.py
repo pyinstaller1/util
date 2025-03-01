@@ -50,7 +50,7 @@ def off():
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
             try:
-                ares.off(0)
+                ares.off()
             except Exception as e:
                 print(f"ares.off() 오류: {e}")
                 
