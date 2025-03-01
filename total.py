@@ -1,6 +1,6 @@
 
 
-import on, jo, lo, ar, dal, ares
+import on, jo, lo, ar, dal, ares, ak
 import time
 import numpy as np
 import keyboard
@@ -201,16 +201,17 @@ while True:
             except Exception as e:
                 print(f"dal.play_dal() 오류: {e}")
 
-
-
-
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ares.play_ares()
             except Exception as e:
-                print(f"ar.play_ares() 오류: {e}")
+                print(f"ares.play_ares() 오류: {e}")
                 
-
+        if desktop in ["DESKTOP-OHGK5MV"]:
+            try:
+                ak.play()
+            except Exception as e:
+                print(f"ak.play() 오류: {e}")
 
 
 

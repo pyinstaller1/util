@@ -1,6 +1,6 @@
 
 
-import jo, lo, ar, dal, ares
+import jo, lo, ar, dal, ares, ak
 import time
 import os
 import subprocess
@@ -63,6 +63,13 @@ def on():
             except Exception as e:
                 print(f"ares.on() 오류: {e}")
             
+
+        if desktop in ["DESKTOP-OHGK5MV"]:
+            try:
+                ak.on()
+            except Exception as e:
+                print(f"ak.on() 오류: {e}")
+
 
 
 
