@@ -434,7 +434,7 @@ def on():
         time.sleep(1)
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(x*0.8, y*0.12, 2,0)   # login
+        pyautogui.moveTo(x*0.8, y*0.12, 2.0)   # login
         pyautogui.mouseDown()
         time.sleep(1)
         pyautogui.mouseUp()
