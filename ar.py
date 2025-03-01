@@ -852,7 +852,7 @@ def off():
     pyautogui.mouseUp()
 
 
-    time.sleep(10)
+    time.sleep(5)
     
 
     pyautogui.moveTo(left+(width*0.5), top+(height*0.617), 2.0)   # 확인
@@ -862,17 +862,20 @@ def off():
 
 
 
+    time.sleep(3)
 
 
+    pyautogui.moveTo(left+(width*0.97), top+(height*0.03), 2.0)   # X
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
 
+    time.sleep(1)    
 
-
-
-
-
-
-
-
+    pyautogui.moveTo(left+(width*0.57), top+(height*0.63), 2.0)   # 확인
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
 
 
 
