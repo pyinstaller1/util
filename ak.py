@@ -512,7 +512,7 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(5)
+    time.sleep(10)
 
     pyautogui.moveTo(int(width * 0.9), int(height * 0.97), 2.0)   # 게임하기
     pyautogui.mouseDown()
