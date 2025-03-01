@@ -837,7 +837,7 @@ def on():
 
     
     # 마을인지 OCR 체크
-    scr_maul = pyautogui.screenshot(region=(left + int(width*0.8), top + int(height*0.688), int(width*0.05), int(height*0.03)))
+    scr_maul = pyautogui.screenshot(region=(win.left + int(win.width*0.8), top + int(win.height*0.688), int(win.width*0.05), int(win.height*0.03)))
     scr_maul_np = np.array(scr_maul)
     scr_maul.save("scr_lo_maul.png")
 
@@ -851,14 +851,14 @@ def on():
         l04_maul(1)   # l05_fight() 포함
     else:
         print("여기는 마을이 아닙니다.")
-        pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
+        pyautogui.moveTo(win.left+(win.width*0.91), top+(win.height*0.7), 2.0) # AUTO
         pyautogui.mouseDown()
         time.sleep(0.1)
         pyautogui.mouseUp()
         time.sleep(1)
 
 
-    pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전
+    pyautogui.moveTo(left+(win.width*0.038), top+(win.height*0.65), 2.0) # 절전
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
