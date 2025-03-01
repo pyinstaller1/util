@@ -75,14 +75,45 @@ def a01_start():
 
 
 
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.65), 2.0)   # 절전 해제
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.moveTo(left+(width*0.7), top+(height*0.65), 2.0)
-    pyautogui.mouseUp()
+    time.sleep(0.1)
+    r, g, b = pyautogui.pixel(int(left+(width*0.5)), int(top+(height*0.5)))
+    
+    if (80 < r < 100) and (88 < g < 120) and (80 < b < 100):
+        pyautogui.moveTo(left+(width*0.5), top+(height*0.65), 2.0)   # 절전 해제
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.moveTo(left+(width*0.7), top+(height*0.65), 2.0)
+        pyautogui.mouseUp()
+
+        time.sleep(1)
+
+        pyautogui.moveTo(left+(width*0.07), top+(height*0.17), 2.0)   # 지도
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+        time.sleep(1)
 
 
+        pyautogui.moveTo(left+(width*0.05), top+(height*0.88), 2.0)   # 가디언타워
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
 
+        time.sleep(1)
+
+
+        pyautogui.moveTo(left+(width*0.6), top+(height*0.6), 2.0)   # 확인
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+
+    else:
+        pyautogui.moveTo(left+(width*0.5), top+(height*0.65), 2.0)   # 절전 해제
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.moveTo(left+(width*0.7), top+(height*0.65), 2.0)
+        pyautogui.mouseUp()
 
     return True
 
@@ -1364,7 +1395,8 @@ def play_ares(dungeon=None):
 
 if __name__ == "__main__":
     # play_ares()
-    on(0)
+    # on(0)
+    a01_start()
 
 
 
