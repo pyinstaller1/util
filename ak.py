@@ -406,37 +406,62 @@ def on():
 
     x, y = pyautogui.size()
 
-
-    pyautogui.moveTo(x*0.8, y*0.15, 0.5)   # login
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-    pyautogui.moveTo(x*0.8, y*0.15, 0.5)   # login
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-    pyautogui.moveTo(x*0.8, y*0.15, 0.5)   # login
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-
-    pyautogui.moveTo(x*0.553, y*0.308, 0.5)   # login
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
-
-
+    
     desktop = os.environ.get('COMPUTERNAME')
 
     if desktop in ["DESKTOP-LRGAL8H"]:
-        pyperclip.copy("ground077")
-    if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
-        pyperclip.copy("ground077")
+        pyautogui.moveTo(x*0.8, y*0.15, 0.5)   # login
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()
+
+        pyautogui.moveTo(x*0.8, y*0.15, 2.0)   # login
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()
+
+        pyautogui.moveTo(x*0.8, y*0.15, 2.0)   # login
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()        
+    
+        pyperclip.copy("ground077@naver.com")
+
         
+    if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        pyautogui.moveTo(x*0.8, y*0.12, 0.5)   # login
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()
+
+        pyautogui.moveTo(x*0.8, y*0.12, 2,0)   # login
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()
+
+        pyautogui.moveTo(x*0.8, y*0.12, 2.0)   # login
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()        
+        
+        pyperclip.copy("ground077")
+
+    pyautogui.moveTo(x*0.553, y*0.308, 0.5)   # login
+    pyautogui.mouseDown()
     time.sleep(0.1)
+    pyautogui.mouseUp()        
+        
+
+    pyautogui.moveTo(x*0.5, y*0.308, 0.5)   # login
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+
+    for i in range(30):
+        pyautogui.press('backspace')  # 백스페이스 키 누름
+        
 
     pyautogui.hotkey('ctrl', 'v')
     time.sleep(0.1)
