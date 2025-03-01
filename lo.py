@@ -60,7 +60,10 @@ def l02_bok():
     print("로드나인 l02_bok   " + time.strftime("%H:%M", time.localtime()))
 
 
-    time.sleep(3)
+    time.sleep(1.5)
+    pyautogui.press('esc')
+    time.sleep(1.5)
+
     scr_bok = pyautogui.screenshot(region=(left + int(width*0.527), top + int(height*0.587), int(width*0.03), int(height*0.03)))
     scr_bok_np = np.array(scr_bok)
     scr_bok.save("scr_lo_bok.png")
