@@ -846,7 +846,7 @@ def off():
                 pyautogui.mouseUp()
                 
 
-    time.sleep(10)
+    time.sleep(17)
 
     win = gw.getWindowsWithTitle('아레스')[0]
 
@@ -1431,8 +1431,7 @@ def play_ares(dungeon=None):
 
 if __name__ == "__main__":
     # play_ares()
-    # on(0)
-    a01_start()
+    on(0)
 
 
 
