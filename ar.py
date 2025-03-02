@@ -232,8 +232,6 @@ def a03_bok():
 
     time.sleep(1)
 
-
-
     scr_bok = pyautogui.screenshot(region=(left + int(width*0.083), top + int(height*0.23), int(width*0.15), int(height*0.25)))
     scr_bok_np = np.array(scr_bok)
     scr_bok.save("scr_ar_bok.png")
@@ -888,7 +886,7 @@ def on():
 
 
 
-
+    r"""
     for proc in psutil.process_iter():
         if "ACProject" in proc.name():
             proc.kill()
@@ -1028,6 +1026,7 @@ def on():
 
     time.sleep(80)
 
+
     win = gw.getWindowsWithTitle('Arthdal Chronicles')[0]
     left = win.left
     top = win.top
@@ -1039,7 +1038,7 @@ def on():
 
 
 
-
+    
     pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # Start
     pyautogui.mouseDown()
     time.sleep(1)
@@ -1110,9 +1109,43 @@ def on():
     time.sleep(1)
     pyautogui.mouseUp()
 
+    """
+
+    win = gw.getWindowsWithTitle('Arthdal Chronicles')[0]
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+    print("아스달 오픈")
 
 
 
+
+
+    # 게임 시작 ocr 탐지
+    scr_start = pyautogui.screenshot(region=(left + int(width*0.027), top + int(height*0.0438), int(width*0.025), int(height*0.05)))
+    scr_start_np = np.array(scr_start)
+    scr_start.save("scr_ar_start.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_start_np)
+    print(results)
+    print(results[0][1])
+
+    if not results:
+        print("게임 시작: 숫자가 포함되어 있지 않습니다.")
+        on()
+        return()
+        
+
+    if any(char.isdigit() for char in results[0][1]):
+        print("게임 시작: 숫자가 포함되어 있지 않습니다.")
+        on()
+        return()
+
+
+        
     return
         
 
