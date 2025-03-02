@@ -429,7 +429,7 @@ def p02_bok():
         time.sleep(5)
 
 
-        pyautogui.moveTo(left+(width*0.055), top+(height*0.53), 3.0) # 요도우라   36  46  56  63  70  78 
+        pyautogui.moveTo(left+(width*0.055), top+(height*0.43), 3.0) # 요도우라   36  46  56  63  70  78 
         pyautogui.mouseDown()
         time.sleep(0.3)
         pyautogui.mouseUp()
@@ -452,7 +452,7 @@ def p02_bok():
         time.sleep(0.3)
         pyautogui.mouseUp()
 
-        time.sleep(15)
+        time.sleep(20)
 
         time.sleep(3)
         pyautogui.moveTo(left+(width*0.915), top+(height*0.73), 2.0) # AUTO 버튼
