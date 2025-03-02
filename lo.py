@@ -848,6 +848,8 @@ def on():
     results = reader.readtext(scr_maul_np)
     print(results)
 
+    time.sleep(20)
+
 
     if results and results[0][1].startswith(("잡", "집")):
         print("여기는 마을")
