@@ -92,7 +92,7 @@ def p02_bok():
 
 
 
-    if 1 == 1 or (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])):
+    if (results and ("개" in results[0][1] or "경" in results[0][1] or "마을" in results[0][1])):
         
         print("복구 개경 마을")
 
@@ -189,8 +189,6 @@ def p02_bok():
             flag_do = False
 
         print(flag_do)
-
-        return
 
         
 
@@ -411,47 +409,47 @@ def p02_bok():
 
 
 
+        print("이동")
+        # 사냥도감
+        pyautogui.moveTo(left+(width*0.95), top+(height*0.07), 2.0) # 메뉴
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()
 
-    # 사냥도감
-    pyautogui.moveTo(left+(width*0.95), top+(height*0.07), 2.0) # 메뉴
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
+        pyautogui.moveTo(left+(width*0.95), top+(height*0.18), 2.0) # 사냥도감
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.95), top+(height*0.18), 2.0) # 사냥도감
-    pyautogui.mouseDown()
-    time.sleep(0.3)
-    pyautogui.mouseUp()
+        time.sleep(5)
 
-    time.sleep(5)
+        pyautogui.moveTo(left+(width*0.055), top+(height*0.43), 3.0) # 요도우라   36  46  56  63  70  78
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.055), top+(height*0.43), 3.0) # 요도우라   36  46  56  63  70  78 
-    pyautogui.mouseDown()
-    time.sleep(0.3)
-    pyautogui.mouseUp()
+        pyautogui.moveTo(left+(width*0.17), top+(height*0.33), 2.0) # 맷돼지
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.17), top+(height*0.33), 2.0) # 맷돼지
-    pyautogui.mouseDown()
-    time.sleep(0.3)
-    pyautogui.mouseUp()
+        pyautogui.moveTo(left+(width*0.91), top+(height*0.95), 2.0) # 이동
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.91), top+(height*0.95), 2.0) # 이동
-    pyautogui.mouseDown()
-    time.sleep(0.3)
-    pyautogui.mouseUp()
+        pyautogui.moveTo(left+(width*0.57), top+(height*0.65), 2.0) # 확인 버튼
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.57), top+(height*0.65), 2.0) # 확인 버튼
-    pyautogui.mouseDown()
-    time.sleep(0.3)
-    pyautogui.mouseUp()
+        time.sleep(20)
 
-    time.sleep(20)
-
-    time.sleep(3)
-    pyautogui.moveTo(left+(width*0.915), top+(height*0.73), 2.0) # AUTO 버튼
-    pyautogui.mouseDown()
-    time.sleep(0.3)
-    pyautogui.mouseUp()
+        time.sleep(3)
+        pyautogui.moveTo(left+(width*0.915), top+(height*0.73), 2.0) # AUTO 버튼
+        pyautogui.mouseDown()
+        time.sleep(0.3)
+        pyautogui.mouseUp()
 
 
 
