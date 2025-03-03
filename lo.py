@@ -339,6 +339,8 @@ def l07_response():
 
 def l08_stove():
     print("로드나인 l08_stove   " + time.strftime("%H:%M", time.localtime()))
+
+    time.sleep(10)
     
 
     if gw.getWindowsWithTitle('STOVE'):

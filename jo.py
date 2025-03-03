@@ -860,7 +860,10 @@ def on():
 
     time.sleep(5)
 
-
+    pyautogui.moveTo(left+(width*0.915), top+(height*0.73), 2.0) # AUTO 버튼
+    pyautogui.mouseDown()
+    time.sleep(0.3)
+    pyautogui.mouseUp()
 
 
 
