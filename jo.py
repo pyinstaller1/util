@@ -674,7 +674,7 @@ def on():
     time.sleep(15)
 
 
-    if desktop in ["DESKTOP-792RKKB"]:
+    if desktop in ["DESKTOP-MA2NLC4"]:
         if gw.getWindowsWithTitle('Chosun2M'):
             os.system("taskkill /F /IM _gins321.exe")
         os.system("taskkill /F /IM Chosun2M.exe")
