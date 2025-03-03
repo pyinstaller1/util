@@ -430,9 +430,13 @@ def l08_stove():
             pyautogui.mouseUp()
             time.sleep(10)
 
+            pyautogui.moveTo(left+(width*0.6), top+(height*0.65), 2.0) # 확인
+            pyautogui.mouseDown()
+            time.sleep(0.1)
+            pyautogui.mouseUp()            
 
 
-
+            """
             scr_check = pyautogui.screenshot(region=(left + int(width*0.5), top + int(height*0.6), int(width*0.15), int(height*0.1)))
             scr_check_np = np.array(scr_check)
             scr_check.save("scr_lo_check.png")
@@ -449,6 +453,7 @@ def l08_stove():
                 pyautogui.mouseUp()
 
                 time.sleep(600)   # 600
+            """
 
 
 
@@ -468,7 +473,6 @@ def l08_stove():
             pyautogui.mouseUp()
             
             break
-        time.sleep(80)
 
 
 
@@ -566,7 +570,7 @@ def l05_fight():
 
     print("전투 장소로 이동")
 
-    time.sleep(60)
+    time.sleep(50)
 
     pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
     pyautogui.mouseDown()
@@ -715,23 +719,29 @@ def on():
 
 
 
-    if gw.getWindowsWithTitle('LORDNINE'):
-        gw.getWindowsWithTitle('LORDNINE')[0].close()   # 로드나인 닫기
-        time.sleep(5)
+
         
+    if gw.getWindowsWithTitle('LORDNINE'):
+        os.system("taskkill /F /IM LORDNINE.exe")
+        for proc in psutil.process_iter():
+            if proc.name().lower() == "stove.exe":
+                proc.kill()
+                print(f"{proc.name()} 종료됨")
+        time.sleep(3)
 
-
+    """
     for proc in psutil.process_iter():
         if proc.name().lower() == "stove.exe":
             proc.kill()
-            print(f"{proc.name()} 종료됨")        
+            print(f"{proc.name()} 종료됨")
+    """
 
     if os.environ.get('COMPUTERNAME') == "DESKTOP-LRGAL8H":
         subprocess.Popen(r"D:\ProgramData\Smilegate\STOVE\STOVE.exe", shell=True)
     else:
         subprocess.Popen(r"C:\ProgramData\Smilegate\STOVE\STOVE.exe", shell=True)
 
-    time.sleep(15)
+    time.sleep(8)
 
 
 
@@ -742,21 +752,10 @@ def on():
 
 
     app_stove = Application().connect(handle=win._hWnd)
-
-    if not (app_stove.window(handle=win._hWnd).is_enabled() and app_stove.window(handle=win._hWnd).is_visible()):
-        print("창이 비활성화되어 있거나 보이지 않습니다.")
-        return False
-
-    try:
-        app_stove.window(handle=win._hWnd).set_focus()
-    except RuntimeError as e:
-        print(f"Error: {e}")
-        return False
+    app_stove.window(handle=win._hWnd).set_focus()
 
 
-
-
-    time.sleep(20)
+    time.sleep(7)
 
     
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
@@ -841,10 +840,10 @@ def on():
 
 
 
-
+    global left, top, width, height
     
     # 마을인지 OCR 체크
-    scr_maul = pyautogui.screenshot(region=(win.left + int(win.width*0.8), top + int(win.height*0.688), int(win.width*0.05), int(win.height*0.03)))
+    scr_maul = pyautogui.screenshot(region=(left + int(width*0.8), top + int(height*0.688), int(width*0.05), int(height*0.03)))
     scr_maul_np = np.array(scr_maul)
     scr_maul.save("scr_lo_maul.png")
 
@@ -852,22 +851,19 @@ def on():
     results = reader.readtext(scr_maul_np)
     print(results)
 
-    time.sleep(25)
-
-
     if results and results[0][1].startswith(("잡", "집")):
         print("여기는 마을")
         l04_maul(1)   # l05_fight() 포함
     else:
         print("여기는 마을이 아닙니다.")
-        pyautogui.moveTo(win.left+(win.width*0.91), top+(win.height*0.7), 2.0) # AUTO
+        pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
         pyautogui.mouseDown()
         time.sleep(0.1)
         pyautogui.mouseUp()
         time.sleep(1)
 
 
-    pyautogui.moveTo(left+(win.width*0.038), top+(win.height*0.65), 2.0) # 절전
+    pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
