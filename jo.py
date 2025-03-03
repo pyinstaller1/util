@@ -728,6 +728,7 @@ def on():
                         pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)
                     except Exception as e:
                         print(e)
+                        on()
 
         
     
