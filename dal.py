@@ -817,6 +817,10 @@ def on():
 
 
     time.sleep(3)
+
+    pyautogui.press('enter')
+
+    time.sleep(1)
     
     pyautogui.moveTo(win.left+(win.width*0.93), win.top+(win.height*0.93), 2.0) # 게임 시작
     pyautogui.mouseDown()
@@ -910,15 +914,26 @@ def on():
 
 
     # 점검
-    pyautogui.moveTo(left+(width*0.65), top+(height*0.7), 2.0)   # 확인
+    pyautogui.moveTo(left+(width*0.6), top+(height*0.67), 2.0)   # 확인
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+    
+    pyautogui.moveTo(left+(width*0.6), top+(height*0.7), 2.0)   # 확인
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
 
+    pyautogui.moveTo(left+(width*0.6), top+(height*0.73), 2.0)   # 확인
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+    
+
     print(f"점검 시작 {time.strftime('%H:%M', time.localtime())}")
 
     ##########
-    time.sleep(cnt_check)   # 점검 30분
+    time.sleep(20)
     ##########
     
     print(f"점검 완료 {time.strftime('%H:%M', time.localtime())}")
