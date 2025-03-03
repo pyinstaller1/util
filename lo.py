@@ -835,7 +835,7 @@ def on():
     l08_stove()
 
 
-    time.sleep(50)
+    time.sleep(38)
 
 
 
