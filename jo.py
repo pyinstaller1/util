@@ -760,7 +760,25 @@ def on():
     pyautogui.mouseUp()
 
 
-    time.sleep(25)
+    time.sleep(50)
+
+
+    # 미션 건너뛰기
+    pyautogui.moveTo(left+(width*0.89), top+(height*0.63), 2.0)   # 건너뛰기
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(5)
+    
+    pyautogui.moveTo(left+(width*0.38), top+(height*0.91), 2.0)   # 취소
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
+
+    time.sleep(5)
+
+
 
 
 

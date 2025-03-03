@@ -57,7 +57,7 @@ def on():
                 print(f"dal.on() 오류: {e}")
 
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
             try:
                 ares.on(0)
             except Exception as e:
