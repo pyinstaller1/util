@@ -705,6 +705,7 @@ def on():
 
     time.sleep(60)
 
+    """
     pyautogui.moveTo(left+(width*0.88), top+(height*0.088), 2.0)   # 건너뛰기
     pyautogui.mouseDown()
     time.sleep(0.1)
@@ -714,7 +715,9 @@ def on():
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
-
+    """
+    time.sleep(60)
+    
 
     time.sleep(3)
     
