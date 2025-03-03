@@ -33,7 +33,7 @@ def on():
 
     if 1==1:
 
-        time.sleep(300)
+        time.sleep(600)
 
         try:
             jo.on()
