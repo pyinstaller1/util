@@ -674,7 +674,17 @@ def on():
     time.sleep(15)
 
 
+    if desktop in ["DESKTOP-792RKKB"]:
+        if gw.getWindowsWithTitle('Chosun2M'):
+            os.system("taskkill /F /IM _gins321.exe")
+        os.system("taskkill /F /IM Chosun2M.exe")
+        time.sleep(5)        
+        subprocess.Popen(r"D:\Program Files\Chosun2M\Chosun2M.exe", shell=True)  # 프로그램 실행
+        time.sleep(15)
 
+
+
+        
     
 
     for i in range(18):
@@ -696,7 +706,7 @@ def on():
     width = win.width
     height = win.height
 
-    time.sleep(100)
+    time.sleep(120)
 
     try:
         pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)
