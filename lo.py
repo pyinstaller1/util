@@ -9,6 +9,7 @@ import re
 import psutil
 import subprocess
 import os
+import pyperclip
 
 
 
@@ -755,17 +756,17 @@ def on():
 
 
 
-    time.sleep(50)
+    time.sleep(20)
 
     
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
-        pyperclip.copy('ground077@naver.com')
+        pyperclip.copy('s070092@kakao.com')
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
         pyperclip.copy('s070092@nate.com')        
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
         pyperclip.copy('s0700921@nate.com')
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-        pyperclip.copy('s070092@kakao.com')        
+        pyperclip.copy('ground077@naver.com')        
     else:
         pyperclip.copy('ground077@kakao.com')
 
@@ -773,7 +774,6 @@ def on():
     pyautogui.hotkey('ctrl', 'v')
 
     time.sleep(0.5)
-    # pyautogui.press("enter")
     
 
     pyautogui.moveTo(win.left+(win.width*0.2), win.top+(win.height*0.3), 0.3) # 입력
@@ -781,8 +781,11 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-
-    pyautogui.write('windows1!')
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+        pyautogui.write('windows2!')
+    else:
+        pyautogui.write('windows1!')
+        
     pyautogui.press("enter")
 
     time.sleep(10)
