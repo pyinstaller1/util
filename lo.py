@@ -856,6 +856,7 @@ def on():
         l04_maul(1)   # l05_fight() 포함
     else:
         print("여기는 마을이 아닙니다.")
+        time.sleep(5)
         pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
         pyautogui.mouseDown()
         time.sleep(0.1)

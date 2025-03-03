@@ -1107,7 +1107,10 @@ def on():
     time.sleep(1)
     pyautogui.mouseUp()
     
-
+    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.mouseUp()
 
 
 
