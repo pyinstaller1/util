@@ -1129,7 +1129,6 @@ def on():
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(scr_start_np)
     print(results)
-    print(results[0][1])
 
 
     if results and any(char.isdigit() for char in results[0][1]):
