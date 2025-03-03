@@ -380,7 +380,7 @@ def l08_stove():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(30)   # 50
+    time.sleep(50)
 
 
 
