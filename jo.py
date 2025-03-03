@@ -808,7 +808,7 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-
+    time.sleep(38)
 
     pyautogui.moveTo(left+(width*0.6), top+(height*0.5), 2.0)   # 화면 클릭
     pyautogui.mouseDown()
