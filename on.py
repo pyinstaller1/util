@@ -32,10 +32,7 @@ def on():
             window.close()
 
     if 1==1:
-        try:
-            jo.on()
-        except Exception as e:
-            print(f"jo.on() 오류: {e}")
+
 
 
         if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
@@ -43,6 +40,13 @@ def on():
                 lo.on()
             except Exception as e:
                 print(f"lo.on() 오류: {e}")
+
+        try:
+            jo.on()
+        except Exception as e:
+            print(f"jo.on() 오류: {e}")
+            
+                
 
         if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
             try:
