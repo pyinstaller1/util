@@ -696,8 +696,78 @@ def on():
     print("조선협객전 오픈 완료")
 
 
+
+    
+    time.sleep(0.1)
+
+    """
     app = Application().connect(handle=win._hWnd)
     app.window(handle=win._hWnd).set_focus()
+    """
+
+
+
+    try:
+        time.sleep(5)
+        print(8)
+        app = Application().connect(handle=win._hWnd)
+    except Exception as e:
+        try:
+            time.sleep(5)
+            print(8)
+            app = Application().connect(handle=win._hWnd)
+        except Exception as e:
+            try:
+                time.sleep(5)
+                print(8)
+                app = Application().connect(handle=win._hWnd)
+            except Exception as e:
+                try:
+                    time.sleep(5)
+                    print(8)
+                    app = Application().connect(handle=win._hWnd)
+                except Exception as e:
+                    try:
+                        time.sleep(5)
+                        print(8)
+                        app = Application().connect(handle=win._hWnd)
+                    except Exception as e:
+                        print(e)
+
+
+    try:
+        time.sleep(5)
+        print(8)
+        app.window(handle=win._hWnd).set_focus()
+    except Exception as e:
+        try:
+            time.sleep(5)
+            print(8)
+            app.window(handle=win._hWnd).set_focus()
+        except Exception as e:
+            try:
+                time.sleep(5)
+                print(8)
+                app.window(handle=win._hWnd).set_focus()
+            except Exception as e:
+                try:
+                    time.sleep(5)
+                    print(8)
+                    app.window(handle=win._hWnd).set_focus()
+                except Exception as e:
+                    try:
+                        time.sleep(5)
+                        print(8)
+                        app.window(handle=win._hWnd).set_focus()
+                    except Exception as e:
+                        print(e)
+
+
+
+
+
+
+
 
 
     global left, top, width, height
