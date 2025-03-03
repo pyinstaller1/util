@@ -1154,6 +1154,14 @@ def on():
 
         time.sleep(20)
 
+        pyautogui.moveTo(left+(width*0.838), top+(height*0.238), 1.0)   # X
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()
+
+
+        time.sleep(0.5)
+
 
         pyautogui.moveTo(left+(width*0.57), top+(height*0.63), 0.5)   # 점검
         pyautogui.mouseDown()
@@ -1161,6 +1169,15 @@ def on():
         pyautogui.mouseUp()
 
         time.sleep(0.5)
+        
+        pyautogui.moveTo(left+(width*0.838), top+(height*0.238), 1.0)   # X
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()
+
+
+        time.sleep(0.5)
+
 
         pyautogui.moveTo(left+(width*0.5), top+(height*0.617), 0.5)   # 점검
         pyautogui.mouseDown()
@@ -1168,6 +1185,14 @@ def on():
         pyautogui.mouseUp()
 
         time.sleep(5)
+        
+        pyautogui.moveTo(left+(width*0.838), top+(height*0.238), 1.0)   # X
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()
+
+
+        time.sleep(0.5)
 
 
         pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2)   # 점검
