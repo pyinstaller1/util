@@ -33,7 +33,13 @@ def on():
 
     if 1==1:
 
+        time.sleep(100)
 
+        try:
+            jo.on()
+        except Exception as e:
+            print(f"jo.on() 오류: {e}")
+            
 
         if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
@@ -41,11 +47,7 @@ def on():
             except Exception as e:
                 print(f"lo.on() 오류: {e}")
 
-        try:
-            jo.on()
-        except Exception as e:
-            print(f"jo.on() 오류: {e}")
-            
+
                 
 
         if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:

@@ -671,7 +671,7 @@ def on():
 
     time.sleep(15)
 
-
+    """
     if desktop in ["DESKTOP-MA2NLC4"]:
         if gw.getWindowsWithTitle('Chosun2M'):
             os.system("taskkill /F /IM _gins321.exe")
@@ -679,6 +679,7 @@ def on():
         time.sleep(10)        
         subprocess.Popen(r"C:\Program Files\Chosun2M\Chosun2M.exe", shell=True)  # 프로그램 실행
         time.sleep(15)
+    """
 
 
 
