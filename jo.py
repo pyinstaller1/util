@@ -701,7 +701,9 @@ def on():
     left = win.left
     top = win.top
     width = win.width
-    height = win.height    
+    height = win.height
+
+    time.sleep(60)
 
     pyautogui.moveTo(left+(width*0.88), top+(height*0.088), 2.0)   # 건너뛰기
     pyautogui.mouseDown()

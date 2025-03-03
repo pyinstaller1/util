@@ -752,27 +752,28 @@ def on():
         print(f"Error: {e}")
         return False
 
-    """
-    pyautogui.moveTo(win.left+(win.width*0.2), win.top+(win.height*0.23), 2.0) # 스토브 로그인
-    pyautogui.mouseDown()
-    time.sleep(0.3)
-    pyautogui.mouseUp()
 
-    time.sleep(0.5)
-    """
+
+
+    time.sleep(50)
 
     
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
-        pyautogui.write('s070092@kakao.com')
+        pyperclip.copy('ground077@naver.com')
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
-        pyautogui.write('s070092@nate.com')        
+        pyperclip.copy('s070092@nate.com')        
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
-        pyautogui.write('s0700921@nate.com')
+        pyperclip.copy('s0700921@nate.com')
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-        pyautogui.write('ground077@naver.com')        
+        pyperclip.copy('s070092@kakao.com')        
     else:
-        pyautogui.write('ground077@kakao.com')
-    pyautogui.press("enter")
+        pyperclip.copy('ground077@kakao.com')
+
+    time.sleep(0.5)
+    pyautogui.hotkey('ctrl', 'v')
+
+    time.sleep(0.5)
+    # pyautogui.press("enter")
     
 
     pyautogui.moveTo(win.left+(win.width*0.2), win.top+(win.height*0.3), 0.3) # 입력

@@ -689,7 +689,13 @@ def a05_dungeon_week():
     time.sleep(20)
 
     pyautogui.press('esc')
-    time.sleep(3)
+    time.sleep(1)
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.3), 2.0)   # 지도
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    time.sleep(1)    
 
 
     pyautogui.moveTo(left+(width*0.07), top+(height*0.15), 2.0)   # 지도
