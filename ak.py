@@ -512,12 +512,34 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(30)
+
+    time.sleep(10)
+
+    pyautogui.moveTo(int(width * 0.9), int(height * 0.97), 2.0)   # 게임하기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()   
+
+    time.sleep(10)
+
+    pyautogui.moveTo(int(width * 0.9), int(height * 0.97), 2.0)   # 게임하기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+    time.sleep(18)
+
+    print("게임 시작")
 
     pyautogui.moveTo(int(width * 0.9), int(height * 0.97), 2.0)   # 게임하기
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()            
+
+    pyautogui.moveTo(int(width * 0.9), int(height * 0.97), 2.0)   # 게임하기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
 
     pyautogui.moveTo(int(width * 0.65), int(height * 0.68), 2.0)   # 확인
     pyautogui.mouseDown()
