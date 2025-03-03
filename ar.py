@@ -1190,6 +1190,22 @@ def on():
         time.sleep(1)
         pyautogui.mouseUp()
 
+
+        time.sleep(0.5)
+
+        pyautogui.moveTo(left+(width*0.5), top+(height*0.38), 2)   # 점검
+        pyautogui.mouseDown()
+        time.sleep(0.5)
+        pyautogui.mouseUp()
+
+        time.sleep(10)
+       
+
+        pyautogui.moveTo(left+(width*0.838), top+(height*0.238), 1.0)   # X
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()
+
         time.sleep(5)
 
         pyautogui.moveTo(left+(width*0.838), top+(height*0.938), 1.0)   # 게임 시작
