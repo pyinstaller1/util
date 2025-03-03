@@ -675,8 +675,9 @@ def on():
     if desktop in ["DESKTOP-MA2NLC4"]:
         if gw.getWindowsWithTitle('Chosun2M'):
             os.system("taskkill /F /IM _gins321.exe")
+        os.system("taskkill /F /IM Chosun2M.exe")
         time.sleep(10)        
-        subprocess.Popen(r"D:\Program Files\Chosun2M\Chosun2M.exe", shell=True)  # 프로그램 실행
+        subprocess.Popen(r"C:\Program Files\Chosun2M\Chosun2M.exe", shell=True)  # 프로그램 실행
         time.sleep(15)
 
 
@@ -689,6 +690,8 @@ def on():
         if gw.getWindowsWithTitle('Chosun2M'):
             break
         time.sleep(10)
+            
+        
     win = gw.getWindowsWithTitle('Chosun2M')[0]
     print("조선협객전 오픈 완료")
 
