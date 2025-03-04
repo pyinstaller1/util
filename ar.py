@@ -1134,9 +1134,13 @@ def on():
     if results and any(char.isdigit() for char in results[0][1]):
         return
 
-    for i in range(5):
-        print("다시 시작 " + str(i))
+    for i in range(3):
 
+        win = gw.getWindowsWithTitle('NetmarbleLauncher')[0]
+        app = Application().connect(handle=win._hWnd)
+        app.window(handle=win._hWnd).set_focus()
+        time.sleep(1)
+    
         pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # Start
         pyautogui.mouseDown()
         time.sleep(1)
