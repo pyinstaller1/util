@@ -944,7 +944,7 @@ def on():
     pyautogui.mouseUp()
 
 
-    time.sleep(30)
+    time.sleep(35)
 
 
 
@@ -954,18 +954,18 @@ def on():
     time.sleep(1)
     pyautogui.mouseUp()
 
-    time.sleep(3)
+    time.sleep(10)
 
 
     pyautogui.moveTo(left+(width*0.957), top+(height*0.75), 2.0)   # AUTO 
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
     
-    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
+    pyautogui.moveTo(left+(width*0.03), top+(height*0.48), 2.0)   # 절전
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
@@ -1099,17 +1099,17 @@ def on():
     time.sleep(1)
     pyautogui.mouseUp()
 
-    time.sleep(3)
+    time.sleep(5)
 
 
     pyautogui.moveTo(left+(width*0.957), top+(height*0.75), 2.0)   # AUTO 
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
     
-    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
+    pyautogui.moveTo(left+(width*0.03), top+(height*0.48), 2.0)   # 절전
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
