@@ -201,7 +201,7 @@ while True:
             except Exception as e:
                 print(f"dal.play_dal() 오류: {e}")
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
             try:
                 ares.play_ares()
             except Exception as e:
