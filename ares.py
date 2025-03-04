@@ -1088,6 +1088,17 @@ def on(check):
 
     pyautogui.press('esc')   # 이벤트 제거
     time.sleep(1)
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.3), 2.0)   # 이벤트 제거
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+    pyautogui.press('esc')   # 이벤트 제거
+    time.sleep(1)    
+
+    pyautogui.press('esc')   # 이벤트 제거
+    time.sleep(1)
     
     pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 이벤트 제거
     pyautogui.mouseDown()
