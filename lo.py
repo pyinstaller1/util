@@ -177,7 +177,7 @@ def l03_jangbi():
 
 
 
-def l04_maul(on):
+def l04_maul(on=None):
     print("로드나인 l04_maul   " + time.strftime("%H:%M", time.localtime()))
 
 
@@ -774,7 +774,7 @@ def on():
     time.sleep(0.5)
     pyautogui.hotkey('ctrl', 'v')
 
-    time.sleep(0.5)
+    time.sleep(3)
     
 
     pyautogui.moveTo(win.left+(win.width*0.2), win.top+(win.height*0.3), 0.3) # 입력
