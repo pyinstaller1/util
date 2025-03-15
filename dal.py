@@ -200,26 +200,26 @@ def d02_bok():
     if results and results[0][1].startswith("잡"):
         pyautogui.moveTo(left+(width*0.28), top+(height*0.087), 2.0)   # 복구
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.mouseUp()
 
         pyautogui.moveTo(left+(width*0.5), top+(height*0.83), 2.0)   # 경험치 회복
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.5), top+(height*0.83), 2.0)
         pyautogui.mouseUp()
 
 
         pyautogui.moveTo(left+(width*0.738), top+(height*0.18), 2.0)   # X
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.738), top+(height*0.18), 2.0)
         pyautogui.mouseUp()
 
 
         pyautogui.moveTo(left+(width*0.77), top+(height*0.908), 2.0)   # 잡화 상인
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.77), top+(height*0.908), 2.0)
         pyautogui.mouseUp()
 
@@ -230,62 +230,64 @@ def d02_bok():
 
         pyautogui.moveTo(left+(width*0.15), top+(height*0.5), 2.0)   # 농축 HP 물약
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.15), top+(height*0.5), 2.0)
         pyautogui.mouseUp()                 
 
 
         pyautogui.moveTo(left+(width*0.67), top+(height*0.75), 2.0)   # 100%
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.67), top+(height*0.75), 2.0)
         pyautogui.mouseUp()
         
         pyautogui.moveTo(left+(width*0.6), top+(height*0.87), 2.0)   # 구매
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.6), top+(height*0.87), 2.0)
         pyautogui.mouseUp()
         
 
         pyautogui.moveTo(left+(width*0.33), top+(height*0.08), 2.0)   # X
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.33), top+(height*0.08), 2.0)
         pyautogui.mouseUp()
 
 
         pyautogui.moveTo(left+(width*0.15), top+(height*0.3), 2.0)   # 지도
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.15), top+(height*0.3), 2.0)
         pyautogui.mouseUp()
 
 
         pyautogui.moveTo(left+(width*0.35), top+(height*0.38), 2.0)   # 스텔라포트
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.35), top+(height*0.38), 2.0)
         pyautogui.mouseUp()
 
         pyautogui.moveTo(left+(width*0.97), top+(height*0.08), 2.0)   # X
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.97), top+(height*0.08), 2.0)
         pyautogui.mouseUp()
         
+        time.sleep(3)
 
 
         pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 스텔라포트
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)
         pyautogui.mouseUp()
 
+        time.sleep(3)
 
         pyautogui.moveTo(left+(width*0.57), top+(height*0.617), 2.0)   # 확인
         pyautogui.mouseDown()
-        time.sleep(1)
+        time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.57), top+(height*0.617), 2.0)
         pyautogui.mouseUp()        
 
