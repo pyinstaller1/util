@@ -989,11 +989,15 @@ def on(check):
     pyautogui.mouseUp()
 
 
-
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB"]:
-        pyautogui.write('ground077')
-    else:
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
         pyautogui.write('ground077@naver.com')
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
+        pyautogui.write('ground077')
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+        pyautogui.write('ground078')
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
+        pyautogui.write('ground088')
+        
     pyautogui.press("enter")
     
 
@@ -1188,6 +1192,20 @@ def on(check):
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+        pyautogui.write('s070092@nate.com')
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
+        pyautogui.write('s0700921@nate.com')
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+        pyautogui.write('s070092@kakao.com')
+    '''
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
+        pyautogui.write('s0700921@kakao.com')
+    '''
+
+
+
     
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB"]:
         pyautogui.write('s070092@nate.com')

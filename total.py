@@ -201,13 +201,13 @@ while True:
             except Exception as e:
                 print(f"dal.play_dal() 오류: {e}")
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ares.play_ares()
             except Exception as e:
                 print(f"ares.play_ares() 오류: {e}")
                 
-        if desktop in ["DESKTOP-OHGK5MV"]:
+        if desktop in ["DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ak.play()
             except Exception as e:

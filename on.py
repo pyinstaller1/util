@@ -70,7 +70,7 @@ def on():
                 print(f"ares.on() 오류: {e}")
             
 
-        if desktop in ["DESKTOP-OHGK5MV"]:
+        if desktop in ["DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ak.on()
             except Exception as e:

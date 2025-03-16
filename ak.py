@@ -425,10 +425,10 @@ def on():
         time.sleep(1)
         pyautogui.mouseUp()        
     
-        pyperclip.copy("ground077@naver.com")
+        pyperclip.copy("ground078")
 
         
-    if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+    if desktop in ["DESKTOP-792RKKB"]:
         pyautogui.moveTo(x*0.8, y*0.12, 0.5)   # login
         pyautogui.mouseDown()
         time.sleep(1)
