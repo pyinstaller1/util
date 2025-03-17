@@ -1206,12 +1206,13 @@ def on(check):
 
 
 
-    
+    '''
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB"]:
         pyautogui.write('s070092@nate.com')
     else:
         pyautogui.write('s0700921@nate.com')
     pyautogui.press("enter")
+    ''''
     
 
     pyautogui.moveTo(win.left+(win.width*0.5), win.top+(win.height*0.3), 0.3) # 입력
