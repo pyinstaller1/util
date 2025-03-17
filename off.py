@@ -48,7 +48,7 @@ def off():
 
 
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ares.off()
             except Exception as e:
