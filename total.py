@@ -76,7 +76,7 @@ while True:
             try:
                 ares.dungeon_ares()
             except Exception as e:
-                print(f"ar.dungeon_ar() 오류: {e}")
+                print(f"ar.dungeon_ar() 오류")
 
                 
         # 달조 던전   5시  7시
@@ -105,7 +105,7 @@ while True:
                             try:
                                 ar.dungeon_ar()
                             except Exception as e:
-                                print(f"ar.dungeon_ar() 오류: {e}")
+                                print(f"ar.dungeon_ar() 오류")
 
 
 
@@ -123,7 +123,7 @@ while True:
             try:
                 dal.play_dal("던전1")
             except Exception as e:
-                print(f"dal.play_dal() 오류: {e}")
+                print(f"dal.play_dal() 오류")
 
 
         # 달조 던전   5시  7시
@@ -152,7 +152,7 @@ while True:
                             try:
                                 ar.dungeon_ar_end()
                             except Exception as e:
-                                print(f"ar.dungeon_ar_end() 오류: {e}")
+                                print(f"ar.dungeon_ar_end() 오류")
 
 
 
@@ -180,38 +180,38 @@ while True:
         try:
             jo.play_jo()
         except Exception as e:
-            print(f"jo.play_jo() 오류: {e}")
+            print(f"jo.play_jo() 오류")
 
 
         if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 lo.play_lo()
             except Exception as e:
-                print(f"lo.play_lo() 오류: {e}")
+                print(f"lo.play_lo() 오류")
 
         if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
             try:
                 ar.play_ar()
             except Exception as e:
-                print(f"ar.play_ar() 오류: {e}")
+                print(f"ar.play_ar() 오류")
 
         if desktop in ["DESKTOP-OHGK5MV"]:
             try:
                 dal.play_dal()
             except Exception as e:
-                print(f"dal.play_dal() 오류: {e}")
+                print(f"dal.play_dal() 오류")
 
         if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ares.play_ares()
             except Exception as e:
-                print(f"ares.play_ares() 오류: {e}")
+                print(f"ares.play_ares() 오류")
                 
         if desktop in ["DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ak.play()
             except Exception as e:
-                print(f"ak.play() 오류: {e}")
+                print(f"ak.play() 오류")
 
 
 

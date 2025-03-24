@@ -74,7 +74,6 @@ def a01_start():
     height = win.height
 
 
-
     time.sleep(0.1)
     r, g, b = pyautogui.pixel(int(left+(width*0.5)), int(top+(height*0.5)))
     
@@ -114,6 +113,7 @@ def a01_start():
         time.sleep(1)
         pyautogui.moveTo(left+(width*0.7), top+(height*0.65), 2.0)
         pyautogui.mouseUp()
+        
 
     return True
 
@@ -354,20 +354,20 @@ def a02_bok():
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left+(width*0.7), top+(height*0.21), 2.0)   # 갈라테하빙하
+
+    pyautogui.moveTo(left+(width*0.80), top+(height*0.43), 2.0)   # 무어랜드
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-
-    pyautogui.moveTo(left+(width*0.53), top+(height*0.57), 2.0)   # 안식처
+    pyautogui.moveTo(left+(width*0.288), top+(height*0.7), 2.0)   # 착륙장 부근
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(3)   
+    time.sleep(2)   
 
-    pyautogui.moveTo(left+(width*0.65), top+(height*0.77), 2.0)   # 자동이동
+    pyautogui.moveTo(left+(width*0.43), top+(height*0.9), 2.0)   # 자동이동
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -1353,24 +1353,24 @@ def dungeon_week_ares():
         if not a01_start():
             return
     except Exception as e:
-        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
     try:
         a05_dungeon_week()
     except Exception as e:
-        print(f"아레스  a05_dungeon_week() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스  a05_dungeon_week() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
     try:
         if not a01_start1():
             return
     except Exception as e:
-        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
     try:
          a05_dungeon_week()
     except Exception as e:
-        print(f"아레스  a05_dungeon_week() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스  a05_dungeon_week() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
 
@@ -1383,24 +1383,24 @@ def dungeon_ares():
         if not a01_start():
             return
     except Exception as e:
-        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
     try:
         a04_dungeon()
     except Exception as e:
-        print(f"아레스  a04_dungeon() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스  a04_dungeon() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
     try:
         if not a01_start1():
             return
     except Exception as e:
-        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
     try:
         a04_dungeon()
     except Exception as e:
-        print(f"아레스  a04_dungeon() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스  a04_dungeon() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
 
@@ -1418,18 +1418,18 @@ def play_ares(dungeon=None):
         if not a01_start():
             return
     except Exception as e:
-        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
         
     try:
         a02_bok()
     except Exception as e:
-        print(f"아레스 a02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스 a02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
     try:
         a03_jangbi()
     except Exception as e:
-        print(f"아레스 a03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스 a03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
 
@@ -1437,17 +1437,17 @@ def play_ares(dungeon=None):
         if not a01_start1():
             return
     except Exception as e:
-        print(f"아레스 a01_start[1] 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스 a01_start[1] 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
     try:
         a02_bok()
     except Exception as e:
-        print(f"아레스 a02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스 a02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
     try:
         a03_jangbi()
     except Exception as e:
-        print(f"아레스 a03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아레스 a03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
 

@@ -607,25 +607,25 @@ def play():
     try:
         s01_start()
     except Exception as e:
-        print(f"아키에이지 s01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아키에이지 s01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
     try:
         s02_maul()
     except Exception as e:
-        print(f"아키에이지 s02_maul 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아키에이지 s02_maul 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
     try:
         s03_map()
     except Exception as e:
-        print(f"아키에이지 s03_map 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아키에이지 s03_map 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
     try:
         s04_jangbi()
     except Exception as e:
-        print(f"아키에이지 s04_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"아키에이지 s04_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
 

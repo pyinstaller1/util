@@ -597,6 +597,8 @@ def l06_heal():
     # ocr   if che < 300: b 클릭    l04_maul
     
     print("로드나인 l06_heal   " + time.strftime("%H:%M", time.localtime()))
+
+    global left, top, width, height
     
 
     scr_che = pyautogui.screenshot(region=(left + int(width*0.287), top + int(height*0.93), int(width*0.17), int(height*0.15)))
@@ -775,7 +777,8 @@ def on():
     pyautogui.hotkey('ctrl', 'v')
 
     time.sleep(3)
-    
+    time.sleep(8)
+
 
     pyautogui.moveTo(win.left+(win.width*0.2), win.top+(win.height*0.3), 0.3) # 입력
     pyautogui.mouseDown()
@@ -880,27 +883,27 @@ def play_lo():
     try:
         l01_start()
     except Exception as e:        
-        print(f"로드나인 l01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"로드나인 l01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
     try:
         l02_bok()
     except Exception as e:        
-        print(f"로드나인 l02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"로드나인 l02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
     try:
         l03_jangbi()
     except Exception as e:        
-        print(f"로드나인 l03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"로드나인 l03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
     try:
         l04_maul()   # l05_fight() 포함
     except Exception as e:        
-        print(f"로드나인 l04_maul 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"로드나인 l04_maul 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
     try:
         l06_heal()
     except Exception as e:        
-        print(f"로드나인 l06_heal 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"로드나인 l06_heal 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
     pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전

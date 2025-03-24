@@ -423,7 +423,7 @@ def p02_bok():
 
         time.sleep(5)
 
-        pyautogui.moveTo(left+(width*0.055), top+(height*0.43), 3.0) # 요도우라   36  46  56  63  70  78
+        pyautogui.moveTo(left+(width*0.055), top+(height*0.56), 3.0) # 요도우라   36  46  56  63  70  78
         pyautogui.mouseDown()
         time.sleep(0.3)
         pyautogui.mouseUp()
@@ -898,19 +898,19 @@ def play_jo():
     try:
         p01_start()
     except Exception as e:
-        print(f"조선협객전 p01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"조선협객전 p01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
     try:
         p02_bok()
     except Exception as e:
-        print(f"조선협객전 p02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"조선협객전 p02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
     try:
         p03_jangbi()
     except Exception as e:
-        print(f"조선협객전 p03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+        print(f"조선협객전 p03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
 

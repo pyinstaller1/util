@@ -45,7 +45,7 @@ def on():
             try:
                 lo.on()
             except Exception as e:
-                print(f"lo.on() 오류: {e}")
+                print(f"lo.on() 오류")
 
 
                 
@@ -54,27 +54,27 @@ def on():
             try:
                 ar.on()
             except Exception as e:
-                print(f"ar.on() 오류: {e}")
+                print(f"ar.on() 오류")
 
         if desktop in ["DESKTOP-OHGK5MV"]:
             try:
                 dal.on()
             except Exception as e:
-                print(f"dal.on() 오류: {e}")
+                print(f"dal.on() 오류")
 
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H", "DESKTOP-OHGK5MV"]:
             try:
                 ares.on(0)
             except Exception as e:
-                print(f"ares.on() 오류: {e}")
+                print(f"ares.on() 오류")
             
 
         if desktop in ["DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
             try:
                 ak.on()
             except Exception as e:
-                print(f"ak.on() 오류: {e}")
+                print(f"ak.on() 오류")
 
 
 
