@@ -531,7 +531,7 @@ def p03_jangbi():
     time.sleep(1)
     pyautogui.mouseUp()
 
-
+    '''
     pyautogui.moveTo(left+(width*0.95), top+(height*0.76), 2.0) # 장비선택
     pyautogui.mouseDown()
     time.sleep(1)
@@ -566,6 +566,7 @@ def p03_jangbi():
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
+    '''
     
 
 
