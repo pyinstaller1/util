@@ -7,10 +7,12 @@ import keyboard
 import os
 
 
+
+# "DESKTOP-LRGAL8H"
 # "DESKTOP-OHGK5MV"
 # "DESKTOP-MA2NLC4"
 # "DESKTOP-792RKKB"
-# "DESKTOP-LRGAL8H"
+# "DESKTOP-H9B70U0"
 # "DESKTOP-NT06800"
 
 
@@ -177,19 +179,19 @@ while True:
         time.sleep(np.random.randint(30, 180)) # 30초~3분 랜덤 대기
 
 
-        try:
-            jo.play_jo()
-        except Exception as e:
-            print(f"jo.play_jo() 오류")
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-LRGAL8H"]:
+            try:
+                jo.play_lo()
+            except Exception as e:
+                print(f"jo.play_jo() 오류")
 
-
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-LRGAL8H"]:
             try:
                 lo.play_lo()
             except Exception as e:
                 print(f"lo.play_lo() 오류")
 
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-H9B70U0"]:
             try:
                 ar.play_ar()
             except Exception as e:
@@ -201,13 +203,13 @@ while True:
             except Exception as e:
                 print(f"dal.play_dal() 오류")
 
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 ares.play_ares()
             except Exception as e:
                 print(f"ares.play_ares() 오류")
                 
-        if desktop in ["DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+        if desktop in ["DESKTOP-H9B70U0"]:
             try:
                 ak.play()
             except Exception as e:

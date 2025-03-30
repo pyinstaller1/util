@@ -526,6 +526,13 @@ def a04_dungeon():
 
     time.sleep(20)
 
+    pyautogui.moveTo(left+(width*0.618), top+(height*0.338), 2.0)   # 충전 X
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(3)
+
     pyautogui.moveTo(left+(width*0.07), top+(height*0.15), 2.0)   # 지도
     pyautogui.mouseDown()
     time.sleep(0.1)

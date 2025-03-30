@@ -37,13 +37,13 @@ def off():
             try:
                 lo.off()
             except Exception as e:
-                print(f"lo.off() 오류: {e}")
+                print(f"lo.off() 오류")
 
         if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
             try:
                 ar.off()
             except Exception as e:
-                print(f"ar.off() 오류: {e}")
+                print(f"ar.off() 오류")
 
 
 
@@ -52,7 +52,7 @@ def off():
             try:
                 ares.off()
             except Exception as e:
-                print(f"ares.off() 오류: {e}")
+                print(f"ares.off() 오류")
                 
 
 

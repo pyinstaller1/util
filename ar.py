@@ -972,7 +972,7 @@ def on():
         x = (top_left[0] + bottom_right[0]) // 2
         y = (top_left[1] + bottom_right[1]) // 2
 
-        if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H", "DESKTOP-OHGK5MV"]:
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             if "77@" in text:
                 str_start = text
                 x_start = x
