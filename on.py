@@ -1,6 +1,6 @@
 
 
-import jo, lo, ar, dal, ares, ak
+import jo, lo, ar, dal, ares, ak, rf
 import time
 import os
 import subprocess
@@ -35,14 +35,14 @@ def on():
 
         time.sleep(600)
 
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H", "DESKTOP-NT06800"]:
             try:
                 jo.on()
             except Exception as e:
                 print(f"jo.on() 오류")
             
 
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H", "DESKTOP-H9B70U0"]:
             try:
                 lo.on()
             except Exception as e:
@@ -76,7 +76,11 @@ def on():
                 print(f"ak.on() 오류")
 
 
-
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H", "DESKTOP-H9B70U0"]:
+            try:
+                rf.on()
+            except Exception as e:
+                print(f"rf.on() 오류")
 
 
         print(os.environ.get('COMPUTERNAME') + " " + time.strftime("%H:%M", time.localtime()))
