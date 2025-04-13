@@ -16,38 +16,30 @@ import keyboard
 
 def l01_start():
     print("로드나인 l01_start   " + time.strftime("%H:%M", time.localtime()))
-    
-
-    global wins
-    wins = [win for win in gw.getWindowsWithTitle('LORDNINE') if win.title.strip()]   # LORDNINE 윈도우 목록 가져오기
-
-    if not wins:
-        print("로드나인 창이 없습니다.")
-        l08_stove()
-
-    elif wins:
-        for i, win in enumerate(wins):
-            print(f"{i + 1}: {win.title} (위치: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
-        win = wins[0]
-        print(win.title)
-
-        global app
-        app = Application().connect(handle=win._hWnd)
-        app.window(handle=win._hWnd).set_focus()
-
-        global left, top, width, height
-        left = win.left
-        top = win.top
-        width = win.width
-        height = win.height
 
 
-        # 절전 화면 해제
-        pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)
-        pyautogui.mouseDown()
-        time.sleep(1)
-        pyautogui.moveTo(left+(width*0.8), top+(height*0.5), 2.0)
-        pyautogui.mouseUp()
+    if not gw.getWindowsWithTitle('LORDNINE'):
+        print("LORDNINE")
+        on()
+        return
+
+    win = gw.getWindowsWithTitle('LORDNINE')[0]
+    # app = Application().connect(handle=win._hWnd)
+    # app.window(handle=win._hWnd).set_focus()
+
+
+    global left, top, width, height
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+    # 절전 화면 해제
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(left+(width*0.8), top+(height*0.5), 2.0)
+    pyautogui.mouseUp()
 
 
 
@@ -520,7 +512,7 @@ def on():
     else:
         subprocess.Popen(r"C:\ProgramData\Smilegate\STOVE\STOVE.exe", shell=True)
 
-    time.sleep(10)
+    time.sleep(30)
 
 
 
@@ -531,7 +523,7 @@ def on():
     app = Application().connect(handle=win._hWnd)
     app.window(handle=win._hWnd).set_focus()
 
-    time.sleep(5)
+    time.sleep(3)
 
 
     

@@ -901,10 +901,13 @@ def on():
 
 
     if os.environ.get('COMPUTERNAME') == "DESKTOP-LRGAL8H":
-        subprocess.Popen(r"D:\Program Files\Netmarble\Netmarble Launcher\Netmarble Launcher.exe")
+        subprocess.Popen([r"D:\Program Files\Netmarble\Netmarble Launcher\Netmarble Launcher.exe", "--productcode=/Game/arthdal", "--buildcode=A"])
 
     else:
-        subprocess.Popen(r"C:\Program Files\Netmarble\Netmarble Launcher\Netmarble Launcher.exe")
+        subprocess.Popen([r"C:\Program Files\Netmarble\Netmarble Launcher\Netmarble Launcher.exe", "--productcode=/Game/arthdal", "--buildcode=A"])
+
+
+
 
     time.sleep(10)
 
