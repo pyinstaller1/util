@@ -375,7 +375,7 @@ def on():
     else:
         subprocess.Popen([r"C:\Program Files\Netmarble\Netmarble Launcher\Netmarble Launcher.exe"] + ["--productcode=/Game/rfnext", "--build"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         
-    time.sleep(10)
+    time.sleep(15)
     
 
     for i in range(10):
@@ -395,22 +395,16 @@ def on():
 
     mouse.move(left_on+(width_on*0.1), top_on+(height_on*0.87), absolute=True, duration=0.1)   # 게임 실행
     mouse.click()
-    time.sleep(3)
+    time.sleep(5)
 
 
 
-
-    mouse.move(left_on+(width_on*0.38), top_on+(height_on*0.46), absolute=True, duration=0.1)   # AMD 그래픽 드라이버
-    mouse.click()
-    time.sleep(1)
-    keyboard.press_and_release('esc')
-    time.sleep(3)
     
 
 
     mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.46), absolute=True, duration=0.1)   # 구글 로그인
     mouse.click()
-    time.sleep(8)    
+    time.sleep(10)    
 
     scr = pyautogui.screenshot(region=(left_on + int(width_on*0.5), top_on + int(height_on*0.3), int(width_on*0.3), int(height_on*0.6)))   # 구글 계정 ocr
     scr.save("scr_rf_google.png")
@@ -459,7 +453,7 @@ def on():
     time.sleep(2)
 
 
-    mouse.move(left_on+(width_on*0.63) + x, top_on+(height_on*0.47) + y, absolute=True, duration=0.1)   # 계속
+    mouse.move(left_on+(width_on*0.71), top_on+(height_on*0.67), absolute=True, duration=0.1)   # 계속
     mouse.click()
 
     time.sleep(3)
@@ -478,6 +472,16 @@ def on():
     # mouse.click()
     
     time.sleep(8)
+
+
+
+    mouse.move(left_on+(width_on*0.38), top_on+(height_on*0.46), absolute=True, duration=0.1)   # AMD 그래픽 드라이버
+    mouse.click()
+    time.sleep(1)
+    keyboard.press_and_release('esc')
+    time.sleep(3)
+
+
     
     
     time.sleep(88)
@@ -522,10 +526,17 @@ def on():
     mouse.click()
 
     
-    time.sleep(30)
+    time.sleep(60)
 
 
+    mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)   # AUTO
+    mouse.click()
 
+    a02_bok()
+
+
+    mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
+    mouse.click()
     
     return
 
