@@ -218,25 +218,25 @@ def l04_maul(on=None):
 
     time.sleep(20)     # 이동 10
 
-    pyautogui.moveTo(left+(width*0.15), top+(height*0.23), 2.0) # 중급 HP 회복
+    pyautogui.moveTo(left+(width*0.15), top+(height*0.23), 1.0) # 중급 HP 회복
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
         
     time.sleep(1)
 
-    pyautogui.moveTo(left+(width*0.55), top+(height*0.6), 2.0) # 100%
+    pyautogui.moveTo(left+(width*0.55), top+(height*0.6), 1.0) # 100%
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left+(width*0.55), top+(height*0.75), 2.0) # 구매
+    pyautogui.moveTo(left+(width*0.55), top+(height*0.75), 1.0) # 구매
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()        
 
-    pyautogui.moveTo(left+(width*0.96), top+(height*0.058), 2.0) # 종료
+    pyautogui.moveTo(left+(width*0.96), top+(height*0.058), 1.0) # 종료
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
