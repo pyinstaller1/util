@@ -750,6 +750,8 @@ def play_lo():
         print(f"로드나인 l06_heal 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
+    global left, top, width, height
+
     pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전
     pyautogui.mouseDown()
     time.sleep(0.1)
