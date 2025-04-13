@@ -49,13 +49,16 @@ def a01_start():
     width = win.width
     height = win.height
 
+
     mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.1)   # 절전 해제
     mouse.press()
     mouse.move(left+(width*0.7), top+(height*0.5), absolute=True, duration=0.3)
     mouse.release()
-    time.sleep(2)
+    time.sleep(1)
 
 
+    mouse.move(left+(width*0.5), top+(height*0.75), absolute=True, duration=0.1)   # AUTO 종료
+    mouse.click()
 
     return
 
@@ -85,7 +88,7 @@ def a02_bok():
         mouse.move(x, y, absolute=True, duration=0.1)   # 잡화 상인
         mouse.click()
 
-        time.sleep(3)
+        time.sleep(10)
 
         mouse.move(left+(width*0.07), top+(height*0.07), absolute=True, duration=0.1)   # 구매
         mouse.click()
@@ -100,9 +103,13 @@ def a02_bok():
         mouse.move(left+(width*0.5), top+(height*0.77), absolute=True, duration=0.1)   # 구매
         mouse.click()
 
-        mouse.move(left+(width*0.03), top+(height*0.083), absolute=True, duration=0.2)   # 구매
+        mouse.move(left+(width*0.03), top+(height*0.083), absolute=True, duration=0.2)   # 닫기
         mouse.click()
 
+
+
+
+        '''
         mouse.move(left+(width*0.738), top+(height*0.083), absolute=True, duration=0.5)   # 복구
         mouse.click()
 
@@ -115,7 +122,11 @@ def a02_bok():
         time.sleep(0.5)
         mouse.click()
         time.sleep(0.5)
-        mouse.click()        
+        mouse.click()
+        '''
+
+
+        time.sleep(1)
 
 
 
@@ -123,7 +134,7 @@ def a02_bok():
         mouse.move(left+(width*0.03), top+(height*0.07), absolute=True, duration=0.1)   # 지도
         mouse.click()
 
-        time.sleep(0.1)
+        time.sleep(0.5)
 
         mouse.move(left+(width*0.15), top+(height*0.2), absolute=True, duration=0.1)   # 지도 클릭
         mouse.click()
@@ -138,8 +149,11 @@ def a02_bok():
         print(results)
 
         for item in results:
+            print(item[1][:2])
             bbox, text, confidence = item
-            if text in ['스카디 골짜기']:
+            print(text)
+            if text[:2] in ['콜드', '골드']:
+                print(777)
                 top_left = bbox[0]
                 bottom_right = bbox[2]
                 x = (top_left[0] + bottom_right[0]) // 2
@@ -150,13 +164,18 @@ def a02_bok():
         mouse.move(left+(width*0.3) + x, top+(height*0.3) + y - (height*0.01), absolute=True, duration=0.1)   # 지도 클릭
         mouse.click()
 
+        time.sleep(1)
+
+
+
         mouse.move(left+(width*0.53), top+(height*0.51), absolute=True, duration=0.1)   # 즉시 이동
         mouse.click()
+
 
         mouse.move(left+(width*0.58), top+(height*0.68), absolute=True, duration=0.1)   # 즉시 이동
         mouse.click()
 
-        time.sleep(8)
+        time.sleep(10)
 
         mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)   # AUTO
         mouse.click()
@@ -189,16 +208,101 @@ def a03_jangbi():
 
     global left, top, width, height
 
+    '''
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
+    '''
+
+    mouse.move(left+(width*0.917), top+(height*0.07), absolute=True, duration=0.1)   # 가방
+    mouse.click()
+
+    mouse.move(left+(width*0.97), top+(height*0.27), absolute=True, duration=0.1)   # 장비
+    mouse.click()
+
+    mouse.move(left+(width*0.93), top+(height*0.95), absolute=True, duration=0.1)   # 분해
+    mouse.click()
+
+    mouse.move(left+(width*0.55), top+(height*0.3988), absolute=True, duration=0.1)   # 일반
+    mouse.click()
+
+    mouse.move(left+(width*0.65), top+(height*0.3988), absolute=True, duration=0.1)   # 고급
+    mouse.click()
+
+    mouse.move(left+(width*0.55), top+(height*0.53), absolute=True, duration=0.1)   # 장비
+    mouse.click()
+
+    mouse.move(left+(width*0.93), top+(height*0.95), absolute=True, duration=0.1)   # 분해
+    mouse.click()
+
+    time.sleep(0.1)
+
+    mouse.move(left+(width*0.38), top+(height*0.5), absolute=True, duration=0.1)   # 화면 클릭
+    mouse.click()
+    
+    time.sleep(0.5)
 
 
-
+    mouse.move(left+(width*0.977), top+(height*0.123), absolute=True, duration=0.1)   # 장비
+    mouse.click()
 
     return
 
 
 
+
+def a04_mission():
+    print("RF a04_mission   " + time.strftime("%H:%M", time.localtime()))
+
+    global left, top, width, height
+
+
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+
+    time.sleep(0.5)
+
+    mouse.move(left+(width*0.83), top+(height*0.468), absolute=True, duration=0.1)   # 미션
+    mouse.click()
+
+    time.sleep(0.5)
+
+
+    for i in range(10):
+        mouse.move(left+(width*0.95), top+(height*0.95), absolute=True, duration=0.1)   # 수락
+        mouse.click()
+        time.sleep(0.1)
+
+ 
+
+    mouse.move(left+(width*0.5), top+(height*0.3), absolute=True, duration=0.1)   # 미션
+    mouse.click()
+    time.sleep(0.1)
+
+
+    mouse.move(left+(width*0.95), top+(height*0.95), absolute=True, duration=0.1)   # 진행
+    mouse.click()
+    time.sleep(0.1)
+
+
+    mouse.move(left+(width*0.58), top+(height*0.68), absolute=True, duration=0.1)   # 즉시 이동
+    mouse.click()
+
+
+
+    
+        
+    # mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 닫기
+    # mouse.click()
+
+
+
+    mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
+    mouse.click()
+
+
+    
+
+    return
 
 
 
@@ -222,46 +326,26 @@ def a03_jangbi():
 def off():
     print("RF off   " + time.strftime("%H:%M", time.localtime()))
 
-
-
-    win = gw.getWindowsWithTitle('RF 온라인 넥스트')[0]
-    app = Application().connect(handle=win._hWnd)
-    
-    try:
-        app.window(handle=win._hWnd).set_focus()
-    except:
-        time.sleep(1)        
-        app.window(handle=win._hWnd).set_focus()
-        
-    left = win.left
-    top = win.top
-    width = win.width
-    height = win.height
-
-
-    mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.1)   # 절전 해제
-    mouse.press()
-    mouse.move(left+(width*0.7), top+(height*0.5), absolute=True, duration=0.3)
-    mouse.release()
-    time.sleep(2)
-
-    
-        
+    a01_start()
 
 
 
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 절전 해제
-    pyautogui.mouseDown()
+    global left, top, width, height
+
+
+    mouse.move(left+(width*0.977), top+(height*0.03), absolute=True, duration=0.1)   # 종료
+    mouse.click()
+
     time.sleep(1)
-    pyautogui.moveTo(left+(width*0.8), top+(height*0.5), 2.0)
-    pyautogui.mouseUp()
-
-    time.sleep(2)
 
 
+    mouse.move(left+(width*0.65), top+(height*0.65), absolute=True, duration=0.1)   # 오프라인 모드
+    mouse.click()
 
+    time.sleep(1)
 
-
+    mouse.move(left+(width*0.57), top+(height*0.85), absolute=True, duration=0.1)   # 오프라인 모드
+    mouse.click()
 
 
 
@@ -370,8 +454,10 @@ def on():
     time.sleep(2)
 
 
-    mouse.move(left_on+(width_on*0.63) + x, top_on+(height_on*0.55) + y, absolute=True, duration=0.1)   # 계속
+    mouse.move(left_on+(width_on*0.63) + x, top_on+(height_on*0.47) + y, absolute=True, duration=0.1)   # 계속
     mouse.click()
+
+    time.sleep(3)
 
 
     app.window(handle=win._hWnd).set_focus()
@@ -381,6 +467,13 @@ def on():
     mouse.move(left_on+(width_on*0.1), top_on+(height_on*0.87), absolute=True, duration=0.1)   # 게임 실행
     mouse.click()
 
+
+    # time.sleep(3)
+    # mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.43), absolute=True, duration=0.1)   # 확인
+    # mouse.click()
+    
+    time.sleep(8)
+    
     
     time.sleep(88)
 
@@ -460,24 +553,9 @@ def on():
 
 
     
-def dungeon_ar():
-    try:
-        if not a01_start():
-            return
-    except Exception as e:
-        print(f"아스달 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
-
-
-    try:
-        a04_se()
-    except Exception as e:
-        print(f"아스달 a04_se 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
-
-
-    pyautogui.moveTo(left+(width*0.038), top+(height*0.61), 2.0)   # 절전
-    pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.mouseUp()
+def mission():
+    a01_start()
+    a04_mission()
 
 
 
@@ -486,7 +564,7 @@ def dungeon_ar():
     
 def play():
     a01_start()
-    # a02_bok()
+    a02_bok()
     a03_jangbi()
 
 
@@ -496,8 +574,10 @@ def play():
 
 
 if __name__ == "__main__":
-    play()
+    # play()
     # on()
+    mission()
+    # off()
 
 
 

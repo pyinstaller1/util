@@ -421,7 +421,7 @@ def a04_se():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.47), top+(height*0.717), 2.0) # MAX
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.717), 2.0) # MAX
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -469,7 +469,7 @@ def a04_se():
 
 
 
-    pyautogui.moveTo(left+(width*0.75), top+(height*0.188), 2.0) # 세력 임무
+    pyautogui.moveTo(left+(width*0.91), top+(height*0.35), 2.0) # 세력 임무
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -590,7 +590,7 @@ def a04_se_end():
 
 
 
-    pyautogui.moveTo(left+(width*0.75), top+(height*0.188), 2.0) # 세력 임무
+    pyautogui.moveTo(left+(width*0.91), top+(height*0.35), 2.0) # 세력 임무
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()

@@ -11,6 +11,7 @@ import pygetwindow as gw
 # "DESKTOP-MA2NLC4"
 # "DESKTOP-792RKKB"
 # "DESKTOP-LRGAL8H"
+# "DESKTOP-H9B70U0"
 # "DESKTOP-NT06800"
 
 
@@ -33,13 +34,13 @@ def off():
 
     if 1==1:
 
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H", "DESKTOP-H9B70U0"]:
             try:
                 lo.off()
             except Exception as e:
                 print(f"lo.off() 오류")
 
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        if desktop in ["DESKTOP-H9B70U0", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
             try:
                 ar.off()
             except Exception as e:
@@ -48,7 +49,7 @@ def off():
 
 
 
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H"]:
+        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-H9B70U0"]:
             try:
                 ares.off()
             except Exception as e:

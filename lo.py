@@ -10,6 +10,7 @@ import psutil
 import subprocess
 import os
 import pyperclip
+import keyboard
 
 
 
@@ -48,17 +49,37 @@ def l01_start():
         pyautogui.moveTo(left+(width*0.8), top+(height*0.5), 2.0)
         pyautogui.mouseUp()
 
-        ### 응답없음 체크 (l07_response => l08_stove)
-        if l07_response():
-            l08_stove()
+
+
 
 
         
 
 
 
-def l02_bok():
+def l02_bok(on=None):
     print("로드나인 l02_bok   " + time.strftime("%H:%M", time.localtime()))
+
+
+
+
+    time.sleep(1.5)
+
+    #####
+    scr_response = pyautogui.screenshot(region=(left + int(width*0.41), top + int(height*0.487), int(width*0.18), int(height*0.05)))
+    scr_response.save("scr_lo_response.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr_response))
+    print(results)
+
+    if results and ("장기간" in results[0][1] or "접속" in results[0][1] or"종료" in results[0][1]):
+        print("장기간 접속 종료")
+        on()
+        return
+
+
+
 
 
     time.sleep(1.5)
@@ -69,31 +90,47 @@ def l02_bok():
     scr_bok_np = np.array(scr_bok)
     scr_bok.save("scr_lo_bok.png")
 
-    """
-    # 복구 ocr 탐지
-    reader = easyocr.Reader(['ko', 'en'], gpu=False)
-    results = reader.readtext(scr_bok_np)
-    print(results)
-    if results and results[0][1].startswith(("잡", "집")):
-    """
-
-
-    # 녹색 픽셀 탐지
     hsv = cv2.cvtColor(scr_bok_np, cv2.COLOR_RGB2HSV)
     mask = cv2.inRange(hsv, np.array([35, 50, 50]), np.array([85, 255, 255]))
 
     if np.any(mask):
         print("복구 녹색 계열이 발견되었습니다.")
+        on()
+        return
 
 
-        # 버튼 누르기
 
-        pyautogui.moveTo(left+(width*0.527), top+(height*0.589), 2.0) # 확인
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()
 
-        time.sleep(50)        
+    # 마을인지 OCR 체크
+    scr_maul = pyautogui.screenshot(region=(left + int(width*0.8), top + int(height*0.688), int(width*0.05), int(height*0.03)))
+    scr_maul_np = np.array(scr_maul)
+    scr_maul.save("scr_lo_maul.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(scr_maul_np)
+    print(results)
+
+    if results and results[0][1].startswith(("잡", "집")):
+        print("여기는 마을")
+        l04_maul(1)   # l05_fight() 포함
+    else:
+        print("여기는 마을이 아닙니다.")
+        time.sleep(5)
+
+        if on == 'on':
+            pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
+            pyautogui.mouseDown()
+            time.sleep(0.1)
+            pyautogui.mouseUp()
+            time.sleep(1)
+
+            pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전
+            pyautogui.mouseDown()
+            time.sleep(0.1)
+            pyautogui.mouseUp()
+
+
+    
 
 
 
@@ -181,308 +218,46 @@ def l04_maul(on=None):
     print("로드나인 l04_maul   " + time.strftime("%H:%M", time.localtime()))
 
 
-    if on:
-        pyautogui.moveTo(left+(width*0.83), top+(height*0.70), 2.0) # 잡화상인에게 이동
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()
+    # 마을        
+    pyautogui.moveTo(left+(width*0.83), top+(height*0.70), 2.0) # 잡화상인에게 이동
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
 
-        time.sleep(20)     # 이동 10
+    time.sleep(20)     # 이동 10
 
-        pyautogui.moveTo(left+(width*0.15), top+(height*0.23), 2.0) # 중급 HP 회복
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()
+    pyautogui.moveTo(left+(width*0.15), top+(height*0.23), 2.0) # 중급 HP 회복
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
         
-        time.sleep(1)
+    time.sleep(1)
 
-        pyautogui.moveTo(left+(width*0.55), top+(height*0.6), 2.0) # 100%
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()
-
-
-        pyautogui.moveTo(left+(width*0.55), top+(height*0.75), 2.0) # 구매
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()        
-
-        pyautogui.moveTo(left+(width*0.96), top+(height*0.058), 2.0) # 종료
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()
-        
-        print("HP 회복 물약 구매 완료")
-
-
-        l05_fight()
-        return
-
-
-        
-
-        
-
-    # 마을인지 OCR 체크
-    scr_maul = pyautogui.screenshot(region=(left + int(width*0.8), top + int(height*0.688), int(width*0.05), int(height*0.03)))
-    scr_maul_np = np.array(scr_maul)
-    scr_maul.save("scr_lo_maul.png")
-
-    reader = easyocr.Reader(['ko', 'en'], gpu=False)
-    results = reader.readtext(scr_maul_np)
-    print(results)
-
-
-    if results and results[0][1].startswith(("잡", "집")):
-        print("여기는 마을")
-
-        # 마을        
-        pyautogui.moveTo(left+(width*0.83), top+(height*0.70), 2.0) # 잡화상인에게 이동
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()
-
-        time.sleep(20)     # 이동 10
-
-        pyautogui.moveTo(left+(width*0.15), top+(height*0.23), 2.0) # 중급 HP 회복
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()
-        
-        time.sleep(1)
-
-        pyautogui.moveTo(left+(width*0.55), top+(height*0.6), 2.0) # 100%
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()
-
-
-        pyautogui.moveTo(left+(width*0.55), top+(height*0.75), 2.0) # 구매
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()        
-
-        pyautogui.moveTo(left+(width*0.96), top+(height*0.058), 2.0) # 종료
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()
-        
-        print("HP 회복 물약 구매 완료")
-
-
-        l05_fight()
-
-    else:
-        print("여기는 마을 아님")
-
-
-
-
-        
-
-
-
-
-
-
-
-
-def l07_response():
-    print("로드나인 l07_response   " + time.strftime("%H:%M", time.localtime()))
-
-
-    #####
-    scr_response = pyautogui.screenshot(region=(left + int(width*0.41), top + int(height*0.487), int(width*0.18), int(height*0.05)))
-    scr_response_np = np.array(scr_response)
-    hsv = cv2.cvtColor(scr_response_np, cv2.COLOR_RGB2HSV)
-
-    scr_response.save("scr_lo_response.png")
-
-
-
-
-    ##### 문자 인식
-    # 마을인지 OCR 체크
-    reader = easyocr.Reader(['ko', 'en'], gpu=False)
-    results = reader.readtext(scr_response_np)
-    print(results)
-    print(8)
-
-
-
-    
-
-
-
-    if results and ("장기간" in results[0][1] or "접속" in results[0][1] or"종료" in results[0][1]):
-        print("응답 녹색 계열이 발견되었습니다.")
-
-        time.sleep(3)
-        gw.getWindowsWithTitle('LORDNINE')[0].close()   # 점검이면 닫기
-        time.sleep(10)
-
-        pyautogui.moveTo(left+(width*0.57), top+(height*0.618), 2.0) # 공지 닫기
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()
-
-        time.sleep(15)
-
-        return True
-    return False
-
-
-
-
-
-
-
-def l08_stove():
-    print("로드나인 l08_stove   " + time.strftime("%H:%M", time.localtime()))
-
-    time.sleep(10)
-    
-
-    if gw.getWindowsWithTitle('STOVE'):
-        # win = gw.getWindowsWithTitle('STOVE')[0]
-        win = gw.getWindowsWithTitle('STOVE')[len(gw.getWindowsWithTitle('STOVE'))-1]
-    else:
-        print("STOVE 열기")
-        ######  STOVE 여는 로직 ###########
-
-    
-    print(win.title)
-    print(f"{win.title} (위치: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
-
-    
-    app_response = Application().connect(handle=win._hWnd)
-    app_response.window(handle=win._hWnd).set_focus()
-
-    left_response = win.left
-    top_response = win.top
-    width_response = win.width
-    height_response = win.height
-
-    pyautogui.sleep(1)
-    pyautogui.press('enter')
-    pyautogui.sleep(0.1)
-
-
-
-    pyautogui.moveTo(left_response+(width_response*0.62), top_response+(height_response*0.81), 2.0) # 공지 닫기
+    pyautogui.moveTo(left+(width*0.55), top+(height*0.6), 2.0) # 100%
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
 
-    pyautogui.moveTo(left_response+(width_response*0.88), top_response+(height_response*0.85), 2.0) # 플레이
+    pyautogui.moveTo(left+(width*0.55), top+(height*0.75), 2.0) # 구매
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()        
+
+    pyautogui.moveTo(left+(width*0.96), top+(height*0.058), 2.0) # 종료
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
-
-    time.sleep(50)
-
-
+        
+    print("HP 회복 물약 구매 완료")
 
 
-    for i in range(10):
-        if gw.getWindowsWithTitle('LORDNINE'):
-
-            win = gw.getWindowsWithTitle('LORDNINE')[0]
-            print(win.title)
-
-            global app
-            app = Application().connect(handle=win._hWnd)
-            app.window(handle=win._hWnd).set_focus()
-
-            global left, top, width, height
-            left = win.left
-            top = win.top
-            width = win.width
-            height = win.height
-
-
-            pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
-            pyautogui.mouseDown()
-            time.sleep(0.1)
-            pyautogui.mouseUp()
-            time.sleep(10)
-
-            pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
-            pyautogui.mouseDown()
-            time.sleep(0.1)
-            pyautogui.mouseUp()
-            time.sleep(10)
-
-            pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
-            pyautogui.mouseDown()
-            time.sleep(0.1)
-            pyautogui.mouseUp()
-            time.sleep(10)
-
-            pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
-            pyautogui.mouseDown()
-            time.sleep(0.1)
-            pyautogui.mouseUp()
-            time.sleep(10)
-
-            pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
-            pyautogui.mouseDown()
-            time.sleep(0.1)
-            pyautogui.mouseUp()
-            time.sleep(10)
-
-            pyautogui.moveTo(left+(width*0.6), top+(height*0.65), 2.0) # 확인
-            pyautogui.mouseDown()
-            time.sleep(0.1)
-            pyautogui.mouseUp()            
-
-
-            """
-            scr_check = pyautogui.screenshot(region=(left + int(width*0.5), top + int(height*0.6), int(width*0.15), int(height*0.1)))
-            scr_check_np = np.array(scr_check)
-            scr_check.save("scr_lo_check.png")
-
-            reader = easyocr.Reader(['ko', 'en'], gpu=False)
-            results = reader.readtext(scr_check_np)
-
-            print(results)
-
-            if results and results[0][1] == "확인":
-                pyautogui.moveTo(left+(width*0.6), top+(height*0.65), 2.0) # 확인
-                pyautogui.mouseDown()
-                time.sleep(0.1)
-                pyautogui.mouseUp()
-
-                time.sleep(600)   # 600
-            """
-
-
-
-    
-
-
-            pyautogui.moveTo(left+(width*0.5), top+(height*0.7), 2.0) # 접속
-            pyautogui.mouseDown()
-            time.sleep(0.1)
-            pyautogui.mouseUp()
-
-            time.sleep(10)
-            
-            pyautogui.moveTo(left+(width*0.87), top+(height*0.93), 2.0) # Start
-            pyautogui.mouseDown()
-            time.sleep(0.1)
-            pyautogui.mouseUp()
-            
-            break
+    l05_fight()
 
 
 
 
-
-
-
-
+        
 
 
 
@@ -731,90 +506,115 @@ def on():
             if proc.name().lower() == "stove.exe":
                 proc.kill()
                 print(f"{proc.name()} 종료됨")
-        time.sleep(3)
 
-    """
-    for proc in psutil.process_iter():
-        if proc.name().lower() == "stove.exe":
-            proc.kill()
-            print(f"{proc.name()} 종료됨")
-    """
+    if gw.getWindowsWithTitle('STOVE'):
+        os.system("taskkill /F /IM stove.exe")
+        for proc in psutil.process_iter():
+            if proc.name().lower() == "stove.exe":
+                proc.kill()
+                print(f"{proc.name()} 종료됨")
+
 
     if os.environ.get('COMPUTERNAME') == "DESKTOP-LRGAL8H":
         subprocess.Popen(r"D:\ProgramData\Smilegate\STOVE\STOVE.exe", shell=True)
     else:
         subprocess.Popen(r"C:\ProgramData\Smilegate\STOVE\STOVE.exe", shell=True)
 
-    time.sleep(8)
+    time.sleep(10)
+
+
 
 
 
 
     win = gw.getWindowsWithTitle('STOVE')[0]
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
 
-    print(f"{win.title} (위치: {win.left}, {win.top}, 크기: {win.width}x{win.height})")
+    time.sleep(5)
 
-
-    app_stove = Application().connect(handle=win._hWnd)
-    app_stove.window(handle=win._hWnd).set_focus()
-
-
-    time.sleep(7)
 
     
+    pyautogui.moveTo(win.left+(win.width*0.2), win.top+(win.height*0.23), 0.3) # 입력
+    pyautogui.mouseDown()
+    
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
-        pyperclip.copy('s070092@kakao.com')
+        keyboard.write('s070092@kakao.com')
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
-        pyperclip.copy('s070092@nate.com')        
+        keyboard.write('s070092@nate.com')        
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
-        pyperclip.copy('s0700921@nate.com')
+        keyboard.write('s0700921@nate.com')
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-        pyperclip.copy('ground077@naver.com')        
+        keyboard.write('ground077@naver.com')
+    elif os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
+        keyboard.write('ground077@kakao.com')
     else:
-        pyperclip.copy('ground077@kakao.com')
+        keyboard.write('ground077@kakao.com')
 
-    time.sleep(0.5)
-    pyautogui.hotkey('ctrl', 'v')
+    keyboard.press_and_release('tab')
 
-    time.sleep(3)
-    time.sleep(8)
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+        keyboard.write('windows2!')
+    else:
+        keyboard.write('windows1!')
+
+    keyboard.press_and_release('enter')
 
 
-    pyautogui.moveTo(win.left+(win.width*0.2), win.top+(win.height*0.3), 0.3) # 입력
+
+
+
+
+
+
+    time.sleep(10)
+    win = gw.getWindowsWithTitle('STOVE')[0]
+
+    pyautogui.moveTo(win.left+(win.width*0.07), win.top+(win.height*0.15), 1) # 로드나인
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-        pyautogui.write('windows2!')
-    else:
-        pyautogui.write('windows1!')
-        
-    pyautogui.press("enter")
+    pyautogui.moveTo(win.left+(win.width*0.07), win.top+(win.height*0.15), 1) # 로드나인
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
 
-    time.sleep(10)
+    pyautogui.moveTo(win.left+(win.width*0.07), win.top+(win.height*0.15), 1) # 로드나인
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()    
+
+    time.sleep(1)
+
+    pyautogui.moveTo(win.left+(win.width*0.88), win.top+(win.height*0.95), 1) # 플레이
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
 
 
-
+    
+    '''
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
         pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.28), 0.3) # 로드나인
         pyautogui.mouseDown()
         time.sleep(0.1)
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.28), 3) # 로드나인
+        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.28), 1) # 로드나인
         pyautogui.mouseDown()
         time.sleep(0.1)
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.28), 3) # 로드나인
+        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.28), 1) # 로드나인
         pyautogui.mouseDown()
         time.sleep(0.1)
         pyautogui.mouseUp()
 
         time.sleep(0.1)
         pyautogui.press("enter")
-
 
     else:
         pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 0.3) # 로드나인
@@ -822,57 +622,99 @@ def on():
         time.sleep(0.1)
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 3) # 로드나인
+        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 1) # 로드나인
         pyautogui.mouseDown()
         time.sleep(0.1)
         pyautogui.mouseUp()
 
-        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 3) # 로드나인
+        pyautogui.moveTo(win.left-(win.width*0.15), win.top+(win.height*0.1), 1) # 로드나인
         pyautogui.mouseDown()
         time.sleep(0.1)
         pyautogui.mouseUp()
 
         time.sleep(0.1)
         pyautogui.press("enter")
-
-    l08_stove()
-
-
-    time.sleep(38)
+    '''
 
 
 
 
+    time.sleep(30)
 
+
+
+
+
+    win = gw.getWindowsWithTitle('LORDNINE')[0]
+    print(win.title)
 
     global left, top, width, height
-    
-    # 마을인지 OCR 체크
-    scr_maul = pyautogui.screenshot(region=(left + int(width*0.8), top + int(height*0.688), int(width*0.05), int(height*0.03)))
-    scr_maul_np = np.array(scr_maul)
-    scr_maul.save("scr_lo_maul.png")
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
 
-    reader = easyocr.Reader(['ko', 'en'], gpu=False)
-    results = reader.readtext(scr_maul_np)
-    print(results)
-
-    if results and results[0][1].startswith(("잡", "집")):
-        print("여기는 마을")
-        l04_maul(1)   # l05_fight() 포함
-    else:
-        print("여기는 마을이 아닙니다.")
-        time.sleep(5)
-        pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
-        pyautogui.mouseDown()
-        time.sleep(0.1)
-        pyautogui.mouseUp()
-        time.sleep(1)
-
-
-    pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전
+    pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+    time.sleep(10)
+
+    pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    time.sleep(10)
+
+    pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    time.sleep(10)
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.93), 2.0) # Start
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    time.sleep(10)
+
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.93), 2.0) # Start
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.6), top+(height*0.65), 2.0) # 확인
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()            
+
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.7), 2.0) # 접속
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(5)
+            
+    pyautogui.moveTo(left+(width*0.87), top+(height*0.93), 2.0) # Start
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(38)
+
+    l02_bok('on')
+
+    return
+
+
+    
+
 
 
 
@@ -895,10 +737,12 @@ def play_lo():
     except Exception as e:        
         print(f"로드나인 l03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
+    '''
     try:
         l04_maul()   # l05_fight() 포함
     except Exception as e:        
         print(f"로드나인 l04_maul 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
+    '''
 
     try:
         l06_heal()
@@ -915,8 +759,8 @@ def play_lo():
 
 
 if __name__ == "__main__":
-    # play_lo()
-    on()
+    play_lo()
+    # on()
     # off()
     
 

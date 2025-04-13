@@ -72,20 +72,17 @@ def d01_start():
 
     pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 절전 해제
     pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
     pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)   # 절전 해제
     pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.5), 2.0)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
     pyautogui.moveTo(left+(width*0.5), top+(height*0.8), 2.0)   # 절전 해제
     pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.8), 2.0)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
     return True
@@ -125,15 +122,13 @@ def d01_start1():
 
     pyautogui.moveTo(left+(width*0.5), top+(height*0.8), 2.0)   # 절전 해제
     pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.8), 2.0)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
     pyautogui.moveTo(left+(width*0.5), top+(height*0.8), 2.0)   # 절전 해제
     pyautogui.mouseDown()
-    time.sleep(1)
-    pyautogui.moveTo(left+(width*0.5), top+(height*0.8), 2.0)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
@@ -173,7 +168,7 @@ def d02_bok():
 
 
 
-    time.sleep(3)   # 15
+    time.sleep(15)
 
 
     pyautogui.moveTo(left+(width*0.238), top+(height*0.087), 2.0)   # 달성도
@@ -254,6 +249,7 @@ def d02_bok():
         pyautogui.moveTo(left+(width*0.33), top+(height*0.08), 2.0)
         pyautogui.mouseUp()
 
+        time.sleep(3)
 
         pyautogui.moveTo(left+(width*0.15), top+(height*0.3), 2.0)   # 지도
         pyautogui.mouseDown()
@@ -289,7 +285,16 @@ def d02_bok():
         pyautogui.mouseDown()
         time.sleep(0.1)
         pyautogui.moveTo(left+(width*0.57), top+(height*0.617), 2.0)
-        pyautogui.mouseUp()        
+        pyautogui.mouseUp()
+
+        time.sleep(30)
+
+        pyautogui.moveTo(left+(width*0.957), top+(height*0.75), 2.0)   # AUTO
+        pyautogui.mouseDown()
+        time.sleep(0.1)
+        pyautogui.mouseUp()
+    
+
 
     
     return
@@ -388,9 +393,9 @@ def d04_dungeon0():
     time.sleep(5)
 
 
-    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
+    pyautogui.moveTo(left+(width*0.03), top+(height*0.457), 2.0)   # 절전
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
@@ -432,9 +437,9 @@ def d05_dungeon1():
     time.sleep(5)
 
 
-    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
+    pyautogui.moveTo(left+(width*0.03), top+(height*0.57), 2.0)   # 절전
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
@@ -596,9 +601,9 @@ def d08_XL(mode=None):
     pyautogui.mouseUp()
 
     
-    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
+    pyautogui.moveTo(left+(width*0.03), top+(height*0.457), 2.0)   # 절전
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
@@ -857,6 +862,9 @@ def on():
 
     time.sleep(7)
 
+    # pyautogui.hotkey('win', 'up')
+    # time.sleep(1)
+
 
 
     scr_google = pyautogui.screenshot(region=(880, 380, 380, 500))
@@ -965,7 +973,7 @@ def on():
     pyautogui.mouseUp()
 
     
-    pyautogui.moveTo(left+(width*0.03), top+(height*0.48), 2.0)   # 절전
+    pyautogui.moveTo(left+(width*0.03), top+(height*0.457), 2.0)   # 절전
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -1109,7 +1117,7 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
     
-    pyautogui.moveTo(left+(width*0.03), top+(height*0.48), 2.0)   # 절전
+    pyautogui.moveTo(left+(width*0.03), top+(height*0.457), 2.0)   # 절전
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -1192,9 +1200,9 @@ def play_dal(dungeon=None):
 
 
 
-    pyautogui.moveTo(left+(width*0.03), top+(height*0.398), 2.0)   # 절전
+    pyautogui.moveTo(left+(width*0.03), top+(height*0.457), 2.0)   # 절전
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 

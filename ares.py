@@ -77,7 +77,7 @@ def a01_start():
     time.sleep(0.1)
     r, g, b = pyautogui.pixel(int(left+(width*0.5)), int(top+(height*0.5)))
     
-    if (80 < r < 100) and (88 < g < 120) and (80 < b < 100):
+    if 1 == 0 and (80 < r < 100) and (88 < g < 120) and (80 < b < 100):
         pyautogui.moveTo(left+(width*0.5), top+(height*0.65), 2.0)   # 절전 해제
         pyautogui.mouseDown()
         time.sleep(1)
@@ -517,39 +517,132 @@ def a04_dungeon():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
+    time.sleep(5)
 
     pyautogui.moveTo(left+(width*0.9), top+(height*0.95), 2.0)   # 입장
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-
-    time.sleep(20)
-
-    pyautogui.moveTo(left+(width*0.618), top+(height*0.338), 2.0)   # 충전 X
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.95), 2.0)   # 입장
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(3)
+    pyautogui.moveTo(left+(width*0.9), top+(height*0.95), 2.0)   # 입장
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()    
 
-    pyautogui.moveTo(left+(width*0.07), top+(height*0.15), 2.0)   # 지도
+
+
+
+
+    time.sleep(38)
+
+
+    pyautogui.moveTo(left+(width*0.07), top+(height*0.17), 2.0)   # 지도
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(5)
+    time.sleep(8)
+
+
+
+
+
+
+
+    # 주간 던전 지도 ocr 탐지
+    scr_dungeon = pyautogui.screenshot(region=(left + int(width*0.2), top + int(height*0.2), int(width*0.6), int(height*0.6)))
+    scr_dungeon.save("scr_ares_dungeon.png")
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr_dungeon))
+    print(results)
+
+
+    print(7)
+
+
+    list_map = []
+    for item in results:
+        print(item)
+        if len(item[1][:2]) >= 2 and item[1][:2]== '기지':
+            x = (item[0][0][0] + item[0][1][0]) // 2
+            y = (item[0][0][1] + item[0][2][1]) // 2
+            list_temp = []
+            list_temp.append(x)
+            list_temp.append(y)
+            list_map.append(list_temp)
 
     
-    pyautogui.moveTo(left+(width*0.25), top+(height*0.2587), 2.0)   # 지도
+
+
+
+    list_map_number = int(time.strftime("%S"))%len(list_map)
+
+
+
+    pyautogui.moveTo(left + int(width*0.2) + list_map[list_map_number][0], top + int(height*0.2) + list_map[list_map_number][1] - int(height*0.03), 2.0)   # 지도
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.3), top+(height*0.5), 2.0)   # 자동이동
+    pyautogui.moveTo(left + int(width*0.2) + list_map[list_map_number][0], top + int(height*0.2) + list_map[list_map_number][1] - int(height*0.03), 2.0)   # 지도
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+    
+    pyautogui.moveTo(left + int(width*0.2) + list_map[list_map_number][0], top + int(height*0.2) + list_map[list_map_number][1] - int(height*0.03), 2.0)   # 지도
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
+    time.sleep(15)
+
+    # 자동 이동 ocr 탐지
+    scr_auto = pyautogui.screenshot(region=(left + int(width*0.15), top + int(height*0.38), int(width*0.7), int(height*0.6)))
+    scr_auto.save("scr_ares_auto.png")
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr_auto))
+    print(results)
+
+
+    list_map = []
+    for item in results:
+        print(item)
+        if len(item[1][:2]) >= 2 and item[1][:2]== '자동':
+            x = (item[0][0][0] + item[0][1][0]) // 2
+            y = (item[0][0][1] + item[0][2][1]) // 2
+            list_temp = []
+            list_temp.append(x)
+            list_temp.append(y)
+            list_map.append(list_temp)
+            break
+
+
+    print(list_map)
+    print(list_map[0][0] + 1)
+
+    print(top + int(height*0.2) + list_map[0][1])
+
+
+    pyautogui.moveTo(left + int(width*0.15) + list_map[0][0], top + int(height*0.38) + list_map[0][1], 2.0)   # 자동 이동
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left + int(width*0.15) + list_map[0][0], top + int(height*0.38) + list_map[0][1], 2.0)   # 자동 이동
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
 
 
     time.sleep(5)
@@ -633,6 +726,77 @@ def a04_dungeon():
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+
+
+
+    ### 우편
+
+    pyautogui.moveTo(left+(width*0.97), top+(height*0.07), 2.0)   # 메뉴
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.838), top+(height*0.63), 2.0)   # 우편
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    time.sleep(1)
+
+    pyautogui.moveTo(left+(width*0.07), top+(height*0.17), 2.0)   # 계정 우편함
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.75), top+(height*0.958), 2.0)   # 모두 받기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.75), top+(height*0.958), 2.0)   # 모두 받기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.75), top+(height*0.958), 2.0)   # 모두 받기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
+
+
+
+    pyautogui.moveTo(left+(width*0.07), top+(height*0.23), 2.0)   # 캐릭터 우편함
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.75), top+(height*0.958), 2.0)   # 모두 받기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.75), top+(height*0.958), 2.0)   # 모두 받기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.75), top+(height*0.958), 2.0)   # 모두 받기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+
+    pyautogui.moveTo(left+(width*0.977), top+(height*0.07), 2.0)   # 닫기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
     
 
 
@@ -705,7 +869,7 @@ def a05_dungeon_week():
     time.sleep(1)    
 
 
-    pyautogui.moveTo(left+(width*0.07), top+(height*0.15), 2.0)   # 지도
+    pyautogui.moveTo(left+(width*0.07), top+(height*0.17), 2.0)   # 지도
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -1471,8 +1635,8 @@ def play_ares(dungeon=None):
 
 
 if __name__ == "__main__":
-    # play_ares()
-    on(0)
+    play_ares()
+    # on(0)
 
 
 

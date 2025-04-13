@@ -35,21 +35,19 @@ def on():
 
         time.sleep(600)
 
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H", "DESKTOP-NT06800"]:
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-NT06800"]:
             try:
                 jo.on()
             except Exception as e:
                 print(f"jo.on() 오류")
             
-
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H", "DESKTOP-H9B70U0"]:
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 lo.on()
             except Exception as e:
                 print(f"lo.on() 오류")
 
-
-        if desktop in ["DESKTOP-H9B70U0", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-H9B70U0"]:
             try:
                 ar.on()
             except Exception as e:
@@ -76,7 +74,7 @@ def on():
                 print(f"ak.on() 오류")
 
 
-        if desktop in ["DESKTOP-OHGK5MV", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-LRGAL8H", "DESKTOP-H9B70U0"]:
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 rf.on()
             except Exception as e:

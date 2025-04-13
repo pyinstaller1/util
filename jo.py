@@ -47,7 +47,7 @@ def p02_bok():
     pyautogui.moveTo(left+(width*0.47), top+(height*0.85), 2.0)   # 절전 해제
     pyautogui.mouseDown()
     time.sleep(1)
-    pyautogui.moveTo(left+(width*0.57), top+(height*0.85), 2.0)
+    pyautogui.moveTo(left+(width*0.7), top+(height*0.85), 2.0)
     pyautogui.mouseUp()
 
     time.sleep(3)
@@ -932,8 +932,8 @@ def play_jo():
 
 
 if __name__ == "__main__":
-    # play_jo()
-    on()
+    play_jo()
+    # on()
 
 
 
