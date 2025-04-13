@@ -94,7 +94,7 @@ def l02_bok(on=None):
 
 
     # 마을인지 OCR 체크
-    scr_maul = pyautogui.screenshot(region=(left + int(width*0.8), top + int(height*0.688), int(width*0.05), int(height*0.03)))
+    scr_maul = pyautogui.screenshot(region=(left + int(width*0.8), top + int(height*0.688), int(width*0.05), int(height*0.06)))
     scr_maul_np = np.array(scr_maul)
     scr_maul.save("scr_lo_maul.png")
 
