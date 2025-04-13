@@ -433,7 +433,7 @@ def on():
                 break
             
         if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-            if "7zok" in text:   # ground077@kakao.com       groundo7zokakaocorn
+            if "7zok" in text or "o77@k" in text:   # ground077@kakao.com       groundo7zokakaocorn   groundo77@kakao.corn
                 break
             
         if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
