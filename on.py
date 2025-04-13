@@ -1,6 +1,6 @@
 
 
-import jo, lo, ar, dal, ares, ak, rf
+import jo, lo, ar, dal, ares, ak, rf, rom
 import time
 import os
 import subprocess
@@ -33,7 +33,7 @@ def on():
 
     if 1==1:
 
-        time.sleep(600)
+        time.sleep(300)
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-NT06800"]:
             try:
@@ -80,6 +80,12 @@ def on():
             except Exception as e:
                 print(f"rf.on() 오류")
 
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+            try:
+                rom.on(0)
+            except Exception as e:
+                print(f"rom.on() 오류")
+                
 
         print(os.environ.get('COMPUTERNAME') + " " + time.strftime("%H:%M", time.localtime()))
 
