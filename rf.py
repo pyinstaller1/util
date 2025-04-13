@@ -349,6 +349,11 @@ def off():
 
 
 
+
+
+
+
+
 def on():
     print("RF on   " + time.strftime("%H:%M", time.localtime()))
 
@@ -412,7 +417,7 @@ def on():
 
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(np.array(scr))
-    # print(results)
+    print(results)
 
 
     for item in results:
@@ -575,8 +580,8 @@ def play():
 
 if __name__ == "__main__":
     # play()
-    # on()
-    mission()
+    on()
+    # mission()
     # off()
 
 
