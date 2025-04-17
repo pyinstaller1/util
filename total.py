@@ -69,7 +69,7 @@ while True:
             try:
                 ares.dungeon_ares()
             except Exception as e:
-                print(f"ares.dungeon_ares() 오류")
+                print(f"ares.dungeon_ares() 오류: " + e)
 
                 
         # 달조 던전   5시  7시
@@ -97,7 +97,7 @@ while True:
                             try:
                                 ar.dungeon_ar()
                             except Exception as e:
-                                print(f"ar.dungeon_ar() 오류")
+                                print(f"ar.dungeon_ar() 오류: " + e)
 
 
 
@@ -115,7 +115,7 @@ while True:
             try:
                 dal.play_dal("던전1")
             except Exception as e:
-                print(f"dal.play_dal() 오류")
+                print(f"dal.play_dal() 오류: " + e)
 
 
         # 달조 던전   5시  7시
@@ -144,7 +144,7 @@ while True:
                             try:
                                 ar.dungeon_ar_end()
                             except Exception as e:
-                                print(f"ar.dungeon_ar_end() 오류")
+                                print(f"ar.dungeon_ar_end() 오류: " + e)
 
 
 
@@ -161,45 +161,45 @@ while True:
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-NT06800"]:
             try:
                 jo.play_lo()
-            except:
-                print("jo.play_jo() 오류")
+            except Exception as e:
+                print("jo.play_jo() 오류: " + e)
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 lo.play_lo()
-            except:
-                print("lo.play_lo() 오류")
+            except Exception as e:
+                print("lo.play_lo() 오류: " + e)
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-H9B70U0"]:
             try:
                 ar.play_ar()
-            except:
-                print("ar.play_ar() 오류")
+            except Exception as e:
+                print("ar.play_ar() 오류: " + e)
 
         if desktop in ["DESKTOP-OHGK5MV"]:
             try:
                 dal.play_dal()
-            except:
-                print(f"dal.play_dal() 오류")
+            except Exception as e:
+                print(f"dal.play_dal() 오류: " + e)
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 ares.play_ares()
-            except:
-                print("ares.play_ares() 오류")
+            except Exception as e:
+                print("ares.play_ares() 오류: " + e)
                 
         if desktop in ["DESKTOP-H9B70U0"]:
             try:
                 ak.play()
-            except:
-                print("ak.play() 오류")
+            except Exception as e:
+                print("ak.play() 오류: " + e)
 
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 rf.play_lo()
-            except:
-                print("rf.play_lo() 오류")
+            except Exception as e:
+                print("rf.play_lo() 오류: " + e)
 
 
         print(os.environ.get('COMPUTERNAME') + " " + time.strftime("%H:%M", time.localtime()))
@@ -208,6 +208,7 @@ while True:
 
 
     time.sleep(30)
+    print(time.strftime("%H:%M", time.localtime()))
 
 
 print("Total 종료" + " " + time.strftime("%H:%M", time.localtime()))
