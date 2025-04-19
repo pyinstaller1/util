@@ -9,6 +9,8 @@ import psutil
 import subprocess
 import os
 import keyboard, mouse
+import sys
+from pynput.mouse import Controller, Button
 
 
 
@@ -49,16 +51,42 @@ def a01_start():
     width = win.width
     height = win.height
 
+    mouse = Controller()
 
+    mouse.position = (int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
+    time.sleep(0.1)
+    mouse.press(Button.left)
+    time.sleep(3)
+    mouse.position = (int(left + width * 0.7), int(top + height * 0.5))
+    time.sleep(1)
+    mouse.release(Button.left)
+    time.sleep(1)
+
+
+
+
+
+
+
+
+
+    """
     mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.1)   # 절전 해제
     mouse.press()
     mouse.move(left+(width*0.7), top+(height*0.5), absolute=True, duration=0.3)
     mouse.release()
     time.sleep(1)
+    """
+
+    
+    mouse.position = (int(left + width * 0.5), int(top + height * 0.75))   # AUTO 종료
+    mouse.click(Button.left, 1)
+
+    # mouse.move(left+(width*0.5), top+(height*0.75), absolute=True, duration=0.1)   # AUTO 종료
+    # mouse.click()
 
 
-    mouse.move(left+(width*0.5), top+(height*0.75), absolute=True, duration=0.1)   # AUTO 종료
-    mouse.click()
+    
 
     return
 
@@ -70,6 +98,23 @@ def a02_bok():
     print("RF a02_bok   " + time.strftime("%H:%M", time.localtime()))
 
     global left, top, width, height
+
+
+
+
+    # 장시간 미입력 ocr 탐지
+    scr = pyautogui.screenshot(region=(left + int(width*0.37), top + int(height*0.47), int(width*0.3), int(height*0.05)))
+    scr.save("scr_rf_bok.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr))
+    print(results)
+
+
+    if results and results[0][1][:3] in ['장시간']:
+        on()
+        return 'on'
+    
 
     # 복구 ocr 탐지
     scr = pyautogui.screenshot(region=(left + int(width*0.077), top + int(height*0.07), int(width*0.05), int(height*0.05)))
@@ -127,8 +172,8 @@ def a02_bok():
 
 
         time.sleep(1)
-
-
+        time.sleep(1)
+        time.sleep(1)
 
 
         mouse.move(left+(width*0.03), top+(height*0.07), absolute=True, duration=0.1)   # 지도
@@ -164,18 +209,20 @@ def a02_bok():
         mouse.move(left+(width*0.3) + x, top+(height*0.3) + y - (height*0.01), absolute=True, duration=0.1)   # 지도 클릭
         mouse.click()
 
-        time.sleep(1)
+        time.sleep(3)
 
 
 
         mouse.move(left+(width*0.53), top+(height*0.51), absolute=True, duration=0.1)   # 즉시 이동
         mouse.click()
 
+        time.sleep(1)
+
 
         mouse.move(left+(width*0.58), top+(height*0.68), absolute=True, duration=0.1)   # 즉시 이동
         mouse.click()
 
-        time.sleep(10)
+        time.sleep(15)
 
         mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)   # AUTO
         mouse.click()
@@ -245,6 +292,9 @@ def a03_jangbi():
     mouse.move(left+(width*0.977), top+(height*0.123), absolute=True, duration=0.1)   # 장비
     mouse.click()
 
+    mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
+    mouse.click()
+
     return
 
 
@@ -268,10 +318,9 @@ def a04_mission():
 
 
     for i in range(10):
-        mouse.move(left+(width*0.95), top+(height*0.95), absolute=True, duration=0.1)   # 수락
+        mouse.move(left+(width*0.87), top+(height*0.917), absolute=True, duration=0.1)   # 수락
         mouse.click()
         time.sleep(0.1)
-
  
 
     mouse.move(left+(width*0.5), top+(height*0.3), absolute=True, duration=0.1)   # 미션
@@ -279,7 +328,7 @@ def a04_mission():
     time.sleep(0.1)
 
 
-    mouse.move(left+(width*0.95), top+(height*0.95), absolute=True, duration=0.1)   # 진행
+    mouse.move(left+(width*0.87), top+(height*0.917), absolute=True, duration=0.1)   # 진행
     mouse.click()
     time.sleep(0.1)
 
@@ -526,7 +575,7 @@ def on():
     mouse.click()
 
     
-    time.sleep(60)
+    time.sleep(80)
 
 
     mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)   # AUTO
@@ -580,8 +629,11 @@ def mission():
     
 def play():
     a01_start()
-    a02_bok()
-    a03_jangbi()
+    if a02_bok() != 'on':
+        pass
+        # a03_jangbi()
+
+
 
 
 
@@ -590,17 +642,18 @@ def play():
 
 
 if __name__ == "__main__":
-    # play()
-    on()
-    # mission()
-    # off()
-
-
-
-
-
-
-
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "on":
+            on()
+        elif sys.argv[1] == "mission":
+            mission()
+        else:
+            play()
+    else:
+        play()
+        # on()
+        # mission()
+        # off()
 
 
 

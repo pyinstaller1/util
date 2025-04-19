@@ -9,6 +9,7 @@ import re
 import psutil
 import subprocess
 import os
+from pynput.mouse import Controller, Button
 
 
 
@@ -43,14 +44,13 @@ def p02_bok():
 
     global left, top, width, height
 
-
-    pyautogui.moveTo(left+(width*0.47), top+(height*0.85), 2.0)   # 절전 해제
+    pyautogui.moveTo(left+(width*0.45), top+(height*0.85), 2.0)   # 절전 해제
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.moveTo(left+(width*0.7), top+(height*0.85), 2.0)
     pyautogui.mouseUp()
 
-    time.sleep(3)
+    time.sleep(7)
 
 
 
@@ -106,22 +106,22 @@ def p02_bok():
 
         pyautogui.moveTo(left+(width*0.17), top+(height*0.9), 2.0) # 복구
         pyautogui.mouseDown()
-        time.sleep(0.3)
+        time.sleep(1)
         pyautogui.mouseUp()
         
         pyautogui.moveTo(left+(width*0.57), top+(height*0.65), 2.0) # 확인 버튼
         pyautogui.mouseDown()
-        time.sleep(0.3)
+        time.sleep(1)
         pyautogui.mouseUp()
 
         pyautogui.moveTo(left+(width*0.17), top+(height*0.9), 2.0) # 복구
         pyautogui.mouseDown()
-        time.sleep(0.3)
+        time.sleep(1)
         pyautogui.mouseUp()
 
         pyautogui.moveTo(left+(width*0.57), top+(height*0.65), 2.0) # 확인 버튼        
         pyautogui.mouseDown()
-        time.sleep(0.3)
+        time.sleep(1)
         pyautogui.mouseUp()
 
 
@@ -132,7 +132,7 @@ def p02_bok():
 
         pyautogui.moveTo(left+(width*0.5), top+(height*0.25), 2.0) # 화면 클릭
         pyautogui.mouseDown()
-        time.sleep(0.3)
+        time.sleep(1)
         pyautogui.mouseUp()
 
 
@@ -142,13 +142,13 @@ def p02_bok():
 
         pyautogui.moveTo(left+(width*0.238), top+(height*0.087), 2.0) # 체력        
         pyautogui.mouseDown()
-        time.sleep(0.1)
+        time.sleep(1)
         pyautogui.mouseUp()
 
 
         pyautogui.moveTo(left+(width*0.2888), top+(height*0.087), 1.0) # 도력        
         pyautogui.mouseDown()
-        time.sleep(0.1)
+        time.sleep(1)
         pyautogui.mouseUp()
 
         time.sleep(3)
@@ -218,28 +218,28 @@ def p02_bok():
  
             pyautogui.moveTo(left+(width*0.81), top+(height*0.25), 2.0) # 지도
             pyautogui.mouseDown()
-            time.sleep(0.1)
+            time.sleep(1)
             pyautogui.mouseUp()
             
             pyautogui.moveTo(left+(width*0.80), top+(height*0.25), 2.0) # 개경 마을
             pyautogui.mouseDown()
-            time.sleep(0.1)
+            time.sleep(1)
             pyautogui.mouseUp()
             time.sleep(2)
             
 
             pyautogui.moveTo(left+(width*0.80), top+(height*0.37), 2.0) # 잡화 상인
             pyautogui.mouseDown()
-            time.sleep(0.1)
+            time.sleep(1)
             pyautogui.mouseUp()
             time.sleep(1)
 
 
-            time.sleep(0.1)
+            time.sleep(1)
 
             pyautogui.moveTo(left+(width*0.80), top+(height*0.95), 2.0) # 이동 버튼
             pyautogui.mouseDown()
-            time.sleep(0.1)
+            time.sleep(1)
             pyautogui.mouseUp()
             time.sleep(15)
             
@@ -418,37 +418,37 @@ def p02_bok():
 
         pyautogui.moveTo(left+(width*0.95), top+(height*0.18), 2.0) # 사냥도감
         pyautogui.mouseDown()
-        time.sleep(0.3)
+        time.sleep(1)
         pyautogui.mouseUp()
 
         time.sleep(5)
 
-        pyautogui.moveTo(left+(width*0.055), top+(height*0.56), 3.0) # 요도우라   36  46  56  63  70  78
+        pyautogui.moveTo(left+(width*0.055), top+(height*0.61), 3.0) # 요도우라   36  46  56  63  70  78
         pyautogui.mouseDown()
-        time.sleep(0.3)
+        time.sleep(1)
         pyautogui.mouseUp()
 
         pyautogui.moveTo(left+(width*0.17), top+(height*0.33), 2.0) # 맷돼지
         pyautogui.mouseDown()
-        time.sleep(0.3)
+        time.sleep(1)
         pyautogui.mouseUp()
 
         pyautogui.moveTo(left+(width*0.91), top+(height*0.95), 2.0) # 이동
         pyautogui.mouseDown()
-        time.sleep(0.3)
+        time.sleep(1)
         pyautogui.mouseUp()
 
         pyautogui.moveTo(left+(width*0.57), top+(height*0.65), 2.0) # 확인 버튼
         pyautogui.mouseDown()
-        time.sleep(0.3)
+        time.sleep(1)
         pyautogui.mouseUp()
 
-        time.sleep(20)
+        time.sleep(70)
 
         time.sleep(3)
         pyautogui.moveTo(left+(width*0.915), top+(height*0.73), 2.0) # AUTO 버튼
         pyautogui.mouseDown()
-        time.sleep(0.3)
+        time.sleep(1)
         pyautogui.mouseUp()
 
 
@@ -473,33 +473,33 @@ def p03_jangbi():
 
     pyautogui.moveTo(left+(width*0.767), top+(height*0.28), 2.0) # 장비도감
     pyautogui.mouseDown()
-    time.sleep(0.3)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
     time.sleep(2)
 
     pyautogui.moveTo(left+(width*0.838), top+(height*0.93), 2.0) # 장비도감 일괄등록
     pyautogui.mouseDown()
-    time.sleep(0.3)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
     pyautogui.moveTo(left+(width*0.577), top+(height*0.65), 2.0) # 확인 버튼
     pyautogui.mouseDown()
-    time.sleep(0.3)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
     time.sleep(3.0)
 
     
     pyautogui.mouseDown()
-    time.sleep(0.3)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
     pyautogui.moveTo(left+(width*0.967), top+(height*0.08), 2.0) # 장비도감 종료
     pyautogui.mouseDown()
-    time.sleep(0.3)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
@@ -512,14 +512,14 @@ def p03_jangbi():
     pyautogui.moveTo(left+(width*0.957), top+(height*0.07), 2.0) # 메뉴
 
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
     pyautogui.moveTo(left+(width*0.81), top+(height*0.08), 2.0) # 가방
 
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
@@ -528,7 +528,7 @@ def p03_jangbi():
     pyautogui.moveTo(left+(width*0.757), top+(height*0.18), 2.0) # 장비
 
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
     '''
@@ -609,34 +609,34 @@ def p03_jangbi():
     pyautogui.moveTo(left+(width*0.56), top+(height*0.638), 2.0) # 확인버튼
 
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
     
     pyautogui.moveTo(left+(width*0.50), top+(height*0.67), 2.0) # 확인버튼
 
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
     pyautogui.moveTo(left+(width*0.388), top+(height*0.81), 2.0) # 취소버튼
 
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
     pyautogui.moveTo(left+(width*0.288), top+(height*0.167), 2.3) # X버튼
 
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
 
     pyautogui.moveTo(left+(width*0.038), top+(height*0.763), 2.3) # 절전
 
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
     # time.sleep(3)
@@ -849,14 +849,14 @@ def on():
     # 미션 건너뛰기
     pyautogui.moveTo(left+(width*0.89), top+(height*0.63), 2.0)   # 건너뛰기
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
     time.sleep(5)
     
     pyautogui.moveTo(left+(width*0.38), top+(height*0.91), 2.0)   # 취소
     pyautogui.mouseDown()
-    time.sleep(1)
+    time.sleep(0.1)
     pyautogui.mouseUp()
 
     time.sleep(5)
@@ -899,19 +899,19 @@ def play_jo():
     try:
         p01_start()
     except Exception as e:
-        print(f"조선협객전 p01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
+        print(f"조선협객전 p01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}" + str(e))
 
 
     try:
         p02_bok()
     except Exception as e:
-        print(f"조선협객전 p02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
+        print(f"조선협객전 p02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}" + str(e))
 
 
     try:
         p03_jangbi()
     except Exception as e:
-        print(f"조선협객전 p03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
+        print(f"조선협객전 p03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}" + str(e))
 
 
 

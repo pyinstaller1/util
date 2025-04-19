@@ -56,12 +56,14 @@ while True:
     # 매일 오전 5시 20분
     if time.localtime().tm_hour == 5 and time.localtime().tm_min == 20:
         print("오전 5시 작업")
-
+        
+        '''
         if desktop in ["DESKTOP-OHGK5MV"]:
             try:
                 dal.play_dal("던전0")   # 달빛조각사 불의던전
             except Exception as e:
                 print(f"dal.play_dal() 오류: {e}")
+        '''
 
 
 
@@ -69,13 +71,14 @@ while True:
             try:
                 ares.dungeon_ares()
             except Exception as e:
-                print(f"ares.dungeon_ares() 오류: " + e)
+                print(f"ares.dungeon_ares() 오류: " + str(e))
 
                 
         # 달조 던전   5시  7시
         # 아레스 던전 5시
         
 
+    '''
     # 매일 오전 6시 20분
     if time.localtime().tm_hour == 6 and time.localtime().tm_min == 20:
         print("오전 6시 작업")
@@ -97,14 +100,11 @@ while True:
                             try:
                                 ar.dungeon_ar()
                             except Exception as e:
-                                print(f"ar.dungeon_ar() 오류: " + e)
-
-
-
+                                print(f"ar.dungeon_ar() 오류: " + str(e))
                 
- 
+    '''
 
-
+    '''
     # 매일 오전 7시 play
     if time.localtime().tm_hour == 7 and time.localtime().tm_min == 20:
         print("오전 7시 작업")
@@ -115,14 +115,18 @@ while True:
             try:
                 dal.play_dal("던전1")
             except Exception as e:
-                print(f"dal.play_dal() 오류: " + e)
+                print(f"dal.play_dal() 오류: " + str(e))
 
 
         # 달조 던전   5시  7시
 
+    '''
 
 
 
+
+
+    '''
     # 매일 오전 8시 20분
     if time.localtime().tm_hour == 8 and time.localtime().tm_min == 20:
         print("오전 8시 작업")
@@ -144,14 +148,13 @@ while True:
                             try:
                                 ar.dungeon_ar_end()
                             except Exception as e:
-                                print(f"ar.dungeon_ar_end() 오류: " + e)
+                                print(f"ar.dungeon_ar_end() 오류: " + str(e))
+
+    '''
 
 
 
-
-
-
-
+    
     # 매시간 1분마다 play    
     if time.localtime().tm_min == 1:
         print(time.strftime("%H:%M", time.localtime()))
@@ -162,44 +165,50 @@ while True:
             try:
                 jo.play_lo()
             except Exception as e:
-                print("jo.play_jo() 오류: " + e)
+                print("jo.play_jo() 오류: " + str(e))
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 lo.play_lo()
             except Exception as e:
-                print("lo.play_lo() 오류: " + e)
-
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-H9B70U0"]:
-            try:
-                ar.play_ar()
-            except Exception as e:
-                print("ar.play_ar() 오류: " + e)
-
-        if desktop in ["DESKTOP-OHGK5MV"]:
-            try:
-                dal.play_dal()
-            except Exception as e:
-                print(f"dal.play_dal() 오류: " + e)
+                print("lo.play_lo() 오류: " + str(e))
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 ares.play_ares()
             except Exception as e:
-                print("ares.play_ares() 오류: " + e)
+                print("ares.play_ares() 오류: " + str(e))
+
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
+            try:
+                rf.play()
+            except Exception as e:
+                print("rf.play() 오류: " + str(e))
+
                 
+
+        '''
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-H9B70U0"]:
+            try:
+                ar.play_ar()
+            except Exception as e:
+                print("ar.play_ar() 오류: " + str(e))
+
+        if desktop in ["DESKTOP-OHGK5MV"]:
+            try:
+                dal.play_dal()
+            except Exception as e:
+                print(f"dal.play_dal() 오류: " + str(e))
+     
         if desktop in ["DESKTOP-H9B70U0"]:
             try:
                 ak.play()
             except Exception as e:
-                print("ak.play() 오류: " + e)
+                print("ak.play() 오류: " + str(e))
+        '''
 
 
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
-            try:
-                rf.play_lo()
-            except Exception as e:
-                print("rf.play_lo() 오류: " + e)
+
 
 
         print(os.environ.get('COMPUTERNAME') + " " + time.strftime("%H:%M", time.localtime()))

@@ -11,6 +11,7 @@ import subprocess
 import os
 import pyperclip
 import keyboard
+import sys
 
 
 
@@ -360,46 +361,6 @@ def l05_fight():
     
 
 
-def l06_heal():
-    # ocr   if che < 300: b 클릭    l04_maul
-    
-    print("로드나인 l06_heal   " + time.strftime("%H:%M", time.localtime()))
-
-    global left, top, width, height
-    
-
-    scr_che = pyautogui.screenshot(region=(left + int(width*0.287), top + int(height*0.93), int(width*0.17), int(height*0.15)))
-    scr_che_np = np.array(scr_che)
-
-    scr_che.save("scr_lo_che.png")
-
-
-    # 체력 ocr 체크
-    reader = easyocr.Reader(['ko', 'en'], gpu=False)
-    results = reader.readtext(scr_che_np)
-    print("HP ocr 점검")
-    print(results)
-
-    if results and re.sub(r"[^0-9]", "", results[0][1]):
-        che = int(re.sub(r"[^0-9]", "", results[0][1]))
-
-        if che < 1:
-            print("HP가 적어서 마을로 이동")
-
-            pyautogui.moveTo(left+(width*0.038), top+(height*0.31), 2.0) # 마을
-            pyautogui.mouseDown()
-            time.sleep(0.1)
-            pyautogui.mouseUp()
-
-            
-            time.sleep(30)
-            l04_maul()
-        else:
-            print("HP가 마을로 충분해서 이동 안함")
-    else:
-        print("HP ocr 인식 오류")
-
-
 
 
 
@@ -512,7 +473,7 @@ def on():
     else:
         subprocess.Popen(r"C:\ProgramData\Smilegate\STOVE\STOVE.exe", shell=True)
 
-    time.sleep(30)
+    time.sleep(50)
 
 
 
@@ -668,6 +629,8 @@ def on():
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+    time.sleep(10)
+
 
     pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
     pyautogui.mouseDown()
@@ -713,21 +676,21 @@ def on():
 
 
 
-def play_lo():
+def play():
     try:
         l01_start()
     except Exception as e:        
-        print(f"로드나인 l01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
+        print(f"로드나인 l01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
     try:
         l02_bok()
     except Exception as e:        
-        print(f"로드나인 l02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
+        print(f"로드나인 l02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
     try:
         l03_jangbi()
     except Exception as e:        
-        print(f"로드나인 l03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
+        print(f"로드나인 l03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
     '''
     try:
@@ -735,11 +698,6 @@ def play_lo():
     except Exception as e:        
         print(f"로드나인 l04_maul 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
     '''
-
-    try:
-        l06_heal()
-    except Exception as e:        
-        print(f"로드나인 l06_heal 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
 
     global left, top, width, height
@@ -751,13 +709,16 @@ def play_lo():
 
 
 
-
-if __name__ == "__main__":
-    play_lo()
-    # on()
-    # off()
     
 
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "on":
+            on()
+        else:
+            play()
+    else:
+        play()
 
 
 
