@@ -11,6 +11,7 @@ import subprocess
 import os
 import pyperclip
 import keyboard
+from pynput.mouse import Controller, Button
 import sys
 
 

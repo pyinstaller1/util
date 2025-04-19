@@ -5,7 +5,7 @@ import time
 import numpy as np
 import keyboard
 import os
-
+from pynput.mouse import Controller, Button
 
 
 # "DESKTOP-LRGAL8H"
