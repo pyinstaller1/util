@@ -836,6 +836,33 @@ def on():
     time.sleep(3)
 
 
+
+    time.sleep(60)
+
+    pyautogui.moveTo(left+(width*0.6), top+(height*0.5), 2.0)   # 화면 클릭
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()    
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.6), 2.0)   # 화면 클릭
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()    
+
+
+    pyautogui.moveTo(left+(width*0.6), top+(height*0.7), 2.0)   # 화면 클릭
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.7), 2.0)   # 화면 클릭
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+    
+    time.sleep(3)
+
+
     
     # 케릭터 선택
     pyautogui.moveTo(left+(width*0.83), top+(height*0.91), 2.0)   # 게임 시작
