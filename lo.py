@@ -619,12 +619,6 @@ def on():
     pyautogui.mouseUp()
     time.sleep(10)
 
-    pyautogui.moveTo(left+(width*0.87), top+(height*0.93), 2.0) # Start
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
-    time.sleep(10)
-
 
     pyautogui.moveTo(left+(width*0.93), top+(height*0.08), 2.0) # Skip
     pyautogui.mouseDown()
