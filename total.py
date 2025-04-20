@@ -1,6 +1,6 @@
 
 
-import on, jo, lo, ar, dal, ares, ak, rf
+import on, jo, lo, ar, dal, ares, ak, rf, dk
 import time
 import numpy as np
 import keyboard
@@ -61,13 +61,13 @@ while True:
             try:
                 ares.dungeon()
             except Exception as e:
-                print(f"ares.dungeon_ares() 오류: " + str(e))
+                print(f"ares.dungeon() 오류: " + str(e))
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # EF 일일미션
             try:
                 rf.mission()
             except Exception as e:
-                print(f"ares.dungeon_ares() 오류: " + str(e))
+                print(f"rf.mission() 오류: " + str(e))
         
         '''
         if desktop in ["DESKTOP-OHGK5MV"]:
