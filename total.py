@@ -158,11 +158,11 @@ while True:
 
     
     # 매시간 1분마다 play    
-    if time.localtime().tm_min != 1:
+    if time.localtime().tm_min == 1:
         print(time.strftime("%H:%M", time.localtime()))
 
 
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-NT06800"]:
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 jo.play()
             except Exception as e:
@@ -186,6 +186,12 @@ while True:
             except Exception as e:
                 print("rf.play() 오류: " + str(e))
 
+
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:
+            try:
+                dk.play()
+            except Exception as e:
+                print("dk.play() 오류: " + str(e))
                 
 
         '''
