@@ -464,10 +464,6 @@ def on():
             if "77@" in text:   # ground077@naver.com     groundo77@navercom
                 break
             
-        if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-            if "7zok" in text or "o77@k" in text:   # ground077@kakao.com       groundo7zokakaocorn   groundo77@kakao.corn
-                break
-            
         if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
             if "92@n" in text:   # s070092@nate.com
                 break
@@ -476,9 +472,21 @@ def on():
             if "921@n" in text:   # s0700921@nate.com
                 break            
 
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+            if "7zok" in text or "o77@k" in text:   # ground077@kakao.com       groundo7zokakaocorn   groundo77@kakao.corn
+                break
+
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
+            if "92@k" in text:   # s070092@kakao.com
+                break
+
+        '''
         if os.environ.get('COMPUTERNAME') in ["DESKTOP-NT06800"]:
             if "92@k" in text:   # s070092@kakao.com
-                break    
+                break
+        '''
 
 
             

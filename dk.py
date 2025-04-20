@@ -678,10 +678,6 @@ def on():
             if "77@naver" in text:   # ground077@naver.com     groundo77@navercom
                 break
             
-        if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-            if "7zok" in text or "o77@k" in text:   # ground077@kakao.com       groundo7zokakaocorn   groundo77@kakao.corn
-                break
-            
         if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
             if "92@n" in text:   # s070092@nate.com
                 break
@@ -690,8 +686,16 @@ def on():
             if "921@n" in text:   # s0700921@nate.com
                 break            
 
-        if os.environ.get('COMPUTERNAME') in ["DESKTOP-NT06800"]:
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+            if "7zok" in text or "o77@k" in text:   # ground077@kakao.com       groundo7zokakaocorn   groundo77@kakao.corn
+                break
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
             if "92@k" in text:   # s070092@kakao.com
+                break
+            
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-NT06800"]:
+            if "8zok" in text or "o78@k" in text:   # ground078@kakao.com       groundo8zokakaocorn   groundo78@kakao.corn
                 break
 
     mouse.move(int(screen.width * 0.52) + x, int(screen.height * 0.3) + y, absolute=True, duration=0.1)   # 구글 로그인
@@ -710,7 +714,105 @@ def on():
         time.sleep(5)    
         keyboard.write('github001!')
         keyboard.press_and_release('enter')
+        
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+
+        mouse.move(screen.width * 0.57, screen.height * 0.47, absolute=True, duration=0.1)   # 구글 로그인
+        mouse.click()
+        time.sleep(0.3)
+
+        keyboard.write('ground077@naver.com')
+        keyboard.press_and_release('enter')
+        time.sleep(5)    
+        keyboard.write('github01!')
+        keyboard.press_and_release('enter')
         time.sleep(5)
+
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
+
+        mouse.move(screen.width * 0.57, screen.height * 0.47, absolute=True, duration=0.1)   # 구글 로그인
+        mouse.click()
+        time.sleep(0.3)
+
+        keyboard.write('ground077@naver.com')
+        keyboard.press_and_release('enter')
+        time.sleep(5)    
+        keyboard.write('pyinstaller1!')
+        keyboard.press_and_release('enter')
+        time.sleep(5)
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+
+        mouse.move(screen.width * 0.57, screen.height * 0.47, absolute=True, duration=0.1)   # 구글 로그인
+        mouse.click()
+        time.sleep(0.3)
+
+        keyboard.write('ground077@kakao.com')
+        keyboard.press_and_release('enter')
+        time.sleep(5)    
+        keyboard.write('windows1!')
+        keyboard.press_and_release('enter')
+        time.sleep(5)
+
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
+
+        mouse.move(screen.width * 0.57, screen.height * 0.47, absolute=True, duration=0.1)   # 구글 로그인
+        mouse.click()
+        time.sleep(0.3)
+
+        keyboard.write('s070092@kakao.com')
+        keyboard.press_and_release('enter')
+        time.sleep(5)    
+        keyboard.write('windows1!')
+        keyboard.press_and_release('enter')
+        time.sleep(5)
+
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-NT06800"]:
+
+        mouse.move(screen.width * 0.57, screen.height * 0.47, absolute=True, duration=0.1)   # 구글 로그인
+        mouse.click()
+        time.sleep(0.3)
+
+        keyboard.write('ground078@kakao.com')
+        keyboard.press_and_release('enter')
+        time.sleep(5)    
+        keyboard.write('windows1!')
+        keyboard.press_and_release('enter')
+        time.sleep(5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    time.sleep(5)
 
 
 
