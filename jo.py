@@ -10,6 +10,7 @@ import psutil
 import subprocess
 import os
 from pynput.mouse import Controller, Button
+import sys
 
 
 
