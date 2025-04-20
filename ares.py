@@ -1167,7 +1167,7 @@ def on():
         pyautogui.write('ground077')
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
         pyautogui.write('ground078')
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
         pyautogui.write('ground088')
         
     pyautogui.press("enter")
@@ -1368,7 +1368,7 @@ def on():
         pyautogui.write('s070092@nate.com')
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
         pyautogui.write('s070092@kakao.com')
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
         pyautogui.write('s0700921@kakao.com')
 
 
