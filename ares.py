@@ -1243,7 +1243,7 @@ def on():
 
     
 
-    time.sleep(10)
+    time.sleep(38)
 
     pyautogui.moveTo(left+(width*0.88), top+(height*0.738), 2.0)   # 게임 입장
     pyautogui.mouseDown()
