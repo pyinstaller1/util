@@ -722,7 +722,7 @@ def on():
         mouse.click()
         time.sleep(0.3)
 
-        keyboard.write('ground077@naver.com')
+        keyboard.write('s070092@nate.com')
         keyboard.press_and_release('enter')
         time.sleep(5)    
         keyboard.write('github01!')
@@ -736,7 +736,7 @@ def on():
         mouse.click()
         time.sleep(0.3)
 
-        keyboard.write('ground077@naver.com')
+        keyboard.write('s0700921@nate.com')
         keyboard.press_and_release('enter')
         time.sleep(5)    
         keyboard.write('pyinstaller1!')
@@ -783,33 +783,6 @@ def on():
         keyboard.write('windows1!')
         keyboard.press_and_release('enter')
         time.sleep(5)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     time.sleep(5)
