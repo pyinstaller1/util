@@ -1341,7 +1341,7 @@ def on(check):
     pyautogui.press('tab')
     pyautogui.press('enter')
 
-    time.sleep(100)
+    time.sleep(120)
 
 
 
@@ -1519,7 +1519,7 @@ def on(check):
 
 
 
-def dungeon_week_ares():
+def dungeon_week():
     try:
         if not a01_start():
             return
@@ -1549,7 +1549,7 @@ def dungeon_week_ares():
 
 
 
-def dungeon_ares():
+def dungeon():
     try:
         if not a01_start():
             return
@@ -1584,7 +1584,7 @@ def dungeon_ares():
 
 
     
-def play_ares(dungeon=None):
+def play(dungeon=None):
     try:
         if not a01_start():
             return
@@ -1635,12 +1635,20 @@ def play_ares(dungeon=None):
 
 
 if __name__ == "__main__":
-    play_ares()
-    # on(0)
-
-
-
-
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "on":
+            on()
+        elif sys.argv[1] == "dungeon":
+            dungeon()
+        elif sys.argv[1] == "dungeon_week":
+            dungeon_week()            
+        else:
+            play()
+    else:
+        play()
+        # on()
+        # mission()
+        # off()
 
 
 

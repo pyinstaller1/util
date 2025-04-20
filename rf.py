@@ -63,27 +63,10 @@ def a01_start():
     time.sleep(1)
 
 
-
-
-
-
-
-
-
-    """
-    mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.1)   # 절전 해제
-    mouse.press()
-    mouse.move(left+(width*0.7), top+(height*0.5), absolute=True, duration=0.3)
-    mouse.release()
-    time.sleep(1)
-    """
-
     
     mouse.position = (int(left + width * 0.5), int(top + height * 0.75))   # AUTO 종료
     mouse.click(Button.left, 1)
 
-    # mouse.move(left+(width*0.5), top+(height*0.75), absolute=True, duration=0.1)   # AUTO 종료
-    # mouse.click()
 
 
     
@@ -137,20 +120,26 @@ def a02_bok():
 
         mouse.move(left+(width*0.07), top+(height*0.07), absolute=True, duration=0.1)   # 구매
         mouse.click()
+        time.sleep(0.5)
 
 
         mouse.move(left+(width*0.1), top+(height*0.238), absolute=True, duration=0.1)   # 치료제    0.238
         mouse.click()
+        time.sleep(0.5)
+
 
         mouse.move(left+(width*0.558), top+(height*0.538), absolute=True, duration=0.1)   # MAX
         mouse.click()
+        time.sleep(0.5)
+
 
         mouse.move(left+(width*0.5), top+(height*0.77), absolute=True, duration=0.1)   # 구매
         mouse.click()
+        time.sleep(0.5)
+  
 
         mouse.move(left+(width*0.03), top+(height*0.083), absolute=True, duration=0.2)   # 닫기
         mouse.click()
-
 
 
 

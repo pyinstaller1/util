@@ -885,17 +885,7 @@ def on():
 
 
 
-
-
-
-
-
-
-
-
-
-
-def play_jo():
+def play():
     try:
         p01_start()
     except Exception as e:
@@ -920,20 +910,26 @@ def play_jo():
 
 
 
-
-
-
-
-
-
-    
-
-
-
-
 if __name__ == "__main__":
-    play_jo()
-    # on()
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "on":
+            on()
+        else:
+            play()
+    else:
+        play()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

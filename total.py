@@ -39,12 +39,12 @@ while True:
         print("월요일 주간 던전 오전 7시 30분 작업")
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 아레스 주간 던전
-            ares.dungeon_week_ares()   # 아레스 주간 던전
+            ares.dungeon_week()   # 아레스 주간 던전
             
     if time.localtime().tm_wday == 1 and time.localtime().tm_hour == 7 and time.localtime().tm_min == 30:   # 화요일
         print("화요일 주간 던전 오전 7시 30분 작업")
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 아레스 주간 던전
-            ares.dungeon_week_ares()   # 아레스 주간 던전
+            ares.dungeon_week()   # 아레스 주간 던전
 
             
     if time.localtime().tm_wday == 2 and time.localtime().tm_hour == 10 and time.localtime().tm_min == 57:   # 수요일
@@ -56,6 +56,18 @@ while True:
     # 매일 오전 5시 20분
     if time.localtime().tm_hour == 5 and time.localtime().tm_min == 20:
         print("오전 5시 작업")
+
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 아레스 일일던전
+            try:
+                ares.dungeon()
+            except Exception as e:
+                print(f"ares.dungeon_ares() 오류: " + str(e))
+
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # EF 일일미션
+            try:
+                rf.mission()
+            except Exception as e:
+                print(f"ares.dungeon_ares() 오류: " + str(e))
         
         '''
         if desktop in ["DESKTOP-OHGK5MV"]:
@@ -66,16 +78,6 @@ while True:
         '''
 
 
-
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 아레스 던전
-            try:
-                ares.dungeon_ares()
-            except Exception as e:
-                print(f"ares.dungeon_ares() 오류: " + str(e))
-
-                
-        # 달조 던전   5시  7시
-        # 아레스 던전 5시
         
 
     '''
@@ -156,28 +158,27 @@ while True:
 
     
     # 매시간 1분마다 play    
-    if time.localtime().tm_min == 1:
+    if time.localtime().tm_min != 1:
         print(time.strftime("%H:%M", time.localtime()))
-        time.sleep(np.random.randint(30, 180)) # 30초~3분 랜덤 대기
 
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-NT06800"]:
             try:
-                jo.play_lo()
+                jo.play()
             except Exception as e:
-                print("jo.play_jo() 오류: " + str(e))
+                print("jo.play() 오류: " + str(e))
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
-                lo.play_lo()
+                lo.play()
             except Exception as e:
-                print("lo.play_lo() 오류: " + str(e))
+                print("lo.play() 오류: " + str(e))
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
-                ares.play_ares()
+                ares.play()
             except Exception as e:
-                print("ares.play_ares() 오류: " + str(e))
+                print("ares.play() 오류: " + str(e))
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:

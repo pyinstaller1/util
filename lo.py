@@ -21,13 +21,12 @@ def l01_start():
 
 
     if not gw.getWindowsWithTitle('LORDNINE'):
-        print("LORDNINE")
         on()
         return
 
     win = gw.getWindowsWithTitle('LORDNINE')[0]
-    # app = Application().connect(handle=win._hWnd)
-    # app.window(handle=win._hWnd).set_focus()
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
 
 
     global left, top, width, height
@@ -118,10 +117,7 @@ def l02_bok(on=None):
             pyautogui.mouseUp()
             time.sleep(1)
 
-            pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전
-            pyautogui.mouseDown()
-            time.sleep(0.1)
-            pyautogui.mouseUp()
+
 
 
     
@@ -348,10 +344,7 @@ def l05_fight():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    pyautogui.moveTo(left+(width*0.038), top+(height*0.65), 2.0) # 절전
-    pyautogui.mouseDown()
-    time.sleep(0.1)
-    pyautogui.mouseUp()
+
 
 
 
