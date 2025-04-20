@@ -1106,7 +1106,7 @@ def off():
 
 
 
-def on(check):
+def on():
     print("아레스 on   " + time.strftime("%H:%M", time.localtime()))
             
     for proc in psutil.process_iter():
@@ -1230,9 +1230,6 @@ def on(check):
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-
-    if check==1:   # 점검이면 return
-        return
 
 
 
