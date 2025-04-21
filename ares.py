@@ -37,7 +37,7 @@ def a01_start():
 
     if not gw.getWindowsWithTitle('아레스'):
         print("아레스 창이 없습니다.")
-        on(0)
+        on()
         return False
 
 

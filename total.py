@@ -158,7 +158,7 @@ while True:
 
     
     # 매시간 1분마다 play    
-    if time.localtime().tm_min == 1:
+    if time.localtime().tm_min in [1, 31]:
         print(time.strftime("%H:%M", time.localtime()))
 
 

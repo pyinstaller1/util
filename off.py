@@ -40,11 +40,13 @@ def off():
             except Exception as e:
                 print(f"lo.off() 오류")
 
+        '''
         if desktop in ["DESKTOP-H9B70U0", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
             try:
                 ar.off()
             except Exception as e:
                 print(f"ar.off() 오류")
+        '''
 
 
 
@@ -57,6 +59,12 @@ def off():
                 
 
 
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
+            try:
+                rf.off()
+            except Exception as e:
+                print(f"rf.off() 오류")
+                
 
 
         print(os.environ.get('COMPUTERNAME') + " " + time.strftime("%H:%M", time.localtime()))
