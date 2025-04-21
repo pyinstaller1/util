@@ -176,7 +176,7 @@ def a02_bok():
         time.sleep(1)
 
 
-        scr = pyautogui.screenshot(region=(left + int(width*0.3), top + int(height*0.3), int(width*0.5), int(height*0.5)))
+        scr = pyautogui.screenshot(region=(left + int(width*0.25), top + int(height*0.3), int(width*0.38), int(height*0.5)))
         scr.save("scr_rf_map.png")
         reader = easyocr.Reader(['ko', 'en'], gpu=False)
         results = reader.readtext(np.array(scr))
@@ -186,7 +186,7 @@ def a02_bok():
             print(item[1][:2])
             bbox, text, confidence = item
             print(text)
-            if text[:2] in ['콜드', '골드']:
+            if text[:2] in ['콜드', '골드', '홀드', '콤드']:
                 print(777)
                 top_left = bbox[0]
                 bottom_right = bbox[2]
@@ -212,6 +212,19 @@ def a02_bok():
         mouse.click()
 
         time.sleep(15)
+
+
+        # 콜드
+        keyboard.press('up')
+        keyboard.press('right')
+        time.sleep(5)
+        keyboard.release('up')
+        keyboard.release('right')
+        # 콜드
+
+
+
+
 
         mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)   # AUTO
         mouse.click()
