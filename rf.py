@@ -51,6 +51,7 @@ def a01_start():
     width = win.width
     height = win.height
 
+
     mouse = Controller()
 
     mouse.position = (int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
@@ -195,17 +196,17 @@ def a02_bok():
                 break
 
 
-        mouse.move(left+(width*0.3) + x, top+(height*0.3) + y - (height*0.01), absolute=True, duration=0.1)   # 지도 클릭
+        mouse.move(left+(width*0.15) + x, top+(height*0.3) + y - (height*0.01), absolute=True, duration=0.1)   # 지도 클릭
         mouse.click()
 
-        time.sleep(15)
+        time.sleep(5)
 
 
 
         mouse.move(left+(width*0.53), top+(height*0.51), absolute=True, duration=0.1)   # 즉시 이동
         mouse.click()
 
-        time.sleep(10)
+        time.sleep(3)
 
 
         mouse.move(left+(width*0.58), top+(height*0.68), absolute=True, duration=0.1)   # 즉시 이동
@@ -643,6 +644,8 @@ def mission():
     
 def play():
     a01_start()
+    return
+
     if a02_bok() != 'on':
         pass
         # a03_jangbi()
