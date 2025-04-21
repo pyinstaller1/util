@@ -176,7 +176,7 @@ def a02_bok():
         time.sleep(1)
 
 
-        scr = pyautogui.screenshot(region=(left + int(width*0.25), top + int(height*0.3), int(width*0.38), int(height*0.5)))
+        scr = pyautogui.screenshot(region=(left + int(width*0.2), top + int(height*0.3), int(width*0.5), int(height*0.5)))
         scr.save("scr_rf_map.png")
         reader = easyocr.Reader(['ko', 'en'], gpu=False)
         results = reader.readtext(np.array(scr))
