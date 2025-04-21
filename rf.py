@@ -442,7 +442,11 @@ def on():
 
     mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.46), absolute=True, duration=0.1)   # 구글 로그인
     mouse.click()
-    time.sleep(10)    
+    time.sleep(10)
+
+
+    keyboard.press_and_release('win + up')
+    time.sleep(2)    
 
     scr = pyautogui.screenshot(region=(left_on + int(width_on*0.5), top_on + int(height_on*0.3), int(width_on*0.3), int(height_on*0.6)))   # 구글 계정 ocr
     scr.save("scr_rf_google.png")
