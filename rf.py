@@ -198,14 +198,14 @@ def a02_bok():
         mouse.move(left+(width*0.3) + x, top+(height*0.3) + y - (height*0.01), absolute=True, duration=0.1)   # 지도 클릭
         mouse.click()
 
-        time.sleep(5)
+        time.sleep(10)
 
 
 
         mouse.move(left+(width*0.53), top+(height*0.51), absolute=True, duration=0.1)   # 즉시 이동
         mouse.click()
 
-        time.sleep(3)
+        time.sleep(5)
 
 
         mouse.move(left+(width*0.58), top+(height*0.68), absolute=True, duration=0.1)   # 즉시 이동
