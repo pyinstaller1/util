@@ -173,7 +173,7 @@ def a02_bok():
         mouse.move(left+(width*0.15), top+(height*0.2), absolute=True, duration=0.1)   # 지도 클릭
         mouse.click()
 
-        time.sleep(1)
+        time.sleep(3)
 
 
         scr = pyautogui.screenshot(region=(left + int(width*0.2), top + int(height*0.3), int(width*0.5), int(height*0.5)))
