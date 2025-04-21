@@ -644,8 +644,6 @@ def mission():
     
 def play():
     a01_start()
-    return
-
     if a02_bok() != 'on':
         pass
         # a03_jangbi()
