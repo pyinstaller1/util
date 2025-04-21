@@ -176,7 +176,7 @@ def a02_bok():
         time.sleep(3)
 
 
-        scr = pyautogui.screenshot(region=(left + int(width*0.2), top + int(height*0.3), int(width*0.5), int(height*0.5)))
+        scr = pyautogui.screenshot(region=(left + int(width*0.15), top + int(height*0.3), int(width*0.6), int(height*0.6)))
         scr.save("scr_rf_map.png")
         reader = easyocr.Reader(['ko', 'en'], gpu=False)
         results = reader.readtext(np.array(scr))
@@ -198,7 +198,7 @@ def a02_bok():
         mouse.move(left+(width*0.3) + x, top+(height*0.3) + y - (height*0.01), absolute=True, duration=0.1)   # 지도 클릭
         mouse.click()
 
-        time.sleep(7)
+        time.sleep(5)
 
 
 
