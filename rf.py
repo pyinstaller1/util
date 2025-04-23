@@ -187,7 +187,7 @@ def a02_bok():
             print(item[1][:2])
             bbox, text, confidence = item
             print(text)
-            if text[:2] in ['콜드', '골드', '홀드', '콤드']:
+            if text[:2] in ['콜드', '골드', '홀드', '콤드', '드론']:
                 print(777)
                 top_left = bbox[0]
                 bottom_right = bbox[2]
