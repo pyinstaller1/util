@@ -215,13 +215,6 @@ def a02_bok():
         time.sleep(15)
 
 
-        # 콜드
-        keyboard.press('up')
-        keyboard.press('right')
-        time.sleep(5)
-        keyboard.release('up')
-        keyboard.release('right')
-        # 콜드
 
 
 
@@ -479,7 +472,7 @@ def on():
 
 
         if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
-            if "77@" in text:   # ground077@naver.com     groundo77@navercom
+            if "77@" in text or '7z@naver' in text:   # ground077@naver.com     groundo77@navercom
                 break
             
         if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
@@ -517,7 +510,9 @@ def on():
     time.sleep(2)
 
 
-    mouse.move(left_on+(width_on*0.71), top_on+(height_on*0.67), absolute=True, duration=0.1)   # 계속
+
+
+    mouse.move(left_on+(width_on*0.71), top_on+(height_on*0.65), absolute=True, duration=0.1)   # 계속
     mouse.click()
 
     time.sleep(3)
@@ -660,6 +655,8 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         if sys.argv[1] == "on":
             on()
+        elif sys.argv[1] == "off":
+            off()            
         elif sys.argv[1] == "mission":
             mission()
         else:
