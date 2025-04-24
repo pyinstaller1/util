@@ -962,6 +962,9 @@ def on_internal():
     mouse.click()
     time.sleep(1)    
 
+    mouse.move(left + int(width*0.95), top + int(height*0.75), absolute=True, duration=0.1)   # AUTO
+    mouse.click()
+    time.sleep(1)
 
 
 
