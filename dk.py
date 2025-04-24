@@ -48,6 +48,8 @@ def a01_start():
     width = win.width
     height = win.height
 
+
+
     time.sleep(1)
 
     mouse.move(left+(width*0.6), top+(height*0.67), absolute=True, duration=0.1)   # 절전 해제
@@ -90,6 +92,14 @@ def a02_bok():
     if results and results[0][1][:2] in ['대기']:
         print(888)
     '''
+
+
+
+
+    mouse.move(left+(width*0.03), top+(height*0.32), absolute=True, duration=0.1)   # 절전 해제
+    mouse.click()
+    time.sleep(1)
+
 
 
     # 잡화 ocr 탐지
@@ -791,7 +801,7 @@ def on_internal():
     height = win.height
 
 
-    time.sleep(30)
+    time.sleep(50)
 
     mouse.move(left+(width*0.5), top+(height*0.47), absolute=True, duration=0.1)   # 구글 로그인
     mouse.click()
@@ -1057,6 +1067,8 @@ if __name__ == "__main__":
             off()            
         elif sys.argv[1] == "dungeon":
             dungeon()
+        elif sys.argv[1] == "dungeon_week":
+            dungeon_week()            
         else:
             play()
     else:
