@@ -366,13 +366,11 @@ def a02_bok():
 
 
 
-    '''
-
-    # 주간 던전 지도 ocr 탐지
-    scr = pyautogui.screenshot(region=(left + int(width*0.2), top + int(height*0.2), int(width*0.6), int(height*0.6)))
+    # 지도 ocr 탐지
+    scr = pyautogui.screenshot(region=(left + int(width*0.23), top + int(height*0.2), int(width*0.6), int(height*0.77)))
     scr.save("scr_ares_map.png")
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
-    results = reader.readtext(np.array(scr_dungeon))
+    results = reader.readtext(np.array(scr))
     print(results)
 
 
@@ -380,15 +378,18 @@ def a02_bok():
 
 
     list_map = []
+
     for item in results:
-        print(item)
-        if len(item[1][:2]) >= 2 and item[1][:2]== '기지':
+        if item[1][0] not in ['몬', '본', '온', '{', '생']:
+            print(item[1])
+
             x = (item[0][0][0] + item[0][1][0]) // 2
             y = (item[0][0][1] + item[0][2][1]) // 2
             list_temp = []
             list_temp.append(x)
             list_temp.append(y)
             list_map.append(list_temp)
+    
 
     
 
@@ -398,36 +399,22 @@ def a02_bok():
 
 
 
-    pyautogui.moveTo(left + int(width*0.2) + list_map[list_map_number][0], top + int(height*0.2) + list_map[list_map_number][1] - int(height*0.03), 2.0)   # 지도
+    pyautogui.moveTo(left + int(width*0.23) + list_map[list_map_number][0], top + int(height*0.2) + list_map[list_map_number][1] - int(height*0.03), 2.0)   # 지도
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+
+
+
+
+
+
+
     '''
-
-
-
     pyautogui.moveTo(left+(width*0.288), top+(height*0.7), 2.0)   # 착륙장 부근
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -443,6 +430,7 @@ def a02_bok():
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+    '''
 
 
 
