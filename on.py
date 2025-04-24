@@ -49,7 +49,7 @@ def on():
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
-                ares.on(0)
+                ares.on()
             except Exception as e:
                 print(f"ares.on() 오류: " + str(e))
 
