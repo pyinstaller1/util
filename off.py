@@ -1,6 +1,6 @@
 
 
-import jo, lo, ar, dal, ares
+import jo, lo, ar, dal, ares, rf, dk
 import time
 import os
 import subprocess
@@ -66,6 +66,12 @@ def off():
                 print(f"rf.off() 오류")
                 
 
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:
+            try:
+                dk.off()
+            except Exception as e:
+                print(f"dk.off() 오류")
+                
 
         print(os.environ.get('COMPUTERNAME') + " " + time.strftime("%H:%M", time.localtime()))
 
