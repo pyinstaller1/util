@@ -33,7 +33,7 @@ def on():
 
     if 1==1:
 
-        time.sleep(300)
+        time.sleep(180)
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:

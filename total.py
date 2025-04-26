@@ -47,6 +47,7 @@ while True:
             ares.dungeon_week()   # 아레스 주간 던전
 
 
+    '''
     if time.localtime().tm_wday in [3, 4] and time.localtime().tm_hour == 7 and time.localtime().tm_min == 30:   # 목요일, 금요일
         print("목요일, 금요일 DK 주간 던전 오전 7시 30분 작업")
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # DK 주간 던전
@@ -54,6 +55,7 @@ while True:
                 dk.dungeon_week()
             except Exception as e:
                 print(f"dk.dungeon_week() 오류: " + str(e))
+    '''
 
 
 
@@ -80,12 +82,13 @@ while True:
             except Exception as e:
                 print(f"rf.mission() 오류: " + str(e))
 
-
+        '''
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # DK 일일던전
             try:
                 dk.dungeon()
             except Exception as e:
                 print(f"dk.dungeon() 오류: " + str(e))
+        '''
 
 
         
@@ -188,11 +191,13 @@ while True:
             except Exception as e:
                 print("jo.play() 오류: " + str(e))
 
+        '''
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 lo.play()
             except Exception as e:
                 print("lo.play() 오류: " + str(e))
+        '''
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
@@ -207,7 +212,8 @@ while True:
                 print("rf.play() 오류: " + str(e))
 
 
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:
+        # if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:
+        if desktop in ["DESKTOP-LRGAL8H"]:
             try:
                 dk.play()
             except Exception as e:
