@@ -1,0 +1,45 @@
+
+
+
+vs_BuildTools.exe ^
+  --layout D:\VSOffline ^
+  --lang ko-KR ^
+  --add Microsoft.VisualStudio.Workload.VCTools ^
+  --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 ^
+  --add Microsoft.VisualStudio.Component.VC.CMake.Project ^
+  --add Microsoft.VisualStudio.Component.Windows10SDK.19041 ^
+  --add Microsoft.VisualStudio.Component.VC.Llvm.Clang
+
+
+
+cd D:\VSOffline\
+vs_BuildTools.exe --noweb --add Microsoft.VisualStudio.Workload.VCTools
+
+
+rmdir /s /q build
+
+mkdir build
+cd build
+
+
+
+
+cmake .. -DLLAMA_BUILD_EXAMPLES=ON -DLLAMA_BUILD_TESTS=OFF -DGGML_BUILD_SHARED=ON -DLLAMA_CURL=OFF
+
+cmake --build . --config Release
+
+
+D:\model\llama.cpp\build>
+.\bin\Release\llama-run.exe ..\..\llama-2-7b.Q4_0.gguf "안녕?"
+
+
+
+ninja
+
+
+
+
+
+
+
+
