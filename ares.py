@@ -77,6 +77,8 @@ def a01_start():
 
     time.sleep(0.1)
     r, g, b = pyautogui.pixel(int(left+(width*0.5)), int(top+(height*0.5)))
+
+
     
     if 1 == 0 and (80 < r < 100) and (88 < g < 120) and (80 < b < 100):
         pyautogui.moveTo(left+(width*0.5), top+(height*0.65), 2.0)   # 절전 해제
@@ -114,7 +116,7 @@ def a01_start():
         time.sleep(1)
         pyautogui.moveTo(left+(width*0.7), top+(height*0.65), 2.0)
         pyautogui.mouseUp()
-        
+
 
     return True
 
@@ -455,6 +457,7 @@ def a03_jangbi():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
+
     pyautogui.moveTo(left+(width*0.83), top+(height*0.43), 2.0)   # 거래소
     pyautogui.mouseDown()
     time.sleep(0.1)
@@ -528,6 +531,107 @@ def a03_jangbi():
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
+
+
+
+
+
+
+
+
+
+
+    # 모노리스 자동합성
+    pyautogui.moveTo(left+(width*0.97), top+(height*0.07), 2.0)   # 메뉴
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.83), top+(height*0.37), 2.0)   # 모노리스
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.15), top+(height*0.15), 2.0)   # 합성
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.88), top+(height*0.95), 2.0)   # 자동합성
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.57), top+(height*0.60), 2.0)   # 확인
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    time.sleep(15)
+
+    pyautogui.moveTo(left+(width*0.5), top+(height*0.95), 2.0)   # 나가기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    # 방어구 분해
+
+    pyautogui.moveTo(left+(width*0.93), top+(height*0.07), 2.0)   # 가방
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.08), top+(height*0.23), 2.0)   # 방어구
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.7), top+(height*0.95), 2.0)   # 일괄분해
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.63), top+(height*0.23), 2.0)   # 선택
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.95), top+(height*0.95), 2.0)   # 일괄분해
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.57), top+(height*0.73), 2.0)   # 확인
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+    pyautogui.moveTo(left+(width*0.57), top+(height*0.6), 2.0)   # 확인
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.57), top+(height*0.6), 2.0)   # 화면 터치
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()
+
+
+    pyautogui.moveTo(left+(width*0.97), top+(height*0.07), 2.0)   # 닫기
+    pyautogui.mouseDown()
+    time.sleep(0.1)
+    pyautogui.mouseUp()    
+
+
+
+
+
+
 
 
     pyautogui.moveTo(left+(width*0.0278), top+(height*0.738), 2.0)   # 절전
@@ -1641,7 +1745,9 @@ def play(dungeon=None):
             return
     except Exception as e:
         print(f"아레스 a01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
-        
+
+
+
     try:
         a02_bok()
     except Exception as e:
