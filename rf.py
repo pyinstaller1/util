@@ -50,24 +50,24 @@ def a01_start():
     top = win.top
     width = win.width
     height = win.height
+    
 
-
-    mouse = Controller()
-
-    mouse.position = (int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
+    '''
+    mouse.move(int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
     time.sleep(0.1)
-    mouse.press(Button.left)
+    mouse.click()
     time.sleep(3)
-    mouse.position = (int(left + width * 0.7), int(top + height * 0.5))
+    mouse.move(int(left + width * 0.7), int(top + height * 0.5))
     time.sleep(1)
-    mouse.release(Button.left)
+    mouse.click()
     time.sleep(1)
 
+
+    mouse.move(int(left + width * 0.5), int(top + height * 0.75))   # 확인
+    mouse.click()
+    '''
 
     
-    mouse.position = (int(left + width * 0.5), int(top + height * 0.75))   # AUTO 종료
-    mouse.click(Button.left, 1)
-
 
 
     
@@ -98,7 +98,8 @@ def a02_bok():
     if results and results[0][1][:3] in ['장시간']:
         on()
         return 'on'
-    
+
+
 
     # 복구 ocr 탐지
     scr = pyautogui.screenshot(region=(left + int(width*0.077), top + int(height*0.07), int(width*0.05), int(height*0.05)))
@@ -256,6 +257,8 @@ def a03_jangbi():
     mouse.click()
     '''
 
+
+    # 장비 분해
     mouse.move(left+(width*0.917), top+(height*0.07), absolute=True, duration=0.1)   # 가방
     mouse.click()
 
@@ -274,6 +277,11 @@ def a03_jangbi():
     mouse.move(left+(width*0.55), top+(height*0.53), absolute=True, duration=0.1)   # 장비
     mouse.click()
 
+
+    mouse.move(left+(width*0.65), top+(height*0.718), absolute=True, duration=0.1)   # 고급
+    mouse.click()
+
+
     mouse.move(left+(width*0.93), top+(height*0.95), absolute=True, duration=0.1)   # 분해
     mouse.click()
 
@@ -287,6 +295,74 @@ def a03_jangbi():
 
     mouse.move(left+(width*0.977), top+(height*0.123), absolute=True, duration=0.1)   # 장비
     mouse.click()
+
+    time.sleep(1)
+
+
+
+
+
+    # 일괄구매
+    mouse.move(left+(width*0.88), top+(height*0.07), absolute=True, duration=0.1)   # 가방
+    mouse.click()
+
+
+    mouse.move(left+(width*0.07), top+(height*0.88), absolute=True, duration=0.1)   # 일괄구매
+    mouse.click()
+
+
+    mouse.move(left+(width*0.57), top+(height*0.78), absolute=True, duration=0.1)   # 일괄구매
+    mouse.click()
+
+
+    mouse.move(left+(width*0.5), top+(height*0.88), absolute=True, duration=0.1)   # 화면 클릭
+    mouse.click()
+
+    time.sleep(3)
+
+
+    mouse.move(left+(width*0.963), top+(height*0.073), absolute=True, duration=0.1)   # 닫기
+    mouse.click()
+
+
+
+    # 우편
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+
+    time.sleep(1)
+
+    mouse.move(left+(width*0.78), top+(height*0.96), absolute=True, duration=0.1)   # 우편
+    mouse.click()
+
+    time.sleep(1)
+    
+    mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+
+
+    mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+
+    mouse.move(left+(width*0.21), top+(height*0.15), absolute=True, duration=0.1)   # 계정
+    mouse.click()
+
+    mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+
+
+    mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+
+
+    mouse.move(left+(width*0.963), top+(height*0.073), absolute=True, duration=0.1)   # 닫기
+    mouse.click()
+
+
+
+
+
+
 
     mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
     mouse.click()
@@ -341,6 +417,35 @@ def a04_mission():
 
 
 
+
+
+    time.sleep(3)
+
+
+
+
+    mouse.move(int(left + width * 0.88), int(top + height * 0.07))   # 절전 해제
+    mouse.click()
+    time.sleep(1)
+
+
+    mouse.move(int(left + width * 0.08), int(top + height * 0.88))   # 일괄 구매
+    mouse.click()
+    time.sleep(1)
+
+
+    mouse.move(int(left + width * 0.57), int(top + height * 0.78))   # 확인
+    mouse.click()
+    time.sleep(0.5)
+    
+
+
+
+
+
+
+    time.sleep(3)
+
     mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
     mouse.click()
 
@@ -352,7 +457,133 @@ def a04_mission():
 
 
 
+def a05_dungeon():
+    print("RF a05_dungeon   " + time.strftime("%H:%M", time.localtime()))
 
+    global left, top, width, height
+
+
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+
+    time.sleep(0.5)
+
+    mouse.move(left+(width*0.73), top+(height*0.538), absolute=True, duration=0.1)   # 던전
+    mouse.click()
+
+    mouse.move(left+(width*0.30), top+(height*0.12), absolute=True, duration=0.1)   # 지역 던전
+    mouse.click()
+
+
+    mouse.move(left+(width*0.08), top+(height*0.23), absolute=True, duration=0.1)   # 안드로이드 폐기장
+    mouse.click()
+
+    mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 입장
+    mouse.click()
+
+    mouse.move(left+(width*0.70), top+(height*0.73), absolute=True, duration=0.1)   # 이동
+    mouse.click()
+
+    time.sleep(30)
+
+
+
+
+    mouse.move(left+(width*0.15), top+(height*0.15), absolute=True, duration=0.1)   # 지도
+    mouse.click()
+
+    time.sleep(1)
+
+    # "DESKTOP-LRGAL8H"
+    # "DESKTOP-MA2NLC4"
+    # "DESKTOP-792RKKB"
+    # "DESKTOP-OHGK5MV"
+    # "DESKTOP-H9B70U0"
+
+    desktop = os.environ.get('COMPUTERNAME')
+
+    if desktop == 'DESKTOP-LRGAL8H':
+        
+        mouse.move(left+(width*0.567), top+(height*0.267), absolute=True, duration=0.1)   # 지도
+        mouse.click()
+
+        mouse.move(left+(width*0.587), top+(height*0.267), absolute=True, duration=0.1)   # 도보이동
+        mouse.click()
+
+
+    if desktop == 'DESKTOP-792RKKB':
+        
+        mouse.move(left+(width*0.567), top+(height*0.712), absolute=True, duration=0.1)   # 지도
+        mouse.click()
+
+        mouse.move(left+(width*0.587), top+(height*0.712), absolute=True, duration=0.1)   # 도보이동
+        mouse.click()
+
+    if desktop == 'DESKTOP-MA2NLC4':
+        
+        mouse.move(left+(width*0.398), top+(height*0.51), absolute=True, duration=0.1)   # 지도
+        mouse.click()
+
+        mouse.move(left+(width*0.418), top+(height*0.51), absolute=True, duration=0.1)   # 도보이동
+        mouse.click()
+
+
+    if desktop == 'DESKTOP-OHGK5MV':
+        
+        mouse.move(left+(width*0.733), top+(height*0.507), absolute=True, duration=0.1)   # 지도
+        mouse.click()
+
+        mouse.move(left+(width*0.753), top+(height*0.507), absolute=True, duration=0.1)   # 도보이동
+        mouse.click()
+
+
+    if desktop == 'DESKTOP-H9B70U0':
+        
+        mouse.move(left+(width*0.773), top+(height*0.46), absolute=True, duration=0.1)   # 지도
+        mouse.click()
+
+        mouse.move(left+(width*0.793), top+(height*0.46), absolute=True, duration=0.1)   # 도보이동
+        mouse.click()
+
+    time.sleep(55)
+
+
+    mouse.move(left+(width*0.96), top+(height*0.583), absolute=True, duration=0.1)   # 런처
+    mouse.click()
+
+
+    mouse.move(left+(width*0.96), top+(height*0.583), absolute=True, duration=0.1)   # 런처
+    mouse.click()
+
+
+    mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)    # AUTO
+    mouse.click()
+
+
+    mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
+    mouse.click()
+    
+
+    
+    return
+
+    time.sleep(0.5)
+
+
+    for i in range(10):
+        mouse.move(left+(width*0.87), top+(height*0.917), absolute=True, duration=0.1)   # 수락
+        mouse.click()
+        time.sleep(0.1)
+ 
+
+    mouse.move(left+(width*0.5), top+(height*0.3), absolute=True, duration=0.1)   # 미션
+    mouse.click()
+    time.sleep(0.1)
+
+
+    mouse.move(left+(width*0.87), top+(height*0.917), absolute=True, duration=0.1)   # 진행
+    mouse.click()
+    time.sleep(0.1)
 
 
 
@@ -543,7 +774,7 @@ def on():
 
     
     
-    time.sleep(88)
+    time.sleep(110)
 
 
     mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.5), absolute=True, duration=0.1)   # 화면 클릭
@@ -624,7 +855,9 @@ def on():
 
 
 
-
+def dungeon():
+    a01_start()
+    a05_dungeon()
 
 
     
@@ -640,8 +873,7 @@ def mission():
 def play():
     a01_start()
     if a02_bok() != 'on':
-        pass
-        # a03_jangbi()
+        a03_jangbi()
 
 
 
