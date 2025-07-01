@@ -55,18 +55,23 @@ def a01_start():
     
     mouse.move(int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
     time.sleep(0.1)
-    mouse.click()
+    mouse.press()
+    mouse.move(int(left + width * 0.6), int(top + height * 0.5))   # 절전 해제    
+    time.sleep(1)
+    mouse.move(int(left + width * 0.7), int(top + height * 0.5))   # 절전 해제    
+    time.sleep(1)    
+    mouse.move(int(left + width * 0.8), int(top + height * 0.5))
+    time.sleep(1)
+    mouse.release()
     time.sleep(3)
-    mouse.move(int(left + width * 0.7), int(top + height * 0.5))
-    time.sleep(1)
-    mouse.click()
-    time.sleep(1)
 
 
     mouse.move(int(left + width * 0.5), int(top + height * 0.75))   # 확인
     mouse.click()
+    time.sleep(1)
     
-
+    mouse.move(int(left + width * 0.5), int(top + height * 0.75))   # 확인
+    mouse.click()
     
 
 
