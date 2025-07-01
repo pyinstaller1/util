@@ -556,11 +556,14 @@ def a05_dungeon():
     mouse.move(left+(width*0.96), top+(height*0.583), absolute=True, duration=0.1)   # 런처
     mouse.click()
 
+    time.sleep(1)
+
 
     mouse.move(left+(width*0.96), top+(height*0.583), absolute=True, duration=0.1)   # 런처
     mouse.click()
 
-
+    time.sleep(1)
+    
     mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)    # AUTO
     mouse.click()
 
