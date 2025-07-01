@@ -891,6 +891,8 @@ if __name__ == "__main__":
             off()            
         elif sys.argv[1] == "mission":
             mission()
+        elif sys.argv[1] == "dungeon":
+            dungeon()            
         else:
             play()
     else:
