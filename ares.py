@@ -341,7 +341,7 @@ def a02_bok():
     pyautogui.mouseUp()
 
 
-    time.sleep(1)
+    time.sleep(3)
 
 
     pyautogui.moveTo(left+(width*0.07), top+(height*0.17), 2.0)   # 지도

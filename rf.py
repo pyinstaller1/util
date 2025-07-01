@@ -52,7 +52,7 @@ def a01_start():
     height = win.height
     
 
-    '''
+    
     mouse.move(int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
     time.sleep(0.1)
     mouse.click()
@@ -65,7 +65,7 @@ def a01_start():
 
     mouse.move(int(left + width * 0.5), int(top + height * 0.75))   # 확인
     mouse.click()
-    '''
+    
 
     
 
