@@ -1,6 +1,5 @@
 
 
-
 vs_BuildTools.exe ^
   --layout D:\VSOffline ^
   --lang ko-KR ^
@@ -10,31 +9,49 @@ vs_BuildTools.exe ^
   --add Microsoft.VisualStudio.Component.Windows10SDK.19041 ^
   --add Microsoft.VisualStudio.Component.VC.Llvm.Clang
 
-
-
 cd D:\VSOffline\
 vs_BuildTools.exe --noweb --add Microsoft.VisualStudio.Workload.VCTools
 
 
-rmdir /s /q build
 
+
+
+
+
+rmdir /s /q build
 mkdir build
 cd build
-
-
-
 
 cmake .. -DLLAMA_BUILD_EXAMPLES=ON -DLLAMA_BUILD_TESTS=OFF -DGGML_BUILD_SHARED=ON -DLLAMA_CURL=OFF
 
 cmake --build . --config Release
+(성공하면, D:\model\llama.cpp\build\bin\Release\llama.dll)
+copy /Y D:\model\llama.cpp\build\bin\Release\llama.dll D:\pro\Lib\site-packages\llama_cpp\lib\
 
 
-D:\model\llama.cpp\build>
-.\bin\Release\llama-run.exe ..\..\llama-2-7b.Q4_0.gguf "안녕?"
+pip install llama-cpp-python
+
+from llama_cpp import Llama
 
 
 
-ninja
+
+
+
+
+
+chcp 65001
+
+cd D:\model\llama.cpp\build
+.\bin\Release\llama-run.exe ..\..\llama-3.2-Korean-Bllossom-3B-gguf-Q4_K_M.gguf "<s>[INST] What is health insurance? Please answer within Korean 100 words. [/INST]"
+
+DeepSeek-R1-0528-Qwen3-8B-Q3_K_S
+
+.\bin\Release\llama-run.exe ..\..\DeepSeek-R1-0528-Qwen3-8B-Q3_K_S.gguf "<s>[INST] What is the deep learning? [/INST]"
+
+.\bin\Release\llama-run.exe ..\..\gemma-3-4b-it-q4_0.gguf "<s>[INST] What is the deep learning? [/INST]"
+
+
 
 
 
