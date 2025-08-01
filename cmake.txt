@@ -1,15 +1,29 @@
 
 
 vs_BuildTools.exe ^
-  --layout D:\VSOffline ^
+  --layout C:\VSOffline ^
   --lang ko-KR ^
   --add Microsoft.VisualStudio.Workload.VCTools ^
   --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 ^
   --add Microsoft.VisualStudio.Component.VC.CMake.Project ^
   --add Microsoft.VisualStudio.Component.Windows10SDK.19041 ^
-  --add Microsoft.VisualStudio.Component.VC.Llvm.Clang
+  --add Microsoft.VisualStudio.Component.VC.Llvm.Clang ^
+  --includeRecommended ^
+  --includeOptional
 
-cd D:\VSOffline\
+cd C:\VSOffline\
+vs_BuildTools.exe ^
+  --noweb ^
+  --add Microsoft.VisualStudio.Workload.VCTools ^
+  --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 ^
+  --add Microsoft.VisualStudio.Component.VC.CMake.Project ^
+  --add Microsoft.VisualStudio.Component.Windows10SDK.19041 ^
+  --add Microsoft.VisualStudio.Component.VC.Llvm.Clang ^
+  --includeRecommended ^
+  --includeOptional
+
+
+
 vs_BuildTools.exe --noweb --add Microsoft.VisualStudio.Workload.VCTools
 
 
