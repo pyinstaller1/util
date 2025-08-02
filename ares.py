@@ -1544,7 +1544,7 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4_888888"]:
         pyautogui.write('github01!')
     else:
         pyautogui.write('windows1!')
