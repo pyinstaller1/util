@@ -50,19 +50,26 @@ def a01_start():
     top = win.top
     width = win.width
     height = win.height
-    
 
-    
+
+
+
     mouse.move(int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
     time.sleep(0.1)
     mouse.press()
-    mouse.move(int(left + width * 0.6), int(top + height * 0.5))   # 절전 해제    
-    time.sleep(1)
-    mouse.move(int(left + width * 0.7), int(top + height * 0.5))   # 절전 해제    
-    time.sleep(1)    
-    mouse.move(int(left + width * 0.8), int(top + height * 0.5))
+    mouse.move(int(left + width * 0.8), int(top + height * 0.5))   # 절전 해제    
     time.sleep(1)
     mouse.release()
+
+
+    mouse.move(int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
+    time.sleep(0.1)
+    mouse.press()
+    mouse.move(int(left + width * 0.8), int(top + height * 0.5))   # 절전 해제    
+    time.sleep(1)
+    mouse.release()
+
+
     time.sleep(3)
 
 
