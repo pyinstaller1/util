@@ -1,7 +1,14 @@
 
 
+
+
+
+
+
+
+
 vs_BuildTools.exe ^
-  --layout C:\VSOffline ^
+  --layout D:\VSOffline ^
   --lang ko-KR ^
   --add Microsoft.VisualStudio.Workload.VCTools ^
   --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 ^
@@ -11,20 +18,16 @@ vs_BuildTools.exe ^
   --includeRecommended ^
   --includeOptional
 
-cd C:\VSOffline\
+
+
+cd D:\VSOffline\
 vs_BuildTools.exe ^
-  --noweb ^
+  --noweb
   --add Microsoft.VisualStudio.Workload.VCTools ^
   --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 ^
   --add Microsoft.VisualStudio.Component.VC.CMake.Project ^
   --add Microsoft.VisualStudio.Component.Windows10SDK.19041 ^
-  --add Microsoft.VisualStudio.Component.VC.Llvm.Clang ^
-  --includeRecommended ^
-  --includeOptional
-
-
-
-vs_BuildTools.exe --noweb --add Microsoft.VisualStudio.Workload.VCTools
+  --add Microsoft.VisualStudio.Component.VC.Llvm.Clang
 
 
 
@@ -32,9 +35,24 @@ vs_BuildTools.exe --noweb --add Microsoft.VisualStudio.Workload.VCTools
 
 
 
+
+cd D:\model\
+git clone https://github.com/ggerganov/llama.cpp
+
+
+
+
+
+call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+
+
+
+cd D:\model\llama.cpp\
 rmdir /s /q build
 mkdir build
 cd build
+
+
 
 cmake .. -DLLAMA_BUILD_EXAMPLES=ON -DLLAMA_BUILD_TESTS=OFF -DGGML_BUILD_SHARED=ON -DLLAMA_CURL=OFF
 
@@ -57,13 +75,147 @@ from llama_cpp import Llama
 chcp 65001
 
 cd D:\model\llama.cpp\build
-.\bin\Release\llama-run.exe ..\..\llama-3.2-Korean-Bllossom-3B-gguf-Q4_K_M.gguf "<s>[INST] What is health insurance? Please answer within Korean 100 words. [/INST]"
+.\bin\Release\llama-run.exe ..\..\llama-3-Korean-Bllossom-8B-Q4_K_M.gguf "<s>[INST] What is health insurance? Please answer within Korean 100 words. [/INST]"
 
 DeepSeek-R1-0528-Qwen3-8B-Q3_K_S
 
 .\bin\Release\llama-run.exe ..\..\DeepSeek-R1-0528-Qwen3-8B-Q3_K_S.gguf "<s>[INST] What is the deep learning? [/INST]"
 
 .\bin\Release\llama-run.exe ..\..\gemma-3-4b-it-q4_0.gguf "<s>[INST] What is the deep learning? [/INST]"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wsl --install
+wsl -d Ubuntu
+nhis001 / nhis001
+touch ~/.hushlogin
+
+sudo apt update && sudo apt install -y build-essential cmake git
+sudo apt install cmake
+sudo apt update --fix-missing
+sudo apt install -f
+sudo apt install g++
+
+
+
+cd ~/llama.cpp/build
+
+cmake .. -DLLAMA_BUILD_EXAMPLES=ON -DLLAMA_BUILD_TESTS=OFF -DGGML_BUILD_SHARED=ON -DLLAMA_CURL=OFF
+make -j$(nproc)
+
+
+cd /mnt/d/model/llama.cpp/build/
+
+cd ~/llama.cpp
+rm -rf build
+mkdir build
+cd build
+cmake .. -DLLAMA_BUILD_EXAMPLES=ON -DLLAMA_BUILD_TESTS=OFF -DGGML_BUILD_SHARED=ON -DLLAMA_CURL=OFF
+make -j$(nproc)
+
+
+
+
+./bin/llama-run /mnt/d/model/llama-3-Korean-Bllossom-8B-Q4_K_M.gguf "안녕하세요?" -n 200
+./bin/llama-run /mnt/d/model/llama-3-Korean-Bllossom-8B-Q4_K_M.gguf
+
+
+
+wsl --export Ubuntu ubuntu_backup.tar
+mkdir C:\WSL\Ubuntu
+wsl --import Ubuntu C:\WSL\Ubuntu D:\path\to\ubuntu_backup.tar
+
+
+
+cd /mnt/d/Project/streamlit/
+
+
+
+
+sudo apt update
+sudo apt install -y python3 python3-pip
+export PATH=$HOME/.local/bin:$PATH
+
+pip install streamlit llama-cpp-python --break-system-packages
+
+
+
+
+
+
+cd /mnt/d/model/llama.cpp
+rm -rf build
+mkdir -p build
+cd build
+
+
+cmake .. -DLLAMA_BUILD_EXAMPLES=ON -DLLAMA_BUILD_TESTS=OFF -DGGML_BUILD_SHARED=ON -DLLAMA_CURL=OFF
+make -j$(nproc)
+
+
+/mnt/d/model/llama.cpp/build/bin/llama-run /mnt/d/model/llama-3-Korean-Bllossom-8B-Q4_K_M.gguf "Hello"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wsl --install
+설치 후 재부팅하면 자동으로 Ubuntu 환경 시작
+
+sudo apt update
+sudo apt install python3-pip
+
+# USB에서 llama-offline.tar.gz 복사해옴
+tar -xzvf llama-offline.tar.gz
+cd llama-offline
+
+pip install --no-index --find-links=. streamlit llama-cpp-python
+
+
+
+
+
+
+
+
+
+
 
 
 
