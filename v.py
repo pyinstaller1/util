@@ -4,6 +4,10 @@
 from transformers import AutoTokenizer, AutoModel
 import torch
 import fitz  # PyMuPDF
+import json
+import faiss
+import numpy as np
+
 
 def get_pdf(path):
     doc = fitz.open(path)
@@ -13,9 +17,7 @@ def get_pdf(path):
     return text
 
 
-
-
-def chunk_text(text, chunk_size=900, overlap=200):
+def get_chunk(text, chunk_size=900, overlap=200):
     chunks = []
     start = 0
     text_length = len(text)
@@ -31,10 +33,7 @@ def chunk_text(text, chunk_size=900, overlap=200):
     return chunks
 
 
-
-
-
-def embed_chunk(chunk):
+def get_chunk_embeddings(chunk):
     inputs = tokenizer(chunk, return_tensors="pt", truncation=True, max_length=512)
     with torch.no_grad():
         outputs = model(**inputs)
@@ -43,50 +42,30 @@ def embed_chunk(chunk):
 
 
 
+
+
+
+# 시작
 text = ''
 text += get_pdf(".\건강보험자료.pdf")
-chunks = chunk_text(text, chunk_size=900, overlap=200)
-
+chunks = get_chunk(text, chunk_size=900, overlap=200)   # 청크 구분
 
 for i, chunk in enumerate(chunks):
-    print(f"청크 {i+1}: {chunk[:30].replace('\n', '')}\t[{len(chunk)}글자]")
+    if sum(ch.isdigit() or ch in '()[], .' for ch in chunk[:30]) < 7:
+        print(f"청크 {i+1}: {chunk[:30].replace('\n', '')} ...\t[{len(chunk)}글자]")
+    else:
+        print(f"청크 {i+1}: {chunk[:30].replace('\n', '')} ...\t\t[{len(chunk)}글자]")
+
 print()
 
 
 
 
+# 청크 임베딩
 tokenizer = AutoTokenizer.from_pretrained("./ko-sroberta-multitask")
 model = AutoModel.from_pretrained("./ko-sroberta-multitask")
 model.eval()
-
-chunk_embeddings = [embed_chunk(chunk) for chunk in chunks]
-
-
-# 첫 번째 청크 토큰화
-tokens = tokenizer.tokenize(chunks[0])
-# print(tokens)
-
-# 임베딩 벡터 앞 10차원
-embedding_slice = chunk_embeddings[0][:10]
-
-print("첫 번째 청크 토큰 10개:", tokens[:10])
-
-# print(f"총 임베딩된 청크 수: {len(chunk_embeddings)}")
-# print(f"임베딩 벡터 차원: {chunk_embeddings[0].shape}")
-print(f"첫 번째 청크 임베딩 일부:\n{chunk_embeddings[0][:10]}")  # 앞 10개 값만 출력
-print()
-
-
-
-
-
-
-import faiss
-import numpy as np
-
-embedding_dim = chunk_embeddings[0].shape[0]
-index = faiss.IndexFlatL2(embedding_dim)
-index.add(np.array(chunk_embeddings))
+chunk_embeddings = [get_chunk_embeddings(chunk) for chunk in chunks]   # 청크 벡터 (10개 청크의 768 벡터들)
 
 
 
@@ -98,9 +77,11 @@ index.add(np.array(chunk_embeddings))
 
 
 
-
-
-
+# 벡터DB
+# 유사도 검색 준비
+embedding_dim = chunk_embeddings[0].shape[0]    # 첫 번째 임베딩 벡터의 차원(벡터 길이)을 구함
+index = faiss.IndexFlatL2(embedding_dim)        # L2 거리(유클리디안 거리) 기준 인덱스 생성
+index.add(np.array(chunk_embeddings))           # 임베딩 벡터들을 numpy 배열로 변환해 인덱스에 추가
 
 inputs = tokenizer(chunks[0], return_tensors="pt", truncation=True, max_length=512)
 with torch.no_grad():
@@ -109,9 +90,14 @@ with torch.no_grad():
 token_vectors = outputs.last_hidden_state.squeeze(0)  # (토큰수, 768)
 tokens = tokenizer.convert_ids_to_tokens(inputs['input_ids'][0])
 
-print('청크1의 토큰')
+
+print('청크1: ' + chunks[0][:30].replace('\n', '') + ' ... \t[' + str(len(chunks[0])) + '글자]')
+
 for i in range(8):
-    print(f"토큰{i+1} {tokens[i]}\t", str(token_vectors[i][:5].numpy()).replace(']', ' ... ⇨ 768 차원 ]'))
+    if len(tokens[i]) < 2:
+        print(f"토큰{i+1} {tokens[i]}\t\t", str(token_vectors[i][:5].numpy()).replace(']', ' ... ➝  768 차원 ]'))
+    else:
+        print(f"토큰{i+1} {tokens[i]}\t", str(token_vectors[i][:5].numpy()).replace(']', ' ... ➝  768 차원 ]'))
 
 print()
 
@@ -119,10 +105,41 @@ print()
 
 
 
+faiss.write_index(index, "vector_index.faiss")   # faiss 저장 (벡터 인덱스)
+with open("chunks.json", "w", encoding="utf-8") as f:   # 청크 JSON 파일 저장
+    json.dump(chunks, f, ensure_ascii=False)
 
 
 
 
+
+
+
+
+
+
+
+
+
+index = faiss.read_index("vector_index.faiss")
+
+with open("chunks.json", "r", encoding="utf-8") as f:   # faiss의 청크를 chunks 에 저장
+    chunks = json.load(f)
+
+for i, chunk in enumerate(chunks): # 청크 출력
+    if sum(ch.isdigit() or ch in '()[], .' for ch in chunk[:30]) < 7:
+        print(f"청크 {i+1}: {chunk[:30].replace('\n', '')} ...\t[{len(chunk)}글자]")
+    else:
+        print(f"청크 {i+1}: {chunk[:30].replace('\n', '')} ...\t\t[{len(chunk)}글자]")
+
+
+
+
+
+
+
+
+'''
 
 def embed_query(query):
     inputs = tokenizer(query, return_tensors="pt", truncation=True, max_length=512)
@@ -135,6 +152,42 @@ query_vec = embed_query(query)
 
 D, I = index.search(np.array([query_vec]), k=3)  # 상위 3개 청크 인덱스 검색
 print("가장 유사한 청크 인덱스:", I)
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+index = faiss.read_index("vector_index.faiss")   # faiss 불로오기
+with open("chunks.json", "r", encoding="utf-8") as f:   # 청크 json 불러오기
+    chunks = json.load(f)
+
+
+
+def embed_query(query):
+    inputs = tokenizer(query, return_tensors="pt", truncation=True, max_length=512)
+    with torch.no_grad():
+        outputs = model(**inputs)
+    return outputs.last_hidden_state[:, 0, :].squeeze().numpy()
+
+
+query = "고려병원의 장점은?"
+query_vec = embed_query(query)
+
+
+D, I = index.search(np.array([query_vec]), k=3)
+print("가장 유사한 청크 인덱스:", I[0])
+
+for idx in I[0]:
+    print(f"청크 {idx+1} 미리보기:", chunks[idx][:100].replace('\n', ' '))
 
 
 
