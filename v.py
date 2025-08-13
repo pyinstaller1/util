@@ -9,6 +9,16 @@ import faiss
 import numpy as np
 
 
+
+
+
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+
+
+
+
+
 def get_pdf(path):
     doc = fitz.open(path)
     text = ""
@@ -45,6 +55,12 @@ def get_chunk_embeddings(chunk):
 
 
 
+tokenizer = AutoTokenizer.from_pretrained("./ko-sroberta-multitask")
+model = AutoModel.from_pretrained("./ko-sroberta-multitask")
+model.eval()
+
+
+'''
 # 시작
 text = ''
 text += get_pdf(".\건강보험자료.pdf")
@@ -62,9 +78,6 @@ print()
 
 
 # 청크 임베딩
-tokenizer = AutoTokenizer.from_pretrained("./ko-sroberta-multitask")
-model = AutoModel.from_pretrained("./ko-sroberta-multitask")
-model.eval()
 chunk_embeddings = [get_chunk_embeddings(chunk) for chunk in chunks]   # 청크 벡터 (10개 청크의 768 벡터들)
 
 
@@ -109,7 +122,7 @@ faiss.write_index(index, "vector_index.faiss")   # faiss 저장 (벡터 인덱�
 with open("chunks.json", "w", encoding="utf-8") as f:   # 청크 JSON 파일 저장
     json.dump(chunks, f, ensure_ascii=False)
 
-
+'''
 
 
 
@@ -139,36 +152,10 @@ for i, chunk in enumerate(chunks): # 청크 출력
 
 
 
-'''
-
-def embed_query(query):
-    inputs = tokenizer(query, return_tensors="pt", truncation=True, max_length=512)
-    with torch.no_grad():
-        outputs = model(**inputs)
-    return outputs.last_hidden_state[:, 0, :].squeeze().numpy()
-
-query = "고려병원의 장점은?"
-query_vec = embed_query(query)
-
-D, I = index.search(np.array([query_vec]), k=3)  # 상위 3개 청크 인덱스 검색
-print("가장 유사한 청크 인덱스:", I)
-
-'''
 
 
 
 
-
-
-
-
-
-
-
-
-index = faiss.read_index("vector_index.faiss")   # faiss 불로오기
-with open("chunks.json", "r", encoding="utf-8") as f:   # 청크 json 불러오기
-    chunks = json.load(f)
 
 
 
