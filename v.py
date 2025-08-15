@@ -60,11 +60,15 @@ model = AutoModel.from_pretrained("./ko-sroberta-multitask")
 model.eval()
 
 
-'''
+
+
+
+
+
 # 시작
 text = ''
 text += get_pdf(".\건강보험자료.pdf")
-chunks = get_chunk(text, chunk_size=900, overlap=200)   # 청크 구분
+chunks = get_chunk(text, chunk_size=300, overlap=50)   # 청크 구분
 
 for i, chunk in enumerate(chunks):
     if sum(ch.isdigit() or ch in '()[], .' for ch in chunk[:30]) < 7:
@@ -75,19 +79,8 @@ for i, chunk in enumerate(chunks):
 print()
 
 
-
-
 # 청크 임베딩
 chunk_embeddings = [get_chunk_embeddings(chunk) for chunk in chunks]   # 청크 벡터 (10개 청크의 768 벡터들)
-
-
-
-
-
-
-
-
-
 
 
 # 벡터DB
@@ -115,14 +108,15 @@ for i in range(8):
 print()
 
 
-
-
-
 faiss.write_index(index, "vector_index.faiss")   # faiss 저장 (벡터 인덱스)
 with open("chunks.json", "w", encoding="utf-8") as f:   # 청크 JSON 파일 저장
     json.dump(chunks, f, ensure_ascii=False)
 
-'''
+
+
+
+
+
 
 
 
@@ -144,18 +138,6 @@ for i, chunk in enumerate(chunks): # 청크 출력
         print(f"청크 {i+1}: {chunk[:30].replace('\n', '')} ...\t[{len(chunk)}글자]")
     else:
         print(f"청크 {i+1}: {chunk[:30].replace('\n', '')} ...\t\t[{len(chunk)}글자]")
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
