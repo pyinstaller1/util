@@ -1520,9 +1520,9 @@ def on():
     pyautogui.mouseUp()
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
-        pyautogui.write('s070092@nate.com')
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
         pyautogui.write('s0700921@nate.com')
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
+        pyautogui.write('s070092@nate.com')
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
         pyautogui.write('s070092@kakao.com')
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
@@ -1544,7 +1544,7 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
         pyautogui.write('github01!')
     else:
         pyautogui.write('windows1!')
