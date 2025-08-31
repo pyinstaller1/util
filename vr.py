@@ -94,7 +94,7 @@ if question:
              f"Answer based only on the reference context below. Do NOT include the reference context or any citation in your answer.\n\n" \
              f"{context}\n\n" \
              f"Do not include question in your answer.\n\n" \
-             f"Tanslate your answer into Korean language.\n\n" \
+             f"Tanslate your answer into Korean language and answer only it.\n\n" \
              f"[/INST]"
 
 
