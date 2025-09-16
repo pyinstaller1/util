@@ -1,6 +1,6 @@
 
 
-import on, jo, lo, ar, dal, ares, ak, rf
+import on, jo, lo, ar, dal, ares, ak, rf, vp
 import time
 import numpy as np
 import keyboard
@@ -55,6 +55,44 @@ while True:
         print("수요일 점검")
         on.on()
 
+
+
+
+    # 매일 오전 5시 1분    
+    if time.localtime().tm_hour == 5 and time.localtime().tm_min == 1:
+        print("오전 5시 뱀피르 작업")
+
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
+            try:
+                vp.play(1)
+            except Exception as e:
+                print(f"ares.dungeon() 오류: " + str(e))
+
+
+    # 매일 오전 8시 15분    
+    if time.localtime().tm_hour == 8 and time.localtime().tm_min == 15:
+        print("오전 8시 뱀피르 작업")
+
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
+            try:
+                vp.play(2)
+            except Exception as e:
+                print(f"ares.dungeon() 오류: " + str(e))
+
+
+    # 매일 오전 10시 25분    
+    if time.localtime().tm_hour == 10 and time.localtime().tm_min == 25:
+        print("오전 10시 뱀피르 작업")
+
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
+            try:
+                vp.play(3)
+            except Exception as e:
+                print(f"ares.dungeon() 오류: " + str(e))
+
+
+
+                
 
 
     # 매일 오전 5시 20분
@@ -164,17 +202,17 @@ while True:
 
     
     # 매시간 1분마다 play    
-    if time.localtime().tm_min in [1, 31]:
+    if time.localtime().tm_min in [1]:
         print(time.strftime("%H:%M", time.localtime()))
 
-
+        '''
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 jo.play()
             except Exception as e:
                 print("jo.play() 오류: " + str(e))
 
-        '''
+
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 lo.play()

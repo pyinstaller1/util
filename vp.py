@@ -1,0 +1,1008 @@
+import time
+from datetime import datetime
+import pygetwindow as gw
+from pywinauto import Application
+import pyautogui
+import numpy as np
+import easyocr
+import re
+import psutil
+import subprocess
+import os
+import keyboard, mouse
+import pyperclip
+import sys
+from pynput.mouse import Controller, Button
+
+
+
+
+
+
+
+
+
+
+
+def github():
+    print("뱀피르 github01   " + time.strftime("%H:%M", time.localtime()))
+
+    chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
+        url = "https://github.com/pyinstaller1/tf/edit/main/vp1.txt"
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+        url = "https://github.com/pyinstaller1/tf/edit/main/vp2.txt"
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
+        url = "https://github.com/pyinstaller1/tf/edit/main/vp3.txt"
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+        url = "https://github.com/pyinstaller1/tf/edit/main/vp4.txt"
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
+        url = "https://github.com/pyinstaller1/tf/edit/main/vp5.txt"
+
+    process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
+
+    time.sleep(10)
+
+
+    win = gw.getWindowsWithTitle('Editing tf/vp1')[0]
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
+
+    time.sleep(1)
+    keyboard.press_and_release('win + up')
+
+
+    global left, top, width, height
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+
+
+
+    time.sleep(1)
+    
+
+    keyboard.press_and_release('ctrl + a')
+    time.sleep(0.5)    
+    keyboard.press_and_release('ctrl + x')
+    time.sleep(1)
+
+    str_temp = pyperclip.paste()
+
+    now = datetime.now()
+
+    global str_support, str_purchase
+    # str_support = "초원"
+    str_purchase = "구매"
+
+    
+    now = now.strftime("%m%d %H:%M\t") + str_support + "\t" + str_purchase + '\n'
+    str_temp = now + str_temp
+    print(str_temp)
+    time.sleep(1)
+    pyperclip.copy(str_temp)
+
+
+    keyboard.press_and_release('ctrl + v')
+
+
+    mouse.move(left+(width*0.95), top+(height*0.25), absolute=True, duration=0.1)   # 커밋
+    mouse.click()
+
+    time.sleep(1)
+
+    keyboard.press_and_release('enter')
+
+    time.sleep(8)
+
+
+
+    for win in gw.getWindowsWithTitle('tf/vp'):
+        if win.title.strip():
+            print(win.title.split(" - ")[0].split("·")[1].strip())
+            win.close()
+            break
+
+
+
+
+
+
+def a01_start(check='0'):
+    print("뱀피르 a01_start   " + time.strftime("%H:%M", time.localtime()))
+
+
+    if not gw.getWindowsWithTitle('VAMPIR'):
+        print("뱀피르 창이 없습니다.")
+        on()
+        return
+
+
+
+    win = gw.getWindowsWithTitle('VAMPIR')[0]
+    app = Application().connect(handle=win._hWnd)
+
+    time.sleep(1)        
+
+    try:
+        print(7)
+        app.window(handle=win._hWnd).set_focus()
+    except:
+        print(8)
+        time.sleep(1)        
+        app.window(handle=win._hWnd).set_focus()
+
+
+    global left, top, width, height
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+    mouse.move(int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
+    time.sleep(0.1)
+    mouse.press()
+    time.sleep(1)    
+    mouse.move(int(left + width * 0.8), int(top + height * 0.5), duration=0.3)   # 절전 해제    
+    time.sleep(1)
+    mouse.release()
+    time.sleep(3)
+
+    return
+
+
+
+
+
+
+
+def a02_bok():
+    print("VP a02_bok   " + time.strftime("%H:%M", time.localtime()))
+
+    global left, top, width, height
+
+
+
+
+    # 장시간 미입력 ocr 탐지
+    scr = pyautogui.screenshot(region=(left + int(width*0.37), top + int(height*0.38), int(width*0.3), int(height*0.1)))
+    scr.save("scr_vp_bok.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr))
+    print(results)
+
+
+
+
+
+
+    # if results and results[0][1][:3] in ['장시간']:
+    if 1==1:
+        print('장시간')
+        keyboard.press_and_release('space')
+        time.sleep(10)
+
+
+
+
+        mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.1)   # 화면 클릭
+        mouse.click()
+        time.sleep(10)
+
+
+        '''
+        mouse.move(left+(width*0.88), top+(height*0.35), absolute=True, duration=0.1)   # 1번 플레이어
+        mouse.click()
+        time.sleep(3)
+
+        mouse.move(left+(width*0.88), top+(height*0.46), absolute=True, duration=0.1)   # 2번 플레이어
+        mouse.click()
+        time.sleep(3)
+        '''
+
+        mouse.move(left+(width*0.88), top+(height*0.58), absolute=True, duration=0.1)   # 3번 플레이어
+        mouse.click()    
+        time.sleep(3)    
+
+        mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 게임 시작
+        mouse.click()
+        time.sleep(25)
+
+        a021_support()
+
+        return 'support'
+    return 'normal'
+
+
+
+
+    # 복구 ocr 탐지
+    scr = pyautogui.screenshot(region=(left + int(width*0.077), top + int(height*0.07), int(width*0.05), int(height*0.05)))
+    scr.save("scr_rf_bok.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr))
+    print(results)
+
+
+    if results and results[0][1] in ['잡화 상인']:
+
+        x = left + int(width*0.077) + (results[0][0][0][0] + results[0][0][1][0])//2
+        y = top + int(height*0.07) + (results[0][0][0][1] + results[0][0][2][1])//2
+
+        mouse.move(x, y, absolute=True, duration=0.1)   # 잡화 상인
+        mouse.click()
+
+        time.sleep(10)
+
+        mouse.move(left+(width*0.07), top+(height*0.07), absolute=True, duration=0.1)   # 구매
+        mouse.click()
+        time.sleep(0.5)
+
+
+        mouse.move(left+(width*0.1), top+(height*0.238), absolute=True, duration=0.1)   # 치료제    0.238
+        mouse.click()
+        time.sleep(0.5)
+
+
+        mouse.move(left+(width*0.558), top+(height*0.538), absolute=True, duration=0.1)   # MAX
+        mouse.click()
+        time.sleep(0.5)
+
+
+        mouse.move(left+(width*0.5), top+(height*0.77), absolute=True, duration=0.1)   # 구매
+        mouse.click()
+        time.sleep(0.5)
+  
+
+        mouse.move(left+(width*0.03), top+(height*0.083), absolute=True, duration=0.2)   # 닫기
+        mouse.click()
+
+
+
+        '''
+        mouse.move(left+(width*0.738), top+(height*0.083), absolute=True, duration=0.5)   # 복구
+        mouse.click()
+
+        mouse.move(left+(width*0.5), top+(height*0.818), absolute=True, duration=0.1)   # 복구
+        mouse.click()
+        time.sleep(0.5)
+        mouse.click()
+        time.sleep(0.5)
+        mouse.click()
+        time.sleep(0.5)
+        mouse.click()
+        time.sleep(0.5)
+        mouse.click()
+        '''
+
+
+        time.sleep(1)
+        time.sleep(1)
+        time.sleep(1)
+
+
+        mouse.move(left+(width*0.03), top+(height*0.07), absolute=True, duration=0.1)   # 지도
+        mouse.click()
+
+        time.sleep(0.5)
+
+        mouse.move(left+(width*0.15), top+(height*0.2), absolute=True, duration=0.1)   # 지도 클릭
+        mouse.click()
+
+        time.sleep(3)
+
+
+        scr = pyautogui.screenshot(region=(left + int(width*0.15), top + int(height*0.3), int(width*0.6), int(height*0.6)))
+        scr.save("scr_rf_map.png")
+        reader = easyocr.Reader(['ko', 'en'], gpu=False)
+        results = reader.readtext(np.array(scr))
+        print(results)
+
+        for item in results:
+            print(item[1][:2])
+            bbox, text, confidence = item
+            print(text)
+            if text[:2] in ['콜드', '골드', '홀드', '콤드', '드론']:
+                print(777)
+                top_left = bbox[0]
+                bottom_right = bbox[2]
+                x = (top_left[0] + bottom_right[0]) // 2
+                y = top_left[1]
+                break
+
+
+        mouse.move(left+(width*0.15) + x, top+(height*0.3) + y - (height*0.01), absolute=True, duration=0.1)   # 지도 클릭
+        mouse.click()
+
+        time.sleep(5)
+
+
+
+        mouse.move(left+(width*0.53), top+(height*0.51), absolute=True, duration=0.1)   # 즉시 이동
+        mouse.click()
+
+        time.sleep(3)
+
+
+        mouse.move(left+(width*0.58), top+(height*0.68), absolute=True, duration=0.1)   # 즉시 이동
+        mouse.click()
+
+        time.sleep(15)
+
+
+
+
+
+
+
+        mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)   # AUTO
+        mouse.click()
+
+        time.sleep(1)
+
+
+        # mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
+        # mouse.click()
+
+        # mouse.move(left+(width*0.5), top+(height*0.67), absolute=True, duration=0.1)   # 확인
+        # mouse.click()
+        
+    return
+
+
+
+
+def a021_support():
+    print("RF a021_support   " + time.strftime("%H:%M", time.localtime()))
+
+    global left, top, width, height
+
+
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+    time.sleep(1)
+
+
+
+    mouse.move(left+(width*0.97), top+(height*0.57), absolute=True, duration=0.1)   # Support
+    mouse.click()
+    time.sleep(1)
+
+
+
+    mouse.move(left+(width*0.1), top+(height*0.93), absolute=True, duration=0.1)   # 실행
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.1), top+(height*0.93), absolute=True, duration=0.1)   # 실행
+    mouse.click()
+    time.sleep(30)
+
+    
+
+    mouse.move(left+(width*0.023), top+(height*0.78), absolute=True, duration=0.1)   # 절전
+    mouse.click()
+    time.sleep(5)
+
+
+    global str_support
+
+    scr = pyautogui.screenshot(region=(left + int(width*0.03), top + int(height*0.12), int(width*0.1), int(height*0.07)))
+    scr.save("scr_vp_support.png")
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr))
+    if results:
+        print(results[0][1])
+        str_support = results[0][1].replace(' ', '')
+    else:
+        str_support = "No"
+
+    github()
+        
+
+    
+    return
+
+
+
+
+
+
+
+
+
+
+def a03_jangbi():
+    print("뱀피르 a03_jangbi   " + time.strftime("%H:%M", time.localtime()))
+
+    global left, top, width, height
+
+    '''
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+    '''
+
+
+    # 장비 분해
+    mouse.move(left+(width*0.917), top+(height*0.07), absolute=True, duration=0.1)   # 가방
+    mouse.click()
+    time.sleep(1)
+
+
+
+    mouse.move(left+(width*0.78), top+(height*0.81), absolute=True, duration=0.1)   # 일괄분해
+    mouse.click()
+    time.sleep(1)
+
+
+    mouse.move(left+(width*0.9), top+(height*0.81), absolute=True, duration=0.1)   # 분해
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.9), top+(height*0.81), absolute=True, duration=0.1)   # 분해
+    mouse.click()
+    time.sleep(1)
+
+
+    # 업적
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+    time.sleep(1)
+
+
+    mouse.move(left+(width*0.96), top+(height*0.387), absolute=True, duration=0.1)   # 업적
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)    
+
+
+    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)    
+    
+
+    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)    
+    
+
+    
+
+
+
+    # 우편
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+    time.sleep(1)
+
+
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+    time.sleep(1)
+
+
+    mouse.move(left+(width*0.76), top+(height*0.93), absolute=True, duration=0.1)   # 우편
+    mouse.click()
+    time.sleep(1)
+
+
+    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+
+    mouse.move(left+(width*0.2), top+(height*0.15), absolute=True, duration=0.1)   # 계정
+    mouse.click()
+    time.sleep(1)    
+
+
+    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.click()
+    time.sleep(1)
+
+
+    
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+    time.sleep(1)
+
+
+
+
+
+
+
+
+
+def a04_change(play_time=1):
+    print("뱀피르 a04_change   " + time.strftime("%H:%M", time.localtime()))
+
+    global left, top, width, height
+
+
+    # 캐릭터 변경
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.97), top+(height*0.93), absolute=True, duration=0.1)   # 캐릭터 변경
+    mouse.click()
+    time.sleep(8)
+
+    if play_time == 1:
+        mouse.move(left+(width*0.88), top+(height*0.35), absolute=True, duration=0.1)   # 1번 플레이어        
+        mouse.click()
+        time.sleep(3)
+
+    if play_time == 2:
+        mouse.move(left+(width*0.88), top+(height*0.46), absolute=True, duration=0.1)   # 2번 플레이어
+        mouse.click()
+        time.sleep(3)
+
+    if play_time == 3:
+        mouse.move(left+(width*0.88), top+(height*0.58), absolute=True, duration=0.1)   # 3번 플레이어
+        mouse.click()    
+        time.sleep(3)
+
+
+
+    mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 게임 시작
+    mouse.click()
+
+
+    time.sleep(25)
+
+    # a021_support()
+
+    return
+
+
+
+
+
+    # time.sleep(25)
+
+
+
+
+
+
+
+
+
+    return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def off():
+    print("뱀피르 off   " + time.strftime("%H:%M", time.localtime()))
+
+    a01_start()
+
+    global left, top, width, height
+
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.917), top+(height*0.93), absolute=True, duration=0.1)   # 비접속 모드
+    mouse.click()
+    time.sleep(1)
+
+
+    keyboard.press_and_release('space') 
+    time.sleep(1)
+
+    
+    return
+
+    
+
+
+
+
+
+
+
+
+def on():
+    print("뱀피르 on   " + time.strftime("%H:%M", time.localtime()))
+
+
+    for proc in psutil.process_iter():
+        if "ProjectRED-Win64-Shipping.exe" in proc.name():
+            proc.kill()
+            print("   뱀피르를 닫았습니다.")
+        if "Netmarble Launcher.exe" in proc.name():
+            proc.kill()
+            print("   뱀피르를 닫았습니다.")
+
+
+    if os.environ.get('COMPUTERNAME') == "DESKTOP-LRGAL8H":   # 넷마블 열기
+        subprocess.Popen([r"D:\Program Files\Netmarble\Netmarble Launcher\Netmarble Launcher.exe"] + ["--productcode=/Game/thered", "--buildcode=A"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    else:
+        subprocess.Popen([r"C:\Program Files\Netmarble\Netmarble Launcher\Netmarble Launcher.exe"] + ["--productcode=/Game/thered", "--buildcode=A"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        
+    time.sleep(15)
+    
+
+    for i in range(10):
+        if gw.getWindowsWithTitle('NetmarbleLauncher'):
+            print('     NetmarbleLauncher')
+            win = gw.getWindowsWithTitle('NetmarbleLauncher')[0]
+            break
+        time.sleep(10)
+
+    
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
+
+    left_on = win.left
+    top_on = win.top
+    width_on = win.width
+    height_on = win.height
+
+    mouse.move(left_on+(width_on*0.1), top_on+(height_on*0.87), absolute=True, duration=0.1)   # 게임 실행
+    mouse.click()
+    time.sleep(5)
+
+
+
+    
+
+
+    mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.46), absolute=True, duration=0.1)   # 구글 로그인
+    mouse.click()
+    time.sleep(10)
+
+
+    keyboard.press_and_release('win + up')
+    time.sleep(2)    
+
+    scr = pyautogui.screenshot(region=(left_on + int(width_on*0.5), top_on + int(height_on*0.3), int(width_on*0.3), int(height_on*0.6)))   # 구글 계정 ocr
+    scr.save("scr_rf_google.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr))
+    print(results)
+
+
+    for item in results:
+        bbox, text, confidence = item
+        top_left = bbox[0]
+        bottom_right = bbox[2]
+        x = (top_left[0] + bottom_right[0]) // 2
+        y = (top_left[1] + bottom_right[1]) // 2
+
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
+            if "77@" in text or '7z@naver' in text:   # ground077@naver.com     groundo77@navercom
+                break
+            
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+            if "92@n" in text:   # s070092@nate.com
+                break
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
+            if "921@n" in text:   # s0700921@nate.com
+                break            
+
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+            if "7zok" in text or "o77@k" in text:   # ground077@kakao.com       groundo7zokakaocorn   groundo77@kakao.corn
+                break
+
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
+            if "92@k" in text:   # s070092@kakao.com
+                break
+
+        '''
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-NT06800"]:
+            if "92@k" in text:   # s070092@kakao.com
+                break
+        '''
+
+
+            
+    print('   OCR 구글계정: ' + text)
+
+
+    mouse.move(left_on+(width_on*0.5) + x, top_on+(height_on*0.3) + y, absolute=True, duration=0.1)   # 계정 클릭
+    mouse.click()
+
+    time.sleep(2)
+
+
+
+
+    mouse.move(left_on+(width_on*0.71), top_on+(height_on*0.65), absolute=True, duration=0.1)   # 계속
+    mouse.click()
+
+    time.sleep(3)
+
+
+    app.window(handle=win._hWnd).set_focus()
+    time.sleep(5)   
+
+
+    mouse.move(left_on+(width_on*0.1), top_on+(height_on*0.87), absolute=True, duration=0.1)   # 게임 실행
+    mouse.click()
+
+    
+    time.sleep(15)
+
+
+    mouse.move(left_on+(width_on*0.38), top_on+(height_on*0.46), absolute=True, duration=0.1)   # AMD 그래픽 드라이버
+    mouse.click()
+    time.sleep(1)
+    keyboard.press_and_release('esc')
+
+    time.sleep(30)
+
+
+
+
+
+
+    win = gw.getWindowsWithTitle('VAMPIR')[0]
+    app = Application().connect(handle=win._hWnd)
+    
+    try:
+        app.window(handle=win._hWnd).set_focus()
+    except:
+        time.sleep(1)        
+        app.window(handle=win._hWnd).set_focus()
+        
+    
+
+    global left, top, width, height
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+
+    mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.5), absolute=True, duration=0.1)   # 화면 클릭
+    mouse.click()
+
+    time.sleep(10)
+
+
+
+    '''
+    mouse.move(left+(width*0.88), top+(height*0.35), absolute=True, duration=0.1)   # 1번 플레이어
+    mouse.click()
+    time.sleep(3)
+
+    mouse.move(left+(width*0.88), top+(height*0.46), absolute=True, duration=0.1)   # 2번 플레이어
+    mouse.click()
+    time.sleep(3)
+    '''
+
+
+    mouse.move(left+(width*0.88), top+(height*0.58), absolute=True, duration=0.1)   # 3번 플레이어
+    mouse.click()    
+    time.sleep(3)
+
+    
+
+    mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 게임 시작
+    mouse.click()
+
+    time.sleep(25)
+
+
+
+    mouse.move(left+(width*0.97), top+(height*0.06), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+
+    time.sleep(5)
+
+
+
+    return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def dungeon():
+    a01_start()
+    a05_dungeon()
+
+
+    
+def mission():
+    a01_start()
+    a04_mission()
+
+
+
+
+
+    
+def play(play_time = 1):
+
+    a01_start()
+    a04_change(play_time)
+    a03_jangbi()
+    a021_support()
+
+    return
+    
+
+
+    a01_start()
+    if a02_bok() == 'support':
+        print('play support')
+        return
+    else:
+        print('play normal')
+        a03_jangbi()
+        a04_change(1)
+
+
+
+
+    
+
+    '''
+    if a02_bok() != 'on':
+        a03_jangbi()
+    '''
+
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "on":
+            on()
+        elif sys.argv[1] == "off":
+            off()            
+        elif sys.argv[1] == "mission":
+            mission()
+        elif sys.argv[1] == "dungeon":
+            dungeon()            
+        else:
+            play()
+    else:
+        play(2)
+        # on()
+        # mission()
+        # off()
+
+
+
+
+
+
+
+
+
+
+
+
+    
