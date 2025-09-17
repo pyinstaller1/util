@@ -30,26 +30,26 @@ def github():
     chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
-        url = "https://github.com/pyinstaller1/tf/edit/main/vp1.txt"
+        url = "https://github.com/pyinstaller1/game/edit/main/vp1.txt"
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
-        url = "https://github.com/pyinstaller1/tf/edit/main/vp2.txt"
+        url = "https://github.com/pyinstaller1/game/edit/main/vp2.txt"
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
-        url = "https://github.com/pyinstaller1/tf/edit/main/vp3.txt"
+        url = "https://github.com/pyinstaller1/game/edit/main/vp3.txt"
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-        url = "https://github.com/pyinstaller1/tf/edit/main/vp4.txt"
+        url = "https://github.com/pyinstaller1/game/edit/main/vp4.txt"
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
-        url = "https://github.com/pyinstaller1/tf/edit/main/vp5.txt"
+        url = "https://github.com/pyinstaller1/game/edit/main/vp5.txt"
 
     process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
 
     time.sleep(10)
 
 
-    win = gw.getWindowsWithTitle('Editing tf/vp1')[0]
+    win = gw.getWindowsWithTitle('Editing game/vp')[0]
     app = Application().connect(handle=win._hWnd)
     app.window(handle=win._hWnd).set_focus()
 
@@ -80,7 +80,7 @@ def github():
 
     global str_support, str_purchase
     # str_support = "초원"
-    str_purchase = "구매"
+    # str_purchase = "구매"
 
     
     now = now.strftime("%m%d %H:%M\t") + str_support + "\t" + str_purchase + '\n'
@@ -104,7 +104,7 @@ def github():
 
 
 
-    for win in gw.getWindowsWithTitle('tf/vp'):
+    for win in gw.getWindowsWithTitle('game/vp'):
         if win.title.strip():
             print(win.title.split(" - ")[0].split("·")[1].strip())
             win.close()
@@ -367,6 +367,44 @@ def a021_support():
     global left, top, width, height
 
 
+
+    mouse.move(left+(width*0.87), top+(height*0.07), absolute=True, duration=0.1)   # 상점
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.07), top+(height*0.93), absolute=True, duration=0.1)   # 일괄구매
+    mouse.click()
+    time.sleep(1)
+
+
+
+    global str_purchase
+
+    scr = pyautogui.screenshot(region=(left + int(width*0.46), top + int(height*0.3), int(width*0.1), int(height*0.1)))
+    scr.save("scr_vp_support.png")
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr))
+    if results:
+        print(results[0][1])
+        str_purchase = results[0][1].replace(' ', '')
+    else:
+        str_purchase = "No"
+    
+
+    keyboard.press_and_release('space')
+    time.sleep(1)
+
+    keyboard.press_and_release('space')
+    time.sleep(1)
+
+    keyboard.press_and_release('space')
+    time.sleep(1)
+    
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 닫기
+    mouse.click()
+    time.sleep(1)
+    
+
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
     time.sleep(1)
@@ -385,7 +423,7 @@ def a021_support():
 
     mouse.move(left+(width*0.1), top+(height*0.93), absolute=True, duration=0.1)   # 실행
     mouse.click()
-    time.sleep(30)
+    time.sleep(18)
 
     
 
