@@ -36,10 +36,8 @@ def a01_start():
     app = Application().connect(handle=win._hWnd)
     
     try:
-        print(7)
         app.window(handle=win._hWnd).set_focus()
     except:
-        print(8)
         time.sleep(1)        
         app.window(handle=win._hWnd).set_focus()
         
@@ -51,7 +49,6 @@ def a01_start():
     width = win.width
     height = win.height
 
-
     mouse.move(int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
     time.sleep(0.1)
     mouse.press()
@@ -59,9 +56,6 @@ def a01_start():
     mouse.move(int(left + width * 0.8), int(top + height * 0.5), duration=0.3)   # 절전 해제    
     time.sleep(1)
     mouse.release()
-
-
-
 
     time.sleep(3)
 
@@ -71,11 +65,7 @@ def a01_start():
     time.sleep(1)
     
     mouse.move(int(left + width * 0.5), int(top + height * 0.75))   # 확인
-    mouse.click()
-    
-
-
-    
+    mouse.click()    
 
     return
 
@@ -249,53 +239,46 @@ def a03_jangbi():
     # 장비 분해
     mouse.move(left+(width*0.917), top+(height*0.07), absolute=True, duration=0.1)   # 가방
     mouse.click()
+    time.sleep(1)
 
     mouse.move(left+(width*0.97), top+(height*0.27), absolute=True, duration=0.1)   # 장비
     mouse.click()
+    time.sleep(1)
 
     mouse.move(left+(width*0.93), top+(height*0.95), absolute=True, duration=0.1)   # 분해
     mouse.click()
-
     time.sleep(1)
-
 
     mouse.move(left+(width*0.55), top+(height*0.43), absolute=True, duration=0.1)   # 일반
     mouse.click()
+    time.sleep(0.5)
 
     mouse.move(left+(width*0.65), top+(height*0.43), absolute=True, duration=0.1)   # 고급
     mouse.click()
-
+    time.sleep(0.5)
 
     mouse.move(left+(width*0.55), top+(height*0.54), absolute=True, duration=0.1)   # 장비
     mouse.click()
+    time.sleep(0.5)
 
     mouse.move(left+(width*0.65), top+(height*0.6), absolute=True, duration=0.1)   # 수집재료
     mouse.click()
-
+    time.sleep(0.5)
 
     mouse.move(left+(width*0.65), top+(height*0.7), absolute=True, duration=0.1)   # 등록가능
     mouse.click()
-
-
     time.sleep(1)
 
     mouse.move(left+(width*0.93), top+(height*0.95), absolute=True, duration=0.1)   # 분해
     mouse.click()
-
-
-    time.sleep(0.1)
+    time.sleep(1)
 
     mouse.move(left+(width*0.38), top+(height*0.5), absolute=True, duration=0.1)   # 화면 클릭
     mouse.click()
-    
-    time.sleep(0.5)
-
-
-
+    time.sleep(1)
 
     mouse.move(left+(width*0.977), top+(height*0.123), absolute=True, duration=0.1)   # 장비 닫기
     mouse.click()
-
     time.sleep(1)
 
 
@@ -304,31 +287,22 @@ def a03_jangbi():
     # 일괄구매
     mouse.move(left+(width*0.88), top+(height*0.07), absolute=True, duration=0.1)   # 가방
     mouse.click()
-
+    time.sleep(0.3)
 
     mouse.move(left+(width*0.07), top+(height*0.88), absolute=True, duration=0.1)   # 일괄구매
     mouse.click()
-
     time.sleep(1)
-
 
     mouse.move(left+(width*0.57), top+(height*0.78), absolute=True, duration=0.1)   # 일괄구매
     mouse.click()
-
     time.sleep(1)
-
 
     mouse.move(left+(width*0.5), top+(height*0.88), absolute=True, duration=0.1)   # 화면 클릭
     mouse.click()
-
     time.sleep(3)
-
 
     mouse.move(left+(width*0.963), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
     mouse.click()
-
-
-
     time.sleep(1.1)
 
 
@@ -336,42 +310,39 @@ def a03_jangbi():
     # 우편
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
-
     time.sleep(1)
 
     mouse.move(left+(width*0.78), top+(height*0.96), absolute=True, duration=0.1)   # 우편
     mouse.click()
-
     time.sleep(1)
     
     mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
-
     time.sleep(1)
 
     mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
+    time.sleep(0.3)
 
     mouse.move(left+(width*0.21), top+(height*0.15), absolute=True, duration=0.1)   # 계정
     mouse.click()
+    time.sleep(0.3)
 
 
     mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
-
     time.sleep(1)
 
     mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
-
     time.sleep(1)
 
     mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
-    
+    time.sleep(0.3)
+
     mouse.move(left+(width*0.963), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
     mouse.click()
-
     time.sleep(1)
 
 
@@ -473,44 +444,34 @@ def a05_dungeon():
 
     global left, top, width, height
 
-
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
-
-    time.sleep(0.5)
+    time.sleep(1)
 
     mouse.move(left+(width*0.73), top+(height*0.538), absolute=True, duration=0.1)   # 던전
     mouse.click()
+    time.sleep(1)
 
-    mouse.move(left+(width*0.30), top+(height*0.12), absolute=True, duration=0.1)   # 지역 던전
+    mouse.move(left+(width*0.30), top+(height*0.15), absolute=True, duration=0.1)   # 지역 던전
     mouse.click()
-
-
-
     time.sleep(3)
 
 
     mouse.move(left+(width*0.08), top+(height*0.23), absolute=True, duration=0.1)   # 안드로이드 폐기장
     mouse.click()
-
     time.sleep(1)
 
     mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 입장
     mouse.click()
-
     time.sleep(1)
 
     mouse.move(left+(width*0.70), top+(height*0.73), absolute=True, duration=0.1)   # 이동
     mouse.click()
-
     time.sleep(30)
-
-
 
 
     mouse.move(left+(width*0.15), top+(height*0.15), absolute=True, duration=0.1)   # 지도
     mouse.click()
-
     time.sleep(1)
 
     # "DESKTOP-LRGAL8H"
@@ -525,62 +486,76 @@ def a05_dungeon():
         
         mouse.move(left+(width*0.567), top+(height*0.267), absolute=True, duration=0.1)   # 지도
         mouse.click()
+        time.sleep(1)
 
-        mouse.move(left+(width*0.587), top+(height*0.267), absolute=True, duration=0.1)   # 도보이동
+        mouse.move(left+(width*0.587), top+(height*0.250), absolute=True, duration=0.1)   # 도보이동
         mouse.click()
-
+        time.sleep(1)
 
     if desktop == 'DESKTOP-792RKKB':
         
         mouse.move(left+(width*0.567), top+(height*0.712), absolute=True, duration=0.1)   # 지도
         mouse.click()
+        time.sleep(1)
 
-        mouse.move(left+(width*0.587), top+(height*0.712), absolute=True, duration=0.1)   # 도보이동
+        mouse.move(left+(width*0.587), top+(height*0.695), absolute=True, duration=0.1)   # 도보이동
         mouse.click()
+        time.sleep(1)
 
     if desktop == 'DESKTOP-MA2NLC4':
         
         mouse.move(left+(width*0.398), top+(height*0.51), absolute=True, duration=0.1)   # 지도
         mouse.click()
+        time.sleep(1)
 
-        mouse.move(left+(width*0.418), top+(height*0.51), absolute=True, duration=0.1)   # 도보이동
+        mouse.move(left+(width*0.418), top+(height*0.34), absolute=True, duration=0.1)   # 도보이동
         mouse.click()
+        time.sleep(1)
 
 
     if desktop == 'DESKTOP-OHGK5MV':
         
         mouse.move(left+(width*0.733), top+(height*0.507), absolute=True, duration=0.1)   # 지도
         mouse.click()
+        time.sleep(1)
 
-        mouse.move(left+(width*0.753), top+(height*0.507), absolute=True, duration=0.1)   # 도보이동
+        mouse.move(left+(width*0.753), top+(height*0.488), absolute=True, duration=0.1)   # 도보이동
         mouse.click()
+        time.sleep(1)
 
 
     if desktop == 'DESKTOP-H9B70U0':
         
         mouse.move(left+(width*0.773), top+(height*0.46), absolute=True, duration=0.1)   # 지도
         mouse.click()
+        time.sleep(1)
 
-        mouse.move(left+(width*0.793), top+(height*0.46), absolute=True, duration=0.1)   # 도보이동
+        mouse.move(left+(width*0.793), top+(height*0.443), absolute=True, duration=0.1)   # 도보이동
         mouse.click()
+        time.sleep(1)
 
     time.sleep(65)
 
 
-    mouse.move(left+(width*0.96), top+(height*0.583), absolute=True, duration=0.1)   # 런처
+    mouse.move(left+(width*0.96), top+(height*0.61), absolute=True, duration=0.1)   # 런처
     mouse.click()
+    time.sleep(2)
 
+    mouse.move(left+(width*0.96), top+(height*0.61), absolute=True, duration=0.1)   # 런처
+    mouse.click()
     time.sleep(1)
 
-
-    mouse.move(left+(width*0.96), top+(height*0.583), absolute=True, duration=0.1)   # 런처
+    mouse.move(left+(width*0.96), top+(height*0.61), absolute=True, duration=0.1)   # 런처
     mouse.click()
+    time.sleep(1)    
 
-    time.sleep(1)
+    mouse.move(left+(width*0.96), top+(height*0.61), absolute=True, duration=0.1)   # 런처
+    mouse.click()
+    time.sleep(1)    
     
     mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)    # AUTO
     mouse.click()
-
+    time.sleep(1)
 
     mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
     mouse.click()
@@ -803,7 +778,7 @@ def on():
     mouse.click()
 
 
-    time.sleep(10)
+    time.sleep(12)
 
 
 
@@ -844,7 +819,7 @@ def on():
     mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)   # AUTO
     mouse.click()
 
-    a02_bok()
+    time.sleep(1)
 
 
     mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
@@ -894,8 +869,8 @@ def mission():
     
 def play():
     a01_start()
-    if a02_bok() != 'on':
-        a03_jangbi()
+    a03_jangbi()
+
 
 
 

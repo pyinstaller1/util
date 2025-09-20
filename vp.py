@@ -56,6 +56,7 @@ def github():
     time.sleep(1)
     keyboard.press_and_release('win + up')
 
+    time.sleep(1)
 
     global left, top, width, height
     left = win.left
@@ -66,7 +67,6 @@ def github():
 
 
 
-    time.sleep(1)
     
 
     keyboard.press_and_release('ctrl + a')
@@ -132,10 +132,8 @@ def a01_start(check='0'):
     time.sleep(1)        
 
     try:
-        print(7)
         app.window(handle=win._hWnd).set_focus()
     except:
-        print(8)
         time.sleep(1)        
         app.window(handle=win._hWnd).set_focus()
 
@@ -154,7 +152,7 @@ def a01_start(check='0'):
     time.sleep(1)
     mouse.release()
     time.sleep(3)
-
+    
     return
 
 
@@ -370,18 +368,19 @@ def a021_support():
 
     mouse.move(left+(width*0.87), top+(height*0.07), absolute=True, duration=0.1)   # 상점
     mouse.click()
-    time.sleep(1)
+    time.sleep(3)
 
     mouse.move(left+(width*0.07), top+(height*0.93), absolute=True, duration=0.1)   # 일괄구매
     mouse.click()
-    time.sleep(1)
+    time.sleep(3)
 
-
+    keyboard.press_and_release('space')
+    time.sleep(3)
 
     global str_purchase
 
     scr = pyautogui.screenshot(region=(left + int(width*0.46), top + int(height*0.3), int(width*0.1), int(height*0.1)))
-    scr.save("scr_vp_support.png")
+    scr.save("scr_vp_pucharse.png")
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(np.array(scr))
     if results:
@@ -391,15 +390,6 @@ def a021_support():
         str_purchase = "No"
     
 
-    keyboard.press_and_release('space')
-    time.sleep(1)
-
-    keyboard.press_and_release('space')
-    time.sleep(1)
-
-    keyboard.press_and_release('space')
-    time.sleep(1)
-    
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 닫기
     mouse.click()
     time.sleep(1)
@@ -434,7 +424,7 @@ def a021_support():
 
     global str_support
 
-    scr = pyautogui.screenshot(region=(left + int(width*0.03), top + int(height*0.12), int(width*0.1), int(height*0.07)))
+    scr = pyautogui.screenshot(region=(left + int(width*0.033), top + int(height*0.12), int(width*0.1), int(height*0.07)))
     scr.save("scr_vp_support.png")
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(np.array(scr))
@@ -605,6 +595,38 @@ def a03_jangbi():
     time.sleep(1)
 
 
+
+def a031_stop():
+    print("뱀피르 a031_stop   " + time.strftime("%H:%M", time.localtime()))
+
+
+    if not gw.getWindowsWithTitle('VAMPIR'):
+        print("뱀피르 창이 없습니다.")
+        on()
+        return
+
+
+    win = gw.getWindowsWithTitle('VAMPIR')[0]
+    app = Application().connect(handle=win._hWnd)
+
+    time.sleep(1)        
+
+    try:
+        app.window(handle=win._hWnd).set_focus()
+    except:
+        time.sleep(1)        
+        app.window(handle=win._hWnd).set_focus()
+
+
+    global left, top, width, height
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+    
+    mouse.move(left+(width*0.023), top+(height*0.78), absolute=True, duration=0.1)   # 절전
+    mouse.click()
+    time.sleep(5)
 
 
 
@@ -1020,10 +1042,14 @@ if __name__ == "__main__":
             on()
         elif sys.argv[1] == "off":
             off()            
-        elif sys.argv[1] == "mission":
-            mission()
-        elif sys.argv[1] == "dungeon":
-            dungeon()            
+        elif sys.argv[1] == "jangbi":
+            a01_start()
+            a03_jangbi()
+            a031_stop()
+        elif sys.argv[1] == "github":
+            a01_start()
+            a021_support()
+            github()
         else:
             play()
     else:
