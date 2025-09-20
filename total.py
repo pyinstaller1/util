@@ -1,11 +1,12 @@
 
 
-import on, jo, lo, ar, dal, ares, ak, rf, vp
+import on, jo, lo, ar, dal, ares, ak, rf, vp, odin
 import time
 import numpy as np
 import keyboard
 import os
 from pynput.mouse import Controller, Button
+import datetime
 
 
 # "DESKTOP-LRGAL8H"
@@ -38,12 +39,12 @@ while True:
     if time.localtime().tm_wday == 0 and time.localtime().tm_hour == 7 and time.localtime().tm_min == 30:   # 월요일
         print("월요일 주간 던전 오전 7시 30분 작업")
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 아레스 주간 던전
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # 아레스 주간 던전
             ares.dungeon_week()   # 아레스 주간 던전
             
     if time.localtime().tm_wday == 1 and time.localtime().tm_hour == 7 and time.localtime().tm_min == 30:   # 화요일
         print("화요일 주간 던전 오전 7시 30분 작업")
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 아레스 주간 던전
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # 아레스 주간 던전
             ares.dungeon_week()   # 아레스 주간 던전
 
 
@@ -54,6 +55,83 @@ while True:
     if time.localtime().tm_wday == 2 and time.localtime().tm_hour == 10 and time.localtime().tm_min == 57:   # 수요일
         print("수요일 점검")
         on.on()
+
+
+
+
+    # 매일 오전 4시 1분    
+    if time.localtime().tm_hour == 4 and time.localtime().tm_min == 1:
+        print("오전 4시 오딘 1번 던전")
+
+        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+            try:
+                odin.dungeon(1, 2)   # 1번 캐릭터 2번 던전
+            except Exception as e:
+                print(f"odin.dungeon() 오류: " + str(e))
+
+
+    # 매일 오전 5시 30분    
+    if time.localtime().tm_hour == 5 and time.localtime().tm_min == 31:
+        print("오전 5시 오딘 2번 던전")
+
+        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+            try:
+                odin.dungeon(2, 2)   # 2번 캐릭터 2번 던전
+            except Exception as e:
+                print(f"odin.dungeon() 오류: " + str(e))
+
+
+    # 매일 오전 7시 1분    
+    if time.localtime().tm_hour == 7 and time.localtime().tm_min == 1:
+        print("오전 7시 오딘 3번 던전")
+
+        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+            try:
+                odin.dungeon(3, 2)   # 3번 캐릭터 2번 던전
+            except Exception as e:
+                print(f"odin.dungeon() 오류: " + str(e))
+
+
+
+    # 매일 오전 8시 31분    
+    if time.localtime().tm_hour == 8 and time.localtime().tm_min == 31:
+        print("오전 8시 오딘 4번 던전")
+
+        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+            try:
+                odin.dungeon(4, 2)   # 3번 캐릭터 2번 던전
+            except Exception as e:
+                print(f"odin.dungeon() 오류: " + str(e))
+
+    # 매일 오전 10시 1분    
+    if time.localtime().tm_hour == 10 and time.localtime().tm_min == 1:
+        print("오전 10시 오딘 5번 던전")
+
+        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+            try:
+                odin.dungeon(5, 2)   # 3번 캐릭터 2번 던전
+            except Exception as e:
+                print(f"odin.dungeon() 오류: " + str(e))
+
+
+    # 매일 오전 11시 31분    
+    if time.localtime().tm_hour == 10 and time.localtime().tm_min == 1:
+        print("오전 11시 오딘 주간 던전")
+
+        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+            try:
+                odin.dungeon((((datetime.date.today().weekday()) % 5) + 1), 3)   # 요일마다 3번 던전
+            except Exception as e:
+                print(f"odin.dungeon() 오류: " + str(e))
+
+
+
+
+
+
+
+
+
 
 
 
@@ -99,7 +177,7 @@ while True:
     if time.localtime().tm_hour == 5 and time.localtime().tm_min == 20:
         print("오전 5시 작업")
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 아레스 일일던전
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # 아레스 일일던전
             try:
                 ares.dungeon()
             except Exception as e:
@@ -231,7 +309,17 @@ while True:
                 rf.play()
             except Exception as e:
                 print("rf.play() 오류: " + str(e))
+                
+            try:
+                vp.play()
+            except Exception as e:
+                print("vp.play() 오류: " + str(e))
 
+        if desktop in ["DESKTOP-LRGAL8H"]:
+            try:
+                odin.play()
+            except Exception as e:
+                print("odin.play() 오류: " + str(e))
                 
 
         '''

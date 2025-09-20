@@ -144,6 +144,7 @@ def a01_start(check='0'):
     width = win.width
     height = win.height
 
+
     mouse.move(int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
     time.sleep(0.1)
     mouse.press()
@@ -166,11 +167,28 @@ def a02_bok():
 
     global left, top, width, height
 
+    scr = pyautogui.screenshot(region=(left + int(width*0.43), top + int(height*0.43), int(width*0.05), int(height*0.05)))
+    scr.save("scr_vp_jang.png")
 
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr))
+    print(results)
+    
+    if results and results[0][1][:1] in ['장', '잠']:
+        keyboard.press_and_release('space')
+        time.sleep(10)
 
+        mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.5), absolute=True, duration=0.1)   # 화면 클릭
+        mouse.click()
+        time.sleep(15)
 
-    # 장시간 미입력 ocr 탐지
-    scr = pyautogui.screenshot(region=(left + int(width*0.37), top + int(height*0.38), int(width*0.3), int(height*0.1)))
+        mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 게임 시작
+        mouse.click()
+        time.sleep(25)
+        
+
+    
+    scr = pyautogui.screenshot(region=(left + int(width*0.45), top + int(height*0.917), int(width*0.1), int(height*0.05)))
     scr.save("scr_vp_bok.png")
 
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
@@ -178,183 +196,35 @@ def a02_bok():
     print(results)
 
 
-
-
-
-
-    # if results and results[0][1][:3] in ['장시간']:
-    if 1==1:
-        print('장시간')
+    if results and results[0][1] in ['거점 부활']:
         keyboard.press_and_release('space')
-        time.sleep(10)
-
-
-
-
-        mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.1)   # 화면 클릭
-        mouse.click()
-        time.sleep(10)
-
-
-        '''
-        mouse.move(left+(width*0.88), top+(height*0.35), absolute=True, duration=0.1)   # 1번 플레이어
-        mouse.click()
-        time.sleep(3)
-
-        mouse.move(left+(width*0.88), top+(height*0.46), absolute=True, duration=0.1)   # 2번 플레이어
-        mouse.click()
-        time.sleep(3)
-        '''
-
-        mouse.move(left+(width*0.88), top+(height*0.58), absolute=True, duration=0.1)   # 3번 플레이어
-        mouse.click()    
-        time.sleep(3)    
-
-        mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 게임 시작
-        mouse.click()
         time.sleep(25)
 
-        a021_support()
 
-        return 'support'
-    return 'normal'
-
-
-
-
-    # 복구 ocr 탐지
-    scr = pyautogui.screenshot(region=(left + int(width*0.077), top + int(height*0.07), int(width*0.05), int(height*0.05)))
-    scr.save("scr_rf_bok.png")
-
-    reader = easyocr.Reader(['ko', 'en'], gpu=False)
-    results = reader.readtext(np.array(scr))
-    print(results)
-
-
-    if results and results[0][1] in ['잡화 상인']:
-
-        x = left + int(width*0.077) + (results[0][0][0][0] + results[0][0][1][0])//2
-        y = top + int(height*0.07) + (results[0][0][0][1] + results[0][0][2][1])//2
-
-        mouse.move(x, y, absolute=True, duration=0.1)   # 잡화 상인
+        mouse.move(left+(width*0.81), top+(height*0.73), absolute=True, duration=0.1)   # 잡화상
         mouse.click()
-
         time.sleep(10)
 
-        mouse.move(left+(width*0.07), top+(height*0.07), absolute=True, duration=0.1)   # 구매
+        mouse.move(left+(width*0.1), top+(height*0.23), absolute=True, duration=0.1)   # 소형 HP 물약
         mouse.click()
-        time.sleep(0.5)
-
-
-        mouse.move(left+(width*0.1), top+(height*0.238), absolute=True, duration=0.1)   # 치료제    0.238
-        mouse.click()
-        time.sleep(0.5)
-
-
-        mouse.move(left+(width*0.558), top+(height*0.538), absolute=True, duration=0.1)   # MAX
-        mouse.click()
-        time.sleep(0.5)
-
-
-        mouse.move(left+(width*0.5), top+(height*0.77), absolute=True, duration=0.1)   # 구매
-        mouse.click()
-        time.sleep(0.5)
-  
-
-        mouse.move(left+(width*0.03), top+(height*0.083), absolute=True, duration=0.2)   # 닫기
-        mouse.click()
-
-
-
-        '''
-        mouse.move(left+(width*0.738), top+(height*0.083), absolute=True, duration=0.5)   # 복구
-        mouse.click()
-
-        mouse.move(left+(width*0.5), top+(height*0.818), absolute=True, duration=0.1)   # 복구
-        mouse.click()
-        time.sleep(0.5)
-        mouse.click()
-        time.sleep(0.5)
-        mouse.click()
-        time.sleep(0.5)
-        mouse.click()
-        time.sleep(0.5)
-        mouse.click()
-        '''
-
-
-        time.sleep(1)
-        time.sleep(1)
         time.sleep(1)
 
-
-        mouse.move(left+(width*0.03), top+(height*0.07), absolute=True, duration=0.1)   # 지도
+        mouse.move(left+(width*0.5), top+(height*0.63), absolute=True, duration=0.1)   # 75%
         mouse.click()
-
-        time.sleep(0.5)
-
-        mouse.move(left+(width*0.15), top+(height*0.2), absolute=True, duration=0.1)   # 지도 클릭
-        mouse.click()
-
-        time.sleep(3)
-
-
-        scr = pyautogui.screenshot(region=(left + int(width*0.15), top + int(height*0.3), int(width*0.6), int(height*0.6)))
-        scr.save("scr_rf_map.png")
-        reader = easyocr.Reader(['ko', 'en'], gpu=False)
-        results = reader.readtext(np.array(scr))
-        print(results)
-
-        for item in results:
-            print(item[1][:2])
-            bbox, text, confidence = item
-            print(text)
-            if text[:2] in ['콜드', '골드', '홀드', '콤드', '드론']:
-                print(777)
-                top_left = bbox[0]
-                bottom_right = bbox[2]
-                x = (top_left[0] + bottom_right[0]) // 2
-                y = top_left[1]
-                break
-
-
-        mouse.move(left+(width*0.15) + x, top+(height*0.3) + y - (height*0.01), absolute=True, duration=0.1)   # 지도 클릭
-        mouse.click()
-
-        time.sleep(5)
-
-
-
-        mouse.move(left+(width*0.53), top+(height*0.51), absolute=True, duration=0.1)   # 즉시 이동
-        mouse.click()
-
-        time.sleep(3)
-
-
-        mouse.move(left+(width*0.58), top+(height*0.68), absolute=True, duration=0.1)   # 즉시 이동
-        mouse.click()
-
-        time.sleep(15)
-
-
-
-
-
-
-
-        mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)   # AUTO
-        mouse.click()
-
         time.sleep(1)
 
+        mouse.move(left+(width*0.55), top+(height*0.77), absolute=True, duration=0.1)   # 구매
+        mouse.click()
+        time.sleep(1)
 
-        # mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
-        # mouse.click()
+        keyboard.press_and_release('esc')
+        time.sleep(1)
 
-        # mouse.move(left+(width*0.5), top+(height*0.67), absolute=True, duration=0.1)   # 확인
-        # mouse.click()
-        
-    return
+        return
+
+
+
+
 
 
 
@@ -368,14 +238,14 @@ def a021_support():
 
     mouse.move(left+(width*0.87), top+(height*0.07), absolute=True, duration=0.1)   # 상점
     mouse.click()
-    time.sleep(3)
+    time.sleep(5)
 
     mouse.move(left+(width*0.07), top+(height*0.93), absolute=True, duration=0.1)   # 일괄구매
     mouse.click()
     time.sleep(3)
 
     keyboard.press_and_release('space')
-    time.sleep(3)
+    time.sleep(3.5)
 
     global str_purchase
 
@@ -392,7 +262,7 @@ def a021_support():
 
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 닫기
     mouse.click()
-    time.sleep(1)
+    time.sleep(3)
     
 
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
@@ -579,18 +449,8 @@ def a03_jangbi():
     mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
     time.sleep(1)
-
-    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)
-
-    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)
-
-
     
-    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
+    mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 닫기
     mouse.click()
     time.sleep(1)
 
@@ -953,7 +813,7 @@ def on():
     mouse.move(left+(width*0.97), top+(height*0.06), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
 
-    time.sleep(5)
+    time.sleep(300)
 
 
 
@@ -978,56 +838,21 @@ def on():
 
 
 
-
-
-
-
-
-def dungeon():
+def play():
     a01_start()
-    a05_dungeon()
-
-
+    a02_bok()    
+    a03_jangbi()
+    a031_stop()
     
-def mission():
+def dungeon(play_time = 1):
     a01_start()
-    a04_mission()
-
-
-
-
-
-    
-def play(play_time = 1):
-
-    a01_start()
+    a02_bok()
     a04_change(play_time)
     a03_jangbi()
     a021_support()
 
     return
     
-
-
-    a01_start()
-    if a02_bok() == 'support':
-        print('play support')
-        return
-    else:
-        print('play normal')
-        a03_jangbi()
-        a04_change(1)
-
-
-
-
-    
-
-    '''
-    if a02_bok() != 'on':
-        a03_jangbi()
-    '''
-
 
 
 
@@ -1042,10 +867,8 @@ if __name__ == "__main__":
             on()
         elif sys.argv[1] == "off":
             off()            
-        elif sys.argv[1] == "jangbi":
-            a01_start()
-            a03_jangbi()
-            a031_stop()
+        elif sys.argv[1] == "dungeon":
+            dungeon(1)
         elif sys.argv[1] == "github":
             a01_start()
             a021_support()
@@ -1053,7 +876,7 @@ if __name__ == "__main__":
         else:
             play()
     else:
-        play(2)
+        play()
         # on()
         # mission()
         # off()
