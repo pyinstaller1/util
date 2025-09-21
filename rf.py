@@ -18,6 +18,91 @@ from pynput.mouse import Controller, Button
 
 
 
+def github():
+    print("RF github01   " + time.strftime("%H:%M", time.localtime()))
+
+    chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
+        url = "https://github.com/pyinstaller1/game/edit/main/rf1.txt"
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+        url = "https://github.com/pyinstaller1/game/edit/main/rf2.txt"
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
+        url = "https://github.com/pyinstaller1/game/edit/main/rf3.txt"
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+        url = "https://github.com/pyinstaller1/game/edit/main/rf4.txt"
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
+        url = "https://github.com/pyinstaller1/game/edit/main/rf5.txt"
+
+    process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
+
+    time.sleep(10)
+
+
+    win = gw.getWindowsWithTitle('Editing game/rf')[0]
+    app = Application().connect(handle=win._hWnd)
+    app.window(handle=win._hWnd).set_focus()
+
+    time.sleep(1)
+    keyboard.press_and_release('win + up')
+
+    time.sleep(1)
+
+    global left, top, width, height
+    left = win.left
+    top = win.top
+    width = win.width
+    height = win.height
+
+
+
+
+    
+
+    keyboard.press_and_release('ctrl + a')
+    time.sleep(0.5)    
+    keyboard.press_and_release('ctrl + x')
+    time.sleep(1)
+
+    str_temp = pyperclip.paste()
+
+    now = datetime.now()
+
+    global str_dungeon
+    # str_dungeon = "던전"
+
+    
+    now = now.strftime("%m%d %H:%M\t") + str_dungeon + '\n'
+    str_temp = now + str_temp
+    print(str_temp)
+    time.sleep(1)
+    pyperclip.copy(str_temp)
+
+
+    keyboard.press_and_release('ctrl + v')
+
+
+    mouse.move(left+(width*0.95), top+(height*0.25), absolute=True, duration=0.1)   # 커밋
+    mouse.click()
+
+    time.sleep(1)
+
+    keyboard.press_and_release('enter')
+
+    time.sleep(8)
+
+
+
+    for win in gw.getWindowsWithTitle('game/rf'):
+        if win.title.strip():
+            print(win.title.split(" - ")[0].split("·")[1].strip())
+            win.close()
+            break
+
 
 
 
@@ -66,6 +151,8 @@ def a01_start():
     
     mouse.move(int(left + width * 0.5), int(top + height * 0.75))   # 확인
     mouse.click()    
+
+
 
     return
 
@@ -239,7 +326,7 @@ def a03_jangbi():
     # 장비 분해
     mouse.move(left+(width*0.917), top+(height*0.07), absolute=True, duration=0.1)   # 가방
     mouse.click()
-    time.sleep(1)
+    time.sleep(2)
 
     mouse.move(left+(width*0.97), top+(height*0.27), absolute=True, duration=0.1)   # 장비
     mouse.click()
@@ -279,7 +366,7 @@ def a03_jangbi():
 
     mouse.move(left+(width*0.977), top+(height*0.123), absolute=True, duration=0.1)   # 장비 닫기
     mouse.click()
-    time.sleep(1)
+    time.sleep(3)
 
 
 
@@ -287,7 +374,7 @@ def a03_jangbi():
     # 일괄구매
     mouse.move(left+(width*0.88), top+(height*0.07), absolute=True, duration=0.1)   # 가방
     mouse.click()
-    time.sleep(0.3)
+    time.sleep(3)
 
     mouse.move(left+(width*0.07), top+(height*0.88), absolute=True, duration=0.1)   # 일괄구매
     mouse.click()
@@ -303,14 +390,14 @@ def a03_jangbi():
 
     mouse.move(left+(width*0.963), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
     mouse.click()
-    time.sleep(1.1)
+    time.sleep(3)
 
 
 
     # 우편
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
-    time.sleep(1)
+    time.sleep(3)
 
     mouse.move(left+(width*0.78), top+(height*0.96), absolute=True, duration=0.1)   # 우편
     mouse.click()
@@ -322,11 +409,11 @@ def a03_jangbi():
 
     mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
-    time.sleep(0.3)
+    time.sleep(1)
 
     mouse.move(left+(width*0.21), top+(height*0.15), absolute=True, duration=0.1)   # 계정
     mouse.click()
-    time.sleep(0.3)
+    time.sleep(1)
 
 
     mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
@@ -339,7 +426,7 @@ def a03_jangbi():
 
     mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
-    time.sleep(0.3)
+    time.sleep(1)
 
     mouse.move(left+(width*0.963), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
     mouse.click()
@@ -559,28 +646,28 @@ def a05_dungeon():
 
     mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
     mouse.click()
-    
+    time.sleep(3)
+
+
+
+
+    # 던전 ocr 탐지
+    scr = pyautogui.screenshot(region=(left + int(width*0.707), top + int(height*0.487), int(width*0.23), int(height*0.05)))
+    scr.save("scr_rf_dungeon.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr))
+    print(results)
+
+
+    global str_dungeon
+    str_dungeon = "일반"
+    if results:
+        str_dungeon = results[0][1]
+    print(str_dungeon)
 
     
     return
-
-    time.sleep(0.5)
-
-
-    for i in range(10):
-        mouse.move(left+(width*0.87), top+(height*0.917), absolute=True, duration=0.1)   # 수락
-        mouse.click()
-        time.sleep(0.1)
- 
-
-    mouse.move(left+(width*0.5), top+(height*0.3), absolute=True, duration=0.1)   # 미션
-    mouse.click()
-    time.sleep(0.1)
-
-
-    mouse.move(left+(width*0.87), top+(height*0.917), absolute=True, duration=0.1)   # 진행
-    mouse.click()
-    time.sleep(0.1)
 
 
 
@@ -855,6 +942,7 @@ def on():
 def dungeon():
     a01_start()
     a05_dungeon()
+    github()
 
 
     

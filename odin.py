@@ -71,7 +71,7 @@ def github():
     # github_results = '균열의 입구'
 
     
-    now = now.strftime("%m%d %H:%M\t") + str(github_character) + "\t" + str(github_dungeon) + "\t" + github_results + '\n'
+    now = now.strftime("%m%d %H:%M\t") + str(github_character) + "번캐릭\t" + str(github_dungeon) + "번던전\t" + github_results + '\n'
     str_temp = now + str_temp
     print(str_temp)
     time.sleep(1)
@@ -137,11 +137,11 @@ def a01_start():
     width = win.width
     height = win.height
 
-    mouse.move(int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
+    mouse.move(int(left + width * 0.6), int(top + height * 0.5))   # 절전 해제
     time.sleep(0.1)
     mouse.press()
     time.sleep(1)    
-    mouse.move(int(left + width * 0.8), int(top + height * 0.5), duration=0.3)   # 절전 해제    
+    mouse.move(int(left + width * 0.77), int(top + height * 0.5), duration=0.1)   # 절전 해제    
     time.sleep(1)
     mouse.release()
     time.sleep(3)
@@ -268,7 +268,7 @@ def a03_jangbi(play = 'dungeon'):
 
     mouse.move(left+(width*0.91), top+(height*0.09), absolute=True, duration=0.1)   # 가방
     mouse.click()
-    time.sleep(3)
+    time.sleep(5)
 
     mouse.move(left+(width*0.77), top+(height*0.93), absolute=True, duration=0.1)   # 일괄분해
     mouse.click()
@@ -280,7 +280,7 @@ def a03_jangbi(play = 'dungeon'):
 
     mouse.move(left+(width*0.57), top+(height*0.7), absolute=True, duration=0.1)   # 확인
     mouse.click()
-    time.sleep(3)
+    time.sleep(5)
 
     mouse.move(left+(width*0.96), top+(height*0.09), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
@@ -292,7 +292,7 @@ def a03_jangbi(play = 'dungeon'):
 
     mouse.move(left+(width*0.96), top+(height*0.3), absolute=True, duration=0.1)   # 업적
     mouse.click()
-    time.sleep(1)
+    time.sleep(3)
 
     mouse.move(left+(width*0.95), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
@@ -300,7 +300,7 @@ def a03_jangbi(play = 'dungeon'):
 
     mouse.move(left+(width*0.95), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
-    time.sleep(1)
+    time.sleep(3)
 
     mouse.move(left+(width*0.96), top+(height*0.09), absolute=True, duration=0.1)   # 닫기
     mouse.click()
@@ -341,7 +341,7 @@ def a03_jangbi(play = 'dungeon'):
 
     mouse.move(left+(width*0.55), top+(height*0.88), absolute=True, duration=0.1)   # 화면클릭
     mouse.click()
-    time.sleep(1)    
+    time.sleep(3)    
 
 
     mouse.move(left+(width*0.96), top+(height*0.09), absolute=True, duration=0.1)   # 닫기
@@ -650,6 +650,7 @@ def dungeon(character = 1, dungeon=2):
     a01_start()
     a02_bok()
     a03_jangbi()
+    time.sleep(10)
     select(character)
     a04_dungeon(dungeon)
     github()
@@ -677,7 +678,7 @@ if __name__ == "__main__":
         elif sys.argv[1] == "off":
             off()            
         elif sys.argv[1] == "dungeon":
-            dungeon(3, 1)
+            dungeon(int(sys.argv[2]), int(sys.argv[3]))
             
         elif sys.argv[1] == "github":
             github()

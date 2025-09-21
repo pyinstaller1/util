@@ -64,9 +64,6 @@ def github():
     width = win.width
     height = win.height
 
-
-
-
     
 
     keyboard.press_and_release('ctrl + a')
@@ -267,19 +264,19 @@ def a021_support():
 
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
-    time.sleep(1)
+    time.sleep(2)
 
 
 
     mouse.move(left+(width*0.97), top+(height*0.57), absolute=True, duration=0.1)   # Support
     mouse.click()
-    time.sleep(1)
+    time.sleep(2)
 
 
 
     mouse.move(left+(width*0.1), top+(height*0.93), absolute=True, duration=0.1)   # 실행
     mouse.click()
-    time.sleep(1)
+    time.sleep(2)
 
     mouse.move(left+(width*0.1), top+(height*0.93), absolute=True, duration=0.1)   # 실행
     mouse.click()
@@ -333,13 +330,11 @@ def a03_jangbi():
     # 장비 분해
     mouse.move(left+(width*0.917), top+(height*0.07), absolute=True, duration=0.1)   # 가방
     mouse.click()
-    time.sleep(1)
-
-
+    time.sleep(2)
 
     mouse.move(left+(width*0.78), top+(height*0.81), absolute=True, duration=0.1)   # 일괄분해
     mouse.click()
-    time.sleep(1)
+    time.sleep(2)
 
 
     mouse.move(left+(width*0.9), top+(height*0.81), absolute=True, duration=0.1)   # 분해
@@ -354,7 +349,7 @@ def a03_jangbi():
     # 업적
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
-    time.sleep(1)
+    time.sleep(2)
 
 
     mouse.move(left+(width*0.96), top+(height*0.387), absolute=True, duration=0.1)   # 업적
@@ -411,12 +406,12 @@ def a03_jangbi():
     # 우편
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
-    time.sleep(1)
+    time.sleep(2)
 
 
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
-    time.sleep(1)
+    time.sleep(2)
 
 
     mouse.move(left+(width*0.76), top+(height*0.93), absolute=True, duration=0.1)   # 우편
