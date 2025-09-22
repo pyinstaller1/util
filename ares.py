@@ -55,11 +55,13 @@ def github():
     time.sleep(10)
 
     keyboard.press_and_release('win + up')
-    time.sleep(3)
+    time.sleep(5)
 
     win = gw.getWindowsWithTitle('Editing game/ares')[0]
     app = Application().connect(handle=win._hWnd)
     app.window(handle=win._hWnd).set_focus()
+
+    time.sleep(0.3)
 
     global left, top, width, height
     left = win.left
@@ -67,8 +69,14 @@ def github():
     width = win.width
     height = win.height
 
-
-
+    print(77777777777777)
+    print(left)
+    print(top)
+    print(width)
+    print(height)
+    print(left+(width*0.95))
+    print(top+(height*0.25))
+    print(8888888888888)
 
     
 
@@ -506,7 +514,7 @@ def a03_jangbi():
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
-    time.sleep(8)
+    time.sleep(15)
 
     pyautogui.moveTo(left+(width*0.15), top+(height*0.157), 2.0)   # 합성
     pyautogui.mouseDown()
@@ -539,7 +547,7 @@ def a03_jangbi():
 
     mouse.move(left+(width*0.93), top+(height*0.083), absolute=True, duration=0.1)   # 가방
     mouse.click()
-    time.sleep(12)
+    time.sleep(15)
 
     pyautogui.moveTo(left+(width*0.08), top+(height*0.23), 2.0)   # 방어구
     pyautogui.mouseDown()
