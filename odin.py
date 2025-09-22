@@ -35,6 +35,10 @@ def github():
 
     time.sleep(10)
 
+    keyboard.press_and_release('win + up')
+    time.sleep(3)
+
+
 
     win = gw.getWindowsWithTitle('Editing game/odin')[0]
     app = Application().connect(handle=win._hWnd)
@@ -45,10 +49,6 @@ def github():
         time.sleep(1)        
         app.window(handle=win._hWnd).set_focus()
         
-    time.sleep(1)
-    keyboard.press_and_release('win + up')
-
-    time.sleep(1)
 
     global left, top, width, height
     left = win.left
@@ -117,7 +117,11 @@ def a01_start():
             win = gw.getWindowsWithTitle(t)[0]
             time.sleep(1)
             app = Application().connect(handle=win._hWnd)
-            app.window(handle=win._hWnd).set_focus()
+            try:
+                app.window(handle=win._hWnd).set_focus()
+            except:
+                time.sleep(1)        
+                app.window(handle=win._hWnd).set_focus()
             break
 
 
@@ -160,7 +164,13 @@ def a02_bok():
     global left, top, width, height
     flag_bok = False
 
-    
+
+    # mouse.move(left+(width*0.5), top+(height*0.63), absolute=True, duration=0.1)   # 장시간 확인
+    # mouse.click()
+    # time.sleep(1)
+        
+
+
     scr = pyautogui.screenshot(region=(left + int(width*0.38), top + int(height*0.47), int(width*0.15), int(height*0.07)))
     scr.save("scr_odin_jang.png")
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
@@ -172,10 +182,13 @@ def a02_bok():
         mouse.move(int(left + (width * 0.5)), int(top + (height * 0.63)), absolute=True, duration=0.1)   # 확인
         mouse.click()
         time.sleep(15)
+        on()
+        return
         
-        select()
-        time.sleep(15)
-        flag_bok = True
+        # select()
+        # time.sleep(15)
+        # flag_bok = True
+
 
     
     scr = pyautogui.screenshot(region=(left + int(width*0.53), top + int(height*0.83), int(width*0.1), int(height*0.05)))
@@ -298,13 +311,21 @@ def a03_jangbi(play = 'dungeon'):
     mouse.click()
     time.sleep(1)
 
+    mouse.move(left+(width*0.5), top+(height*0.95), absolute=True, duration=0.1)   # 화면 클릭
+    mouse.click()
+    time.sleep(1)
+    
     mouse.move(left+(width*0.95), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
-    time.sleep(3)
+    time.sleep(1)
+    mouse.move(left+(width*0.5), top+(height*0.95), absolute=True, duration=0.1)   # 화면 클릭
+    mouse.click()
+    time.sleep(7)
+        
 
     mouse.move(left+(width*0.96), top+(height*0.09), absolute=True, duration=0.1)   # 닫기
     mouse.click()
-    time.sleep(1)
+    time.sleep(2)
 
     mouse.move(left+(width*0.96), top+(height*0.09), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
@@ -324,7 +345,7 @@ def a03_jangbi(play = 'dungeon'):
 
     mouse.move(left+(width*0.55), top+(height*0.88), absolute=True, duration=0.1)   # 화면클릭
     mouse.click()
-    time.sleep(1)
+    time.sleep(3)
 
 
     mouse.move(left+(width*0.23), top+(height*0.15), absolute=True, duration=0.1)   # 계정우편

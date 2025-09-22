@@ -48,15 +48,13 @@ def github():
 
     time.sleep(10)
 
+    keyboard.press_and_release('win + up')
+    time.sleep(3)
+
 
     win = gw.getWindowsWithTitle('Editing game/vp')[0]
     app = Application().connect(handle=win._hWnd)
     app.window(handle=win._hWnd).set_focus()
-
-    time.sleep(1)
-    keyboard.press_and_release('win + up')
-
-    time.sleep(1)
 
     global left, top, width, height
     left = win.left
@@ -175,7 +173,7 @@ def a02_bok():
         keyboard.press_and_release('space')
         time.sleep(10)
 
-        mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.5), absolute=True, duration=0.1)   # 화면 클릭
+        mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.1)   # 화면 클릭
         mouse.click()
         time.sleep(15)
 
@@ -502,7 +500,7 @@ def a04_change(play_time=1):
 
     mouse.move(left+(width*0.97), top+(height*0.93), absolute=True, duration=0.1)   # 캐릭터 변경
     mouse.click()
-    time.sleep(8)
+    time.sleep(15)
 
     if play_time == 1:
         mouse.move(left+(width*0.88), top+(height*0.35), absolute=True, duration=0.1)   # 1번 플레이어        
@@ -861,9 +859,11 @@ if __name__ == "__main__":
         if sys.argv[1] == "on":
             on()
         elif sys.argv[1] == "off":
-            off()            
+            off()
         elif sys.argv[1] == "dungeon":
-            dungeon(1)
+            dungeon(int(sys.argv[2]))
+
+            
         elif sys.argv[1] == "github":
             a01_start()
             a021_support()

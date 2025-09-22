@@ -54,15 +54,12 @@ def github():
 
     time.sleep(10)
 
+    keyboard.press_and_release('win + up')
+    time.sleep(3)
 
     win = gw.getWindowsWithTitle('Editing game/ares')[0]
     app = Application().connect(handle=win._hWnd)
     app.window(handle=win._hWnd).set_focus()
-
-    time.sleep(1)
-    keyboard.press_and_release('win + up')
-
-    time.sleep(1)
 
     global left, top, width, height
     left = win.left
@@ -85,6 +82,13 @@ def github():
     now = datetime.now()
 
     global str_location
+    try:
+        if str_location:
+            pass
+    except:
+        str_location = '오류'
+
+    
     # str_dungeon = "초원"
 
     
@@ -175,14 +179,14 @@ def a01_start():
     top = win.top
     width = win.width
     height = win.height
-    '''
+
+
+
     pyautogui.moveTo(left+(width*0.5), top+(height*0.65), 2.0)   # 절전 해제
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.moveTo(left+(width*0.7), top+(height*0.65), 2.0)
     pyautogui.mouseUp()
-    '''
-
 
     return True
 
@@ -309,16 +313,16 @@ def a02_bok():
 
         mouse.move(left+(width*0.967), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
         mouse.click()
-        time.sleep(2)
+        time.sleep(5)
 
         mouse.move(left+(width*0.07), top+(height*0.17), absolute=True, duration=0.1)   # 지도
         mouse.click()
-        time.sleep(5)
+        time.sleep(7)
 
 
         mouse.move(left+(width*0.07), top+(height*0.17), absolute=True, duration=0.1)   # 복구
         mouse.click()
-        time.sleep(2)
+        time.sleep(3)
 
         mouse.move(left+(width*0.03), top+(height*0.95), absolute=True, duration=0.1)   # 행성지도
         mouse.click()
@@ -403,6 +407,10 @@ def a02_bok():
         pyautogui.mouseUp()
 
 
+        time.sleep(2)
+        mouse.move(left+(width*0.57), top+(height*0.61), absolute=True, duration=0.1)   # 확인
+        mouse.click()
+
         time.sleep(50)    
 
     return
@@ -426,7 +434,7 @@ def a03_jangbi():
         
     mouse.move(left+(width*0.83), top+(height*0.43), absolute=True, duration=0.1)   # 거래소
     mouse.click()
-    time.sleep(2)
+    time.sleep(5)
 
     mouse.move(left+(width*0.27), top+(height*0.173), absolute=True, duration=0.1)   # 판매
     mouse.click()
@@ -517,7 +525,7 @@ def a03_jangbi():
     pyautogui.mouseUp()
 
 
-    time.sleep(15)
+    time.sleep(25)
 
     pyautogui.moveTo(left+(width*0.5), top+(height*0.95), 2.0)   # 나가기
     pyautogui.mouseDown()
@@ -531,7 +539,7 @@ def a03_jangbi():
 
     mouse.move(left+(width*0.93), top+(height*0.083), absolute=True, duration=0.1)   # 가방
     mouse.click()
-    time.sleep(8)
+    time.sleep(12)
 
     pyautogui.moveTo(left+(width*0.08), top+(height*0.23), 2.0)   # 방어구
     pyautogui.mouseDown()

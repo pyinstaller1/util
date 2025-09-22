@@ -42,15 +42,12 @@ def github():
 
     time.sleep(10)
 
+    keyboard.press_and_release('win + up')
+    time.sleep(3)
 
     win = gw.getWindowsWithTitle('Editing game/rf')[0]
     app = Application().connect(handle=win._hWnd)
     app.window(handle=win._hWnd).set_focus()
-
-    time.sleep(1)
-    keyboard.press_and_release('win + up')
-
-    time.sleep(1)
 
     global left, top, width, height
     left = win.left
@@ -858,14 +855,14 @@ def on():
 
     
     
-    time.sleep(110)
+    time.sleep(150)
 
 
     mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.5), absolute=True, duration=0.1)   # 화면 클릭
     mouse.click()
 
 
-    time.sleep(12)
+    time.sleep(15)
 
 
 
@@ -957,6 +954,7 @@ def mission():
     
 def play():
     a01_start()
+    a02_bok()
     a03_jangbi()
 
 
