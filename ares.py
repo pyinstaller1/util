@@ -148,6 +148,11 @@ def a01_start():
     print("아레스 a01_start   " + time.strftime("%H:%M", time.localtime()))
 
 
+    github()
+
+    time.sleep(100)
+
+
 
     if not gw.getWindowsWithTitle('아레스'):
         print("아레스 창이 없습니다.")
@@ -187,7 +192,6 @@ def a01_start():
     top = win.top
     width = win.width
     height = win.height
-
 
 
     pyautogui.moveTo(left+(width*0.5), top+(height*0.65), 2.0)   # 절전 해제
