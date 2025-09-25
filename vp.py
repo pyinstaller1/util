@@ -46,7 +46,7 @@ def github():
 
     process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
 
-    time.sleep(10)
+    time.sleep(15)
 
     keyboard.press_and_release('win + up')
     time.sleep(3)
@@ -77,6 +77,21 @@ def github():
     # str_support = "초원"
     # str_purchase = "구매"
 
+
+    try:
+        if str_support:
+            pass
+    except:
+        str_support = '오류'
+
+
+    try:
+        if str_purchase:
+            pass
+    except:
+        str_purchase = '오류'
+
+        
     
     now = now.strftime("%m%d %H:%M\t") + str_support + "\t" + str_purchase + '\n'
     str_temp = now + str_temp
@@ -87,7 +102,13 @@ def github():
 
     keyboard.press_and_release('ctrl + v')
 
-
+    time.sleep(1)
+    mouse.move(left+(width*0.5), 127, absolute=True, duration=0.1)   # 스크롤 올리기
+    mouse.click()
+    time.sleep(0.5)
+    keyboard.press_and_release('home')
+    time.sleep(1)
+    
     mouse.move(left+(width*0.95), top+(height*0.25), absolute=True, duration=0.1)   # 커밋
     mouse.click()
 
@@ -231,6 +252,26 @@ def a021_support():
 
 
 
+    # 장비 분해
+    mouse.move(left+(width*0.917), top+(height*0.07), absolute=True, duration=0.1)   # 가방
+    mouse.click()
+    time.sleep(5)
+
+    mouse.move(left+(width*0.78), top+(height*0.81), absolute=True, duration=0.1)   # 일괄분해
+    mouse.click()
+    time.sleep(2)
+
+
+    mouse.move(left+(width*0.9), top+(height*0.81), absolute=True, duration=0.1)   # 분해
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.9), top+(height*0.81), absolute=True, duration=0.1)   # 분해
+    mouse.click()
+    time.sleep(1)
+
+
+
     mouse.move(left+(width*0.87), top+(height*0.07), absolute=True, duration=0.1)   # 상점
     mouse.click()
     time.sleep(5)
@@ -268,7 +309,7 @@ def a021_support():
 
     mouse.move(left+(width*0.97), top+(height*0.57), absolute=True, duration=0.1)   # Support
     mouse.click()
-    time.sleep(2)
+    time.sleep(5)
 
 
 
@@ -325,23 +366,6 @@ def a03_jangbi():
     '''
 
 
-    # 장비 분해
-    mouse.move(left+(width*0.917), top+(height*0.07), absolute=True, duration=0.1)   # 가방
-    mouse.click()
-    time.sleep(2)
-
-    mouse.move(left+(width*0.78), top+(height*0.81), absolute=True, duration=0.1)   # 일괄분해
-    mouse.click()
-    time.sleep(2)
-
-
-    mouse.move(left+(width*0.9), top+(height*0.81), absolute=True, duration=0.1)   # 분해
-    mouse.click()
-    time.sleep(1)
-
-    mouse.move(left+(width*0.9), top+(height*0.81), absolute=True, duration=0.1)   # 분해
-    mouse.click()
-    time.sleep(1)
 
 
     # 업적
@@ -352,7 +376,7 @@ def a03_jangbi():
 
     mouse.move(left+(width*0.96), top+(height*0.387), absolute=True, duration=0.1)   # 업적
     mouse.click()
-    time.sleep(1)
+    time.sleep(8)
 
     mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
@@ -414,7 +438,7 @@ def a03_jangbi():
 
     mouse.move(left+(width*0.76), top+(height*0.93), absolute=True, duration=0.1)   # 우편
     mouse.click()
-    time.sleep(1)
+    time.sleep(5)
 
 
     mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기

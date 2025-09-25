@@ -11,6 +11,8 @@ import os
 import keyboard, mouse
 import sys
 from pynput.mouse import Controller, Button
+import pyperclip
+from datetime import datetime
 
 
 
@@ -40,7 +42,7 @@ def github():
 
     process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
 
-    time.sleep(10)
+    time.sleep(15)
 
     keyboard.press_and_release('win + up')
     time.sleep(3)
@@ -70,7 +72,11 @@ def github():
     now = datetime.now()
 
     global str_dungeon
-    # str_dungeon = "던전"
+    try:
+        if str_dungeon:
+            pass
+    except:
+        str_dungeon = '오류'
 
     
     now = now.strftime("%m%d %H:%M\t") + str_dungeon + '\n'
@@ -81,6 +87,14 @@ def github():
 
 
     keyboard.press_and_release('ctrl + v')
+
+
+    time.sleep(1)
+    mouse.move(left+(width*0.5), 127, absolute=True, duration=0.1)   # 스크롤 올리기
+    mouse.click()
+    time.sleep(0.5)
+    keyboard.press_and_release('home')
+    time.sleep(1)
 
 
     mouse.move(left+(width*0.95), top+(height*0.25), absolute=True, duration=0.1)   # 커밋
@@ -109,12 +123,12 @@ def github():
 def a01_start():
     print("RF a01_start   " + time.strftime("%H:%M", time.localtime()))
 
-    if not gw.getWindowsWithTitle('RF 온라인 넥스트'):
+    if not gw.getWindowsWithTitle('RF ONLINE NEXT'):
         print("RF 창이 없습니다.")
         on()
         return
 
-    win = gw.getWindowsWithTitle('RF 온라인 넥스트')[0]
+    win = gw.getWindowsWithTitle('RF ONLINE NEXT')[0]
     app = Application().connect(handle=win._hWnd)
     
     try:
@@ -131,6 +145,7 @@ def a01_start():
     width = win.width
     height = win.height
 
+    
     mouse.move(int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
     time.sleep(0.1)
     mouse.press()
@@ -341,6 +356,10 @@ def a03_jangbi():
     mouse.click()
     time.sleep(0.5)
 
+    mouse.move(left+(width*0.55), top+(height*0.47), absolute=True, duration=0.1)   # 희귀
+    mouse.click()
+    time.sleep(0.5)
+
     mouse.move(left+(width*0.55), top+(height*0.54), absolute=True, duration=0.1)   # 장비
     mouse.click()
     time.sleep(0.5)
@@ -354,6 +373,10 @@ def a03_jangbi():
     time.sleep(1)
 
     mouse.move(left+(width*0.93), top+(height*0.95), absolute=True, duration=0.1)   # 분해
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.57), top+(height*0.68), absolute=True, duration=0.1)   # 희귀 분해
     mouse.click()
     time.sleep(1)
 
@@ -536,7 +559,7 @@ def a05_dungeon():
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.30), top+(height*0.15), absolute=True, duration=0.1)   # 지역 던전
+    mouse.move(left+(width*0.38), top+(height*0.15), absolute=True, duration=0.1)   # 지역 던전
     mouse.click()
     time.sleep(3)
 
@@ -908,6 +931,22 @@ def on():
 
     mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
     mouse.click()
+
+
+
+
+    # 점검 여기저기 클릭
+    mouse.move(int(left + width * 0.5), int(top + height * 0.67))   # 확인
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(int(left + width * 0.95), int(top + height * 0.17))   # 공지 닫기
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(int(left + width * 0.5), int(top + height * 0.65))   # 확인
+    mouse.click()
+
     
     return
 

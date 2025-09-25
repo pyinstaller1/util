@@ -17,11 +17,6 @@ from datetime import datetime
 
 
 
-# left, top, width, height = 0, 0, 0, 0
-che = 1000
-app = None
-
-
 
 
 
@@ -52,7 +47,7 @@ def github():
 
     process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
 
-    time.sleep(10)
+    time.sleep(15)
 
     keyboard.press_and_release('win + up')
     time.sleep(5)
@@ -97,8 +92,6 @@ def github():
         str_location = '오류'
 
     
-    # str_dungeon = "초원"
-
     
     now = now.strftime("%m%d %H:%M\t") + str_location + '\n'
     str_temp = now + str_temp
@@ -109,7 +102,14 @@ def github():
 
     keyboard.press_and_release('ctrl + v')
 
+    time.sleep(1)
+    mouse.move(left+(width*0.5), 127, absolute=True, duration=0.1)   # 스크롤 올리기
+    mouse.click()
+    time.sleep(0.5)
+    keyboard.press_and_release('home')
+    time.sleep(1)
 
+    
     mouse.move(left+(width*0.95), top+(height*0.25), absolute=True, duration=0.1)   # 커밋
     mouse.click()
 
@@ -141,16 +141,9 @@ def github():
 
 
 def a01_start():
-    print(7)
-
-
 
     print("아레스 a01_start   " + time.strftime("%H:%M", time.localtime()))
 
-
-    github()
-
-    time.sleep(100)
 
 
 

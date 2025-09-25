@@ -142,7 +142,7 @@ while True:
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
             try:
-                vp.play(1)
+                vp.dungeon(1)
             except Exception as e:
                 print(f"ares.dungeon() 오류: " + str(e))
 
@@ -153,7 +153,7 @@ while True:
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
             try:
-                vp.play(2)
+                vp.dungeon(2)
             except Exception as e:
                 print(f"ares.dungeon() 오류: " + str(e))
 
@@ -164,7 +164,7 @@ while True:
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
             try:
-                vp.play(3)
+                vp.dungeon(3)
             except Exception as e:
                 print(f"ares.dungeon() 오류: " + str(e))
 

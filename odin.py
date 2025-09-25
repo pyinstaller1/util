@@ -33,7 +33,7 @@ def github():
 
     process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
 
-    time.sleep(10)
+    time.sleep(15)
 
     keyboard.press_and_release('win + up')
     time.sleep(3)
@@ -70,6 +70,27 @@ def github():
     # github_dungeon = 2
     # github_results = '균열의 입구'
 
+
+    try:
+        if github_character:
+            pass
+    except:
+        github_character = '오류'
+
+
+    try:
+        if github_dungeon:
+            pass
+    except:
+        github_dungeon = '오류'
+
+    try:
+        if github_results:
+            pass
+    except:
+        github_results = '오류'
+
+
     
     now = now.strftime("%m%d %H:%M\t") + str(github_character) + "번캐릭\t" + str(github_dungeon) + "번던전\t" + github_results + '\n'
     str_temp = now + str_temp
@@ -80,7 +101,13 @@ def github():
 
     keyboard.press_and_release('ctrl + v')
 
-
+    time.sleep(1)
+    mouse.move(left+(width*0.5), 127, absolute=True, duration=0.1)   # 스크롤 올리기
+    mouse.click()
+    time.sleep(0.5)
+    keyboard.press_and_release('home')
+    time.sleep(1)
+    
     mouse.move(left+(width*0.95), top+(height*0.25), absolute=True, duration=0.1)   # 커밋
     mouse.click()
 
@@ -182,12 +209,28 @@ def a02_bok():
         mouse.move(int(left + (width * 0.5)), int(top + (height * 0.63)), absolute=True, duration=0.1)   # 확인
         mouse.click()
         time.sleep(15)
-        on()
+        # on()
+
+
+        # 오딘 창
+        mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.1)   # 화면 클릭
+        mouse.click()
+        print("화면 클릭" + time.strftime("%H:%M", time.localtime()))
+        time.sleep(88)
+        mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.1)   # 화면 클릭
+        mouse.click()
+        print("화면 클릭" + time.strftime("%H:%M", time.localtime()))    
+        time.sleep(30)
+
+        # on()
+        # return
+
+        select()
+        keyboard.press_and_release('g')   # AUTO
+        time.sleep(1)
         return
         
-        # select()
-        # time.sleep(15)
-        # flag_bok = True
+
 
 
     
@@ -281,7 +324,7 @@ def a03_jangbi(play = 'dungeon'):
 
     mouse.move(left+(width*0.91), top+(height*0.09), absolute=True, duration=0.1)   # 가방
     mouse.click()
-    time.sleep(5)
+    time.sleep(8)
 
     mouse.move(left+(width*0.77), top+(height*0.93), absolute=True, duration=0.1)   # 일괄분해
     mouse.click()
@@ -391,11 +434,11 @@ def a04_dungeon(dungeon=2):
 
     mouse.move(left+(width*0.757), top+(height*0.538), absolute=True, duration=0.1)   # 던전
     mouse.click()
-    time.sleep(1)
+    time.sleep(5)
 
     mouse.move(left+(width*0.2), top+(height*0.15), absolute=True, duration=0.1)   # 정예던전
     mouse.click()
-    time.sleep(1)
+    time.sleep(3)
 
     if dungeon == 1:
         mouse.move(left+(width*0.6), top+(height*0.5), absolute=True, duration=0.1)   # 1공허의유적
@@ -593,9 +636,6 @@ def select(character = 1):
 
 
     global left, top, width, height
-
-
-
 
     if character != 0:
         mouse.move(left+(width*0.96), top+(height*0.09), absolute=True, duration=0.1)   # 메뉴
