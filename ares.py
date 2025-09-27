@@ -53,8 +53,14 @@ def github():
     time.sleep(5)
 
     win = gw.getWindowsWithTitle('Editing game/ares')[0]
-    app = Application().connect(handle=win._hWnd)
-    app.window(handle=win._hWnd).set_focus()
+    # app = Application().connect(handle=win._hWnd)
+
+    try:
+        app.window(handle=win._hWnd).set_focus()
+    except:
+        time.sleep(3)
+        app.window(handle=win._hWnd).set_focus()
+        
 
     time.sleep(0.3)
 
