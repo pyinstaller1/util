@@ -30,6 +30,13 @@ import datetime
 
 
 
+def get_log(text = ''):
+    with open("log_total.txt", "r+", encoding="utf-8") as f:
+        original_text = f.read()       # 기존 내용 읽기
+        f.seek(0)
+        f.write(time.strftime("%m.%d %H:%M\t" + text + "\n", time.localtime()) + original_text)
+
+
 
 desktop = os.environ.get('COMPUTERNAME')
 
@@ -143,6 +150,7 @@ while True:
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
             try:
                 vp.dungeon(1)
+                get_log("오전 5시 뱀피르 작업")
             except Exception as e:
                 print(f"ares.dungeon() 오류: " + str(e))
 
@@ -154,6 +162,7 @@ while True:
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
             try:
                 vp.dungeon(2)
+                get_log("오전 5시 뱀피르 작업")
             except Exception as e:
                 print(f"ares.dungeon() 오류: " + str(e))
 
@@ -165,6 +174,7 @@ while True:
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
             try:
                 vp.dungeon(3)
+                get_log("오전 5시 뱀피르 작업")
             except Exception as e:
                 print(f"ares.dungeon() 오류: " + str(e))
 
@@ -180,12 +190,14 @@ while True:
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # 아레스 일일던전
             try:
                 ares.dungeon()
+                get_log("아레스 던전")
             except Exception as e:
                 print(f"ares.dungeon() 오류: " + str(e))
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # RF 일일미션
             try:
                 rf.dungeon()
+                get_log("RF 던전")
             except Exception as e:
                 print(f"rf.dungeon() 오류: " + str(e))
 
@@ -277,7 +289,8 @@ while True:
     '''
 
 
-
+    if time.localtime().tm_min in [1, 11, 21, 31, 41, 51]:
+        get_log()
     
     # 매시간 1분마다 play    
     if time.localtime().tm_min in [1]:
