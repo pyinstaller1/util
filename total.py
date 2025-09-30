@@ -29,12 +29,16 @@ import datetime
 
 
 
-
-def get_log(text = ''):
-    with open("log_total.txt", "r+", encoding="utf-8") as f:
-        original_text = f.read()       # 기존 내용 읽기
+def get_log(text=''):
+    filename = "log_total.txt"
+    # 파일이 없으면 빈 파일 생성
+    if not os.path.exists(filename):
+        open(filename, "w", encoding="utf-8").close()
+    with open(filename, "r+", encoding="utf-8") as f:
+        original_text = f.read()
         f.seek(0)
-        f.write(time.strftime("%m.%d %H:%M\t" + text + "\n", time.localtime()) + original_text)
+        f.write(time.strftime("%m.%d %H:%M\t", time.localtime()) + text + "\n" + original_text)
+
 
 
 
