@@ -441,7 +441,7 @@ def a04_dungeon(dungeon=2):
     time.sleep(3)
 
     if dungeon == 1:
-        mouse.move(left+(width*0.6), top+(height*0.5), absolute=True, duration=0.1)   # 1공허의유적
+        mouse.move(left+(width*0.88), top+(height*0.5), absolute=True, duration=0.1)   # 1공허의유적
         mouse.click()
         time.sleep(1)
         mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 이동
@@ -453,6 +453,12 @@ def a04_dungeon(dungeon=2):
 
     if dungeon == 2:  
         mouse.move(left+(width*0.88), top+(height*0.5), absolute=True, duration=0.1)   # 2난쟁이비밀통로
+        mouse.press()
+        time.sleep(1)
+        mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.5)
+        time.sleep(1)
+        mouse.release()
+        mouse.move(left+(width*0.88), top+(height*0.5), absolute=True, duration=0.1)
         mouse.click()
         time.sleep(1)
         mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 이동
@@ -466,9 +472,17 @@ def a04_dungeon(dungeon=2):
         mouse.move(left+(width*0.88), top+(height*0.5), absolute=True, duration=0.1)   # 3지하감옥
         mouse.press()
         time.sleep(1)
-        mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.5)
+        mouse.move(left+(width*0.3), top+(height*0.5), absolute=True, duration=0.5)
         time.sleep(1)
         mouse.release()
+
+        mouse.move(left+(width*0.88), top+(height*0.5), absolute=True, duration=0.1)   # 3지하감옥
+        mouse.press()
+        time.sleep(1)
+        mouse.move(left+(width*0.3), top+(height*0.5), absolute=True, duration=0.5)
+        time.sleep(1)
+        mouse.release()
+        
         mouse.move(left+(width*0.88), top+(height*0.5), absolute=True, duration=0.1)
         mouse.click()
         time.sleep(1)
