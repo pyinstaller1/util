@@ -46,9 +46,9 @@ def game():
 
 
 
-        if i % 2 == 0:
+        if j % 2 == 0:
             pyautogui.click(x=(left + int(width*0.5 + 0.03)), y=(top + int(height*0.5)), button='right')
-        if i % 2 == 1:
+        if j % 2 == 1:
             pyautogui.click(x=(left + int(width*0.5 - 0.03)), y=(top + int(height*0.5)), button='right')
 
         
