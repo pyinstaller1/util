@@ -46,6 +46,11 @@ def game():
 
 
 
+        if i % 2 == 0:
+            pyautogui.click(x=(left + int(width*0.5 + 0.03)), y=(top + int(height*0.5)), button='right')
+        if i % 2 == 1:
+            pyautogui.click(x=(left + int(width*0.5 - 0.03)), y=(top + int(height*0.5)), button='right')
+
         
         pyautogui.press('e')
         time.sleep(7)
@@ -54,11 +59,7 @@ def game():
             print(i)
 
 
-            if i % 2 == 0:
-                pyautogui.click(x=(left + int(width*0.5)), y=(top + int(height*(0.5 + 0.03))), button='right')
 
-            if i % 2 == 1:
-                pyautogui.click(x=(left + int(width*0.5)), y=(top + int(height*(0.5 - 0.03))), button='right')
             
         
             time.sleep(1)        
