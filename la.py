@@ -50,6 +50,8 @@ def game():
             pyautogui.click(x=(left + int(width*0.5 + 0.03)), y=(top + int(height*0.5)), button='right')
         if j % 2 == 1:
             pyautogui.click(x=(left + int(width*0.5 - 0.03)), y=(top + int(height*0.5)), button='right')
+        time.sleep(3)
+        pyautogui.click(x=(left + int(width*0.5)), y=(top + int(height*(0.5 + 0.05))), button='right')
 
         
         pyautogui.press('e')
