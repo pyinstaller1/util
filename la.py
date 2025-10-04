@@ -52,13 +52,18 @@ def game():
 
         for i in range(100):
             print(i)
+
+
+            if i % 2 == 0:
+                pyautogui.click(x=(left + int(width*0.5)), y=(top + int(height*(0.5 + 0.03))), button='right')
+
+            if i % 2 == 1:
+                pyautogui.click(x=(left + int(width*0.5)), y=(top + int(height*(0.5 - 0.03))), button='right')
+            
         
-            time.sleep(0.1)        
+            time.sleep(1)        
         
-            # scr_game = pyautogui.screenshot(region=(left + int(width*0.5), top + int(height*0.41), int(width*0.03), int(height*0.1)))
             scr_game = pyautogui.screenshot(region=(left + int(width*0.5), top + int(height*0.471), int(width*0.001), int(height*0.005)))
-
-
             scr_game_np = np.array(scr_game)
             # scr_game.save("scr_la_game.png")
 
