@@ -74,7 +74,7 @@ while True:
     if time.localtime().tm_hour == 4 and time.localtime().tm_min == 1:
         print("오전 4시 오딘 1번 던전")
 
-        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+        if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
             try:
                 odin.dungeon(1, 2)   # 1번 캐릭터 2번 던전
             except Exception as e:
@@ -85,7 +85,7 @@ while True:
     if time.localtime().tm_hour == 5 and time.localtime().tm_min == 31:
         print("오전 5시 오딘 2번 던전")
 
-        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+        if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
             try:
                 odin.dungeon(2, 2)   # 2번 캐릭터 2번 던전
             except Exception as e:
@@ -96,7 +96,7 @@ while True:
     if time.localtime().tm_hour == 7 and time.localtime().tm_min == 1:
         print("오전 7시 오딘 3번 던전")
 
-        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+        if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
             try:
                 odin.dungeon(3, 2)   # 3번 캐릭터 2번 던전
             except Exception as e:
@@ -108,7 +108,7 @@ while True:
     if time.localtime().tm_hour == 8 and time.localtime().tm_min == 31:
         print("오전 8시 오딘 4번 던전")
 
-        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+        if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
             try:
                 odin.dungeon(4, 2)   # 3번 캐릭터 2번 던전
             except Exception as e:
@@ -118,7 +118,7 @@ while True:
     if time.localtime().tm_hour == 10 and time.localtime().tm_min == 1:
         print("오전 10시 오딘 5번 던전")
 
-        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+        if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
             try:
                 odin.dungeon(5, 2)   # 3번 캐릭터 2번 던전
             except Exception as e:
@@ -129,7 +129,7 @@ while True:
     if time.localtime().tm_hour == 10 and time.localtime().tm_min == 1:
         print("오전 11시 오딘 주간 던전")
 
-        if desktop in ["DESKTOP-LRGAL8H"]:   # 오딘 일일던전
+        if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
             try:
                 odin.dungeon((((datetime.date.today().weekday()) % 5) + 1), 3)   # 요일마다 3번 던전
             except Exception as e:
@@ -332,7 +332,7 @@ while True:
             except Exception as e:
                 print("vp.play() 오류: " + str(e))
 
-        if desktop in ["DESKTOP-LRGAL8H"]:
+        if desktop in ["DESKTOP-H9B70U0"]:
             try:
                 odin.play()
             except Exception as e:
