@@ -68,7 +68,7 @@ def game():
         
             scr_game = pyautogui.screenshot(region=(left + int(width*0.5), top + int(height*0.471), int(width*0.001), int(height*0.005)))
             scr_game_np = np.array(scr_game)
-            # scr_game.save("scr_la_game.png")
+            scr_game.save("scr_la_game.png")
 
             hsv = cv2.cvtColor(scr_game_np, cv2.COLOR_RGB2HSV)
             mask = cv2.inRange(hsv, np.array([17, 160, 0]), np.array([38, 255, 255]))
