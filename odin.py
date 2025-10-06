@@ -676,17 +676,17 @@ def select(character = 1):
         mouse.click()
         time.sleep(1)
 
-    if character == 2:
+    if character == 3:
         mouse.move(left+(width*0.87), top+(height*0.38), absolute=True, duration=0.1)   # 3번 캐릭터
         mouse.click()
         time.sleep(1)
 
-    if character == 2:
+    if character == 4:
         mouse.move(left+(width*0.87), top+(height*0.5), absolute=True, duration=0.1)   # 4번 캐릭터
         mouse.click()
         time.sleep(1)
 
-    if character == 2:
+    if character == 5:
         mouse.move(left+(width*0.87), top+(height*0.6), absolute=True, duration=0.1)   # 5번 캐릭터
         mouse.click()
         time.sleep(1)
