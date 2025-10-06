@@ -651,6 +651,8 @@ def select(character = 1):
 
     global left, top, width, height
 
+    time.sleep(3)
+
     if character != 0:
         mouse.move(left+(width*0.96), top+(height*0.09), absolute=True, duration=0.1)   # 메뉴
         mouse.click()
