@@ -183,7 +183,7 @@ def a02_bok():
 
     global left, top, width, height
 
-    scr = pyautogui.screenshot(region=(left + int(width*0.43), top + int(height*0.43), int(width*0.05), int(height*0.05)))
+    scr = pyautogui.screenshot(region=(left + int(width*0.38), top + int(height*0.45), int(width*0.05), int(height*0.05)))
     scr.save("scr_vp_jang.png")
 
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
@@ -295,6 +295,10 @@ def a021_support():
     else:
         str_purchase = "No"
     
+
+
+    keyboard.press_and_release('space')
+    time.sleep(3.5)
 
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 닫기
     mouse.click()
@@ -547,7 +551,7 @@ def a04_change(play_time=1):
     mouse.click()
 
 
-    time.sleep(25)
+    time.sleep(30)
 
     # a021_support()
 

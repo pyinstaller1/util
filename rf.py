@@ -408,6 +408,10 @@ def a03_jangbi():
     mouse.click()
     time.sleep(3)
 
+    mouse.move(left+(width*0.5), top+(height*0.88), absolute=True, duration=0.1)   # 화면 클릭
+    mouse.click()
+    time.sleep(3)
+
     mouse.move(left+(width*0.963), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
     mouse.click()
     time.sleep(3)
