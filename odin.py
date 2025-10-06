@@ -320,8 +320,6 @@ def a03_jangbi(play = 'dungeon'):
 
     global left, top, width, height
 
-    
-
     mouse.move(left+(width*0.91), top+(height*0.09), absolute=True, duration=0.1)   # 가방
     mouse.click()
     time.sleep(8)
@@ -330,7 +328,7 @@ def a03_jangbi(play = 'dungeon'):
     mouse.click()
     time.sleep(3)
 
-    mouse.move(left+(width*0.95), top+(height*0.93), absolute=True, duration=0.1)   # 분해
+    mouse.move(left+(width*0.95), top+(height*0.95), absolute=True, duration=0.1)   # 분해
     mouse.click()
     time.sleep(1)
 
@@ -363,18 +361,19 @@ def a03_jangbi(play = 'dungeon'):
     time.sleep(1)
     mouse.move(left+(width*0.5), top+(height*0.95), absolute=True, duration=0.1)   # 화면 클릭
     mouse.click()
-    time.sleep(7)
-        
+    time.sleep(7)        
 
     mouse.move(left+(width*0.96), top+(height*0.09), absolute=True, duration=0.1)   # 닫기
     mouse.click()
     time.sleep(2)
 
+
+    # 우편
     mouse.move(left+(width*0.96), top+(height*0.09), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
     time.sleep(1)
     
-    mouse.move(left+(width*0.77), top+(height*0.77), absolute=True, duration=0.1)   # 우편함
+    mouse.move(left+(width*0.78), top+(height*0.7), absolute=True, duration=0.1)   # 우편함
     mouse.click()
     time.sleep(1)
 
@@ -658,7 +657,7 @@ def select(character = 1):
         mouse.click()
         time.sleep(1)
 
-        mouse.move(left+(width*0.83), top+(height*0.77), absolute=True, duration=0.1)   # 캐릭터변경
+        mouse.move(left+(width*0.83), top+(height*0.7), absolute=True, duration=0.1)   # 캐릭터변경
         mouse.click()
         time.sleep(1)
 
@@ -673,24 +672,25 @@ def select(character = 1):
         time.sleep(1)
 
     if character == 2:
-        mouse.move(left+(width*0.87), top+(height*0.33), absolute=True, duration=0.1)   # 2번 캐릭터
+        mouse.move(left+(width*0.87), top+(height*0.3), absolute=True, duration=0.1)   # 2번 캐릭터
         mouse.click()
         time.sleep(1)
 
-    if character == 3:
-        mouse.move(left+(width*0.87), top+(height*0.43), absolute=True, duration=0.1)   # 3번 캐릭터
+    if character == 2:
+        mouse.move(left+(width*0.87), top+(height*0.38), absolute=True, duration=0.1)   # 3번 캐릭터
         mouse.click()
         time.sleep(1)
 
-    if character == 4:
-        mouse.move(left+(width*0.87), top+(height*0.55), absolute=True, duration=0.1)   # 4번 캐릭터
+    if character == 2:
+        mouse.move(left+(width*0.87), top+(height*0.5), absolute=True, duration=0.1)   # 4번 캐릭터
         mouse.click()
         time.sleep(1)
 
-    if character == 5:
-        mouse.move(left+(width*0.87), top+(height*0.65), absolute=True, duration=0.1)   # 5번 캐릭터
+    if character == 2:
+        mouse.move(left+(width*0.87), top+(height*0.6), absolute=True, duration=0.1)   # 5번 캐릭터
         mouse.click()
         time.sleep(1)
+
 
 
 
