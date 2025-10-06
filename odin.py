@@ -33,7 +33,7 @@ def github():
 
     process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
 
-    time.sleep(15)
+    time.sleep(25)
 
     keyboard.press_and_release('win + up')
     time.sleep(3)
