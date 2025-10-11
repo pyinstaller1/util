@@ -46,7 +46,7 @@ def github():
 
     process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
 
-    time.sleep(15)
+    time.sleep(20)
 
     keyboard.press_and_release('win + up')
     time.sleep(3)
@@ -382,48 +382,13 @@ def a03_jangbi():
     mouse.click()
     time.sleep(8)
 
-    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
     time.sleep(1)
-
-    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)
-
-    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)    
-
-
-    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)
-
-    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)
-
-    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)
-
-    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)    
-    
-
-    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)
-
-    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)    
-    
 
     
 
@@ -440,12 +405,12 @@ def a03_jangbi():
     time.sleep(2)
 
 
-    mouse.move(left+(width*0.76), top+(height*0.93), absolute=True, duration=0.1)   # 우편
+    mouse.move(left+(width*0.76), top+(height*0.95), absolute=True, duration=0.1)   # 우편
     mouse.click()
     time.sleep(5)
 
 
-    mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
     time.sleep(1)
 
@@ -455,19 +420,11 @@ def a03_jangbi():
     time.sleep(1)    
 
 
-    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.move(left+(width*0.6), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)
-
-    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
-    mouse.click()
-    time.sleep(1)
-
-    mouse.move(left+(width*0.57), top+(height*0.93), absolute=True, duration=0.1)   # 모두받기
+    mouse.move(left+(width*0.6), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
     time.sleep(1)
     
