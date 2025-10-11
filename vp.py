@@ -257,16 +257,16 @@ def a021_support():
     mouse.click()
     time.sleep(5)
 
-    mouse.move(left+(width*0.78), top+(height*0.81), absolute=True, duration=0.1)   # 일괄분해
+    mouse.move(left+(width*0.78), top+(height*0.83), absolute=True, duration=0.1)   # 일괄분해
     mouse.click()
     time.sleep(2)
 
 
-    mouse.move(left+(width*0.9), top+(height*0.81), absolute=True, duration=0.1)   # 분해
+    mouse.move(left+(width*0.9), top+(height*0.83), absolute=True, duration=0.1)   # 분해
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.9), top+(height*0.81), absolute=True, duration=0.1)   # 분해
+    mouse.move(left+(width*0.9), top+(height*0.83), absolute=True, duration=0.1)   # 분해
     mouse.click()
     time.sleep(1)
 
