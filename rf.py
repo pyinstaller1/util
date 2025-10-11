@@ -559,7 +559,8 @@ def a05_dungeon():
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.73), top+(height*0.538), absolute=True, duration=0.1)   # 던전
+    # mouse.move(left+(width*0.73), top+(height*0.538), absolute=True, duration=0.1)   # 던전
+    mouse.move(left+(width*0.73), top+(height*0.55), absolute=True, duration=0.1)   # 던전
     mouse.click()
     time.sleep(1)
 
