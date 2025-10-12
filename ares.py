@@ -383,6 +383,11 @@ def a02_bok():
         for item in results:
             if item[1][0] not in ['몬', '본', '온', '{', '생', '최', '캠', '미', '마', '예'] and item[1][len(item)-2:] not in ['협곡', '업국', '결지', '시공']  and item[1][len(item)-2:len(item)-1] not in ['7', '8']:
                 print(item[1])
+                print(item[1][0])
+                print(item[1][len(item)-2:])
+                print(item[1][len(item)-2:len(item)-1])
+
+
 
                 x = (item[0][0][0] + item[0][1][0]) // 2
                 y = (item[0][0][1] + item[0][2][1]) // 2
