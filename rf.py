@@ -925,7 +925,7 @@ def on():
     mouse.click()
 
     
-    time.sleep(80)
+    time.sleep(70)
 
 
     mouse.move(left+(width*0.95), top+(height*0.78), absolute=True, duration=0.1)   # AUTO
@@ -934,8 +934,8 @@ def on():
     time.sleep(1)
 
 
-    mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
-    mouse.click()
+    # mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
+    # mouse.click()
 
 
 
@@ -982,17 +982,13 @@ def on():
 
 def dungeon():
     a01_start()
+    a02_bok()
+    a03_jangbi()    
     a05_dungeon()
     github()
 
 
     
-def mission():
-    a01_start()
-    a04_mission()
-
-
-
 
 
     

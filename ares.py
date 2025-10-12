@@ -24,114 +24,125 @@ from datetime import datetime
 def github():
     print("아래스 github01   " + time.strftime("%H:%M", time.localtime()))
 
-    chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
-        url = "https://github.com/pyinstaller1/game/edit/main/ares1.txt"
-
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
-        url = "https://github.com/pyinstaller1/game/edit/main/ares2.txt"
-
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
-        url = "https://github.com/pyinstaller1/game/edit/main/ares3.txt"
-
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-        url = "https://github.com/pyinstaller1/game/edit/main/ares4.txt"
-
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
-        url = "https://github.com/pyinstaller1/game/edit/main/ares5.txt"
-
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-NT06800"]:
-        url = "https://github.com/pyinstaller1/game/edit/main/ares6.txt"
-
-
-    process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
-
-    time.sleep(15)
-
-    keyboard.press_and_release('win + up')
-    time.sleep(5)
-
-    win = gw.getWindowsWithTitle('Editing game/ares')[0]
-    # app = Application().connect(handle=win._hWnd)
-
-    try:
-        app.window(handle=win._hWnd).set_focus()
-    except:
-        time.sleep(3)
-        app.window(handle=win._hWnd).set_focus()
-        
-
-    time.sleep(0.3)
-
-    global left, top, width, height
-    left = win.left
-    top = win.top
-    width = win.width
-    height = win.height
-
-    print(77777777777777)
-    print(left)
-    print(top)
-    print(width)
-    print(height)
-    print(left+(width*0.95))
-    print(top+(height*0.25))
-    print(8888888888888)
-
-    
-
-    keyboard.press_and_release('ctrl + a')
-    time.sleep(0.5)    
-    keyboard.press_and_release('ctrl + x')
-    time.sleep(1)
-
-    str_temp = pyperclip.paste()
-
-    now = datetime.now()
 
     global str_location
+
+    
     try:
         if str_location:
             pass
     except:
         str_location = '오류'
 
+
+    str_location = "Bok일반"
+
+
+
+
+    if str_location and str_location != "Bok일반":
     
-    
-    now = now.strftime("%m%d %H:%M\t") + str_location + '\n'
-    str_temp = now + str_temp
-    print(str_temp)
-    time.sleep(1)
-    pyperclip.copy(str_temp)
+
+        chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
+            url = "https://github.com/pyinstaller1/game/edit/main/ares1.txt"
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+            url = "https://github.com/pyinstaller1/game/edit/main/ares2.txt"
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
+            url = "https://github.com/pyinstaller1/game/edit/main/ares3.txt"
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+            url = "https://github.com/pyinstaller1/game/edit/main/ares4.txt"
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
+            url = "https://github.com/pyinstaller1/game/edit/main/ares5.txt"
+
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-NT06800"]:
+            url = "https://github.com/pyinstaller1/game/edit/main/ares6.txt"
 
 
-    keyboard.press_and_release('ctrl + v')
+        process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
 
-    time.sleep(1)
-    mouse.move(left+(width*0.5), 127, absolute=True, duration=0.1)   # 스크롤 올리기
-    mouse.click()
-    time.sleep(0.5)
-    keyboard.press_and_release('home')
-    time.sleep(1)
+        time.sleep(15)
 
-    
-    mouse.move(left+(width*0.95), top+(height*0.25), absolute=True, duration=0.1)   # 커밋
-    mouse.click()
+        keyboard.press_and_release('win + up')
+        time.sleep(5)
 
-    time.sleep(1)
+        win = gw.getWindowsWithTitle('Editing game/ares')[0]
+        # app = Application().connect(handle=win._hWnd)
 
-    keyboard.press_and_release('enter')
+        try:
+            app.window(handle=win._hWnd).set_focus()
+        except:
+            time.sleep(3)
+            app.window(handle=win._hWnd).set_focus()
+            
 
-    time.sleep(8)
+        time.sleep(0.3)
+
+        global left, top, width, height
+        left = win.left
+        top = win.top
+        width = win.width
+        height = win.height
+
+        print(77777777777777)
+        print(left)
+        print(top)
+        print(width)
+        print(height)
+        print(left+(width*0.95))
+        print(top+(height*0.25))
+        print(8888888888888)
+
+        
+
+        keyboard.press_and_release('ctrl + a')
+        time.sleep(0.5)    
+        keyboard.press_and_release('ctrl + x')
+        time.sleep(1)
+
+        str_temp = pyperclip.paste()
+
+        now = datetime.now()
+
+        
+        now = now.strftime("%m%d %H:%M\t") + str_location + '\n'
+        str_temp = now + str_temp
+        print(str_temp)
+        time.sleep(1)
+        pyperclip.copy(str_temp)
+
+
+        keyboard.press_and_release('ctrl + v')
+
+        time.sleep(1)
+        mouse.move(left+(width*0.5), 127, absolute=True, duration=0.1)   # 스크롤 올리기
+        mouse.click()
+        time.sleep(0.5)
+        keyboard.press_and_release('home')
+        time.sleep(1)
+
+        
+        mouse.move(left+(width*0.95), top+(height*0.25), absolute=True, duration=0.1)   # 커밋
+        mouse.click()
+
+        time.sleep(1)
+
+        keyboard.press_and_release('enter')
+
+        time.sleep(8)
 
 
 
-    for win in gw.getWindowsWithTitle('game/ares'):
-        if win.title.strip():
-            print(win.title.split(" - ")[0].split("·")[1].strip())
-            win.close()
-            break
+        for win in gw.getWindowsWithTitle('game/ares'):
+            if win.title.strip():
+                print(win.title.split(" - ")[0].split("·")[1].strip())
+                win.close()
+                break
 
 
 
@@ -293,6 +304,13 @@ def a02_bok():
         time.sleep(2)
 
 
+        keyboard.press_and_release('e')
+        time.sleep(1)
+
+        keyboard.press_and_release('g')
+        time.sleep(1)
+
+
         mouse.right_click()
         time.sleep(1)
 
@@ -363,7 +381,7 @@ def a02_bok():
         list_map = []
 
         for item in results:
-            if item[1][0] not in ['몬', '본', '온', '{', '생', '최'] or item[1][:1] not in ['미어', '마이']:
+            if item[1][0] not in ['몬', '본', '온', '{', '생', '최', '캠', '미', '마', '예'] and item[1][len(item)-2:] not in ['협곡', '업국', '결지', '시공']  and item[1][len(item)-2:len(item)-1] not in ['7', '8']:
                 print(item[1])
 
                 x = (item[0][0][0] + item[0][1][0]) // 2
@@ -372,6 +390,7 @@ def a02_bok():
                 list_temp.append(x)
                 list_temp.append(y)
                 list_map.append(list_temp)
+                break
 
         list_map_number = int(time.strftime("%S"))%len(list_map)
 
@@ -929,9 +948,9 @@ def a04_dungeon():
 
     global str_location    
     if results:
-        str_location = 'Dungeon_week ' + results[0][1]
+        str_location = 'Dungeon ' + results[0][1]
     else:
-        str_location = 'Dungeon_week No'
+        str_location = 'Dungeon No'
 
 
 
