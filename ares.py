@@ -381,7 +381,7 @@ def a02_bok():
         list_map = []
 
         for item in results:
-            if item[1][0] not in ['몬', '본', '온', '{', '생', '최', '캠', '미', '마', '예'] and item[1][len(item)-2:] not in ['협곡', '업국', '결지', '시공']  and item[1][len(item)-2:len(item)-1] not in ['7', '8']:
+            if item[1][0] not in ['몬', '본', '온', '{', '생', '최', '캠', '미', '마', '예'] and item[1][len(item[1])-2:] not in ['협곡', '업국', '결지', '시공']  and item[1][len(item[1])-2:len(item[1])-1] not in ['7', '8']:
                 print(item[1])
                 print(item[1][0])
                 print(item[1][len(item)-2:])
