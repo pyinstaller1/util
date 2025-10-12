@@ -368,6 +368,61 @@ while True:
 
 
 
+
+
+
+
+
+
+
+    # 매시간 51분마다 a01_start    
+    if time.localtime().tm_min in [51]:
+        print(time.strftime("%H:%M", time.localtime()))
+
+
+
+
+        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
+            try:
+                rf.a01_start()
+            except Exception as e:
+                print("rf.a01_start() 오류: " + str(e))
+                
+            try:
+                vp.a01_start()
+            except Exception as e:
+                print("vp.a01_start() 오류: " + str(e))
+
+        if desktop in ["DESKTOP-H9B70U0"]:
+            try:
+                odin.a01_start()
+            except Exception as e:
+                print("odin.a01_start() 오류: " + str(e))
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     time.sleep(30)
     print(time.strftime("%H:%M", time.localtime()))
 
