@@ -900,7 +900,7 @@ def on():
 
 
 
-    win = gw.getWindowsWithTitle('RF 온라인 넥스트')[0]
+    win = gw.getWindowsWithTitle('RF ONLINE NEXT')[0]
     app = Application().connect(handle=win._hWnd)
     
     try:
