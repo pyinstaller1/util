@@ -727,9 +727,9 @@ def select(character = 1):
 def dungeon(character = 1, dungeon=2):
     a01_start()
     a02_bok()
-    a03_jangbi()
     time.sleep(10)
     select(character)
+    a03_jangbi()
     a04_dungeon(dungeon)
     github()
 
