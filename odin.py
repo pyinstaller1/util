@@ -25,7 +25,7 @@ from pynput.mouse import Controller, Button
 
 
 def github():
-    print("뱀피르 github01   " + time.strftime("%H:%M", time.localtime()))
+    print("오딘 github01   " + time.strftime("%H:%M", time.localtime()))
 
     chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     url = "https://github.com/pyinstaller1/game/edit/main/odin.txt"
@@ -167,6 +167,21 @@ def a01_start():
     top = win.top
     width = win.width
     height = win.height
+
+
+
+
+
+
+
+    mouse.move(left+(width*0.78), top+(height*0.43), absolute=True, duration=0.1)   # 던전
+    mouse.click()
+    time.sleep(5)
+
+    mouse.move(left+(width*0.2), top+(height*0.15), absolute=True, duration=0.1)   # 정예던전
+    mouse.click()
+    time.sleep(3)
+
 
     mouse.move(int(left + width * 0.6), int(top + height * 0.5))   # 절전 해제
     time.sleep(0.1)
@@ -432,7 +447,7 @@ def a04_dungeon(dungeon=2):
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.757), top+(height*0.538), absolute=True, duration=0.1)   # 던전
+    mouse.move(left+(width*0.78), top+(height*0.43), absolute=True, duration=0.1)   # 던전
     mouse.click()
     time.sleep(5)
 
@@ -440,8 +455,11 @@ def a04_dungeon(dungeon=2):
     mouse.click()
     time.sleep(3)
 
+
+
+
     if dungeon == 1:
-        mouse.move(left+(width*0.88), top+(height*0.5), absolute=True, duration=0.1)   # 1공허의유적
+        mouse.move(left+(width*0.78), top+(height*0.46), absolute=True, duration=0.1)   # 1공허의유적
         mouse.click()
         time.sleep(1)
         mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 이동
@@ -458,7 +476,7 @@ def a04_dungeon(dungeon=2):
         mouse.move(left+(width*0.5), top+(height*0.5), absolute=True, duration=0.5)
         time.sleep(1)
         mouse.release()
-        mouse.move(left+(width*0.88), top+(height*0.5), absolute=True, duration=0.1)
+        mouse.move(left+(width*0.78), top+(height*0.5), absolute=True, duration=0.1)
         mouse.click()
         time.sleep(1)
         mouse.move(left+(width*0.88), top+(height*0.93), absolute=True, duration=0.1)   # 이동
@@ -668,27 +686,27 @@ def select(character = 1):
     
 
     if character in [1, 0]:    
-        mouse.move(left+(width*0.87), top+(height*0.2), absolute=True, duration=0.1)   # 1번 캐릭터
+        mouse.move(left+(width*0.93), top+(height*0.11), absolute=True, duration=0.1)   # 1번 캐릭터
         mouse.click()
         time.sleep(1)
 
     if character == 2:
-        mouse.move(left+(width*0.87), top+(height*0.3), absolute=True, duration=0.1)   # 2번 캐릭터
+        mouse.move(left+(width*0.93), top+(height*0.22), absolute=True, duration=0.1)   # 2번 캐릭터
         mouse.click()
         time.sleep(1)
 
     if character == 3:
-        mouse.move(left+(width*0.87), top+(height*0.38), absolute=True, duration=0.1)   # 3번 캐릭터
+        mouse.move(left+(width*0.93), top+(height*0.33), absolute=True, duration=0.1)   # 3번 캐릭터
         mouse.click()
         time.sleep(1)
 
     if character == 4:
-        mouse.move(left+(width*0.87), top+(height*0.5), absolute=True, duration=0.1)   # 4번 캐릭터
+        mouse.move(left+(width*0.93), top+(height*0.43), absolute=True, duration=0.1)   # 4번 캐릭터
         mouse.click()
         time.sleep(1)
 
     if character == 5:
-        mouse.move(left+(width*0.87), top+(height*0.6), absolute=True, duration=0.1)   # 5번 캐릭터
+        mouse.move(left+(width*0.93), top+(height*0.55), absolute=True, duration=0.1)   # 5번 캐릭터
         mouse.click()
         time.sleep(1)
 
@@ -727,9 +745,9 @@ def select(character = 1):
 def dungeon(character = 1, dungeon=2):
     a01_start()
     a02_bok()
+    a03_jangbi()
     time.sleep(10)
     select(character)
-    a03_jangbi()
     a04_dungeon(dungeon)
     github()
 
