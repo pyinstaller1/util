@@ -348,7 +348,7 @@ def a03_jangbi(play = 'dungeon'):
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.57), top+(height*0.65), absolute=True, duration=0.1)   # 확인
+    mouse.move(left+(width*0.53), top+(height*0.68), absolute=True, duration=0.1)   # 확인
     mouse.click()
     time.sleep(5)
 
@@ -719,7 +719,7 @@ def select(character = 1):
     global github_character
     github_character = character
     
-    time.sleep(250)
+    time.sleep(150)
     
     return
 
@@ -745,9 +745,9 @@ def select(character = 1):
 def dungeon(character = 1, dungeon=2):
     a01_start()
     a02_bok()
+    select(character)    
     a03_jangbi()
     time.sleep(10)
-    select(character)
     a04_dungeon(dungeon)
     github()
 
