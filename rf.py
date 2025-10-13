@@ -360,7 +360,7 @@ def a03_jangbi():
     mouse.click()
     time.sleep(0.5)
 
-    mouse.move(left+(width*0.55), top+(height*0.54), absolute=True, duration=0.1)   # 장비
+    mouse.move(left+(width*0.55), top+(height*0.55), absolute=True, duration=0.1)   # 장비
     mouse.click()
     time.sleep(0.5)
 

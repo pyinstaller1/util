@@ -328,6 +328,15 @@ def a03_jangbi(play = 'dungeon'):
     mouse.click()
     time.sleep(3)
 
+    mouse.move(left+(width*0.77), top+(height*0.93), absolute=True, duration=0.1)   # 일괄분해
+    mouse.click()
+    time.sleep(3)
+
+    mouse.move(left+(width*0.77), top+(height*0.93), absolute=True, duration=0.1)   # 일괄분해
+    mouse.click()
+    time.sleep(3)
+
+
     mouse.move(left+(width*0.95), top+(height*0.95), absolute=True, duration=0.1)   # 분해
     mouse.click()
     time.sleep(1)

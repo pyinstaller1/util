@@ -246,7 +246,7 @@ def a02_bok():
 
 
 def a021_support():
-    print("RF a021_support   " + time.strftime("%H:%M", time.localtime()))
+    print("뱀피르 a021_support   " + time.strftime("%H:%M", time.localtime()))
 
     global left, top, width, height
 
