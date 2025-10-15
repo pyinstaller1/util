@@ -753,7 +753,7 @@ def a04_dungeon():
 
     # 자동 이동 ocr 탐지
     scr_auto = pyautogui.screenshot(region=(left + int(width*0.15), top + int(height*0.38), int(width*0.7), int(height*0.6)))
-    scr_auto.save("scr_ares_auto.png")
+    scr_auto.save("scr_ares_dungeon_auto.png")
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(np.array(scr_auto))
     print(results)
@@ -946,7 +946,7 @@ def a04_dungeon():
 
     time.sleep(3)
     scr_bok = pyautogui.screenshot(region=(left + int(width*0.006), top + int(height*0.1), int(width*0.1), int(height*0.2)))
-    scr_bok.save("scr_ares_bok.png")
+    scr_bok.save("scr_ares_dungeon_bok.png")
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(np.array(scr_bok))
     print(results)
@@ -1049,7 +1049,7 @@ def a05_dungeon_week():
     # 자동이동 ocr 탐지
     scr_move = pyautogui.screenshot(region=(int(left + int(width*0.2) + results[0][0][0][0]) + int(width*0.05), int(top + int(height*0.2) + results[0][0][0][1] + int(height*0.118)), int(width*0.1), int(height*0.1)))
     scr_move_np = np.array(scr_move)
-    scr_move.save("scr_ares_move.png")
+    scr_move.save("scr_ares_week_move.png")
 
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(scr_move_np)
@@ -1081,7 +1081,7 @@ def a05_dungeon_week():
 
     time.sleep(3)
     scr_bok = pyautogui.screenshot(region=(left + int(width*0.006), top + int(height*0.1), int(width*0.1), int(height*0.2)))
-    scr_bok.save("scr_ares_bok.png")
+    scr_bok.save("scr_ares_dungeon_week_bok.png")
     reader = easyocr.Reader(['ko', 'en'], gpu=False)
     results = reader.readtext(np.array(scr_bok))
     print(results)
@@ -1826,3 +1826,4 @@ if __name__ == "__main__":
 
 
     
+
