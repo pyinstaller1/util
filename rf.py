@@ -158,15 +158,14 @@ def a01_start():
     print(client_rect.top)
 
 
-    
+    import win32gui
+    client_left, client_top = win32gui.ClientToScreen(win._hWnd, (0, 0))
 
     global left, top, width, height
-    # left = client_rect.left
-    # top = client_rect.top
+    left = win.left - (win.left - client_left)
+    top = win.top - (win.top - client_top)
 
-    import win32gui
 
-    left, top = win32gui.ClientToScreen(win._hWnd, (0, 0))
     width = client_rect.width()
     height = client_rect.height()
 
