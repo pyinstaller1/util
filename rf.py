@@ -166,7 +166,7 @@ def a01_start():
     top = win.top - (win.top - client_top)
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
-        top = top * 1.01
+        top = top * 1.07
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
         top = top * 0.999
