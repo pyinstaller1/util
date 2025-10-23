@@ -130,20 +130,45 @@ def a01_start():
 
     win = gw.getWindowsWithTitle('RF ONLINE NEXT')[0]
     app = Application().connect(handle=win._hWnd)
+    window = app.window(handle=win._hWnd)
+    # window.set_focus()
+
+
+    for _ in range(10):
+        try:
+            window.set_focus()
+            break
+        except RuntimeError:
+            print("창이 아직 응답하지 않습니다. 1초 후 재시도...")
+            time.sleep(1)
+    else:
+        print("창이 응답하지 않아 종료합니다.")
+        exit()
+
+
+
+
     
-    try:
-        app.window(handle=win._hWnd).set_focus()
-    except:
-        time.sleep(1)        
-        app.window(handle=win._hWnd).set_focus()
-        
+    client_rect = window.client_rect()
+
+
+    print(win.left)
+    print(win.top)
+    print(client_rect.left)
+    print(client_rect.top)
+
+
     
 
     global left, top, width, height
-    left = win.left
-    top = win.top
-    width = win.width
-    height = win.height
+    # left = client_rect.left
+    # top = client_rect.top
+
+    import win32gui
+
+    left, top = win32gui.ClientToScreen(win._hWnd, (0, 0))
+    width = client_rect.width()
+    height = client_rect.height()
 
     
     mouse.move(int(left + width * 0.5), int(top + height * 0.5))   # 절전 해제
@@ -336,45 +361,55 @@ def a03_jangbi():
 
 
     # 장비 분해
-    mouse.move(left+(width*0.917), top+(height*0.07), absolute=True, duration=0.1)   # 가방
+    mouse.move(left+(width*0.918), top+(height*0.05), absolute=True, duration=0.1)   # 가방
     mouse.click()
     time.sleep(2)
 
-    mouse.move(left+(width*0.97), top+(height*0.27), absolute=True, duration=0.1)   # 장비
+    mouse.move(left+(width*0.987), top+(height*0.25), absolute=True, duration=0.1)   # 장비
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.93), top+(height*0.95), absolute=True, duration=0.1)   # 분해
+
+    mouse.move(left+(width*0.93), top+(height*0.97), absolute=True, duration=0.1)   # 분해
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.55), top+(height*0.43), absolute=True, duration=0.1)   # 일반
+
+    mouse.move(left+(width*0.55), top+(height*0.387), absolute=True, duration=0.1)   # 일반
     mouse.click()
     time.sleep(0.5)
 
-    mouse.move(left+(width*0.65), top+(height*0.43), absolute=True, duration=0.1)   # 고급
+
+    mouse.move(left+(width*0.65), top+(height*0.387), absolute=True, duration=0.1)   # 고급
     mouse.click()
     time.sleep(0.5)
 
-    mouse.move(left+(width*0.55), top+(height*0.47), absolute=True, duration=0.1)   # 희귀
+
+    mouse.move(left+(width*0.55), top+(height*0.45), absolute=True, duration=0.1)   # 희귀
     mouse.click()
     time.sleep(0.5)
 
-    mouse.move(left+(width*0.55), top+(height*0.55), absolute=True, duration=0.1)   # 장비
+
+
+    mouse.move(left+(width*0.55), top+(height*0.53), absolute=True, duration=0.1)   # 장비
     mouse.click()
     time.sleep(0.5)
 
-    mouse.move(left+(width*0.65), top+(height*0.6), absolute=True, duration=0.1)   # 수집재료
+
+    mouse.move(left+(width*0.65), top+(height*0.58), absolute=True, duration=0.1)   # 수집재료
     mouse.click()
     time.sleep(0.5)
 
-    mouse.move(left+(width*0.65), top+(height*0.7), absolute=True, duration=0.1)   # 등록가능
+
+    mouse.move(left+(width*0.65), top+(height*0.71), absolute=True, duration=0.1)   # 등록가능
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.93), top+(height*0.95), absolute=True, duration=0.1)   # 분해
+
+    mouse.move(left+(width*0.93), top+(height*0.953), absolute=True, duration=0.1)   # 분해
     mouse.click()
     time.sleep(1)
+
 
     mouse.move(left+(width*0.57), top+(height*0.68), absolute=True, duration=0.1)   # 희귀 분해
     mouse.click()
@@ -384,14 +419,35 @@ def a03_jangbi():
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.977), top+(height*0.123), absolute=True, duration=0.1)   # 장비 닫기
+
+
+
+    mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
     mouse.click()
-    time.sleep(3)
+
+
+
+    
+
+
+
+
+
+    return
 
 
 
 
     # 일괄구매
+
+
+
+    mouse.move(left+(width*0.973), top+(height*0.03), absolute=True, duration=0.1)   # 메뉴
+    mouse.click()
+    time.sleep(3)
+
+
+    
     mouse.move(left+(width*0.88), top+(height*0.07), absolute=True, duration=0.1)   # 가방
     mouse.click()
     time.sleep(3)
@@ -993,6 +1049,16 @@ def dungeon():
 
     
 def play():
+    a01_start()
+    a03_jangbi()
+
+
+
+
+
+    return
+
+
     a01_start()
     a02_bok()
     a03_jangbi()
