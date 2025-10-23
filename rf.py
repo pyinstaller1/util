@@ -162,8 +162,14 @@ def a01_start():
     client_left, client_top = win32gui.ClientToScreen(win._hWnd, (0, 0))
 
     global left, top, width, height
-    left = win.left - (win.left - client_left)
+    left = win.left - (win.left - client_left)    
     top = win.top - (win.top - client_top)
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        top = top * 1.001
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
+        top = top * 0.999
 
 
     width = client_rect.width()
