@@ -174,10 +174,10 @@ def a01_start():
         top = top + 3
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-        top = top - 9
+        top = top - 10
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
-        top = top - 5
+        top = top - 10
 
 
 
@@ -415,7 +415,7 @@ def a03_jangbi():
     time.sleep(0.5)
 
 
-    mouse.move(left+(width*0.65), top+(height*0.75), absolute=True, duration=0.1)   # 등록가능
+    mouse.move(left+(width*0.65), top+(height*0.73), absolute=True, duration=0.1)   # 등록가능
     mouse.click()
     time.sleep(1)
 
@@ -436,7 +436,7 @@ def a03_jangbi():
 
 
 
-    mouse.move(left+(width*0.03), top+(height*0.6), absolute=True, duration=0.1)   # 절전
+    mouse.move(left+(width*0.03), top+(height*0.63), absolute=True, duration=0.1)   # 절전
     mouse.click()
 
 
@@ -629,10 +629,40 @@ def a05_dungeon():
     mouse.click()
     time.sleep(1)
 
-    # mouse.move(left+(width*0.73), top+(height*0.538), absolute=True, duration=0.1)   # 던전
-    mouse.move(left+(width*0.73), top+(height*0.55), absolute=True, duration=0.1)   # 던전
+    mouse.move(left+(width*0.788), top+(height*0.55), absolute=True, duration=0.1)   # 탐사스케쥴
+    mouse.click()
+    time.sleep(1.5)
+
+
+    mouse.move(left+(width*0.93), top+(height*0.95), absolute=True, duration=0.1)   # 시작
     mouse.click()
     time.sleep(1)
+
+
+
+    mouse.move(left+(width*0.57), top+(height*0.7), absolute=True, duration=0.1)   # 확인
+    mouse.click()
+    time.sleep(1)
+
+
+
+
+
+
+    return
+    time.sleep(20)
+    mouse.move(left+(width*0.03), top+(height*0.63), absolute=True, duration=0.1)   # 절전
+    mouse.click()
+
+
+
+
+
+
+
+
+
+    return
 
     mouse.move(left+(width*0.38), top+(height*0.15), absolute=True, duration=0.1)   # 지역 던전
     mouse.click()
@@ -1064,7 +1094,7 @@ def dungeon():
     
 def play():
     a01_start()
-    a03_jangbi()
+    a05_dungeon()
 
 
 
