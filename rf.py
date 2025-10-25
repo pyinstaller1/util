@@ -175,7 +175,7 @@ def a01_start():
 
         
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-        top = top - 7
+        top = top - 9
 
 
     width = client_rect.width()
