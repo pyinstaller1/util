@@ -173,12 +173,11 @@ def a01_start():
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
         top = top + 3
 
-        
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
         top = top - 9
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
-        top = top - 3
+        top = top - 1
 
 
 
