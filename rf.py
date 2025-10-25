@@ -165,8 +165,6 @@ def a01_start():
     left = win.left - (win.left - client_left)    
     top = win.top - (win.top - client_top)
 
-    top = top + 8
-
     
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
@@ -372,11 +370,11 @@ def a03_jangbi():
 
 
     # 장비 분해
-    mouse.move(left+(width*0.918), top+(height*0.038), absolute=True, duration=0.1)   # 가방
+    mouse.move(left+(width*0.918), top+(height*0.04), absolute=True, duration=0.1)   # 가방
     mouse.click()
     time.sleep(2)
 
-    mouse.move(left+(width*0.987), top+(height*0.25), absolute=True, duration=0.1)   # 장비
+    mouse.move(left+(width*0.987), top+(height*0.28), absolute=True, duration=0.1)   # 장비
     mouse.click()
     time.sleep(1)
 
@@ -386,47 +384,47 @@ def a03_jangbi():
     time.sleep(1)
 
 
-    mouse.move(left+(width*0.55), top+(height*0.4), absolute=True, duration=0.1)   # 일반
+    mouse.move(left+(width*0.55), top+(height*0.41), absolute=True, duration=0.1)   # 일반
     mouse.click()
     time.sleep(0.5)
 
 
-    mouse.move(left+(width*0.65), top+(height*0.4), absolute=True, duration=0.1)   # 고급
+    mouse.move(left+(width*0.65), top+(height*0.41), absolute=True, duration=0.1)   # 고급
     mouse.click()
     time.sleep(0.5)
 
 
-    mouse.move(left+(width*0.55), top+(height*0.45), absolute=True, duration=0.1)   # 희귀
+    mouse.move(left+(width*0.55), top+(height*0.47), absolute=True, duration=0.1)   # 희귀
     mouse.click()
     time.sleep(0.5)
 
 
 
-    mouse.move(left+(width*0.55), top+(height*0.53), absolute=True, duration=0.1)   # 장비
+    mouse.move(left+(width*0.55), top+(height*0.55), absolute=True, duration=0.1)   # 장비
     mouse.click()
     time.sleep(0.5)
 
 
-    mouse.move(left+(width*0.65), top+(height*0.58), absolute=True, duration=0.1)   # 수집재료
+    mouse.move(left+(width*0.65), top+(height*0.6), absolute=True, duration=0.1)   # 수집재료
     mouse.click()
     time.sleep(0.5)
 
 
-    mouse.move(left+(width*0.65), top+(height*0.73), absolute=True, duration=0.1)   # 등록가능
+    mouse.move(left+(width*0.65), top+(height*0.75), absolute=True, duration=0.1)   # 등록가능
     mouse.click()
     time.sleep(1)
 
 
-    mouse.move(left+(width*0.93), top+(height*0.953), absolute=True, duration=0.1)   # 분해
+    mouse.move(left+(width*0.93), top+(height*0.97), absolute=True, duration=0.1)   # 분해
     mouse.click()
     time.sleep(1)
 
 
-    mouse.move(left+(width*0.57), top+(height*0.68), absolute=True, duration=0.1)   # 희귀 분해
+    mouse.move(left+(width*0.57), top+(height*0.7), absolute=True, duration=0.1)   # 희귀 분해
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.38), top+(height*0.5), absolute=True, duration=0.1)   # 화면 클릭
+    mouse.move(left+(width*0.38), top+(height*0.52), absolute=True, duration=0.1)   # 화면 클릭
     mouse.click()
     time.sleep(1)
 
