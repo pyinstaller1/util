@@ -48,8 +48,7 @@ def github():
 
     time.sleep(20)
 
-    keyboard.press_and_release('win + up')
-    time.sleep(3)
+
 
 
     win = gw.getWindowsWithTitle('Editing game/vp')[0]
@@ -62,7 +61,8 @@ def github():
     width = win.width
     height = win.height
 
-    
+    keyboard.press_and_release('win + up')
+    time.sleep(3)
 
     keyboard.press_and_release('ctrl + a')
     time.sleep(0.5)    
@@ -431,6 +431,36 @@ def a03_jangbi():
     mouse.move(left+(width*0.97), top+(height*0.07), absolute=True, duration=0.1)   # 닫기
     mouse.click()
     time.sleep(1)
+
+
+
+
+
+
+
+    # 장비 분해
+    mouse.move(left+(width*0.917), top+(height*0.07), absolute=True, duration=0.1)   # 가방
+    mouse.click()
+    time.sleep(5)
+
+    mouse.move(left+(width*0.78), top+(height*0.83), absolute=True, duration=0.1)   # 일괄분해
+    mouse.click()
+    time.sleep(2)
+
+
+    mouse.move(left+(width*0.9), top+(height*0.83), absolute=True, duration=0.1)   # 분해
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.9), top+(height*0.83), absolute=True, duration=0.1)   # 분해
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.917), top+(height*0.07), absolute=True, duration=0.1)   # 닫기
+    mouse.click()
+    time.sleep(1)
+
+
 
 
 
