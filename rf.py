@@ -165,11 +165,17 @@ def a01_start():
     left = win.left - (win.left - client_left)    
     top = win.top - (win.top - client_top)
 
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
-        top = top * 1.05
+    top = top + 8
 
+    
+
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB"]:
+        top = top + 10
+
+
+        
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-        top = top * 0.999
+        top = top - 10
 
 
     width = client_rect.width()
@@ -366,7 +372,7 @@ def a03_jangbi():
 
 
     # 장비 분해
-    mouse.move(left+(width*0.918), top+(height*0.05), absolute=True, duration=0.1)   # 가방
+    mouse.move(left+(width*0.918), top+(height*0.038), absolute=True, duration=0.1)   # 가방
     mouse.click()
     time.sleep(2)
 
@@ -380,12 +386,12 @@ def a03_jangbi():
     time.sleep(1)
 
 
-    mouse.move(left+(width*0.55), top+(height*0.387), absolute=True, duration=0.1)   # 일반
+    mouse.move(left+(width*0.55), top+(height*0.4), absolute=True, duration=0.1)   # 일반
     mouse.click()
     time.sleep(0.5)
 
 
-    mouse.move(left+(width*0.65), top+(height*0.387), absolute=True, duration=0.1)   # 고급
+    mouse.move(left+(width*0.65), top+(height*0.4), absolute=True, duration=0.1)   # 고급
     mouse.click()
     time.sleep(0.5)
 
@@ -406,7 +412,7 @@ def a03_jangbi():
     time.sleep(0.5)
 
 
-    mouse.move(left+(width*0.65), top+(height*0.71), absolute=True, duration=0.1)   # 등록가능
+    mouse.move(left+(width*0.65), top+(height*0.73), absolute=True, duration=0.1)   # 등록가능
     mouse.click()
     time.sleep(1)
 
@@ -427,7 +433,7 @@ def a03_jangbi():
 
 
 
-    mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
+    mouse.move(left+(width*0.03), top+(height*0.6), absolute=True, duration=0.1)   # 절전
     mouse.click()
 
 
