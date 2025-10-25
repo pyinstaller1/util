@@ -144,43 +144,41 @@ def a01_start():
             win = gw.getWindowsWithTitle(t)[0]
             time.sleep(1)
             app = Application().connect(handle=win._hWnd)
-            try:
-                app.window(handle=win._hWnd).set_focus()
-            except:
-                time.sleep(1)        
-                app.window(handle=win._hWnd).set_focus()
-            break
+            window = app.window(handle=win._hWnd)
 
 
-    time.sleep(1)
+            
+            window.set_focus()
 
-    try:
-        app.window(handle=win._hWnd).set_focus()
-    except:
-        time.sleep(1)        
-        app.window(handle=win._hWnd).set_focus()
+            for _ in range(10):
+                try:
+                    window.set_focus()
+                    break
+                except RuntimeError:
+                    print("창이 아직 응답하지 않습니다. 1초 후 재시도...")
+                    time.sleep(1)
 
-    time.sleep(1)
+
+    
+    client_rect = window.client_rect()
+
+    import win32gui
+    client_left, client_top = win32gui.ClientToScreen(win._hWnd, (0, 0))
 
     global left, top, width, height
-    left = win.left
-    top = win.top
-    width = win.width
-    height = win.height
+    left = win.left - (win.left - client_left)    
+    top = win.top - (win.top - client_top)
+
+    # if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
+    #    top = top - 10
+
+
+    
+    width = client_rect.width()
+    height = client_rect.height()
 
 
 
-
-
-
-
-    mouse.move(left+(width*0.78), top+(height*0.43), absolute=True, duration=0.1)   # 던전
-    mouse.click()
-    time.sleep(5)
-
-    mouse.move(left+(width*0.2), top+(height*0.15), absolute=True, duration=0.1)   # 정예던전
-    mouse.click()
-    time.sleep(3)
 
 
     mouse.move(int(left + width * 0.6), int(top + height * 0.5))   # 절전 해제
@@ -755,6 +753,11 @@ def dungeon(character = 1, dungeon=2):
 
 
 def play():
+
+
+    a01_start()
+    a03_jangbi('play')
+    return
 
     a01_start()
     a02_bok()
