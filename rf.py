@@ -646,10 +646,6 @@ def a05_dungeon():
 
 
 
-
-
-
-    return
     time.sleep(20)
     mouse.move(left+(width*0.03), top+(height*0.63), absolute=True, duration=0.1)   # 절전
     mouse.click()
@@ -1093,16 +1089,6 @@ def dungeon():
 
     
 def play():
-    a01_start()
-    a05_dungeon()
-
-
-
-
-
-    return
-
-
     a01_start()
     a02_bok()
     a03_jangbi()
