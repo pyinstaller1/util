@@ -178,9 +178,6 @@ def a01_start():
     height = client_rect.height()
 
 
-
-
-
     mouse.move(int(left + width * 0.6), int(top + height * 0.5))   # 절전 해제
     time.sleep(0.1)
     mouse.press()
@@ -337,12 +334,11 @@ def a03_jangbi(play = 'dungeon'):
     mouse.click()
     time.sleep(8)
 
-    mouse.move(left+(width*0.77), top+(height*0.96), absolute=True, duration=0.1)   # 일괄분해
+    mouse.move(left+(width*0.77), top+(height*0.97), absolute=True, duration=0.1)   # 일괄분해
     mouse.click()
     time.sleep(3)
 
-
-    mouse.move(left+(width*0.95), top+(height*0.96), absolute=True, duration=0.1)   # 분해
+    mouse.move(left+(width*0.95), top+(height*0.97), absolute=True, duration=0.1)   # 분해
     mouse.click()
     time.sleep(1)
 
@@ -363,18 +359,18 @@ def a03_jangbi(play = 'dungeon'):
     mouse.click()
     time.sleep(3)
 
-    mouse.move(left+(width*0.95), top+(height*0.96), absolute=True, duration=0.1)   # 모두받기
+    mouse.move(left+(width*0.95), top+(height*0.97), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.5), top+(height*0.96), absolute=True, duration=0.1)   # 화면 클릭
+    mouse.move(left+(width*0.5), top+(height*0.97), absolute=True, duration=0.1)   # 화면 클릭
     mouse.click()
     time.sleep(1)
     
-    mouse.move(left+(width*0.95), top+(height*0.96), absolute=True, duration=0.1)   # 모두받기
+    mouse.move(left+(width*0.95), top+(height*0.97), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
     time.sleep(1)
-    mouse.move(left+(width*0.5), top+(height*0.96), absolute=True, duration=0.1)   # 화면 클릭
+    mouse.move(left+(width*0.5), top+(height*0.97), absolute=True, duration=0.1)   # 화면 클릭
     mouse.click()
     time.sleep(7)        
 
@@ -393,7 +389,7 @@ def a03_jangbi(play = 'dungeon'):
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.95), top+(height*0.96), absolute=True, duration=0.1)   # 모두받기
+    mouse.move(left+(width*0.95), top+(height*0.97), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
     time.sleep(1)
 
@@ -410,7 +406,7 @@ def a03_jangbi(play = 'dungeon'):
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.95), top+(height*0.96), absolute=True, duration=0.1)   # 모두받기
+    mouse.move(left+(width*0.95), top+(height*0.97), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
     time.sleep(1)
 
@@ -428,7 +424,7 @@ def a03_jangbi(play = 'dungeon'):
     time.sleep(1)
 
     if play == 'play':
-        mouse.move(left+(width*0.03), top+(height*0.53), absolute=True, duration=0.1)   # 절전
+        mouse.move(left+(width*0.02), top+(height*0.46), absolute=True, duration=0.1)   # 절전
         mouse.click()
         
     return
@@ -443,7 +439,7 @@ def a04_dungeon(dungeon=2):
 
     global left, top, width, height
 
-    mouse.move(left+(width*0.93), top+(height*0.03), absolute=True, duration=0.1)   # 메뉴
+    mouse.move(left+(width*0.97), top+(height*0.03), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
     time.sleep(1)
 
@@ -516,7 +512,7 @@ def a04_dungeon(dungeon=2):
     time.sleep(1)
 
 
-    mouse.move(left+(width*0.03), top+(height*0.53), absolute=True, duration=0.1)   # 절전
+    mouse.move(left+(width*0.02), top+(height*0.46), absolute=True, duration=0.1)   # 절전
     mouse.click()
     time.sleep(1)
 
@@ -716,7 +712,7 @@ def select(character = 1):
     global github_character
     github_character = character
     
-    time.sleep(150)
+    time.sleep(100)
     
     return
 
