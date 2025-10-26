@@ -879,11 +879,7 @@ def on():
     time.sleep(5)
 
 
-
-    
-
-
-    mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.46), absolute=True, duration=0.1)   # 구글 로그인
+    mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.5), absolute=True, duration=0.1)   # 구글 로그인
     mouse.click()
     time.sleep(10)
 
@@ -1030,8 +1026,8 @@ def on():
     time.sleep(1)
 
 
-    # mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
-    # mouse.click()
+    mouse.move(left+(width*0.03), top+(height*0.63), absolute=True, duration=0.1)   # 절전
+    mouse.click()
 
 
 
