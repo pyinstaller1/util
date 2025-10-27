@@ -95,7 +95,6 @@ def github():
     
     now = now.strftime("%m%d %H:%M\t") + str_support + "\t" + str_purchase + '\n'
     str_temp = now + str_temp
-    print(str_temp)
     time.sleep(1)
     pyperclip.copy(str_temp)
 
@@ -122,7 +121,6 @@ def github():
 
     for win in gw.getWindowsWithTitle('game/vp'):
         if win.title.strip():
-            print(win.title.split(" - ")[0].split("·")[1].strip())
             win.close()
             break
 

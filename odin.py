@@ -94,7 +94,6 @@ def github():
     
     now = now.strftime("%m%d %H:%M\t") + str(github_character) + "번캐릭\t" + str(github_dungeon) + "번던전\t" + github_results + '\n'
     str_temp = now + str_temp
-    print(str_temp)
     time.sleep(1)
     pyperclip.copy(str_temp)
 
@@ -121,7 +120,6 @@ def github():
 
     for win in gw.getWindowsWithTitle('game/odin'):
         if win.title.strip():
-            print(win.title.split(" - ")[0].split("·")[1].strip())
             win.close()
             break
 

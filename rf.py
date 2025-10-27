@@ -81,7 +81,6 @@ def github():
     
     now = now.strftime("%m%d %H:%M\t") + str_dungeon + '\n'
     str_temp = now + str_temp
-    print(str_temp)
     time.sleep(1)
     pyperclip.copy(str_temp)
 
@@ -110,7 +109,6 @@ def github():
 
     for win in gw.getWindowsWithTitle('game/rf'):
         if win.title.strip():
-            print(win.title.split(" - ")[0].split("·")[1].strip())
             win.close()
             break
 
@@ -434,10 +432,12 @@ def a03_jangbi():
     time.sleep(1)
 
 
-
-
-    mouse.move(left+(width*0.03), top+(height*0.63), absolute=True, duration=0.1)   # 절전
+    mouse.move(left+(width*0.918), top+(height*0.04), absolute=True, duration=0.1)   # 가방 받기
     mouse.click()
+    time.sleep(1)
+
+    # mouse.move(left+(width*0.03), top+(height*0.63), absolute=True, duration=0.1)   # 절전
+    # mouse.click()
 
 
 
@@ -527,8 +527,8 @@ def a03_jangbi():
     time.sleep(1)
 
 
-    mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
-    mouse.click()
+    # mouse.move(left+(width*0.03), top+(height*0.638), absolute=True, duration=0.1)   # 절전
+    # mouse.click()
 
     return
 
@@ -649,16 +649,29 @@ def a05_dungeon():
     time.sleep(20)
     mouse.move(left+(width*0.03), top+(height*0.63), absolute=True, duration=0.1)   # 절전
     mouse.click()
+    time.sleep(1)
 
 
 
+    # 던전 ocr 탐지
+    scr = pyautogui.screenshot(region=(left + int(width*0.707), top + int(height*0.487), int(width*0.23), int(height*0.05)))
+    scr.save("scr_rf_dungeon.png")
+
+    reader = easyocr.Reader(['ko', 'en'], gpu=False)
+    results = reader.readtext(np.array(scr))
+    print(results)
 
 
+    global str_dungeon
+    str_dungeon = "일반"
+    if results:
+        str_dungeon = results[0][1]
+    print(str_dungeon)
 
-
-
-
+    
     return
+
+
 
     mouse.move(left+(width*0.38), top+(height*0.15), absolute=True, duration=0.1)   # 지역 던전
     mouse.click()

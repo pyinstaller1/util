@@ -89,16 +89,6 @@ def github():
         top = win.top
         width = win.width
         height = win.height
-
-        print(77777777777777)
-        print(left)
-        print(top)
-        print(width)
-        print(height)
-        print(left+(width*0.95))
-        print(top+(height*0.25))
-        print(8888888888888)
-
         
 
         keyboard.press_and_release('ctrl + a')
@@ -113,7 +103,6 @@ def github():
         
         now = now.strftime("%m%d %H:%M\t") + str_location + '\n'
         str_temp = now + str_temp
-        print(str_temp)
         time.sleep(1)
         pyperclip.copy(str_temp)
 
@@ -138,10 +127,8 @@ def github():
         time.sleep(8)
 
 
-
         for win in gw.getWindowsWithTitle('game/ares'):
             if win.title.strip():
-                print(win.title.split(" - ")[0].split("·")[1].strip())
                 win.close()
                 break
 
