@@ -72,6 +72,7 @@ def github():
 
         for w in gw.getAllWindows():
             if w.title.startswith("Upload"):
+                print(win)
                 w.activate()   # 포커스 강제
                 w.maximize()   # 최대화
                 break
