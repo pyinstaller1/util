@@ -69,6 +69,14 @@ def github():
 
         time.sleep(15)
 
+
+        for w in gw.getAllWindows():
+            if w.title.startswith("Upload"):
+                w.activate()   # 포커스 강제
+                w.maximize()   # 최대화
+                break
+
+        
         keyboard.press_and_release('win + up')
         time.sleep(5)
 
@@ -683,7 +691,7 @@ def a04_dungeon():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    time.sleep(8)
+    time.sleep(15)
 
 
 
