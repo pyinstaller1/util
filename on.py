@@ -1,6 +1,6 @@
 
 
-import jo, lo, ar, dal, ares, ak, rf, rom, vp, odin
+import jo, lo, ar, dal, ares, ak, rf, rom, vp, odin, archi
 import time
 import os
 import subprocess
@@ -44,13 +44,13 @@ def on():
         '''
         
 
-        ''' 
+
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 lo.on()
             except Exception as e:
                 print(f"lo.on() 오류: " + str(e))
-        '''
+
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
@@ -71,6 +71,13 @@ def on():
                 vp.on()
             except Exception as e:
                 print(f"vp.on() 오류 " + str(e))
+
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV"]:
+            try:
+                archi.on()
+            except Exception as e:
+                print(f"rf.on() 오류 " + str(e))
+                
                 
 
         if desktop in ["DESKTOP-LRGAL8H"]:

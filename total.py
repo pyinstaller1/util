@@ -72,6 +72,7 @@ while True:
 
     # 매일 오전 4시 1분    
     if time.localtime().tm_hour == 4 and time.localtime().tm_min == 1:
+    # if time.localtime().tm_hour == 18 and time.localtime().tm_min == 1:
         print("오전 4시 오딘 1번 던전")
 
         if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
@@ -83,6 +84,7 @@ while True:
 
     # 매일 오전 5시 30분    
     if time.localtime().tm_hour == 5 and time.localtime().tm_min == 31:
+    # if time.localtime().tm_hour == 19 and time.localtime().tm_min == 1:  
         print("오전 5시 오딘 2번 던전")
 
         if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
@@ -94,6 +96,7 @@ while True:
 
     # 매일 오전 7시 1분    
     if time.localtime().tm_hour == 7 and time.localtime().tm_min == 1:
+    # if time.localtime().tm_hour == 21 and time.localtime().tm_min == 1:
         print("오전 7시 오딘 3번 던전")
 
         if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
@@ -106,6 +109,7 @@ while True:
 
     # 매일 오전 8시 31분    
     if time.localtime().tm_hour == 8 and time.localtime().tm_min == 31:
+    # if time.localtime().tm_hour == 23 and time.localtime().tm_min == 1:        
         print("오전 8시 오딘 4번 던전")
 
         if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
@@ -116,6 +120,7 @@ while True:
 
     # 매일 오전 10시 1분    
     if time.localtime().tm_hour == 10 and time.localtime().tm_min == 1:
+    # if time.localtime().tm_hour == 4 and time.localtime().tm_min == 1:        
         print("오전 10시 오딘 5번 던전")
 
         if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
@@ -127,6 +132,7 @@ while True:
 
     # 매일 오전 11시 31분    
     if time.localtime().tm_hour == 10 and time.localtime().tm_min == 1:
+    # if time.localtime().tm_hour == 4 and time.localtime().tm_min == 1:        
         print("오전 11시 오딘 주간 던전")
 
         if desktop in ["DESKTOP-H9B70U0"]:   # 오딘 일일던전
@@ -149,6 +155,7 @@ while True:
 
     # 매일 오전 5시 1분    
     if time.localtime().tm_hour == 5 and time.localtime().tm_min == 1:
+    # if time.localtime().tm_hour == 17 and time.localtime().tm_min == 51:        
         print("오전 5시 뱀피르 작업")
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
@@ -156,11 +163,12 @@ while True:
                 vp.dungeon(1)
                 get_log("오전 5시 뱀피르 작업")
             except Exception as e:
-                print(f"ares.dungeon() 오류: " + str(e))
+                print(f"vp.dungeon() 오류: " + str(e))
 
 
     # 매일 오전 8시 15분    
     if time.localtime().tm_hour == 8 and time.localtime().tm_min == 15:
+    # if time.localtime().tm_hour == 19 and time.localtime().tm_min == 55:        
         print("오전 8시 뱀피르 작업")
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
@@ -168,11 +176,12 @@ while True:
                 vp.dungeon(2)
                 get_log("오전 5시 뱀피르 작업")
             except Exception as e:
-                print(f"ares.dungeon() 오류: " + str(e))
+                print(f"vp.dungeon() 오류: " + str(e))
 
 
     # 매일 오전 10시 25분    
     if time.localtime().tm_hour == 10 and time.localtime().tm_min == 25:
+    # if time.localtime().tm_hour == 21 and time.localtime().tm_min == 58:        
         print("오전 10시 뱀피르 작업")
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
@@ -180,7 +189,7 @@ while True:
                 vp.dungeon(3)
                 get_log("오전 5시 뱀피르 작업")
             except Exception as e:
-                print(f"ares.dungeon() 오류: " + str(e))
+                print(f"vp.dungeon() 오류: " + str(e))
 
 
 
@@ -189,6 +198,8 @@ while True:
 
     # 매일 오전 5시 20분
     if time.localtime().tm_hour == 5 and time.localtime().tm_min == 20:
+    # if time.localtime().tm_hour == 18 and time.localtime().tm_min == 20:
+        
         print("오전 5시 작업")
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # 아레스 일일던전
@@ -306,6 +317,7 @@ while True:
                 jo.play()
             except Exception as e:
                 print("jo.play() 오류: " + str(e))
+        '''
 
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
@@ -313,7 +325,7 @@ while True:
                 lo.play()
             except Exception as e:
                 print("lo.play() 오류: " + str(e))
-        '''
+
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:
             try:

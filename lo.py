@@ -50,7 +50,7 @@ def l01_start():
 
 
 
-def l02_bok(on=None):
+def l02_bok():
     print("로드나인 l02_bok   " + time.strftime("%H:%M", time.localtime()))
 
 
@@ -68,7 +68,7 @@ def l02_bok(on=None):
 
     if results and ("장기간" in results[0][1] or "접속" in results[0][1] or"종료" in results[0][1]):
         print("장기간 접속 종료")
-        on()
+        on('on1')
         return
 
 
@@ -110,12 +110,7 @@ def l02_bok(on=None):
         print("여기는 마을이 아닙니다.")
         time.sleep(5)
 
-        if on == 'on':
-            pyautogui.moveTo(left+(width*0.91), top+(height*0.7), 2.0) # AUTO
-            pyautogui.mouseDown()
-            time.sleep(0.1)
-            pyautogui.mouseUp()
-            time.sleep(1)
+
 
 
 
@@ -467,7 +462,7 @@ def on():
     else:
         subprocess.Popen(r"C:\ProgramData\Smilegate\STOVE\STOVE.exe", shell=True)
 
-    time.sleep(50)
+    time.sleep(15)
 
 
 
@@ -482,34 +477,31 @@ def on():
 
 
     
-    pyautogui.moveTo(win.left+(win.width*0.2), win.top+(win.height*0.23), 0.3) # 입력
-    pyautogui.mouseDown()
+    # pyautogui.moveTo(win.left+(win.width*0.2), win.top+(win.height*0.23), 0.3) # 입력
+    # pyautogui.mouseDown()
     
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
-        keyboard.write('s070092@kakao.com')
+        keyboard.write('ground077@naver.com')
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
         keyboard.write('s070092@nate.com')        
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
         keyboard.write('s0700921@nate.com')
     elif os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-        keyboard.write('ground077@naver.com')
-    elif os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
         keyboard.write('ground077@kakao.com')
+    elif os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
+        keyboard.write('s070092@kakao.com')
     else:
         keyboard.write('ground077@kakao.com')
 
     keyboard.press_and_release('tab')
-
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-OHGK5MV"]:
-        keyboard.write('windows2!')
-    else:
-        keyboard.write('windows1!')
+    keyboard.write('windows1!')
 
     keyboard.press_and_release('enter')
 
 
 
 
+    global left, top, width, height
 
 
 
@@ -534,7 +526,12 @@ def on():
 
     time.sleep(1)
 
-    pyautogui.moveTo(win.left+(win.width*0.88), win.top+(win.height*0.95), 1) # 플레이
+
+
+   
+
+
+    pyautogui.moveTo(win.left+(win.width*0.83), win.top+(win.height*0.93), 1) # 플레이    
     pyautogui.mouseDown()
     time.sleep(0.1)
     pyautogui.mouseUp()
@@ -595,7 +592,7 @@ def on():
     win = gw.getWindowsWithTitle('LORDNINE')[0]
     print(win.title)
 
-    global left, top, width, height
+    # global left, top, width, height
     left = win.left
     top = win.top
     width = win.width
@@ -651,7 +648,9 @@ def on():
 
     time.sleep(38)
 
-    l02_bok('on')
+    keyboard.press_and_release('g')
+
+    l02_bok()
 
 
 
@@ -677,15 +676,10 @@ def play():
     except Exception as e:        
         print(f"로드나인 l01_start 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
-    try:
-        l02_bok()
-    except Exception as e:        
-        print(f"로드나인 l02_bok 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
 
-    try:
-        l03_jangbi()
-    except Exception as e:        
-        print(f"로드나인 l03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}{e}")
+    l02_bok()
+    l03_jangbi()
+
 
     '''
     try:
