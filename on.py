@@ -43,13 +43,13 @@ def on():
                 print(f"jo.on() 오류: " + str(e))
         '''
         
-
-
+        '''
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 lo.on()
             except Exception as e:
                 print(f"lo.on() 오류: " + str(e))
+        '''
 
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
