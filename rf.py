@@ -397,23 +397,23 @@ def a03_jangbi():
     time.sleep(0.5)
 
 
-    mouse.move(left+(width*0.55), top+(height*0.47), absolute=True, duration=0.1)   # 희귀
+    mouse.move(left+(width*0.55), top+(height*0.46), absolute=True, duration=0.1)   # 희귀
     mouse.click()
     time.sleep(0.5)
 
 
 
-    mouse.move(left+(width*0.55), top+(height*0.55), absolute=True, duration=0.1)   # 장비
+    mouse.move(left+(width*0.55), top+(height*0.538), absolute=True, duration=0.1)   # 장비
     mouse.click()
     time.sleep(0.5)
 
 
-    mouse.move(left+(width*0.65), top+(height*0.6), absolute=True, duration=0.1)   # 수집재료
+    mouse.move(left+(width*0.65), top+(height*0.59), absolute=True, duration=0.1)   # 수집재료
     mouse.click()
     time.sleep(0.5)
 
 
-    mouse.move(left+(width*0.65), top+(height*0.73), absolute=True, duration=0.1)   # 등록가능
+    mouse.move(left+(width*0.65), top+(height*0.72), absolute=True, duration=0.1)   # 등록가능
     mouse.click()
     time.sleep(1)
 
@@ -967,7 +967,7 @@ def dungeon():
     
 def play():
     a01_start()
-    a02_bok()
+    # a02_bok()
     a03_jangbi()
 
 
