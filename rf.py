@@ -416,8 +416,10 @@ def a03_jangbi():
 
 
 
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB", "DESKTOP-H9B70U0"]:
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
          mouse.move(left+(width*0.65), top+(height*0.77), absolute=True, duration=0.1)
+    elif os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
+         mouse.move(left+(width*0.65), top+(height*0.75), absolute=True, duration=0.1)
     else:
          mouse.move(left+(width*0.65), top+(height*0.723), absolute=True, duration=0.1)
     mouse.click()
