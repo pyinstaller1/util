@@ -47,6 +47,10 @@ desktop = os.environ.get('COMPUTERNAME')
 print("Total 시작   " + time.strftime("%H:%M", time.localtime()))
 
 while True:
+
+
+
+    '''
     if time.localtime().tm_wday == 0 and time.localtime().tm_hour == 7 and time.localtime().tm_min == 30:   # 월요일
         print("월요일 주간 던전 오전 7시 30분 작업")
 
@@ -57,6 +61,7 @@ while True:
         print("화요일 주간 던전 오전 7시 30분 작업")
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # 아레스 주간 던전
             ares.dungeon_week()   # 아레스 주간 던전
+    '''
 
 
 
@@ -69,7 +74,7 @@ while True:
 
 
 
-
+    '''
     # 매일 오전 4시 1분    
     if time.localtime().tm_hour == 4 and time.localtime().tm_min == 1:
     # if time.localtime().tm_hour == 18 and time.localtime().tm_min == 1:
@@ -140,6 +145,7 @@ while True:
                 odin.dungeon((((datetime.date.today().weekday()) % 5) + 1), 3)   # 요일마다 3번 던전
             except Exception as e:
                 print(f"odin.dungeon() 오류: " + str(e))
+    '''
 
 
 
@@ -201,13 +207,15 @@ while True:
     # if time.localtime().tm_hour == 18 and time.localtime().tm_min == 20:
         
         print("오전 5시 작업")
-
+        '''
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # 아레스 일일던전
             try:
                 ares.dungeon()
                 get_log("아레스 던전")
             except Exception as e:
                 print(f"ares.dungeon() 오류: " + str(e))
+        '''
+        
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # RF 일일미션
             try:
@@ -326,13 +334,13 @@ while True:
             except Exception as e:
                 print("lo.play() 오류: " + str(e))
         '''
-
-
+        '''
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:
             try:
                 ares.play()
             except Exception as e:
                 print("ares.play() 오류: " + str(e))
+        '''
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
@@ -345,11 +353,14 @@ while True:
             except Exception as e:
                 print("vp.play() 오류: " + str(e))
 
+
+        '''
         if desktop in ["DESKTOP-H9B70U0"]:
             try:
                 odin.play()
             except Exception as e:
                 print("odin.play() 오류: " + str(e))
+        '''
                 
 
         '''
@@ -406,11 +417,15 @@ while True:
             except Exception as e:
                 print("vp.a01_start() 오류: " + str(e))
 
+
+
+        '''
         if desktop in ["DESKTOP-H9B70U0"]:
             try:
                 odin.a01_start()
             except Exception as e:
                 print("odin.a01_start() 오류: " + str(e))
+        '''
                 
 
 

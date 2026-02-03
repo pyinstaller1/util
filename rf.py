@@ -40,16 +40,18 @@ def github():
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-H9B70U0"]:
         url = "https://github.com/pyinstaller1/game/edit/main/rf5.txt"
 
+
     process = subprocess.Popen([chrome_path, "--new-window", "--start-maximized", "--force-device-scale-factor=1", url])   # 크롬 열기
 
-    time.sleep(15)
-
-    keyboard.press_and_release('win + up')
-    time.sleep(3)
-
-    win = gw.getWindowsWithTitle('Editing game/rf')[0]
+    for i in range(50):
+        time.sleep(1)
+        if gw.getWindowsWithTitle('Editing game/rf'):
+            win = gw.getWindowsWithTitle('Editing game/rf')[0]
+            break
     app = Application().connect(handle=win._hWnd)
     app.window(handle=win._hWnd).set_focus()
+
+    keyboard.press_and_release('win + up')
 
     global left, top, width, height
     left = win.left
@@ -80,9 +82,15 @@ def github():
 
     
     now = now.strftime("%m%d %H:%M\t") + str_dungeon + '\n'
+
+    if not str_temp.endswith('\n'):
+        str_temp += '\n'
+
+    
     str_temp = now + str_temp
     time.sleep(1)
     pyperclip.copy(str_temp)
+    time.sleep(1)
 
 
     keyboard.press_and_release('ctrl + v')
@@ -101,9 +109,13 @@ def github():
 
     time.sleep(1)
 
-    keyboard.press_and_release('enter')
 
-    time.sleep(8)
+
+
+            
+
+    keyboard.press_and_release('enter')
+    time.sleep(1)
 
 
 
@@ -112,7 +124,17 @@ def github():
             win.close()
             break
 
+    for _ in range(30):
+        for item in gw.getAllWindows():
+            if item.title.startswith('사이트에서'):
+                time.sleep(1)
+                keyboard.press_and_release('enter')
 
+
+
+                # win.close()
+                break
+        
 
 
 
@@ -974,9 +996,14 @@ def dungeon():
 
     
 def play():
+    github()
+    return
+
     a01_start()
-    # a02_bok()
-    a03_jangbi()
+    a02_bok()
+    a03_jangbi()    
+    a05_dungeon()
+    github()
 
 
 
