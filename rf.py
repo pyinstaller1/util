@@ -996,9 +996,6 @@ def dungeon():
 
     
 def play():
-    github()
-    return
-
     a01_start()
     a02_bok()
     a03_jangbi()    
