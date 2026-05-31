@@ -1,1 +1,0 @@
-python vp.py dungeon 1
