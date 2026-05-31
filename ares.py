@@ -263,11 +263,6 @@ def a01_start1():
 def a02_bok():
     print("아레스 a02_bok   " + time.strftime("%H:%M", time.localtime()))
 
-    time.sleep(1)
-    mouse.move(left+(width*0.028), top+(height*0.738), absolute=True, duration=0.1)   # 절전
-    mouse.click()
-    time.sleep(1)    
-
     global str_location
     str_location = "Bok일반"
     
@@ -337,7 +332,7 @@ def a02_bok():
 
 
 
-        mouse.move(left+(width*0.967), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
+        mouse.move(left+(width*0.97), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
         mouse.click()
         time.sleep(5)
 
@@ -518,7 +513,7 @@ def a03_jangbi():
         pyautogui.mouseUp()
 
 
-    mouse.move(left+(width*0.967), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
+    mouse.move(left+(width*0.97), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
     mouse.click()
     time.sleep(1)
 
@@ -612,7 +607,7 @@ def a03_jangbi():
     pyautogui.mouseUp()
 
 
-    mouse.move(left+(width*0.967), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
+    mouse.move(left+(width*0.97), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
     mouse.click()
     time.sleep(1)
 
@@ -863,7 +858,7 @@ def a04_dungeon():
 
 
 
-    mouse.move(left+(width*0.967), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
+    mouse.move(left+(width*0.97), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
     mouse.click()
     time.sleep(1)
 
@@ -929,7 +924,7 @@ def a04_dungeon():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    mouse.move(left+(width*0.967), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
+    mouse.move(left+(width*0.97), top+(height*0.083), absolute=True, duration=0.1)   # 닫기
     mouse.click()
     time.sleep(1)
 
