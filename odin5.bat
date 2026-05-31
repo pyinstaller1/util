@@ -1,1 +1,0 @@
-python odin.py dungeon 5 2
