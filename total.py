@@ -1,6 +1,6 @@
 
 
-import on, jo, lo, ar, dal, ares, ak, rf, vp, odin
+import on, ares, rf, vp
 import time
 import numpy as np
 import keyboard
