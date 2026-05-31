@@ -409,33 +409,33 @@ def a03_jangbi():
     time.sleep(1)
 
 
+
+
+
+
+
+
+
+    '''
     mouse.move(left+(width*0.55), top+(height*0.41), absolute=True, duration=0.1)   # 일반
     mouse.click()
     time.sleep(0.5)
-
 
     mouse.move(left+(width*0.65), top+(height*0.41), absolute=True, duration=0.1)   # 고급
     mouse.click()
     time.sleep(0.5)
 
-
     mouse.move(left+(width*0.55), top+(height*0.46), absolute=True, duration=0.1)   # 희귀
     mouse.click()
     time.sleep(0.5)
-
-
 
     mouse.move(left+(width*0.55), top+(height*0.538), absolute=True, duration=0.1)   # 장비
     mouse.click()
     time.sleep(0.5)
 
-
     mouse.move(left+(width*0.65), top+(height*0.59), absolute=True, duration=0.1)   # 수집재료
     mouse.click()
     time.sleep(0.5)
-
-
-
 
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
@@ -446,6 +446,13 @@ def a03_jangbi():
          mouse.move(left+(width*0.65), top+(height*0.723), absolute=True, duration=0.1)
     mouse.click()
     time.sleep(1)
+    '''
+
+
+
+
+
+
 
 
     mouse.move(left+(width*0.93), top+(height*0.97), absolute=True, duration=0.1)   # 분해
@@ -659,7 +666,7 @@ def a05_dungeon():
     mouse.click()
     time.sleep(1)
 
-    mouse.move(left+(width*0.788), top+(height*0.55), absolute=True, duration=0.1)   # 탐사스케쥴
+    mouse.move(left+(width*0.91), top+(height*0.47), absolute=True, duration=0.1)   # 탐사스케쥴
     mouse.click()
     time.sleep(1.5)
 
@@ -668,6 +675,10 @@ def a05_dungeon():
     mouse.click()
     time.sleep(1)
 
+
+    mouse.move(left+(width*0.57), top+(height*0.7), absolute=True, duration=0.1)   # 희귀 분해
+    mouse.click()
+    time.sleep(1)
 
 
     mouse.move(left+(width*0.57), top+(height*0.7), absolute=True, duration=0.1)   # 확인
@@ -682,7 +693,7 @@ def a05_dungeon():
     time.sleep(1)
 
 
-
+    '''
     # 던전 ocr 탐지
     scr = pyautogui.screenshot(region=(left + int(width*0.707), top + int(height*0.487), int(width*0.23), int(height*0.05)))
     scr.save("scr_rf_dungeon.png")
@@ -697,6 +708,7 @@ def a05_dungeon():
     if results:
         str_dungeon = results[0][1]
     print(str_dungeon)
+    '''
 
     
     return
@@ -725,19 +737,30 @@ def off():
     global left, top, width, height
 
 
-    mouse.move(left+(width*0.977), top+(height*0.03), absolute=True, duration=0.1)   # 종료
+    mouse.move(left+(width*0.977), top+(height*0.03), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
-
     time.sleep(1)
 
 
+    mouse.move(left+(width*0.83), top+(height*0.95), absolute=True, duration=0.1)   # 오프라인 모드
+    mouse.click()
+    time.sleep(1)
+
+    mouse.move(left+(width*0.57), top+(height*0.7), absolute=True, duration=0.1)   # 확인
+    mouse.click()
+    time.sleep(1)
+
+
+
+
+    '''
     mouse.move(left+(width*0.65), top+(height*0.65), absolute=True, duration=0.1)   # 오프라인 모드
     mouse.click()
-
     time.sleep(1)
 
     mouse.move(left+(width*0.57), top+(height*0.85), absolute=True, duration=0.1)   # 오프라인 모드
     mouse.click()
+    '''
 
 
 
@@ -886,7 +909,7 @@ def on():
 
     
     
-    time.sleep(150)
+    time.sleep(120)
 
 
     mouse.move(left_on+(width_on*0.5), top_on+(height_on*0.5), absolute=True, duration=0.1)   # 화면 클릭
@@ -988,7 +1011,7 @@ def dungeon():
     a02_bok()
     a03_jangbi()    
     a05_dungeon()
-    github()
+    # github()
 
 
     
@@ -1000,7 +1023,7 @@ def play():
     a02_bok()
     a03_jangbi()    
     a05_dungeon()
-    github()
+    # github()
 
 
 
@@ -1011,7 +1034,7 @@ def play():
 
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":    
     if len(sys.argv) > 1:
         if sys.argv[1] == "on":
             on()

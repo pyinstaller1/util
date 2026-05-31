@@ -309,7 +309,7 @@ def a021_support():
 
 
 
-    mouse.move(left+(width*0.97), top+(height*0.57), absolute=True, duration=0.1)   # Support
+    mouse.move(left+(width*0.97), top+(height*0.63), absolute=True, duration=0.1)   # Support
     mouse.click()
     time.sleep(5)
 
@@ -376,9 +376,9 @@ def a03_jangbi():
     time.sleep(2)
 
 
-    mouse.move(left+(width*0.96), top+(height*0.387), absolute=True, duration=0.1)   # 업적
+    mouse.move(left+(width*0.81), top+(height*0.387), absolute=True, duration=0.1)   # 업적
     mouse.click()
-    time.sleep(8)
+    time.sleep(7)
 
     mouse.move(left+(width*0.88), top+(height*0.95), absolute=True, duration=0.1)   # 모두받기
     mouse.click()
@@ -719,11 +719,7 @@ def on():
             if "92@k" in text:   # s070092@kakao.com
                 break
 
-        '''
-        if os.environ.get('COMPUTERNAME') in ["DESKTOP-NT06800"]:
-            if "92@k" in text:   # s070092@kakao.com
-                break
-        '''
+
 
 
             
@@ -792,7 +788,8 @@ def on():
 
 
 
-    '''
+
+
     mouse.move(left+(width*0.88), top+(height*0.35), absolute=True, duration=0.1)   # 1번 플레이어
     mouse.click()
     time.sleep(3)
@@ -802,7 +799,7 @@ def on():
     time.sleep(3)
     '''
 
-
+    '''
     mouse.move(left+(width*0.88), top+(height*0.58), absolute=True, duration=0.1)   # 3번 플레이어
     mouse.click()    
     time.sleep(3)
@@ -816,10 +813,13 @@ def on():
 
 
 
+
     mouse.move(left+(width*0.97), top+(height*0.06), absolute=True, duration=0.1)   # 메뉴
     mouse.click()
 
-    time.sleep(300)
+    time.sleep(3)
+
+    a021_support()    
 
 
 
@@ -846,9 +846,11 @@ def on():
 
 def play():
     a01_start()
-    a02_bok()    
+    a02_bok()
     a03_jangbi()
+    a021_support()
     a031_stop()
+    
     
 def dungeon(play_time = 1):
     a01_start()
