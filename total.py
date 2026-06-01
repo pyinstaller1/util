@@ -135,13 +135,12 @@ while True:
     if time.localtime().tm_min in [1]:
         print(time.strftime("%H:%M", time.localtime()))
 
-        '''
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:
+
             try:
-                ares.play()
+                vp.play()
             except Exception as e:
-                print("ares.play() 오류: " + str(e))
-        '''
+                print("vp.play() 오류: " + str(e))
+
 
         if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
@@ -149,11 +148,15 @@ while True:
             except Exception as e:
                 print("rf.play() 오류: " + str(e))
                 
-            try:
-                vp.play()
-            except Exception as e:
-                print("vp.play() 오류: " + str(e))
 
+
+        '''
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:
+            try:
+                ares.play()
+            except Exception as e:
+                print("ares.play() 오류: " + str(e))
+        '''
 
 
 

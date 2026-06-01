@@ -1677,7 +1677,7 @@ def dungeon_week():
     except Exception as e:
         print(f"아레스  a05_dungeon_week() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
-    github()
+    # github()
 
     try:
         if not a01_start1():
@@ -1708,7 +1708,7 @@ def dungeon():
         a04_dungeon()
     except Exception as e:
         print(f"아레스  a04_dungeon() 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
-    github()
+    # github()
 
 
     try:
@@ -1756,7 +1756,7 @@ def play():
     except Exception as e:
         print(f"아레스 a03_jangbi 오류 {time.strftime('%H:%M', time.localtime())}{'\n'}")
 
-    github()
+    # github()
 
 
     try:
