@@ -1,13 +1,12 @@
 
 
-import ares, rf, vp
+import ares, ec, ze
 import time
 import os
 import subprocess
 import pygetwindow as gw
 
 
-# "DESKTOP-LRGAL8H"
 # "DESKTOP-MA2NLC4"
 # "DESKTOP-792RKKB"
 # "DESKTOP-OHGK5MV"
@@ -43,19 +42,17 @@ def on():
 
 
 
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
-                vp.on()
+                ec.on()
             except Exception as e:
-                print(f"vp.on() 오류 " + str(e))
+                print(f"ec.on() 오류 " + str(e))
 
-
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
+        if desktop in ["DESKTOP-H9B70U0"]:
             try:
-                rf.on()
+                ze.on()
             except Exception as e:
-                print(f"rf.on() 오류 " + str(e))
-
+                print(f"ze.on() 오류 " + str(e))
 
         if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:

@@ -1,6 +1,6 @@
 
 
-import on, ares, rf, vp
+import on, ares, rf, ec, ze
 import time
 import numpy as np
 import keyboard
@@ -9,7 +9,7 @@ from pynput.mouse import Controller, Button
 import datetime
 
 
-# "DESKTOP-LRGAL8H"
+
 # "DESKTOP-OHGK5MV"
 # "DESKTOP-MA2NLC4"
 # "DESKTOP-792RKKB"
@@ -67,62 +67,23 @@ while True:
 
 
 
-    # 매일 오전 5시 1분    
-    if time.localtime().tm_hour == 5 and time.localtime().tm_min == 1:
-    # if time.localtime().tm_hour == 17 and time.localtime().tm_min == 51:        
-        print("오전 5시 뱀피르 작업")
-
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
-            try:
-                vp.dungeon(1)
-                get_log("오전 5시 뱀피르 작업")
-            except Exception as e:
-                print(f"vp.dungeon() 오류: " + str(e))
-
-
-    # 매일 오전 8시 15분    
-    if time.localtime().tm_hour == 8 and time.localtime().tm_min == 15:
-    # if time.localtime().tm_hour == 19 and time.localtime().tm_min == 55:        
-        print("오전 8시 뱀피르 작업")
-
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
-            try:
-                vp.dungeon(2)
-                get_log("오전 5시 뱀피르 작업")
-            except Exception as e:
-                print(f"vp.dungeon() 오류: " + str(e))
-
-
-    # 매일 오전 10시 25분    
-    if time.localtime().tm_hour == 10 and time.localtime().tm_min == 25:
-    # if time.localtime().tm_hour == 21 and time.localtime().tm_min == 58:        
-        print("오전 10시 뱀피르 작업")
-
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # 뱀피르 일일던전
-            try:
-                vp.dungeon(3)
-                get_log("오전 5시 뱀피르 작업")
-            except Exception as e:
-                print(f"vp.dungeon() 오류: " + str(e))
-
-
-
                 
 
-
+    '''
     # 매일 오전 5시 20분
-    if time.localtime().tm_hour == 5 and time.localtime().tm_min == 20:
+    if time.localtime().tm_hour == 55 and time.localtime().tm_min == 20:
     # if time.localtime().tm_hour == 18 and time.localtime().tm_min == 20:
         
         print("오전 5시 작업")
 
 
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # RF 일일미션
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # RF 일일미션
             try:
                 rf.dungeon()
                 get_log("RF 던전")
             except Exception as e:
                 print(f"rf.dungeon() 오류: " + str(e))
+    '''
 
 
 
@@ -135,19 +96,20 @@ while True:
     if time.localtime().tm_min in [1]:
         print(time.strftime("%H:%M", time.localtime()))
 
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
+        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
-                vp.play()
+                ec.play()
             except Exception as e:
-                print("vp.play() 오류: " + str(e))
+                print("ec.play() 오류: " + str(e))
 
 
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
+
+        if desktop in ["DESKTOP-H9B70U0"]:
             try:
-                rf.play()
+                ze.play()
             except Exception as e:
-                print("rf.play() 오류: " + str(e))
-                
+                print("ze.play() 오류: " + str(e))
+
 
 
 
@@ -169,29 +131,6 @@ while True:
 
 
 
-
-
-
-
-
-
-    # 매시간 51분마다 a01_start    
-    if time.localtime().tm_min in [51]:
-        print(time.strftime("%H:%M", time.localtime()))
-
-
-
-
-        if desktop in ["DESKTOP-LRGAL8H", "DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
-            try:
-                rf.a01_start()
-            except Exception as e:
-                print("rf.a01_start() 오류: " + str(e))
-                
-            try:
-                vp.a01_start()
-            except Exception as e:
-                print("vp.a01_start() 오류: " + str(e))
 
 
 
