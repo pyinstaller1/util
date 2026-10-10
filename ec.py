@@ -441,7 +441,7 @@ def on():
 
 
 
-    if os.environ.get('COMPUTERNAME') == "DESKTOP-H9B70U0":
+    if 1==1 or os.environ.get('COMPUTERNAME') == "DESKTOP-H9B70U0":
         os.startfile("sgup://run/STOVE_ECLIPSE?auto_action=PrepareAndLaunch")
 
     time.sleep(5)
