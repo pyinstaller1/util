@@ -11,7 +11,7 @@ import datetime
 
 
 # "DESKTOP-OHGK5MV"
-# "DESKTOP-MA2NLC4"
+# "DESKTOP-FBQR3F3"
 # "DESKTOP-792RKKB"
 # "DESKTOP-H9B70U0"
 # "DESKTOP-NT06800"
@@ -47,12 +47,12 @@ while True:
     if time.localtime().tm_wday == 0 and time.localtime().tm_hour == 7 and time.localtime().tm_min == 30:   # 월요일
         print("월요일 주간 던전 오전 7시 30분 작업")
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # 아레스 주간 던전
+        if desktop in ["DESKTOP-FBQR3F3", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # 아레스 주간 던전
             ares.dungeon_week()   # 아레스 주간 던전
             
     if time.localtime().tm_wday == 1 and time.localtime().tm_hour == 7 and time.localtime().tm_min == 30:   # 화요일
         print("화요일 주간 던전 오전 7시 30분 작업")
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # 아레스 주간 던전
+        if desktop in ["DESKTOP-FBQR3F3", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:   # 아레스 주간 던전
             ares.dungeon_week()   # 아레스 주간 던전
     '''
 
@@ -77,7 +77,7 @@ while True:
         print("오전 5시 작업")
 
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # RF 일일미션
+        if desktop in ["DESKTOP-FBQR3F3", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:   # RF 일일미션
             try:
                 rf.dungeon()
                 get_log("RF 던전")
@@ -96,7 +96,7 @@ while True:
     if time.localtime().tm_min in [1]:
         print(time.strftime("%H:%M", time.localtime()))
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
+        if desktop in ["DESKTOP-FBQR3F3", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 ec.play()
             except Exception as e:
@@ -113,7 +113,7 @@ while True:
 
 
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:
+        if desktop in ["DESKTOP-FBQR3F3", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:
             try:
                 ares.play()
             except Exception as e:

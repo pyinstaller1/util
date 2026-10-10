@@ -49,7 +49,7 @@ def github():
         if os.environ.get('COMPUTERNAME') in ["DESKTOP-LRGAL8H"]:
             url = "https://github.com/pyinstaller1/game/edit/main/ares1.txt"
 
-        if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+        if os.environ.get('COMPUTERNAME') in ["DESKTOP-FBQR3F3"]:
             url = "https://github.com/pyinstaller1/game/edit/main/ares2.txt"
 
         if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
@@ -1307,7 +1307,7 @@ def on():
     pyautogui.mouseUp()
 
 
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-FBQR3F3"]:
         pyautogui.write('ground077@naver.com')
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
         pyautogui.write('ground077')
@@ -1508,7 +1508,7 @@ def on():
     time.sleep(0.1)
     pyautogui.mouseUp()
 
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-FBQR3F3"]:
         pyautogui.write('s0700921@nate.com')
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
         pyautogui.write('s070092@nate.com')

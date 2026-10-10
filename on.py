@@ -7,7 +7,7 @@ import subprocess
 import pygetwindow as gw
 
 
-# "DESKTOP-MA2NLC4"
+# "DESKTOP-FBQR3F3"
 # "DESKTOP-792RKKB"
 # "DESKTOP-OHGK5MV"
 # "DESKTOP-H9B70U0"
@@ -42,7 +42,7 @@ def on():
 
 
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
+        if desktop in ["DESKTOP-FBQR3F3", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 ec.on()
             except Exception as e:
@@ -54,7 +54,7 @@ def on():
             except Exception as e:
                 print(f"ze.on() 오류 " + str(e))
 
-        if desktop in ["DESKTOP-MA2NLC4", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
+        if desktop in ["DESKTOP-FBQR3F3", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 ares.on()
             except Exception as e:

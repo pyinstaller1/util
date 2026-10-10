@@ -30,7 +30,7 @@ def github():
     chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
 
-    if os.environ.get('COMPUTERNAME') in ["DESKTOP-MA2NLC4"]:
+    if os.environ.get('COMPUTERNAME') in ["DESKTOP-FBQR3F3"]:
         url = "https://github.com/pyinstaller1/game/edit/main/vp2.txt"
 
     if os.environ.get('COMPUTERNAME') in ["DESKTOP-792RKKB"]:
@@ -469,7 +469,7 @@ def on():
     if os.environ.get('COMPUTERNAME') == "DESKTOP-H9B70U0":
         keyboard.write('ground077@naver.com')
 
-    if os.environ.get('COMPUTERNAME') == "DESKTOP-MA2NLC4":
+    if os.environ.get('COMPUTERNAME') == "DESKTOP-FBQR3F3":
         keyboard.write('s070092@nate.com')
 
     if os.environ.get('COMPUTERNAME') == "DESKTOP-792RKKB":
