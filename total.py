@@ -104,7 +104,7 @@ while True:
 
 
 
-        if desktop in ["DESKTOP-H9B70U0"]:
+        if desktop in ["DESKTOP-H9B70U0", "DESKTOP-792RKKB"]:
             try:
                 ze.play()
             except Exception as e:
@@ -113,7 +113,7 @@ while True:
 
 
 
-        if desktop in ["DESKTOP-FBQR3F3", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0", "DESKTOP-NT06800"]:
+        if desktop in ["DESKTOP-FBQR3F3", "DESKTOP-792RKKB", "DESKTOP-OHGK5MV", "DESKTOP-H9B70U0"]:
             try:
                 ares.play()
             except Exception as e:

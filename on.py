@@ -48,7 +48,7 @@ def on():
             except Exception as e:
                 print(f"ec.on() 오류 " + str(e))
 
-        if desktop in ["DESKTOP-H9B70U0"]:
+        if desktop in ["DESKTOP-H9B70U0", "DESKTOP-792RKKB"]:
             try:
                 ze.on()
             except Exception as e:
