@@ -534,6 +534,22 @@ def on():
     mouse.click()
     time.sleep(1)
 
+
+
+
+    time.sleep(3)
+    mouse.move(int(left + width * 0.1), int(top + height * 0.5))   # 화면 클릭
+    mouse.click()
+    time.sleep(1)
+    keyboard.press_and_release('space')
+    time.sleep(3)
+    mouse.move(int(left + width * 0.1), int(top + height * 0.5))   # 화면 클릭
+    mouse.click()
+    time.sleep(1)
+    keyboard.press_and_release('g')
+    time.sleep(1)
+    
+
     a02_bok()
     a03_jangbi()
     a04_ai()
@@ -617,6 +633,26 @@ def on():
         mouse.move(int(left + width * 0.5), int(top + height * 0.67))   # 무접속 플레이 결과 확인
         mouse.click()
         time.sleep(1)
+
+
+
+
+        time.sleep(3)
+        mouse.move(int(left + width * 0.1), int(top + height * 0.5))   # 화면 클릭
+        mouse.click()
+        time.sleep(1)
+        keyboard.press_and_release('space')
+        time.sleep(3)
+        mouse.move(int(left + width * 0.1), int(top + height * 0.5))   # 화면 클릭
+        mouse.click()
+        time.sleep(1)
+        keyboard.press_and_release('g')
+        time.sleep(1)
+
+
+
+
+
 
         a02_bok()
         a03_jangbi()
